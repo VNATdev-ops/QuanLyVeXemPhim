@@ -21,8 +21,8 @@ namespace QuanLyVeXemPhim.Utils
         {
             if (connection == null)
             {
-                connection = new SqlConnection("Data Source = DESKTOP-EQBQK62; "
-                      + " Initial Catalog = QuanLyVeXemPhim; Integrated Security = true");
+                connection = new SqlConnection("Data Source = TAL-70729705\\SQLEXPRESS; "
+                      + " Initial Catalog = QL_Ve_Xem_Phim; Integrated Security = true");
                 if (connection.State == System.Data.ConnectionState.Closed)
                     connection.Open();
             }

@@ -11,26 +11,42 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CPhim
     {
-        private int phimID;
+        private int iDPhim;
         private string tenPhim;
-        private DateTime ngayCP;
+        private string theLoai;
         private string daoDien;
-        private string theLoaiPhim;
+        private string moTa;
+        private string hinhAnh;
+        private DateTime ngayPH;
+        private int doDai;
+        private string trangThai;
+        private string dinhDang;
 
-        public int PhimID { get => phimID; set => phimID = value; }
+        public int IDPhim { get => IDPhim; set => IDPhim = value; }
         public string TenPhim { get => tenPhim; set => tenPhim = value; }
-        public DateTime NgayCP { get => ngayCP; set => ngayCP = value; }
+        public string TheLoai { get => theLoai; set => theLoai = value; }
         public string DaoDien { get => daoDien; set => daoDien = value; }
-        public string TheLoaiPhim { get => theLoaiPhim; set => theLoaiPhim = value; }
+        public string MoTa { get => moTa; set => moTa = value; }
+        public string HinhAnh { get => hinhAnh; set => hinhAnh = value; }
+        public DateTime NgayPH { get => ngayPH; set => ngayPH = value; }
+        public int DoDai { get => doDai; set => doDai = value; }
+        public string TrangThai { get => trangThai; set => trangThai = value; }
+        public string DinhDang { get => dinhDang; set => dinhDang = value; }
 
-        public CPhim(int phimID, string tenPhim, DateTime ngayCP, string daoDien, string theLoaiPhim)
+        public CPhim(int iDPhim, string tenPhim, string theLoai, string daoDien, string moTa, string hinhAnh, DateTime ngayPH, int doDai, string trangThai, string dinhDang)
         {
-            this.phimID = phimID;
+            this.IDPhim = iDPhim;
             this.tenPhim = tenPhim;
-            this.ngayCP = ngayCP;
+            this.theLoai = theLoai;
             this.daoDien = daoDien;
-            this.theLoaiPhim = theLoaiPhim;
+            this.moTa = moTa;
+            this.hinhAnh = hinhAnh;
+            this.ngayPH = ngayPH;
+            this.doDai = doDai;
+            this.trangThai = trangThai;
+            this.dinhDang = dinhDang;
         }
+
         public CPhim()
         {
         }
@@ -38,25 +54,12 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CPhim phim &&
-                   phimID == phim.phimID;
+                   iDPhim == phim.iDPhim;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(phimID);
+            return HashCode.Combine(iDPhim);
         }
-
-        //public override bool Equals(object? obj)
-        //{
-        //    return obj is CPhim phim &&
-        //           phimID == phim.phimID;
-        //}
-
-        //public override int GetHashCode()
-        //{
-        //    return HashCode.Combine(phimID);
-        //}
-
-
     }
 }
