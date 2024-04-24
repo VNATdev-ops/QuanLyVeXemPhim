@@ -21,10 +21,6 @@ namespace QuanLyVeXemPhim.Utils
         {
             if (connection == null)
             {
-                //connection = new SqlConnection("Data Source = DESKTOP-EQBQK62; "
-                //      + " Initial Catalog = QL_Ve_Xem_Phim; Integrated Security = true");
-                //if (connection.State == System.Data.ConnectionState.Closed)
-                //    connection.Open();
             }
             return connection;
         }
