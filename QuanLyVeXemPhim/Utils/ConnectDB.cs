@@ -21,6 +21,7 @@ namespace QuanLyVeXemPhim.Utils
         {
             if (connection == null)
             {
+                /////
             }
             return connection;
         }
