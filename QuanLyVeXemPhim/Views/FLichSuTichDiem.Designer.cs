@@ -1,6 +1,6 @@
 ﻿namespace QuanLyVeXemPhim.Views
 {
-    partial class FNguoiDung
+    partial class FLichSuTichDiem
     {
         /// <summary>
         /// Required designer variable.
@@ -34,17 +34,11 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
+            txtIDLichSu = new Button();
+            txtSoDiemTichLuy = new Button();
+            txtThoiGianTichLuy = new Button();
+            txtTongDiemTichLuy = new Button();
             txtIDNguoiDung = new Button();
-            this.txtTen = new Button();
-            this.txtMatKhau = new Button();
-            this.txtNgaySinh = new Button();
-            this.txtGioiTinh = new Button();
-            this.txtKhuVuc = new Button();
-            this.txtEmail = new Button();
-            this.txtLoaiTaiKhoan = new Button();
             panel1 = new Panel();
             btnThoat = new Button();
             btnCapNhat = new Button();
@@ -52,7 +46,6 @@
             btnXoa = new Button();
             btnThem = new Button();
             groupBox2 = new GroupBox();
-            lsvNguoiDung = new ListView();
             panel2 = new Panel();
             groupBox4 = new GroupBox();
             phim = new Label();
@@ -60,7 +53,8 @@
             groupBox3 = new GroupBox();
             label9 = new Label();
             txtTongSo = new Button();
-            label10 = new Label();
+            lsvLichSuTichDiem = new ListView();
+            label6 = new Label();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -71,175 +65,109 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(this.txtLoaiTaiKhoan);
-            groupBox1.Controls.Add(this.txtEmail);
-            groupBox1.Controls.Add(this.txtKhuVuc);
-            groupBox1.Controls.Add(this.txtGioiTinh);
-            groupBox1.Controls.Add(this.txtNgaySinh);
-            groupBox1.Controls.Add(this.txtMatKhau);
-            groupBox1.Controls.Add(this.txtTen);
             groupBox1.Controls.Add(txtIDNguoiDung);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtSoDiemTichLuy);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtTongDiemTichLuy);
+            groupBox1.Controls.Add(txtThoiGianTichLuy);
+            groupBox1.Controls.Add(txtIDLichSu);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Segoe UI", 12F);
-            groupBox1.Location = new Point(12, 54);
+            groupBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(12, 51);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(959, 238);
+            groupBox1.Size = new Size(651, 205);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Thông tin người dùng";
-            groupBox1.Enter += this.groupBox1_Enter;
+            groupBox1.Text = "Thông tin lịch sử tích điểm";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 44);
+            label1.Location = new Point(47, 50);
             label1.Name = "label1";
-            label1.Size = new Size(145, 28);
+            label1.Size = new Size(91, 25);
             label1.TabIndex = 0;
-            label1.Text = "ID Người Dùng";
+            label1.Text = "ID Lịch Sử";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 92);
+            label2.Location = new Point(47, 153);
             label2.Name = "label2";
-            label2.Size = new Size(41, 28);
+            label2.Size = new Size(139, 25);
             label2.TabIndex = 1;
-            label2.Text = "Tên";
+            label2.Text = "Số điểm tích lũy";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(40, 140);
+            label3.Location = new Point(47, 100);
             label3.Name = "label3";
-            label3.Size = new Size(94, 28);
+            label3.Size = new Size(146, 25);
             label3.TabIndex = 2;
-            label3.Text = "Mật khẩu";
+            label3.Text = "Thời gian tích lũy";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(40, 188);
+            label4.Location = new Point(347, 100);
             label4.Name = "label4";
-            label4.Size = new Size(102, 28);
+            label4.Size = new Size(132, 25);
             label4.TabIndex = 3;
-            label4.Text = "Ngày Sinh";
+            label4.Text = "ID Người dùng";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(494, 44);
+            label5.Location = new Point(328, 50);
             label5.Name = "label5";
-            label5.Size = new Size(87, 28);
+            label5.Size = new Size(159, 25);
             label5.TabIndex = 4;
-            label5.Text = "Giới tính";
+            label5.Text = "Tổng điểm tích lũy";
             // 
-            // label6
+            // txtIDLichSu
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(494, 92);
-            label6.Name = "label6";
-            label6.Size = new Size(82, 28);
-            label6.TabIndex = 5;
-            label6.Text = "Khu vực";
+            txtIDLichSu.Location = new Point(193, 46);
+            txtIDLichSu.Name = "txtIDLichSu";
+            txtIDLichSu.Size = new Size(129, 33);
+            txtIDLichSu.TabIndex = 5;
+            txtIDLichSu.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // txtSoDiemTichLuy
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(494, 140);
-            label7.Name = "label7";
-            label7.Size = new Size(59, 28);
-            label7.TabIndex = 6;
-            label7.Text = "Email";
+            txtSoDiemTichLuy.Location = new Point(193, 145);
+            txtSoDiemTichLuy.Name = "txtSoDiemTichLuy";
+            txtSoDiemTichLuy.Size = new Size(421, 33);
+            txtSoDiemTichLuy.TabIndex = 6;
+            txtSoDiemTichLuy.UseVisualStyleBackColor = true;
+            txtSoDiemTichLuy.Click += txtSoDiemTichLuy_Click;
             // 
-            // label8
+            // txtThoiGianTichLuy
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(494, 188);
-            label8.Name = "label8";
-            label8.Size = new Size(134, 28);
-            label8.TabIndex = 7;
-            label8.Text = "Loại tài khoản";
+            txtThoiGianTichLuy.Location = new Point(193, 96);
+            txtThoiGianTichLuy.Name = "txtThoiGianTichLuy";
+            txtThoiGianTichLuy.Size = new Size(129, 33);
+            txtThoiGianTichLuy.TabIndex = 7;
+            txtThoiGianTichLuy.UseVisualStyleBackColor = true;
+            // 
+            // txtTongDiemTichLuy
+            // 
+            txtTongDiemTichLuy.Location = new Point(485, 46);
+            txtTongDiemTichLuy.Name = "txtTongDiemTichLuy";
+            txtTongDiemTichLuy.Size = new Size(129, 33);
+            txtTongDiemTichLuy.TabIndex = 8;
+            txtTongDiemTichLuy.UseVisualStyleBackColor = true;
             // 
             // txtIDNguoiDung
             // 
-            txtIDNguoiDung.Location = new Point(205, 38);
+            txtIDNguoiDung.Location = new Point(485, 96);
             txtIDNguoiDung.Name = "txtIDNguoiDung";
-            txtIDNguoiDung.Size = new Size(256, 40);
-            txtIDNguoiDung.TabIndex = 8;
+            txtIDNguoiDung.Size = new Size(129, 33);
+            txtIDNguoiDung.TabIndex = 9;
             txtIDNguoiDung.UseVisualStyleBackColor = true;
-            txtIDNguoiDung.Click += button1_Click;
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new Point(205, 86);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new Size(256, 40);
-            this.txtTen.TabIndex = 9;
-            this.txtTen.UseVisualStyleBackColor = true;
-            this.txtTen.Click += this.button2_Click;
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new Point(205, 134);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new Size(256, 40);
-            this.txtMatKhau.TabIndex = 10;
-            this.txtMatKhau.UseVisualStyleBackColor = true;
-            this.txtMatKhau.Click += this.button3_Click;
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.Location = new Point(205, 182);
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new Size(256, 40);
-            this.txtNgaySinh.TabIndex = 11;
-            this.txtNgaySinh.UseVisualStyleBackColor = true;
-            this.txtNgaySinh.Click += this.button4_Click;
-            // 
-            // txtGioiTinh
-            // 
-            this.txtGioiTinh.Location = new Point(647, 38);
-            this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new Size(256, 40);
-            this.txtGioiTinh.TabIndex = 12;
-            this.txtGioiTinh.UseVisualStyleBackColor = true;
-            this.txtGioiTinh.Click += this.button5_Click;
-            // 
-            // txtKhuVuc
-            // 
-            this.txtKhuVuc.Location = new Point(647, 86);
-            this.txtKhuVuc.Name = "txtKhuVuc";
-            this.txtKhuVuc.Size = new Size(256, 40);
-            this.txtKhuVuc.TabIndex = 13;
-            this.txtKhuVuc.UseVisualStyleBackColor = true;
-            this.txtKhuVuc.Click += this.button6_Click;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new Point(647, 134);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new Size(256, 40);
-            this.txtEmail.TabIndex = 14;
-            this.txtEmail.UseVisualStyleBackColor = true;
-            this.txtEmail.Click += this.button7_Click;
-            // 
-            // txtLoaiTaiKhoan
-            // 
-            this.txtLoaiTaiKhoan.Location = new Point(647, 180);
-            this.txtLoaiTaiKhoan.Name = "txtLoaiTaiKhoan";
-            this.txtLoaiTaiKhoan.Size = new Size(256, 40);
-            this.txtLoaiTaiKhoan.TabIndex = 15;
-            this.txtLoaiTaiKhoan.UseVisualStyleBackColor = true;
-            this.txtLoaiTaiKhoan.Click += this.button8_Click;
             // 
             // panel1
             // 
@@ -249,10 +177,10 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel1.Location = new Point(1007, 68);
+            panel1.Location = new Point(710, 22);
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 224);
-            panel1.TabIndex = 6;
+            panel1.TabIndex = 7;
             // 
             // btnThoat
             // 
@@ -301,33 +229,24 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(lsvNguoiDung);
-            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(12, 298);
+            groupBox2.Controls.Add(lsvLichSuTichDiem);
+            groupBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox2.Location = new Point(12, 295);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(959, 243);
-            groupBox2.TabIndex = 7;
+            groupBox2.Size = new Size(651, 210);
+            groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Danh sách người dùng";
-            // 
-            // lsvNguoiDung
-            // 
-            lsvNguoiDung.Dock = DockStyle.Fill;
-            lsvNguoiDung.Location = new Point(3, 30);
-            lsvNguoiDung.Name = "lsvNguoiDung";
-            lsvNguoiDung.Size = new Size(953, 210);
-            lsvNguoiDung.TabIndex = 0;
-            lsvNguoiDung.UseCompatibleStateImageBehavior = false;
+            groupBox2.Text = "Danh sách lịch sử tích điểm";
             // 
             // panel2
             // 
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
             panel2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(1007, 298);
+            panel2.Location = new Point(710, 252);
             panel2.Name = "panel2";
             panel2.Size = new Size(221, 271);
-            panel2.TabIndex = 7;
+            panel2.TabIndex = 9;
             // 
             // groupBox4
             // 
@@ -343,11 +262,11 @@
             // phim
             // 
             phim.AutoSize = true;
-            phim.Location = new Point(24, 44);
+            phim.Location = new Point(43, 44);
             phim.Name = "phim";
-            phim.Size = new Size(173, 23);
+            phim.Size = new Size(132, 23);
             phim.TabIndex = 2;
-            phim.Text = "Tìm kiếm người dùng";
+            phim.Text = "Tìm kiếm lịch sử";
             // 
             // txtTimKiem
             // 
@@ -371,11 +290,11 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(22, 44);
+            label9.Location = new Point(64, 44);
             label9.Name = "label9";
-            label9.Size = new Size(165, 23);
+            label9.Size = new Size(76, 23);
             label9.TabIndex = 1;
-            label9.Text = "Tổng số người dùng";
+            label9.Text = "Tổng số ";
             // 
             // txtTongSo
             // 
@@ -385,28 +304,38 @@
             txtTongSo.TabIndex = 0;
             txtTongSo.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // lsvLichSuTichDiem
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(431, 20);
-            label10.Name = "label10";
-            label10.Size = new Size(219, 31);
-            label10.TabIndex = 8;
-            label10.Text = "Quản lý người dùng";
+            lsvLichSuTichDiem.Dock = DockStyle.Fill;
+            lsvLichSuTichDiem.Location = new Point(3, 27);
+            lsvLichSuTichDiem.Name = "lsvLichSuTichDiem";
+            lsvLichSuTichDiem.Size = new Size(645, 180);
+            lsvLichSuTichDiem.TabIndex = 0;
+            lsvLichSuTichDiem.UseCompatibleStateImageBehavior = false;
             // 
-            // FNguoiDung
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(298, 20);
+            label6.Name = "label6";
+            label6.Size = new Size(225, 28);
+            label6.TabIndex = 10;
+            label6.Text = "Quản lý lịch sử tích điểm";
+            // 
+            // FLichSuTichDiem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1271, 585);
-            Controls.Add(label10);
+            ClientSize = new Size(960, 535);
+            Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(groupBox2);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
-            Name = "FNguoiDung";
-            Text = "FNguoiDung";
+            Name = "FLichSuTichDiem";
+            Text = "FLichSuTichDiem";
+            Load += FLichSuTichDiem_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
@@ -423,22 +352,16 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Label label8;
-        private Label label7;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button8;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
         private Button txtIDNguoiDung;
+        private Button txtSoDiemTichLuy;
+        private Button txtTongDiemTichLuy;
+        private Button txtThoiGianTichLuy;
+        private Button txtIDLichSu;
         private Panel panel1;
         private Button btnThoat;
         private Button btnCapNhat;
@@ -446,7 +369,6 @@
         private Button btnXoa;
         private Button btnThem;
         private GroupBox groupBox2;
-        private ListView lsvNguoiDung;
         private Panel panel2;
         private GroupBox groupBox4;
         private Label phim;
@@ -454,6 +376,7 @@
         private GroupBox groupBox3;
         private Label label9;
         private Button txtTongSo;
-        private Label label10;
+        private ListView lsvLichSuTichDiem;
+        private Label label6;
     }
 }
