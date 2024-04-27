@@ -9,7 +9,7 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CVeXemPhim
     {
-        private string veID;
+        private string iDVe;
         private CThanhVien thanhVien;
         private CPhim phim;
         private CSuatChieu suatChieu;
@@ -17,7 +17,7 @@ namespace QuanLyVeXemPhim.Models
         private decimal giaVe;
         private string tinhTrang;
 
-        public string VeID { get => veID; set => veID = value; }
+        public string IDVe { get => iDVe; set => iDVe = value; }
         public decimal GiaVe { get => giaVe; set => giaVe = value; }
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
         internal CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
@@ -31,7 +31,7 @@ namespace QuanLyVeXemPhim.Models
 
         public CVeXemPhim(string veID, CThanhVien thanhVien, CPhim phim, CSuatChieu suatChieu, CChoNgoi choNgoi, decimal giaVe, string tinhTrang)
         {
-            this.veID = veID;
+            this.iDVe = veID;
             this.thanhVien = thanhVien;
             this.phim = phim;
             this.suatChieu = suatChieu;
@@ -43,12 +43,12 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CVeXemPhim phim &&
-                   VeID == phim.VeID;
+                   iDVe == phim.iDVe;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(VeID);
+            return HashCode.Combine(iDVe);
         }
     }
 }
