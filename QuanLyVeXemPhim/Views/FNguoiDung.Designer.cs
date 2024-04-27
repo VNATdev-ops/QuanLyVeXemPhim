@@ -59,7 +59,7 @@
             txtEmail = new Button();
             txtLoaiTaiKhoan = new Button();
             groupBox2 = new GroupBox();
-            listView1 = new ListView();
+            lsvDanhSach = new ListView();
             label10 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -373,7 +373,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(listView1);
+            groupBox2.Controls.Add(lsvDanhSach);
             groupBox2.Location = new Point(12, 392);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(804, 239);
@@ -382,14 +382,14 @@
             groupBox2.Text = "Danh sách người dùng";
             groupBox2.Enter += groupBox2_Enter;
             // 
-            // listView1
+            // lsvDanhSach
             // 
-            listView1.Dock = DockStyle.Fill;
-            listView1.Location = new Point(3, 23);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(798, 213);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            lsvDanhSach.Dock = DockStyle.Fill;
+            lsvDanhSach.Location = new Point(3, 23);
+            lsvDanhSach.Name = "lsvDanhSach";
+            lsvDanhSach.Size = new Size(798, 213);
+            lsvDanhSach.TabIndex = 0;
+            lsvDanhSach.UseCompatibleStateImageBehavior = false;
             // 
             // label10
             // 
@@ -459,7 +459,7 @@
         private Label label9;
         private Label label8;
         private GroupBox groupBox2;
-        private ListView listView1;
+        private ListView lsvDanhSach;
         private Label label10;
     }
 }
