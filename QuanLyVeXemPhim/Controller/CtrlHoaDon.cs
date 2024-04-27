@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyVeXemPhim.Models
+namespace QuanLyVeXemPhim.Controller
 {
-    internal class CMuaKem
+    internal class CtrlHoaDon
     {
-        
+        //private int iDVe;
+        //private int iDMon;
     }
 }

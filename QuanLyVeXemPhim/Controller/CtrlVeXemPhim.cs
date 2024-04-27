@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Controller
 {
-    internal class CtlVeXemPhim
+    internal class CtrlVeXemPhim
     {
         SqlConnection cnn = null;
-        public CtlVeXemPhim() 
+        public CtrlVeXemPhim() 
         { 
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
