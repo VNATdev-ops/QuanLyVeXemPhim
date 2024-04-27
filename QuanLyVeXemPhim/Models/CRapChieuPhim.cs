@@ -22,7 +22,7 @@ namespace QuanLyVeXemPhim.Models
 
         public CRapChieuPhim(int idRap)
         {
-            this.idRap = idRap;
+            this.IdRap = idRap;
         }
 
         public CRapChieuPhim()
@@ -32,12 +32,12 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CRapChieuPhim phim &&
-                   idRap == phim.idRap;
+                   IdRap == phim.IdRap;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(idRap);
+            return HashCode.Combine(IdRap);
         }
     }
 }
