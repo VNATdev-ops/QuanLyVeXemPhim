@@ -10,20 +10,20 @@ namespace QuanLyVeXemPhim.Models
     {
         private string iDHoaDon;
         private DateTime ngayXuatHD;
-        private double thanhTien;
+        private CNhanVien nhanVien;
+        private CThanhVien thanhVien;
 
         public string IDHoaDon { get => iDHoaDon; set => iDHoaDon = value; }
         public DateTime NgayXuatHD { get => ngayXuatHD; set => ngayXuatHD = value; }
-        public double ThanhTien { get => thanhTien; set => thanhTien = value; }
+        internal CNhanVien NhanVien { get => nhanVien; set => nhanVien = value; }
+        internal CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
 
-        public CHoaDon(string iDHoaDon, DateTime ngayXuatHD, double thanhTien)
+        public CHoaDon(string iDHoaDon, DateTime ngayXuatHD, CNhanVien nhanVien, CThanhVien thanhVien)
         {
             this.iDHoaDon = iDHoaDon;
             this.ngayXuatHD = ngayXuatHD;
-            this.thanhTien = thanhTien;
-        }
-        public CHoaDon()
-        {
+            this.nhanVien = nhanVien;
+            this.thanhVien = thanhVien;
         }
 
         public override bool Equals(object? obj)

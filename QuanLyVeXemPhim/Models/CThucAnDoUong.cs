@@ -8,26 +8,27 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CThucAnDoUong
     {
-        private int iDMon;
+        private string iDSanPham;
         private string loai;
         private string tenSanPham;
         private decimal gia;
         private string hinh;
 
-        public int IDMon { get => iDMon; set => iDMon = value; }
+        public string IDSanPham { get => iDSanPham; set => iDSanPham = value; }
         public string Loai { get => loai; set => loai = value; }
         public string TenSanPham { get => tenSanPham; set => tenSanPham = value; }
         public decimal Gia { get => gia; set => gia = value; }
         public string Hinh { get => hinh; set => hinh = value; }
 
-        public CThucAnDoUong(int iDMon, string loai, string tenSanPham, decimal gia, string hinh)
+        public CThucAnDoUong(string iDSanPham, string loai, string tenSanPham, decimal gia, string hinh)
         {
-            this.IDMon = iDMon;
-            this.Loai = loai;
-            this.TenSanPham = tenSanPham;
-            this.Gia = gia;
-            this.Hinh = hinh;
+            this.iDSanPham = iDSanPham;
+            this.loai = loai;
+            this.tenSanPham = tenSanPham;
+            this.gia = gia;
+            this.hinh = hinh;
         }
+
         public CThucAnDoUong()
         {
         }
@@ -35,12 +36,12 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CThucAnDoUong thucAnDoUong &&
-                   iDMon == thucAnDoUong.iDMon;
+                   iDSanPham == thucAnDoUong.iDSanPham;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(iDMon);
+            return HashCode.Combine(iDSanPham);
         }
     }
 }

@@ -8,21 +8,25 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CRapChieuPhim
     {
-        private int idRap;
+        private string iDRap;
         private string tenRap;
         private string diaChi;
         private int soLuongPhong;
         private string logo;
 
-        public int IdRap { get => idRap; set => idRap = value; }
+        public string IDRap { get => iDRap; set => iDRap = value; }
         public string TenRap { get => tenRap; set => tenRap = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }
         public int SoLuongPhong { get => soLuongPhong; set => soLuongPhong = value; }
         public string Logo { get => logo; set => logo = value; }
 
-        public CRapChieuPhim(int idRap)
+        public CRapChieuPhim(string iDRap, string tenRap, string diaChi, int soLuongPhong, string logo)
         {
-            this.IdRap = idRap;
+            this.iDRap = iDRap;
+            this.tenRap = tenRap;
+            this.diaChi = diaChi;
+            this.soLuongPhong = soLuongPhong;
+            this.logo = logo;
         }
 
         public CRapChieuPhim()
@@ -32,12 +36,12 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CRapChieuPhim phim &&
-                   IdRap == phim.IdRap;
+                   iDRap == phim.iDRap;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(IdRap);
+            return HashCode.Combine(iDRap);
         }
     }
 }

@@ -9,46 +9,46 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CVeXemPhim
     {
-        private int veID;
-        private int suatChieuID;
-        private int choNgoiID;
-        private float giaVe;
+        private string veID;
+        private CThanhVien thanhVien;
+        private CPhim phim;
+        private CSuatChieu suatChieu;
+        private CChoNgoi choNgoi;
+        private decimal giaVe;
         private string tinhTrang;
-        private int nguoiDungID;
-        private int phimID;
 
-        public int VeID { get => veID; set => veID = value; }
-        public int SuatChieuID { get => suatChieuID; set => suatChieuID = value; }
-        public int ChoNgoiID { get => choNgoiID; set => choNgoiID = value; }
-        public float GiaVe { get => giaVe; set => giaVe = value; }
+        public string VeID { get => veID; set => veID = value; }
+        public decimal GiaVe { get => giaVe; set => giaVe = value; }
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
-        public int NguoiDungID { get => nguoiDungID; set => nguoiDungID = value; }
-        public int PhimID { get => phimID; set => phimID = value; }
-
-        public CVeXemPhim(int veID, int suatChieuID, int choNgoiID, float giaVe, string tinhTrang, int nguoiDungID, int phimID)
-        {
-            this.veID = veID;
-            this.suatChieuID = suatChieuID;
-            this.choNgoiID = choNgoiID;
-            this.giaVe = giaVe;
-            this.tinhTrang = tinhTrang;
-            this.nguoiDungID = nguoiDungID;
-            this.phimID = phimID;
-        }
+        internal CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
+        internal CPhim Phim { get => phim; set => phim = value; }
+        internal CSuatChieu SuatChieu { get => suatChieu; set => suatChieu = value; }
+        internal CChoNgoi ChoNgoi { get => choNgoi; set => choNgoi = value; }
 
         public CVeXemPhim()
         {
         }
 
+        public CVeXemPhim(string veID, CThanhVien thanhVien, CPhim phim, CSuatChieu suatChieu, CChoNgoi choNgoi, decimal giaVe, string tinhTrang)
+        {
+            this.veID = veID;
+            this.thanhVien = thanhVien;
+            this.phim = phim;
+            this.suatChieu = suatChieu;
+            this.choNgoi = choNgoi;
+            this.giaVe = giaVe;
+            this.tinhTrang = tinhTrang;
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is CVeXemPhim phim &&
-                   veID == phim.veID;
+                   VeID == phim.VeID;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(veID);
+            return HashCode.Combine(VeID);
         }
     }
 }

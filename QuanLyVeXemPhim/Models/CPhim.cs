@@ -11,7 +11,7 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CPhim
     {
-        private int iDPhim;
+        private string iDPhim;
         private string tenPhim;
         private string theLoai;
         private string daoDien;
@@ -22,7 +22,7 @@ namespace QuanLyVeXemPhim.Models
         private string trangThai;
         private string dinhDang;
 
-        public int IDPhim { get => IDPhim; set => IDPhim = value; }
+        public string IDPhim { get => IDPhim; set => IDPhim = value; }
         public string TenPhim { get => tenPhim; set => tenPhim = value; }
         public string TheLoai { get => theLoai; set => theLoai = value; }
         public string DaoDien { get => daoDien; set => daoDien = value; }
@@ -33,9 +33,9 @@ namespace QuanLyVeXemPhim.Models
         public string TrangThai { get => trangThai; set => trangThai = value; }
         public string DinhDang { get => dinhDang; set => dinhDang = value; }
 
-        public CPhim(int iDPhim, string tenPhim, string theLoai, string daoDien, string moTa, string hinhAnh, DateTime ngayPH, int doDai, string trangThai, string dinhDang)
+        public CPhim(string iDPhim, string tenPhim, string theLoai, string daoDien, string moTa, string hinhAnh, DateTime ngayPH, int doDai, string trangThai, string dinhDang)
         {
-            this.IDPhim = iDPhim;
+            this.iDPhim = iDPhim;
             this.tenPhim = tenPhim;
             this.theLoai = theLoai;
             this.daoDien = daoDien;

@@ -8,36 +8,40 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CPhongChieu
     {
-        private int idPhong;
-        private int idRap;
+        private string iDPhong;
+        private CRapChieuPhim rap;
         private string tenPhong;
         private string loaiPhong;
         private int soLuongghe;
+
+        public string IDPhong { get => iDPhong; set => iDPhong = value; }
+        public string TenPhong { get => tenPhong; set => tenPhong = value; }
+        public string LoaiPhong { get => loaiPhong; set => loaiPhong = value; }
+        public int SoLuongghe { get => soLuongghe; set => soLuongghe = value; }
+        internal CRapChieuPhim Rap { get => rap; set => rap = value; }
+
+        public CPhongChieu(string iDPhong, CRapChieuPhim rap, string tenPhong, string loaiPhong, int soLuongghe)
+        {
+            this.iDPhong = iDPhong;
+            this.rap = rap;
+            this.tenPhong = tenPhong;
+            this.loaiPhong = loaiPhong;
+            this.soLuongghe = soLuongghe;
+        }
 
         public CPhongChieu()
         {
         }
 
-        public int IdPhong { get => idPhong; set => idPhong = value; }
-        public int IdRap { get => idRap; set => idRap = value; }
-        public string TenPhong { get => tenPhong; set => tenPhong = value; }
-        public string LoaiPhong { get => loaiPhong; set => loaiPhong = value; }
-        public int SoLuongghe { get => soLuongghe; set => soLuongghe = value; }
-
-        public CPhongChieu(int idPhong)
-        {
-            this.idPhong = idPhong;
-        }
-
         public override bool Equals(object? obj)
         {
             return obj is CPhongChieu chieu &&
-                   idPhong == chieu.idPhong;
+                   iDPhong == chieu.iDPhong;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(idPhong);
+            return HashCode.Combine(iDPhong);
         }
     }
 }

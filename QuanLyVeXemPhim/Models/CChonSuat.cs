@@ -8,19 +8,19 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CChonSuat
     {
-        private int idPhim;
-        private int idRap;
-        private int idSuatchieu;
+        private CPhim phim;
+        private CRapChieuPhim rap;
+        private CSuatChieu suatChieu;
 
-        public int IdPhim { get => idPhim; set => idPhim = value; }
-        public int IdRap { get => idRap; set => idRap = value; }
-        public int IdSuatchieu { get => idSuatchieu; set => idSuatchieu = value; }
+        internal CPhim Phim { get => phim; set => phim = value; }
+        internal CRapChieuPhim Rap { get => rap; set => rap = value; }
+        internal CSuatChieu SuatChieu { get => suatChieu; set => suatChieu = value; }
 
-        public CChonSuat(int idPhim, int idRap, int idSuatchieu)
+        public CChonSuat(CPhim phim, CRapChieuPhim rap, CSuatChieu suatChieu)
         {
-            this.idPhim = idPhim;
-            this.idRap = idRap;
-            this.idSuatchieu = idSuatchieu;
+            this.phim = phim;
+            this.rap = rap;
+            this.suatChieu = suatChieu;
         }
 
         public CChonSuat()
@@ -30,12 +30,14 @@ namespace QuanLyVeXemPhim.Models
         public override bool Equals(object? obj)
         {
             return obj is CChonSuat suat &&
-                   idPhim == suat.idPhim;
+                   EqualityComparer<CPhim>.Default.Equals(phim, suat.phim) &&
+                   EqualityComparer<CRapChieuPhim>.Default.Equals(rap, suat.rap) &&
+                   EqualityComparer<CSuatChieu>.Default.Equals(suatChieu, suat.suatChieu);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(idPhim);
+            return HashCode.Combine(phim, rap, suatChieu);
         }
     }
 }

@@ -6,51 +6,48 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Models
 {
-    internal class CNhanVien
+    internal class CThanhVien
     {
-        private string iDNhanVien;
-        private string tenNV;
+        private string iDThanhVien;
+        private string tenThanhVien;
         private string matKhau;
         private DateTime ngaySinh;
         private string gioiTinh;
-        private int sdt;
+        private string khuVuc;
         private string email;
-        private string chucVu;
 
-        public string IDNhanVien { get => iDNhanVien; set => iDNhanVien = value; }
-        public string TenNV { get => tenNV; set => tenNV = value; }
+        public string IDThanhVien { get => iDThanhVien; set => iDThanhVien = value; }
+        public string TenThanhVien { get => tenThanhVien; set => tenThanhVien = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
-        public int Sdt { get => sdt; set => sdt = value; }
+        public string KhuVuc { get => khuVuc; set => khuVuc = value; }
         public string Email { get => email; set => email = value; }
-        public string ChucVu { get => chucVu; set => chucVu = value; }
 
-        public CNhanVien(string iDNhanVien, string tenNV, string matKhau, DateTime ngaySinh, string gioiTinh, int sdt, string email, string chucVu)
+        public CThanhVien(string iDThanhVien, string tenThanhVien, string matKhau, DateTime ngaySinh, string gioiTinh, string khuVuc, string email)
         {
-            this.iDNhanVien = iDNhanVien;
-            this.tenNV = tenNV;
+            this.iDThanhVien = iDThanhVien;
+            this.tenThanhVien = tenThanhVien;
             this.matKhau = matKhau;
             this.ngaySinh = ngaySinh;
             this.gioiTinh = gioiTinh;
-            this.sdt = sdt;
+            this.khuVuc = khuVuc;
             this.email = email;
-            this.chucVu = chucVu;
         }
 
-        public CNhanVien()
+        public CThanhVien()
         {
         }
 
         public override bool Equals(object? obj)
         {
-            return obj is CNhanVien vien &&
-                   iDNhanVien == vien.iDNhanVien;
+            return obj is CThanhVien vien &&
+                   iDThanhVien == vien.iDThanhVien;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(iDNhanVien);
+            return HashCode.Combine(iDThanhVien);
         }
     }
 }

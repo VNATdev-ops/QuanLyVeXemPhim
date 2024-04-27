@@ -8,36 +8,40 @@ namespace QuanLyVeXemPhim.Models
 {
     internal class CChoNgoi
     {
-        private int idChoNgoi;
-        private int idPhong;
+        private string iDChoNgoi;
+        private CPhongChieu phong;
         private string loaiChoNgoi;
         private string viTri;
         private string trangThai;
+
+        public string IDChoNgoi { get => iDChoNgoi; set => iDChoNgoi = value; }
+        public string LoaiChoNgoi { get => loaiChoNgoi; set => loaiChoNgoi = value; }
+        public string ViTri { get => viTri; set => viTri = value; }
+        public string TrangThai { get => trangThai; set => trangThai = value; }
+        internal CPhongChieu Phong { get => phong; set => phong = value; }
 
         public CChoNgoi()
         {
         }
 
-        public int IdChoNgoi { get => idChoNgoi; set => idChoNgoi = value; }
-        public int IdPhong { get => idPhong; set => idPhong = value; }
-        public string LoaiChoNgoi { get => loaiChoNgoi; set => loaiChoNgoi = value; }
-        public string ViTri { get => viTri; set => viTri = value; }
-        public string TrangThai { get => trangThai; set => trangThai = value; }
-
-        public CChoNgoi(int idChoNgoi)
+        public CChoNgoi(string iDChoNgoi, CPhongChieu phong, string loaiChoNgoi, string viTri, string trangThai)
         {
-            this.idChoNgoi = idChoNgoi;
+            this.iDChoNgoi = iDChoNgoi;
+            this.phong = phong;
+            this.loaiChoNgoi = loaiChoNgoi;
+            this.viTri = viTri;
+            this.trangThai = trangThai;
         }
 
         public override bool Equals(object? obj)
         {
             return obj is CChoNgoi ngoi &&
-                   idChoNgoi == ngoi.idChoNgoi;
+                   iDChoNgoi == ngoi.iDChoNgoi;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(idChoNgoi);
+            return HashCode.Combine(iDChoNgoi);
         }
     }
 }
