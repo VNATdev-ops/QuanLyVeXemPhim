@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Controller
 {
-    internal class CtrlSuatChieu
+    internal class CtrlCTHDVe
     {
         SqlConnection cnn = null;
-        public CtrlSuatChieu()
+        public CtrlCTHDVe()
         {
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
