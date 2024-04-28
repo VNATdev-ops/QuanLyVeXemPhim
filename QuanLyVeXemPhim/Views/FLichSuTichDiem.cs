@@ -15,6 +15,7 @@ namespace QuanLyVeXemPhim.Views
         public FLichSuTichDiem()
         {
             InitializeComponent();
+
         }
 
         private void FLichSuTichDiem_Load(object sender, EventArgs e)
