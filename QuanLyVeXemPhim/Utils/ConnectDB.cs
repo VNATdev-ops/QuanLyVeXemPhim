@@ -21,7 +21,13 @@ namespace QuanLyVeXemPhim.Utils
         {
             if (connection == null)
             {
-                /////
+                //connection = new SqlConnection("Data Source = DESKTOP-45GKJAU\\SQLEXPRESS; " +
+                //   "Initial Catalog = QL_Ve_Xem_Phim ; Integrated Security = true");
+                //ktra kết nối
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
             }
             return connection;
         }
