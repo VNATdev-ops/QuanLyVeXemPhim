@@ -4,8 +4,8 @@ USE QL_Ve_Xem_Phim;
 
 CREATE TABLE ThanhVien (
     IDThanhVien NVARCHAR(50) PRIMARY KEY,
-    TenThanhVien NVARCHAR(255),
-    MatKhau NVARCHAR(255),
+    TenThanhVien NVARCHAR(255) NOT NULL,
+	MatKhau NVARCHAR(20) NOT NULL,
     NgaySinh DATE,
     GioiTinh NVARCHAR(50),
     KhuVuc NVARCHAR(255),
@@ -24,10 +24,10 @@ CREATE TABLE LichSuTichDiem (
 CREATE TABLE NhanVien(
 	IDNhanVien NVARCHAR(50) PRIMARY KEY,
 	TenNhanVien NVARCHAR(255) NOT NULL,
-	MatKhau VARCHAR(20) NOT NULL,
+	MatKhau NVARCHAR(20) NOT NULL,
 	NgaySinh DATE,
 	GioiTinh NVARCHAR(10),
-	Sdt INT,
+	Sdt VARCHAR(10),
 	Email NVARCHAR(100),
 	ChucVu NVARCHAR(50)
 );
