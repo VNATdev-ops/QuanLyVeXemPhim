@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -141,7 +142,38 @@ namespace QuanLyVeXemPhim.Views
 
         private void txtTimKiem_Click(object sender, EventArgs e)
         {
-            try 
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = lsvDanhSachTV.SelectedItems[0];
+                CThanhVien thanhVien = new CThanhVien();
+                thanhVien.IDThanhVien = item.SubItems[0].Text;
+                int index = dsThanhVien.IndexOf(thanhVien);
+                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
+                if (index < 0) { return; }
+                //
+                thanhVien = dsThanhVien[index];
+                if (ctrlThanhVien.delete(thanhVien))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    dsThanhVien.Remove(thanhVien);
+                    lsvDanhSachTV.Items.Remove(item);
+                    txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
+
+                }
+                else MessageBox.Show("Xóa thất bại!");
+
+            }
+            catch { }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            try
             {
                 string dkFind = txtTimKiem.Text;
                 dsThanhVien = ctrlThanhVien.findCriteria(dkFind);
@@ -157,6 +189,11 @@ namespace QuanLyVeXemPhim.Views
                 txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
             }
             catch { }
+        }
+
+        private void txtNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

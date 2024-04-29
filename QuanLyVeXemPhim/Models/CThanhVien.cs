@@ -49,5 +49,7 @@ namespace QuanLyVeXemPhim.Models
         {
             return HashCode.Combine(iDThanhVien);
         }
+        
+
     }
 }

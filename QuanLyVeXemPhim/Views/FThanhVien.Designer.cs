@@ -139,6 +139,7 @@
             txtNgaySinh.Name = "txtNgaySinh";
             txtNgaySinh.Size = new Size(376, 34);
             txtNgaySinh.TabIndex = 14;
+            txtNgaySinh.ValueChanged += txtNgaySinh_ValueChanged;
             // 
             // label7
             // 
@@ -258,7 +259,7 @@
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(203, 30);
             txtTimKiem.TabIndex = 3;
-            txtTimKiem.TextChanged += txtTimKiem_Click;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // phim
             // 
@@ -347,6 +348,7 @@
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -362,7 +364,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(416, 26);
+            label8.Location = new Point(462, 26);
             label8.Name = "label8";
             label8.Size = new Size(170, 28);
             label8.TabIndex = 14;
