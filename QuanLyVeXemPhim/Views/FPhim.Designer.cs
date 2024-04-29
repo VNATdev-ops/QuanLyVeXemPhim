@@ -29,140 +29,161 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            textBox1 = new TextBox();
+            lblTenPhim = new Label();
+            lblTheLoai = new Label();
+            lblDaoDien = new Label();
+            txtTenPhim = new TextBox();
             groupBox1 = new GroupBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            richTextBox1 = new RichTextBox();
+            cbDinhDang = new ComboBox();
+            cbTrangThai = new ComboBox();
+            dtNgayPH = new DateTimePicker();
+            txtDaoDien = new TextBox();
+            txtTheLoai = new TextBox();
+            label9 = new Label();
+            label8 = new Label();
             label6 = new Label();
             label7 = new Label();
-            textBox5 = new TextBox();
-            label8 = new Label();
-            textBox6 = new TextBox();
-            label9 = new Label();
-            textBox7 = new TextBox();
+            lblNgayPH = new Label();
             groupBox2 = new GroupBox();
-            listView1 = new ListView();
+            lsvDSPhim = new ListView();
+            groupBox3 = new GroupBox();
+            groupBox4 = new GroupBox();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            richTextBox2 = new RichTextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(356, 35);
+            label1.Location = new Point(345, 64);
             label1.Name = "label1";
             label1.Size = new Size(134, 25);
             label1.TabIndex = 0;
             label1.Text = "QUẢN LÝ PHIM";
             // 
-            // label2
+            // lblTenPhim
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(40, 55);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 25);
-            label2.TabIndex = 1;
-            label2.Text = "Tên phim";
+            lblTenPhim.AutoSize = true;
+            lblTenPhim.Location = new Point(47, 58);
+            lblTenPhim.Name = "lblTenPhim";
+            lblTenPhim.Size = new Size(84, 25);
+            lblTenPhim.TabIndex = 1;
+            lblTenPhim.Text = "Tên phim";
             // 
-            // label3
+            // lblTheLoai
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(40, 102);
-            label3.Name = "label3";
-            label3.Size = new Size(73, 25);
-            label3.TabIndex = 1;
-            label3.Text = "Thể loại";
+            lblTheLoai.AutoSize = true;
+            lblTheLoai.Location = new Point(47, 105);
+            lblTheLoai.Name = "lblTheLoai";
+            lblTheLoai.Size = new Size(73, 25);
+            lblTheLoai.TabIndex = 1;
+            lblTheLoai.Text = "Thể loại";
             // 
-            // label4
+            // lblDaoDien
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(40, 152);
-            label4.Name = "label4";
-            label4.Size = new Size(84, 25);
-            label4.TabIndex = 1;
-            label4.Text = "Đạo diễn";
+            lblDaoDien.AutoSize = true;
+            lblDaoDien.Location = new Point(47, 155);
+            lblDaoDien.Name = "lblDaoDien";
+            lblDaoDien.Size = new Size(84, 25);
+            lblDaoDien.TabIndex = 1;
+            lblDaoDien.Text = "Đạo diễn";
             // 
-            // textBox1
+            // txtTenPhim
             // 
-            textBox1.Location = new Point(203, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(678, 31);
-            textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtTenPhim.Location = new Point(210, 52);
+            txtTenPhim.Name = "txtTenPhim";
+            txtTenPhim.Size = new Size(804, 31);
+            txtTenPhim.TabIndex = 2;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(richTextBox1);
-            groupBox1.Controls.Add(textBox7);
-            groupBox1.Controls.Add(textBox6);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(richTextBox2);
+            groupBox1.Controls.Add(cbDinhDang);
+            groupBox1.Controls.Add(cbTrangThai);
+            groupBox1.Controls.Add(dtNgayPH);
+            groupBox1.Controls.Add(txtDaoDien);
+            groupBox1.Controls.Add(txtTheLoai);
+            groupBox1.Controls.Add(txtTenPhim);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(lblTheLoai);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(33, 79);
+            groupBox1.Controls.Add(lblNgayPH);
+            groupBox1.Controls.Add(lblDaoDien);
+            groupBox1.Controls.Add(lblTenPhim);
+            groupBox1.Location = new Point(33, 120);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(941, 676);
+            groupBox1.Size = new Size(1069, 554);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phim";
             // 
-            // textBox2
+            // cbDinhDang
             // 
-            textBox2.Location = new Point(203, 96);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(678, 31);
-            textBox2.TabIndex = 2;
+            cbDinhDang.FormattingEnabled = true;
+            cbDinhDang.Location = new Point(838, 252);
+            cbDinhDang.Name = "cbDinhDang";
+            cbDinhDang.Size = new Size(176, 33);
+            cbDinhDang.TabIndex = 6;
             // 
-            // textBox3
+            // cbTrangThai
             // 
-            textBox3.Location = new Point(203, 146);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(678, 31);
-            textBox3.TabIndex = 2;
+            cbTrangThai.FormattingEnabled = true;
+            cbTrangThai.Location = new Point(210, 252);
+            cbTrangThai.Name = "cbTrangThai";
+            cbTrangThai.Size = new Size(390, 33);
+            cbTrangThai.TabIndex = 6;
             // 
-            // label5
+            // dtNgayPH
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(40, 205);
-            label5.Name = "label5";
-            label5.Size = new Size(139, 25);
-            label5.TabIndex = 1;
-            label5.Text = "Ngày phát hành";
+            dtNgayPH.Location = new Point(210, 202);
+            dtNgayPH.Name = "dtNgayPH";
+            dtNgayPH.Size = new Size(390, 31);
+            dtNgayPH.TabIndex = 5;
             // 
-            // textBox4
+            // txtDaoDien
             // 
-            textBox4.Location = new Point(203, 199);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(678, 31);
-            textBox4.TabIndex = 2;
+            txtDaoDien.Location = new Point(210, 149);
+            txtDaoDien.Name = "txtDaoDien";
+            txtDaoDien.Size = new Size(804, 31);
+            txtDaoDien.TabIndex = 2;
             // 
-            // richTextBox1
+            // txtTheLoai
             // 
-            richTextBox1.Location = new Point(203, 414);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(678, 220);
-            richTextBox1.TabIndex = 4;
-            richTextBox1.Text = "";
+            txtTheLoai.Location = new Point(210, 99);
+            txtTheLoai.Name = "txtTheLoai";
+            txtTheLoai.Size = new Size(804, 31);
+            txtTheLoai.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(714, 260);
+            label9.Name = "label9";
+            label9.Size = new Size(95, 25);
+            label9.TabIndex = 1;
+            label9.Text = "Định dạng";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(47, 260);
+            label8.Name = "label8";
+            label8.Size = new Size(89, 25);
+            label8.TabIndex = 1;
+            label8.Text = "Trạng thái";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(40, 414);
+            label6.Location = new Point(47, 306);
             label6.Name = "label6";
             label6.Size = new Size(59, 25);
             label6.TabIndex = 1;
@@ -171,74 +192,112 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(40, 256);
+            label7.Location = new Point(714, 208);
             label7.Name = "label7";
             label7.Size = new Size(65, 25);
             label7.TabIndex = 1;
             label7.Text = "Độ dài";
             // 
-            // textBox5
+            // lblNgayPH
             // 
-            textBox5.Location = new Point(203, 250);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(678, 31);
-            textBox5.TabIndex = 2;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(40, 308);
-            label8.Name = "label8";
-            label8.Size = new Size(89, 25);
-            label8.TabIndex = 1;
-            label8.Text = "Trạng thái";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(203, 302);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(678, 31);
-            textBox6.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(40, 359);
-            label9.Name = "label9";
-            label9.Size = new Size(95, 25);
-            label9.TabIndex = 1;
-            label9.Text = "Định dạng";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(203, 353);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(678, 31);
-            textBox7.TabIndex = 2;
+            lblNgayPH.AutoSize = true;
+            lblNgayPH.Location = new Point(47, 208);
+            lblNgayPH.Name = "lblNgayPH";
+            lblNgayPH.Size = new Size(139, 25);
+            lblNgayPH.TabIndex = 1;
+            lblNgayPH.Text = "Ngày phát hành";
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(listView1);
-            groupBox2.Location = new Point(1012, 93);
+            groupBox2.Controls.Add(lsvDSPhim);
+            groupBox2.Location = new Point(33, 718);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(345, 445);
+            groupBox2.Size = new Size(1069, 316);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phim";
             // 
-            // listView1
+            // lsvDSPhim
             // 
-            listView1.Location = new Point(35, 41);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(270, 367);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            lsvDSPhim.Location = new Point(51, 35);
+            lsvDSPhim.Name = "lsvDSPhim";
+            lsvDSPhim.Size = new Size(963, 248);
+            lsvDSPhim.TabIndex = 0;
+            lsvDSPhim.UseCompatibleStateImageBehavior = false;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Location = new Point(1150, 120);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(527, 150);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "TÌm kiếm";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button4);
+            groupBox4.Controls.Add(button3);
+            groupBox4.Controls.Add(button2);
+            groupBox4.Controls.Add(button1);
+            groupBox4.Location = new Point(1150, 292);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(527, 483);
+            groupBox4.TabIndex = 5;
+            groupBox4.TabStop = false;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(202, 281);
+            button4.Name = "button4";
+            button4.Size = new Size(112, 56);
+            button4.TabIndex = 0;
+            button4.Text = "Thoát";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(202, 204);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 56);
+            button3.TabIndex = 0;
+            button3.Text = "Xóa";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(202, 125);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 56);
+            button2.TabIndex = 0;
+            button2.Text = "Cập nhật";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(202, 49);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 56);
+            button1.TabIndex = 0;
+            button1.Text = "Thêm";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox2
+            // 
+            richTextBox2.Location = new Point(210, 310);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(804, 206);
+            richTextBox2.TabIndex = 7;
+            richTextBox2.Text = "";
             // 
             // FPhim
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1615, 807);
+            AutoSize = true;
+            ClientSize = new Size(1758, 1087);
+            Controls.Add(groupBox4);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(label1);
             Controls.Add(groupBox1);
@@ -247,6 +306,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -254,16 +314,16 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox1;
+        private Label lblTenPhim;
+        private Label lblTheLoai;
+        private Label lblDaoDien;
+        private TextBox txtTenPhim;
         private GroupBox groupBox1;
         private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txtDaoDien;
+        private TextBox txtTheLoai;
         private Label label6;
-        private Label label5;
+        private Label lblNgayPH;
         private RichTextBox richTextBox1;
         private TextBox textBox5;
         private Label label7;
@@ -272,6 +332,16 @@
         private Label label9;
         private Label label8;
         private GroupBox groupBox2;
-        private ListView listView1;
+        private ListView lsvDSPhim;
+        private DateTimePicker dtNgayPH;
+        private ComboBox cbDinhDang;
+        private ComboBox cbTrangThai;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private Button button4;
+        private RichTextBox richTextBox2;
     }
 }
