@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             s = new GroupBox();
+            lsvVeXemPhim = new ListView();
             panel1 = new Panel();
             btnThoat = new Button();
             btnCapNhat = new Button();
@@ -44,19 +46,17 @@
             panel2 = new Panel();
             groupBox4 = new GroupBox();
             phim = new Label();
-            txtTimKiem = new Button();
             groupBox3 = new GroupBox();
             label7 = new Label();
             txtTongSo = new Button();
-            txtIDsuatchieu = new Button();
-            txtIDchongoi = new Button();
-            label6 = new Label();
-            txtIDve = new Button();
-            txtGiaVe = new Button();
-            txtIDnguoidung = new Button();
-            txtIDphim = new Button();
-            lsvVeXemPhim = new ListView();
             label8 = new Label();
+            txtIDVe = new TextBox();
+            txtIDSuatChieu = new TextBox();
+            txtIDChoNgoi = new TextBox();
+            txtGiaVe = new TextBox();
+            txtIDNguoiDung = new TextBox();
+            txtIDPhim = new TextBox();
+            txtTimKiem = new TextBox();
             groupBox1.SuspendLayout();
             s.SuspendLayout();
             panel1.SuspendLayout();
@@ -67,13 +67,13 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtIDphim);
-            groupBox1.Controls.Add(txtIDnguoidung);
+            groupBox1.Controls.Add(txtIDPhim);
+            groupBox1.Controls.Add(txtIDNguoiDung);
             groupBox1.Controls.Add(txtGiaVe);
-            groupBox1.Controls.Add(txtIDve);
+            groupBox1.Controls.Add(txtIDChoNgoi);
+            groupBox1.Controls.Add(txtIDSuatChieu);
+            groupBox1.Controls.Add(txtIDVe);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(txtIDchongoi);
-            groupBox1.Controls.Add(txtIDsuatchieu);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -86,6 +86,17 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin vé xem phim";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.Location = new Point(350, 180);
+            label6.Name = "label6";
+            label6.Size = new Size(80, 28);
+            label6.TabIndex = 10;
+            label6.Text = "ID Phim";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
@@ -149,6 +160,15 @@
             s.TabIndex = 1;
             s.TabStop = false;
             s.Text = "Danh Sách Vé Xem Phim";
+            // 
+            // lsvVeXemPhim
+            // 
+            lsvVeXemPhim.Dock = DockStyle.Fill;
+            lsvVeXemPhim.Location = new Point(3, 30);
+            lsvVeXemPhim.Name = "lsvVeXemPhim";
+            lsvVeXemPhim.Size = new Size(872, 195);
+            lsvVeXemPhim.TabIndex = 0;
+            lsvVeXemPhim.UseCompatibleStateImageBehavior = false;
             // 
             // panel1
             // 
@@ -219,8 +239,8 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(phim);
             groupBox4.Controls.Add(txtTimKiem);
+            groupBox4.Controls.Add(phim);
             groupBox4.Location = new Point(3, 143);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(215, 125);
@@ -236,14 +256,6 @@
             phim.Size = new Size(89, 20);
             phim.TabIndex = 2;
             phim.Text = "Tìm kiếm vé";
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Location = new Point(6, 70);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(203, 40);
-            txtTimKiem.TabIndex = 1;
-            txtTimKiem.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -273,80 +285,6 @@
             txtTongSo.TabIndex = 0;
             txtTongSo.UseVisualStyleBackColor = true;
             // 
-            // txtIDsuatchieu
-            // 
-            txtIDsuatchieu.Font = new Font("Segoe UI", 12F);
-            txtIDsuatchieu.Location = new Point(170, 110);
-            txtIDsuatchieu.Name = "txtIDsuatchieu";
-            txtIDsuatchieu.Size = new Size(143, 50);
-            txtIDsuatchieu.TabIndex = 6;
-            txtIDsuatchieu.UseVisualStyleBackColor = true;
-            // 
-            // txtIDchongoi
-            // 
-            txtIDchongoi.Font = new Font("Segoe UI", 12F);
-            txtIDchongoi.Location = new Point(170, 174);
-            txtIDchongoi.Name = "txtIDchongoi";
-            txtIDchongoi.Size = new Size(143, 48);
-            txtIDchongoi.TabIndex = 7;
-            txtIDchongoi.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(350, 180);
-            label6.Name = "label6";
-            label6.Size = new Size(80, 28);
-            label6.TabIndex = 10;
-            label6.Text = "ID Phim";
-            label6.Click += label6_Click;
-            // 
-            // txtIDve
-            // 
-            txtIDve.Font = new Font("Segoe UI", 12F);
-            txtIDve.Location = new Point(170, 50);
-            txtIDve.Name = "txtIDve";
-            txtIDve.Size = new Size(143, 50);
-            txtIDve.TabIndex = 11;
-            txtIDve.UseVisualStyleBackColor = true;
-            // 
-            // txtGiaVe
-            // 
-            txtGiaVe.Font = new Font("Segoe UI", 12F);
-            txtGiaVe.Location = new Point(523, 50);
-            txtGiaVe.Name = "txtGiaVe";
-            txtGiaVe.Size = new Size(226, 50);
-            txtGiaVe.TabIndex = 12;
-            txtGiaVe.UseVisualStyleBackColor = true;
-            // 
-            // txtIDnguoidung
-            // 
-            txtIDnguoidung.Font = new Font("Segoe UI", 12F);
-            txtIDnguoidung.Location = new Point(523, 110);
-            txtIDnguoidung.Name = "txtIDnguoidung";
-            txtIDnguoidung.Size = new Size(226, 50);
-            txtIDnguoidung.TabIndex = 13;
-            txtIDnguoidung.UseVisualStyleBackColor = true;
-            // 
-            // txtIDphim
-            // 
-            txtIDphim.Font = new Font("Segoe UI", 12F);
-            txtIDphim.Location = new Point(523, 169);
-            txtIDphim.Name = "txtIDphim";
-            txtIDphim.Size = new Size(226, 50);
-            txtIDphim.TabIndex = 14;
-            txtIDphim.UseVisualStyleBackColor = true;
-            // 
-            // lsvVeXemPhim
-            // 
-            lsvVeXemPhim.Dock = DockStyle.Fill;
-            lsvVeXemPhim.Location = new Point(3, 30);
-            lsvVeXemPhim.Name = "lsvVeXemPhim";
-            lsvVeXemPhim.Size = new Size(872, 195);
-            lsvVeXemPhim.TabIndex = 0;
-            lsvVeXemPhim.UseCompatibleStateImageBehavior = false;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -357,11 +295,60 @@
             label8.TabIndex = 7;
             label8.Text = "Quản lý Vé Xem Phim";
             // 
+            // txtIDVe
+            // 
+            txtIDVe.Location = new Point(160, 58);
+            txtIDVe.Name = "txtIDVe";
+            txtIDVe.Size = new Size(184, 34);
+            txtIDVe.TabIndex = 11;
+            // 
+            // txtIDSuatChieu
+            // 
+            txtIDSuatChieu.Location = new Point(160, 115);
+            txtIDSuatChieu.Name = "txtIDSuatChieu";
+            txtIDSuatChieu.Size = new Size(184, 34);
+            txtIDSuatChieu.TabIndex = 12;
+            // 
+            // txtIDChoNgoi
+            // 
+            txtIDChoNgoi.Location = new Point(160, 169);
+            txtIDChoNgoi.Name = "txtIDChoNgoi";
+            txtIDChoNgoi.Size = new Size(184, 34);
+            txtIDChoNgoi.TabIndex = 13;
+            // 
+            // txtGiaVe
+            // 
+            txtGiaVe.Location = new Point(499, 55);
+            txtGiaVe.Name = "txtGiaVe";
+            txtGiaVe.Size = new Size(184, 34);
+            txtGiaVe.TabIndex = 14;
+            // 
+            // txtIDNguoiDung
+            // 
+            txtIDNguoiDung.Location = new Point(499, 115);
+            txtIDNguoiDung.Name = "txtIDNguoiDung";
+            txtIDNguoiDung.Size = new Size(184, 34);
+            txtIDNguoiDung.TabIndex = 15;
+            // 
+            // txtIDPhim
+            // 
+            txtIDPhim.Location = new Point(499, 169);
+            txtIDPhim.Name = "txtIDPhim";
+            txtIDPhim.Size = new Size(184, 34);
+            txtIDPhim.TabIndex = 16;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(16, 76);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(184, 27);
+            txtTimKiem.TabIndex = 16;
+            // 
             // FVeXemPhim
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1214, 560);
+            ClientSize = new Size(1228, 590);
             Controls.Add(label8);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -369,6 +356,7 @@
             Controls.Add(groupBox1);
             Name = "FVeXemPhim";
             Text = "FVeXemPhim";
+            Load += FVeXemPhim_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             s.ResumeLayout(false);
@@ -395,7 +383,6 @@
         private Panel panel2;
         private GroupBox groupBox4;
         private Label phim;
-        private Button txtTimKiem;
         private GroupBox groupBox3;
         private Label label7;
         private Button txtTongSo;
@@ -404,14 +391,15 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Button txtIDchongoi;
-        private Button txtIDsuatchieu;
-        private Button txtIDve;
         private Label label6;
-        private Button txtIDphim;
-        private Button txtIDnguoidung;
-        private Button txtGiaVe;
         private ListView lsvVeXemPhim;
         private Label label8;
+        private TextBox txtIDPhim;
+        private TextBox txtIDNguoiDung;
+        private TextBox txtGiaVe;
+        private TextBox txtIDChoNgoi;
+        private TextBox txtIDSuatChieu;
+        private TextBox txtIDVe;
+        private TextBox txtTimKiem;
     }
 }

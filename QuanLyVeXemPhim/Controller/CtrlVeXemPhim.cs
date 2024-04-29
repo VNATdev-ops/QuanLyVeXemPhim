@@ -12,5 +12,11 @@ namespace QuanLyVeXemPhim.Controller
 {
     internal class CtrlVeXemPhim
     {
+        SqlConnection cnn = null;
+        public CtrlVeXemPhim()
+        {
+            ConnectDB cnnDB = new ConnectDB();
+            cnn = cnnDB.getConnection();
+        }
     }
 }

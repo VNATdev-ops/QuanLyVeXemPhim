@@ -41,5 +41,10 @@ namespace QuanLyVeXemPhim.Views
         {
 
         }
+
+        private void FVeXemPhim_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
