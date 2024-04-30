@@ -28,49 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTenForm = new Label();
             lblTenPhim = new Label();
             lblTheLoai = new Label();
             lblDaoDien = new Label();
-            txtTenPhim = new TextBox();
+            txtSoLuongPhim = new TextBox();
             groupBox1 = new GroupBox();
+            rtbMoTa = new RichTextBox();
             cbDinhDang = new ComboBox();
+            txtDoDai = new TextBox();
             cbTrangThai = new ComboBox();
             dtNgayPH = new DateTimePicker();
             txtDaoDien = new TextBox();
+            txtHinhAnh = new TextBox();
+            txtIDPhim = new TextBox();
+            txtTenPhim = new TextBox();
             txtTheLoai = new TextBox();
-            label9 = new Label();
-            label8 = new Label();
-            label6 = new Label();
-            label7 = new Label();
+            lblDinhDang = new Label();
+            lblTrangThai = new Label();
+            lblMoTa = new Label();
+            lblDoDai = new Label();
             lblNgayPH = new Label();
-            groupBox2 = new GroupBox();
+            lblHinhAnh = new Label();
+            lblIDPhim = new Label();
             lsvDSPhim = new ListView();
-            groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            richTextBox2 = new RichTextBox();
+            btnThoat = new Button();
+            btnHuy = new Button();
+            bthXoa = new Button();
+            btnCapNhat = new Button();
+            btnThem = new Button();
+            txtTimKiem = new TextBox();
+            label2 = new Label();
+            groupBox5 = new GroupBox();
+            lblSoLuongDangChieu = new Label();
+            txtSoLuongDangChieu = new TextBox();
+            lblSoLuongPhim = new Label();
+            groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblTenForm
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(345, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(134, 25);
-            label1.TabIndex = 0;
-            label1.Text = "QUẢN LÝ PHIM";
+            lblTenForm.AutoSize = true;
+            lblTenForm.Location = new Point(476, 55);
+            lblTenForm.Name = "lblTenForm";
+            lblTenForm.Size = new Size(134, 25);
+            lblTenForm.TabIndex = 0;
+            lblTenForm.Text = "QUẢN LÝ PHIM";
             // 
             // lblTenPhim
             // 
             lblTenPhim.AutoSize = true;
-            lblTenPhim.Location = new Point(47, 58);
+            lblTenPhim.Location = new Point(31, 97);
             lblTenPhim.Name = "lblTenPhim";
             lblTenPhim.Size = new Size(84, 25);
             lblTenPhim.TabIndex = 1;
@@ -79,7 +92,7 @@
             // lblTheLoai
             // 
             lblTheLoai.AutoSize = true;
-            lblTheLoai.Location = new Point(47, 105);
+            lblTheLoai.Location = new Point(31, 144);
             lblTheLoai.Name = "lblTheLoai";
             lblTheLoai.Size = new Size(73, 25);
             lblTheLoai.TabIndex = 1;
@@ -88,207 +101,322 @@
             // lblDaoDien
             // 
             lblDaoDien.AutoSize = true;
-            lblDaoDien.Location = new Point(47, 155);
+            lblDaoDien.Location = new Point(31, 194);
             lblDaoDien.Name = "lblDaoDien";
             lblDaoDien.Size = new Size(84, 25);
             lblDaoDien.TabIndex = 1;
             lblDaoDien.Text = "Đạo diễn";
             // 
-            // txtTenPhim
+            // txtSoLuongPhim
             // 
-            txtTenPhim.Location = new Point(210, 52);
-            txtTenPhim.Name = "txtTenPhim";
-            txtTenPhim.Size = new Size(804, 31);
-            txtTenPhim.TabIndex = 2;
+            txtSoLuongPhim.Enabled = false;
+            txtSoLuongPhim.Location = new Point(316, 43);
+            txtSoLuongPhim.Name = "txtSoLuongPhim";
+            txtSoLuongPhim.Size = new Size(150, 31);
+            txtSoLuongPhim.TabIndex = 2;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(richTextBox2);
+            groupBox1.Controls.Add(rtbMoTa);
             groupBox1.Controls.Add(cbDinhDang);
+            groupBox1.Controls.Add(txtDoDai);
             groupBox1.Controls.Add(cbTrangThai);
             groupBox1.Controls.Add(dtNgayPH);
             groupBox1.Controls.Add(txtDaoDien);
-            groupBox1.Controls.Add(txtTheLoai);
+            groupBox1.Controls.Add(txtHinhAnh);
+            groupBox1.Controls.Add(txtIDPhim);
             groupBox1.Controls.Add(txtTenPhim);
-            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(txtTheLoai);
+            groupBox1.Controls.Add(lblDinhDang);
             groupBox1.Controls.Add(lblTheLoai);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(lblTrangThai);
+            groupBox1.Controls.Add(lblMoTa);
+            groupBox1.Controls.Add(lblDoDai);
             groupBox1.Controls.Add(lblNgayPH);
+            groupBox1.Controls.Add(lblHinhAnh);
+            groupBox1.Controls.Add(lblIDPhim);
             groupBox1.Controls.Add(lblDaoDien);
             groupBox1.Controls.Add(lblTenPhim);
-            groupBox1.Location = new Point(33, 120);
+            groupBox1.Location = new Point(33, 107);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1069, 554);
+            groupBox1.Size = new Size(1069, 585);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phim";
             // 
+            // rtbMoTa
+            // 
+            rtbMoTa.BorderStyle = BorderStyle.None;
+            rtbMoTa.Location = new Point(194, 349);
+            rtbMoTa.Name = "rtbMoTa";
+            rtbMoTa.Size = new Size(804, 206);
+            rtbMoTa.TabIndex = 7;
+            rtbMoTa.Text = "";
+            // 
             // cbDinhDang
             // 
             cbDinhDang.FormattingEnabled = true;
-            cbDinhDang.Location = new Point(838, 252);
+            cbDinhDang.Location = new Point(791, 291);
             cbDinhDang.Name = "cbDinhDang";
-            cbDinhDang.Size = new Size(176, 33);
+            cbDinhDang.Size = new Size(207, 33);
             cbDinhDang.TabIndex = 6;
+            // 
+            // txtDoDai
+            // 
+            txtDoDai.Location = new Point(791, 241);
+            txtDoDai.Name = "txtDoDai";
+            txtDoDai.Size = new Size(207, 31);
+            txtDoDai.TabIndex = 2;
             // 
             // cbTrangThai
             // 
             cbTrangThai.FormattingEnabled = true;
-            cbTrangThai.Location = new Point(210, 252);
+            cbTrangThai.Location = new Point(194, 291);
             cbTrangThai.Name = "cbTrangThai";
             cbTrangThai.Size = new Size(390, 33);
             cbTrangThai.TabIndex = 6;
             // 
             // dtNgayPH
             // 
-            dtNgayPH.Location = new Point(210, 202);
+            dtNgayPH.Location = new Point(194, 241);
             dtNgayPH.Name = "dtNgayPH";
             dtNgayPH.Size = new Size(390, 31);
             dtNgayPH.TabIndex = 5;
             // 
             // txtDaoDien
             // 
-            txtDaoDien.Location = new Point(210, 149);
+            txtDaoDien.Location = new Point(194, 188);
             txtDaoDien.Name = "txtDaoDien";
             txtDaoDien.Size = new Size(804, 31);
             txtDaoDien.TabIndex = 2;
             // 
+            // txtHinhAnh
+            // 
+            txtHinhAnh.Location = new Point(791, 42);
+            txtHinhAnh.Name = "txtHinhAnh";
+            txtHinhAnh.Size = new Size(207, 31);
+            txtHinhAnh.TabIndex = 2;
+            // 
+            // txtIDPhim
+            // 
+            txtIDPhim.Location = new Point(194, 42);
+            txtIDPhim.Name = "txtIDPhim";
+            txtIDPhim.Size = new Size(390, 31);
+            txtIDPhim.TabIndex = 2;
+            // 
+            // txtTenPhim
+            // 
+            txtTenPhim.Location = new Point(194, 91);
+            txtTenPhim.Name = "txtTenPhim";
+            txtTenPhim.Size = new Size(804, 31);
+            txtTenPhim.TabIndex = 2;
+            // 
             // txtTheLoai
             // 
-            txtTheLoai.Location = new Point(210, 99);
+            txtTheLoai.Location = new Point(194, 138);
             txtTheLoai.Name = "txtTheLoai";
             txtTheLoai.Size = new Size(804, 31);
             txtTheLoai.TabIndex = 2;
             // 
-            // label9
+            // lblDinhDang
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(714, 260);
-            label9.Name = "label9";
-            label9.Size = new Size(95, 25);
-            label9.TabIndex = 1;
-            label9.Text = "Định dạng";
+            lblDinhDang.AutoSize = true;
+            lblDinhDang.Location = new Point(644, 299);
+            lblDinhDang.Name = "lblDinhDang";
+            lblDinhDang.Size = new Size(95, 25);
+            lblDinhDang.TabIndex = 1;
+            lblDinhDang.Text = "Định dạng";
             // 
-            // label8
+            // lblTrangThai
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(47, 260);
-            label8.Name = "label8";
-            label8.Size = new Size(89, 25);
-            label8.TabIndex = 1;
-            label8.Text = "Trạng thái";
+            lblTrangThai.AutoSize = true;
+            lblTrangThai.Location = new Point(31, 299);
+            lblTrangThai.Name = "lblTrangThai";
+            lblTrangThai.Size = new Size(89, 25);
+            lblTrangThai.TabIndex = 1;
+            lblTrangThai.Text = "Trạng thái";
             // 
-            // label6
+            // lblMoTa
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(47, 306);
-            label6.Name = "label6";
-            label6.Size = new Size(59, 25);
-            label6.TabIndex = 1;
-            label6.Text = "Mô tả";
+            lblMoTa.AutoSize = true;
+            lblMoTa.Location = new Point(31, 345);
+            lblMoTa.Name = "lblMoTa";
+            lblMoTa.Size = new Size(59, 25);
+            lblMoTa.TabIndex = 1;
+            lblMoTa.Text = "Mô tả";
             // 
-            // label7
+            // lblDoDai
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(714, 208);
-            label7.Name = "label7";
-            label7.Size = new Size(65, 25);
-            label7.TabIndex = 1;
-            label7.Text = "Độ dài";
+            lblDoDai.AutoSize = true;
+            lblDoDai.Location = new Point(644, 247);
+            lblDoDai.Name = "lblDoDai";
+            lblDoDai.Size = new Size(117, 25);
+            lblDoDai.TabIndex = 1;
+            lblDoDai.Text = "Độ dài (phút)";
             // 
             // lblNgayPH
             // 
             lblNgayPH.AutoSize = true;
-            lblNgayPH.Location = new Point(47, 208);
+            lblNgayPH.Location = new Point(31, 247);
             lblNgayPH.Name = "lblNgayPH";
             lblNgayPH.Size = new Size(139, 25);
             lblNgayPH.TabIndex = 1;
             lblNgayPH.Text = "Ngày phát hành";
+            // 
+            // lblHinhAnh
+            // 
+            lblHinhAnh.AutoSize = true;
+            lblHinhAnh.Location = new Point(644, 48);
+            lblHinhAnh.Name = "lblHinhAnh";
+            lblHinhAnh.Size = new Size(83, 25);
+            lblHinhAnh.TabIndex = 1;
+            lblHinhAnh.Text = "Hình ảnh";
+            // 
+            // lblIDPhim
+            // 
+            lblIDPhim.AutoSize = true;
+            lblIDPhim.Location = new Point(31, 48);
+            lblIDPhim.Name = "lblIDPhim";
+            lblIDPhim.Size = new Size(76, 25);
+            lblIDPhim.TabIndex = 1;
+            lblIDPhim.Text = "ID phim";
+            // 
+            // lsvDSPhim
+            // 
+            lsvDSPhim.Location = new Point(31, 44);
+            lsvDSPhim.Name = "lsvDSPhim";
+            lsvDSPhim.Size = new Size(1576, 248);
+            lsvDSPhim.TabIndex = 0;
+            lsvDSPhim.UseCompatibleStateImageBehavior = false;
+            lsvDSPhim.SelectedIndexChanged += lsvDSPhim_SelectedIndexChanged;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(btnThoat);
+            groupBox4.Controls.Add(btnHuy);
+            groupBox4.Controls.Add(bthXoa);
+            groupBox4.Controls.Add(btnCapNhat);
+            groupBox4.Controls.Add(btnThem);
+            groupBox4.Location = new Point(1150, 225);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(527, 286);
+            groupBox4.TabIndex = 5;
+            groupBox4.TabStop = false;
+            // 
+            // btnThoat
+            // 
+            btnThoat.Location = new Point(65, 196);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(401, 56);
+            btnThoat.TabIndex = 0;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
+            // 
+            // btnHuy
+            // 
+            btnHuy.Location = new Point(65, 115);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(169, 56);
+            btnHuy.TabIndex = 0;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // bthXoa
+            // 
+            bthXoa.Location = new Point(297, 115);
+            bthXoa.Name = "bthXoa";
+            bthXoa.Size = new Size(169, 56);
+            bthXoa.TabIndex = 0;
+            bthXoa.Text = "Xóa";
+            bthXoa.UseVisualStyleBackColor = true;
+            bthXoa.Click += bthXoa_Click;
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.Location = new Point(297, 43);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(169, 56);
+            btnCapNhat.TabIndex = 0;
+            btnCapNhat.Text = "Cập nhật";
+            btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
+            // 
+            // btnThem
+            // 
+            btnThem.Location = new Point(65, 43);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(169, 56);
+            btnThem.TabIndex = 0;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(1150, 160);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(527, 31);
+            txtTimKiem.TabIndex = 6;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(1150, 120);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 25);
+            label2.TabIndex = 7;
+            label2.Text = "Tìm kiếm";
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(lblSoLuongDangChieu);
+            groupBox5.Controls.Add(txtSoLuongDangChieu);
+            groupBox5.Controls.Add(txtSoLuongPhim);
+            groupBox5.Controls.Add(lblSoLuongPhim);
+            groupBox5.Location = new Point(1150, 535);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(527, 157);
+            groupBox5.TabIndex = 8;
+            groupBox5.TabStop = false;
+            // 
+            // lblSoLuongDangChieu
+            // 
+            lblSoLuongDangChieu.AutoSize = true;
+            lblSoLuongDangChieu.Location = new Point(38, 97);
+            lblSoLuongDangChieu.Name = "lblSoLuongDangChieu";
+            lblSoLuongDangChieu.Size = new Size(223, 25);
+            lblSoLuongDangChieu.TabIndex = 1;
+            lblSoLuongDangChieu.Text = "Số lượng phim đang chiếu";
+            // 
+            // txtSoLuongDangChieu
+            // 
+            txtSoLuongDangChieu.Enabled = false;
+            txtSoLuongDangChieu.Location = new Point(316, 94);
+            txtSoLuongDangChieu.Name = "txtSoLuongDangChieu";
+            txtSoLuongDangChieu.Size = new Size(150, 31);
+            txtSoLuongDangChieu.TabIndex = 2;
+            // 
+            // lblSoLuongPhim
+            // 
+            lblSoLuongPhim.AutoSize = true;
+            lblSoLuongPhim.Location = new Point(38, 43);
+            lblSoLuongPhim.Name = "lblSoLuongPhim";
+            lblSoLuongPhim.Size = new Size(131, 25);
+            lblSoLuongPhim.TabIndex = 1;
+            lblSoLuongPhim.Text = "Số lượng phim";
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(lsvDSPhim);
             groupBox2.Location = new Point(33, 718);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1069, 316);
+            groupBox2.Size = new Size(1644, 320);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phim";
-            // 
-            // lsvDSPhim
-            // 
-            lsvDSPhim.Location = new Point(51, 35);
-            lsvDSPhim.Name = "lsvDSPhim";
-            lsvDSPhim.Size = new Size(963, 248);
-            lsvDSPhim.TabIndex = 0;
-            lsvDSPhim.UseCompatibleStateImageBehavior = false;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Location = new Point(1150, 120);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(527, 150);
-            groupBox3.TabIndex = 5;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "TÌm kiếm";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(button4);
-            groupBox4.Controls.Add(button3);
-            groupBox4.Controls.Add(button2);
-            groupBox4.Controls.Add(button1);
-            groupBox4.Location = new Point(1150, 292);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(527, 483);
-            groupBox4.TabIndex = 5;
-            groupBox4.TabStop = false;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(202, 281);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 56);
-            button4.TabIndex = 0;
-            button4.Text = "Thoát";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(202, 204);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 56);
-            button3.TabIndex = 0;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(202, 125);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 56);
-            button2.TabIndex = 0;
-            button2.Text = "Cập nhật";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(202, 49);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 56);
-            button1.TabIndex = 0;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox2
-            // 
-            richTextBox2.Location = new Point(210, 310);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(804, 206);
-            richTextBox2.TabIndex = 7;
-            richTextBox2.Text = "";
             // 
             // FPhim
             // 
@@ -296,52 +424,69 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1758, 1087);
+            Controls.Add(groupBox5);
+            Controls.Add(label2);
+            Controls.Add(txtTimKiem);
             Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
-            Controls.Add(label1);
+            Controls.Add(lblTenForm);
             Controls.Add(groupBox1);
             Name = "FPhim";
             Text = "FPhim";
+            Load += FPhim_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblTenForm;
         private Label lblTenPhim;
         private Label lblTheLoai;
         private Label lblDaoDien;
-        private TextBox txtTenPhim;
+        private TextBox txtSoLuongPhim;
         private GroupBox groupBox1;
         private TextBox textBox4;
         private TextBox txtDaoDien;
         private TextBox txtTheLoai;
-        private Label label6;
+        private Label lblMoTa;
         private Label lblNgayPH;
         private RichTextBox richTextBox1;
         private TextBox textBox5;
-        private Label label7;
+        private Label lblDoDai;
         private TextBox textBox7;
         private TextBox textBox6;
-        private Label label9;
-        private Label label8;
-        private GroupBox groupBox2;
+        private Label lblDinhDang;
+        private Label lblTrangThai;
         private ListView lsvDSPhim;
         private DateTimePicker dtNgayPH;
         private ComboBox cbDinhDang;
         private ComboBox cbTrangThai;
-        private GroupBox groupBox3;
         private GroupBox groupBox4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private Button button4;
-        private RichTextBox richTextBox2;
+        private Button bthXoa;
+        private Button btnCapNhat;
+        private Button btnThem;
+        private Button btnHuy;
+        private RichTextBox rtbMoTa;
+        private TextBox txtTimKiem;
+        private Label label2;
+        private Button btnThoat;
+        private TextBox txtTenPhim;
+        private GroupBox groupBox5;
+        private Label lblSoLuongDangChieu;
+        private TextBox txtSoLuongDangChieu;
+        private Label lblSoLuongPhim;
+        private TextBox txtDoDai;
+        private GroupBox groupBox2;
+        private TextBox txtIDPhim;
+        private Label lblIDPhim;
+        private TextBox txtHinhAnh;
+        private Label lblHinhAnh;
     }
 }

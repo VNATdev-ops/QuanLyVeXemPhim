@@ -16,18 +16,18 @@ namespace QuanLyVeXemPhim.Models
         private string theLoai;
         private string daoDien;
         private string moTa;
-        private string hinhAnh;
+        private string? hinhAnh;
         private DateTime ngayPH;
         private int doDai;
         private string trangThai;
         private string dinhDang;
 
-        public string IDPhim { get => IDPhim; set => IDPhim = value; }
+        public string IDPhim { get => iDPhim; set => iDPhim = value; }
         public string TenPhim { get => tenPhim; set => tenPhim = value; }
         public string TheLoai { get => theLoai; set => theLoai = value; }
         public string DaoDien { get => daoDien; set => daoDien = value; }
         public string MoTa { get => moTa; set => moTa = value; }
-        public string HinhAnh { get => hinhAnh; set => hinhAnh = value; }
+        public string? HinhAnh { get => hinhAnh; set => hinhAnh = value; }
         public DateTime NgayPH { get => ngayPH; set => ngayPH = value; }
         public int DoDai { get => doDai; set => doDai = value; }
         public string TrangThai { get => trangThai; set => trangThai = value; }

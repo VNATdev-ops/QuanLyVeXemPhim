@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtTinhTrang = new TextBox();
+            label9 = new Label();
+            txtIDPhim = new TextBox();
+            txtIDThanhVien = new TextBox();
+            txtGiaVe = new TextBox();
+            txtIDChoNgoi = new TextBox();
+            txtIDSuatChieu = new TextBox();
+            txtIDVe = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -45,18 +53,12 @@
             btnThem = new Button();
             panel2 = new Panel();
             groupBox4 = new GroupBox();
+            txtTimKiem = new TextBox();
             phim = new Label();
             groupBox3 = new GroupBox();
             label7 = new Label();
             txtTongSo = new Button();
             label8 = new Label();
-            txtIDVe = new TextBox();
-            txtIDSuatChieu = new TextBox();
-            txtIDChoNgoi = new TextBox();
-            txtGiaVe = new TextBox();
-            txtIDNguoiDung = new TextBox();
-            txtIDPhim = new TextBox();
-            txtTimKiem = new TextBox();
             groupBox1.SuspendLayout();
             s.SuspendLayout();
             panel1.SuspendLayout();
@@ -67,8 +69,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTinhTrang);
+            groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(txtIDPhim);
-            groupBox1.Controls.Add(txtIDNguoiDung);
+            groupBox1.Controls.Add(txtIDThanhVien);
             groupBox1.Controls.Add(txtGiaVe);
             groupBox1.Controls.Add(txtIDChoNgoi);
             groupBox1.Controls.Add(txtIDSuatChieu);
@@ -82,38 +86,97 @@
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 54);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(878, 228);
+            groupBox1.Size = new Size(1210, 228);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin vé xem phim";
+            // 
+            // txtTinhTrang
+            // 
+            txtTinhTrang.Location = new Point(935, 58);
+            txtTinhTrang.Name = "txtTinhTrang";
+            txtTinhTrang.Size = new Size(184, 34);
+            txtTinhTrang.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(786, 64);
+            label9.Name = "label9";
+            label9.Size = new Size(101, 28);
+            label9.TabIndex = 17;
+            label9.Text = "Tình trạng";
+            // 
+            // txtIDPhim
+            // 
+            txtIDPhim.Location = new Point(935, 115);
+            txtIDPhim.Name = "txtIDPhim";
+            txtIDPhim.Size = new Size(184, 34);
+            txtIDPhim.TabIndex = 16;
+            // 
+            // txtIDThanhVien
+            // 
+            txtIDThanhVien.Location = new Point(497, 115);
+            txtIDThanhVien.Name = "txtIDThanhVien";
+            txtIDThanhVien.Size = new Size(184, 34);
+            txtIDThanhVien.TabIndex = 15;
+            // 
+            // txtGiaVe
+            // 
+            txtGiaVe.Location = new Point(497, 56);
+            txtGiaVe.Name = "txtGiaVe";
+            txtGiaVe.Size = new Size(184, 34);
+            txtGiaVe.TabIndex = 14;
+            // 
+            // txtIDChoNgoi
+            // 
+            txtIDChoNgoi.Location = new Point(497, 172);
+            txtIDChoNgoi.Name = "txtIDChoNgoi";
+            txtIDChoNgoi.Size = new Size(184, 34);
+            txtIDChoNgoi.TabIndex = 13;
+            // 
+            // txtIDSuatChieu
+            // 
+            txtIDSuatChieu.Location = new Point(160, 115);
+            txtIDSuatChieu.Name = "txtIDSuatChieu";
+            txtIDSuatChieu.Size = new Size(184, 34);
+            txtIDSuatChieu.TabIndex = 12;
+            // 
+            // txtIDVe
+            // 
+            txtIDVe.Location = new Point(160, 58);
+            txtIDVe.Name = "txtIDVe";
+            txtIDVe.Size = new Size(184, 34);
+            txtIDVe.TabIndex = 11;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(350, 180);
+            label6.Location = new Point(788, 121);
             label6.Name = "label6";
-            label6.Size = new Size(80, 28);
+            label6.Size = new Size(89, 28);
             label6.TabIndex = 10;
-            label6.Text = "ID Phim";
+            label6.Text = "Mã Phim";
             label6.Click += label6_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(350, 121);
+            label5.Location = new Point(348, 121);
             label5.Name = "label5";
-            label5.Size = new Size(145, 28);
+            label5.Size = new Size(141, 28);
             label5.TabIndex = 4;
-            label5.Text = "ID Người Dùng";
+            label5.Text = "Mã Thành Viên";
             label5.Click += label5_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(350, 61);
+            label4.Location = new Point(348, 70);
             label4.Name = "label4";
             label4.Size = new Size(67, 28);
             label4.TabIndex = 3;
@@ -123,11 +186,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(29, 175);
+            label3.Location = new Point(348, 178);
             label3.Name = "label3";
-            label3.Size = new Size(120, 28);
+            label3.Size = new Size(129, 28);
             label3.TabIndex = 2;
-            label3.Text = "ID Chỗ Ngồi";
+            label3.Text = "Mã Chỗ Ngồi";
             // 
             // label2
             // 
@@ -135,9 +198,9 @@
             label2.Font = new Font("Segoe UI", 12F);
             label2.Location = new Point(29, 121);
             label2.Name = "label2";
-            label2.Size = new Size(129, 28);
+            label2.Size = new Size(135, 28);
             label2.TabIndex = 1;
-            label2.Text = "ID Suất Chiếu";
+            label2.Text = "Mã Suất chiếu";
             // 
             // label1
             // 
@@ -145,9 +208,9 @@
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(29, 61);
             label1.Name = "label1";
-            label1.Size = new Size(57, 28);
+            label1.Size = new Size(66, 28);
             label1.TabIndex = 0;
-            label1.Text = "ID Vé";
+            label1.Text = "Mã Vé";
             label1.Click += label1_Click;
             // 
             // s
@@ -156,7 +219,7 @@
             s.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             s.Location = new Point(12, 309);
             s.Name = "s";
-            s.Size = new Size(878, 228);
+            s.Size = new Size(1210, 228);
             s.TabIndex = 1;
             s.TabStop = false;
             s.Text = "Danh Sách Vé Xem Phim";
@@ -166,7 +229,7 @@
             lsvVeXemPhim.Dock = DockStyle.Fill;
             lsvVeXemPhim.Location = new Point(3, 30);
             lsvVeXemPhim.Name = "lsvVeXemPhim";
-            lsvVeXemPhim.Size = new Size(872, 195);
+            lsvVeXemPhim.Size = new Size(1204, 195);
             lsvVeXemPhim.TabIndex = 0;
             lsvVeXemPhim.UseCompatibleStateImageBehavior = false;
             // 
@@ -177,7 +240,7 @@
             panel1.Controls.Add(btnSua);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Location = new Point(946, 58);
+            panel1.Location = new Point(1228, 54);
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 224);
             panel1.TabIndex = 5;
@@ -232,7 +295,7 @@
             // 
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
-            panel2.Location = new Point(946, 288);
+            panel2.Location = new Point(1228, 284);
             panel2.Name = "panel2";
             panel2.Size = new Size(221, 271);
             panel2.TabIndex = 6;
@@ -247,6 +310,13 @@
             groupBox4.TabIndex = 1;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tìm kiếm";
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(16, 76);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(184, 27);
+            txtTimKiem.TabIndex = 16;
             // 
             // phim
             // 
@@ -295,60 +365,11 @@
             label8.TabIndex = 7;
             label8.Text = "Quản lý Vé Xem Phim";
             // 
-            // txtIDVe
-            // 
-            txtIDVe.Location = new Point(160, 58);
-            txtIDVe.Name = "txtIDVe";
-            txtIDVe.Size = new Size(184, 34);
-            txtIDVe.TabIndex = 11;
-            // 
-            // txtIDSuatChieu
-            // 
-            txtIDSuatChieu.Location = new Point(160, 115);
-            txtIDSuatChieu.Name = "txtIDSuatChieu";
-            txtIDSuatChieu.Size = new Size(184, 34);
-            txtIDSuatChieu.TabIndex = 12;
-            // 
-            // txtIDChoNgoi
-            // 
-            txtIDChoNgoi.Location = new Point(160, 169);
-            txtIDChoNgoi.Name = "txtIDChoNgoi";
-            txtIDChoNgoi.Size = new Size(184, 34);
-            txtIDChoNgoi.TabIndex = 13;
-            // 
-            // txtGiaVe
-            // 
-            txtGiaVe.Location = new Point(499, 55);
-            txtGiaVe.Name = "txtGiaVe";
-            txtGiaVe.Size = new Size(184, 34);
-            txtGiaVe.TabIndex = 14;
-            // 
-            // txtIDNguoiDung
-            // 
-            txtIDNguoiDung.Location = new Point(499, 115);
-            txtIDNguoiDung.Name = "txtIDNguoiDung";
-            txtIDNguoiDung.Size = new Size(184, 34);
-            txtIDNguoiDung.TabIndex = 15;
-            // 
-            // txtIDPhim
-            // 
-            txtIDPhim.Location = new Point(499, 169);
-            txtIDPhim.Name = "txtIDPhim";
-            txtIDPhim.Size = new Size(184, 34);
-            txtIDPhim.TabIndex = 16;
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Location = new Point(16, 76);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(184, 27);
-            txtTimKiem.TabIndex = 16;
-            // 
             // FVeXemPhim
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1228, 590);
+            ClientSize = new Size(1470, 590);
             Controls.Add(label8);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -395,11 +416,13 @@
         private ListView lsvVeXemPhim;
         private Label label8;
         private TextBox txtIDPhim;
-        private TextBox txtIDNguoiDung;
+        private TextBox txtIDThanhVien;
         private TextBox txtGiaVe;
         private TextBox txtIDChoNgoi;
         private TextBox txtIDSuatChieu;
         private TextBox txtIDVe;
         private TextBox txtTimKiem;
+        private TextBox txtTinhTrang;
+        private Label label9;
     }
 }
