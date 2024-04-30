@@ -48,7 +48,7 @@
             panel1 = new Panel();
             btnThoat = new Button();
             btnCapNhat = new Button();
-            btnSua = new Button();
+            btnNhapMoi = new Button();
             btnXoa = new Button();
             btnThem = new Button();
             panel2 = new Panel();
@@ -238,7 +238,7 @@
             // 
             panel1.Controls.Add(btnThoat);
             panel1.Controls.Add(btnCapNhat);
-            panel1.Controls.Add(btnSua);
+            panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Location = new Point(1228, 54);
@@ -254,6 +254,7 @@
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnCapNhat
             // 
@@ -263,15 +264,17 @@
             btnCapNhat.TabIndex = 3;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
             // 
-            // btnSua
+            // btnNhapMoi
             // 
-            btnSua.Location = new Point(36, 96);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(154, 32);
-            btnSua.TabIndex = 2;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
+            btnNhapMoi.Location = new Point(36, 96);
+            btnNhapMoi.Name = "btnNhapMoi";
+            btnNhapMoi.Size = new Size(154, 32);
+            btnNhapMoi.TabIndex = 2;
+            btnNhapMoi.Text = "Nhập mới";
+            btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -281,6 +284,7 @@
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -400,7 +404,7 @@
         private Panel panel1;
         private Button btnThoat;
         private Button btnCapNhat;
-        private Button btnSua;
+        private Button btnNhapMoi;
         private Button btnXoa;
         private Button btnThem;
         private Panel panel2;

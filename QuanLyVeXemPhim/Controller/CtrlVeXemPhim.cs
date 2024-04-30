@@ -62,7 +62,7 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi.IDChoNgoi);
                 cmd.Parameters.AddWithValue("@giaVe", obj.GiaVe);
                 cmd.Parameters.AddWithValue("@tinhTrang", obj.TinhTrang);
-                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
+                cmd.Parameters.AddWithValue("@idve", (obj.IDVe));
 
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
@@ -75,7 +75,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update vexemphim set idThanhVien=@idThanhVien, idPhim=@idPhim, idSuatChieu=@idSuatChieu, idChoNgoi=@idChoNgoi, giaVe=@giaVe, tinhTrang=@tinhTrang where                 string sql = \"update vexemphim set , idThanhVien=@idThanhVien, idPhim=@idPhim, idSuatChieu=@idSuatChieu, idChoNgoi=@idChoNgoi, giaVe=@giaVe, tinhTrang=@tinhTrang where idve=@idve";
+                string sql = "update vexemphim set idThanhVien=@idThanhVien, idPhim=@idPhim, idSuatChieu=@idSuatChieu, idChoNgoi=@idChoNgoi, giaVe=@giaVe, tinhTrang=@tinhTrang where idve=@idve";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@idThanhVien", obj.ThanhVien.IDThanhVien);
                 cmd.Parameters.AddWithValue("@idPhim", obj.Phim.IDPhim);
@@ -91,6 +91,50 @@ namespace QuanLyVeXemPhim.Controller
             }
             catch { return false; }
 
+        }
+
+        public bool delete(CVeXemPhim obj) 
+        {
+            try
+            {
+                string sql = "delete from vexemphim where idve =@idve";
+                SqlCommand cmd = new SqlCommand(sql);
+                cmd.Parameters.AddWithValue("@idve", obj.IDVe);
+                cmd.Connection = cnn;
+                int n = cmd.ExecuteNonQuery();
+                return (n > 0);
+            }
+            catch { return false; }
+        }
+
+        //tìm sản phẩm theo ĐK
+        public List<CVeXemPhim> findCriteria(string DK)
+        {//cho phép tìm theo tên or mã sp hoặc nước sản xuất or đon vị tính
+            string sql = "select * from vexemphim where idve like @dk or idphim like @dk or giave like @dk or tinhtrang like @dk";
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dk", "%" + DK + "%");
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CVeXemPhim> arrs = new List<CVeXemPhim>();
+            while (reader.Read())
+            {
+                CVeXemPhim s = new CVeXemPhim();
+                s.IDVe = reader.GetString(0);
+                s.ThanhVien = new CThanhVien();
+                s.ThanhVien.IDThanhVien = reader.GetString(1);
+                s.Phim = new CPhim();
+                s.Phim.IDPhim = reader.GetString(2);
+                s.SuatChieu = new CSuatChieu();
+                s.SuatChieu.IDSuatChieu = reader.GetString(3);
+                s.ChoNgoi = new CChoNgoi();
+                s.ChoNgoi.IDChoNgoi = reader.GetString(4);
+                s.GiaVe = (int)reader.GetDecimal(5);
+                s.TinhTrang = reader.GetString(6);
+                // thêm vào ds
+                arrs.Add(s);
+            }
+            reader.Close();
+            return arrs;
         }
     }
 }

@@ -24,6 +24,11 @@ namespace QuanLyVeXemPhim.Models
         internal CPhim Phim { get => phim; set => phim = value; }
         internal CSuatChieu SuatChieu { get => suatChieu; set => suatChieu = value; }
         internal CChoNgoi ChoNgoi { get => choNgoi; set => choNgoi = value; }
+        public string ThanhVien1 { get; }
+        public string Phim1 { get; }
+        public string Suatchieu { get; }
+        public string ChoNgoi1 { get; }
+        public string V { get; }
 
         public CVeXemPhim()
         {
@@ -38,6 +43,17 @@ namespace QuanLyVeXemPhim.Models
             this.choNgoi = choNgoi;
             this.giaVe = giaVe;
             this.tinhTrang = tinhTrang;
+        }
+
+        public CVeXemPhim(string idVe, string thanhVien1, string phim1, string suatchieu, string choNgoi1, string v, string tinhtrang)
+        {
+            iDVe = idVe;
+            ThanhVien1 = thanhVien1;
+            Phim1 = phim1;
+            Suatchieu = suatchieu;
+            ChoNgoi1 = choNgoi1;
+            V = v;
+            tinhTrang = tinhtrang;
         }
 
         public override bool Equals(object? obj)
