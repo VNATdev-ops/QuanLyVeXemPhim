@@ -59,6 +59,7 @@ namespace QuanLyVeXemPhim.Controller
                 string sql = "insert into phim values (@idphim, @tenphim, @theloai, @daodien, @mota, " +
                              "@hinhanh, @ngayphathanh, @dodai, @trangthai, @dinhdang)";
                 SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@idphim", obj.IDPhim);
                 cmd.Parameters.AddWithValue("@tenphim", obj.TenPhim);
                 cmd.Parameters.AddWithValue("@theloai", obj.TheLoai);
@@ -96,6 +97,7 @@ namespace QuanLyVeXemPhim.Controller
                              "hinhanh = @hinhanh, ngayphathanh = @ngayphathanh, dodai = @dodai, trangthai = @trangthai, dinhdang = @dinhdang " +
                              "where idphim = @idphim";
                 SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@tenphim", obj.TenPhim);
                 cmd.Parameters.AddWithValue("@theloai", obj.TheLoai);
                 cmd.Parameters.AddWithValue("@daodien", obj.DaoDien);
@@ -114,7 +116,6 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@dinhdang", obj.DinhDang);
                 cmd.Parameters.AddWithValue("@idphim", obj.IDPhim);
 
-                cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
             }

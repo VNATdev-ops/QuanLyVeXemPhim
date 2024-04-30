@@ -74,7 +74,7 @@
             // lblTenForm
             // 
             lblTenForm.AutoSize = true;
-            lblTenForm.Location = new Point(476, 55);
+            lblTenForm.Location = new Point(503, 67);
             lblTenForm.Name = "lblTenForm";
             lblTenForm.Size = new Size(134, 25);
             lblTenForm.TabIndex = 0;
@@ -137,7 +137,7 @@
             groupBox1.Controls.Add(lblIDPhim);
             groupBox1.Controls.Add(lblDaoDien);
             groupBox1.Controls.Add(lblTenPhim);
-            groupBox1.Location = new Point(33, 107);
+            groupBox1.Location = new Point(60, 119);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1069, 585);
             groupBox1.TabIndex = 3;
@@ -297,7 +297,7 @@
             groupBox4.Controls.Add(bthXoa);
             groupBox4.Controls.Add(btnCapNhat);
             groupBox4.Controls.Add(btnThem);
-            groupBox4.Location = new Point(1150, 225);
+            groupBox4.Location = new Point(1177, 237);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(527, 286);
             groupBox4.TabIndex = 5;
@@ -355,7 +355,7 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(1150, 160);
+            txtTimKiem.Location = new Point(1177, 172);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(527, 31);
             txtTimKiem.TabIndex = 6;
@@ -364,7 +364,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1150, 120);
+            label2.Location = new Point(1177, 132);
             label2.Name = "label2";
             label2.Size = new Size(84, 25);
             label2.TabIndex = 7;
@@ -376,7 +376,7 @@
             groupBox5.Controls.Add(txtSoLuongDangChieu);
             groupBox5.Controls.Add(txtSoLuongPhim);
             groupBox5.Controls.Add(lblSoLuongPhim);
-            groupBox5.Location = new Point(1150, 535);
+            groupBox5.Location = new Point(1177, 547);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(527, 157);
             groupBox5.TabIndex = 8;
@@ -411,7 +411,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(lsvDSPhim);
-            groupBox2.Location = new Point(33, 718);
+            groupBox2.Location = new Point(60, 730);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1644, 320);
             groupBox2.TabIndex = 4;
@@ -423,7 +423,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1758, 1087);
+            ClientSize = new Size(1778, 1144);
             Controls.Add(groupBox5);
             Controls.Add(label2);
             Controls.Add(txtTimKiem);

@@ -117,7 +117,12 @@ namespace QuanLyVeXemPhim.Views
                 string mota = rtbMoTa.Text;
                 string hinhanh = txtHinhAnh.Text ?? null;
                 DateTime ngayphathanh = dtNgayPH.Value;
-                int dodai = int.Parse(txtDoDai.Text);
+                int dodai;
+                if (!int.TryParse(txtDoDai.Text, out dodai))
+                {
+                    MessageBox.Show("Độ dài phải là một số nguyên.");
+                    return;
+                }
                 string trangthai = cbTrangThai.Text;
                 string dinhdang = cbDinhDang.Text;
 
@@ -125,7 +130,7 @@ namespace QuanLyVeXemPhim.Views
                 if (ctrPhim.insert(s))
                 {
                     MessageBox.Show("Thêm thông tin phim thành công.");
-                    string[] objphim = { idphim, tenphim, theloai, daodien, mota, hinhanh, ngayphathanh + "", dodai + "", trangthai, dinhdang };
+                    string[] objphim = { idphim, tenphim, theloai, daodien, mota, hinhanh, ngayphathanh.ToString(), dodai.ToString(), trangthai, dinhdang };
                     ListViewItem item = new ListViewItem(objphim);
                     lsvDSPhim.Items.Add(item);
                     dsPhim.Add(s);
@@ -134,9 +139,9 @@ namespace QuanLyVeXemPhim.Views
                     MessageBox.Show("Thêm thông tin phim thất bại.");
                 CapNhatSoLuongPhim();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin phim.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin phim.\n" + ex.Message);
             }
         }
 
