@@ -70,7 +70,15 @@ namespace QuanLyVeXemPhim.Views
             dsVeXemPhim = ctrlVeXemPhim.findall();
             foreach (CVeXemPhim s in dsVeXemPhim)
             {
-                string[] obj = { s.IDVe, s.ThanhVien.TenThanhVien, s.Phim.IDPhim, s.SuatChieu.IDSuatChieu, s.ChoNgoi.IDChoNgoi, s.GiaVe + "", s.TinhTrang };
+                string[] obj = {
+                    s.IDVe,
+                    s.SuatChieu.IDSuatChieu,
+                    s.ChoNgoi.IDChoNgoi,
+                    s.TinhTrang,
+                    s.GiaVe.ToString(),
+                    s.ThanhVien.IDThanhVien, 
+                    s.Phim.IDPhim, 
+                    };
                 ListViewItem item = new ListViewItem(obj);
                 lsvVeXemPhim.Items.Add(item);
             }
