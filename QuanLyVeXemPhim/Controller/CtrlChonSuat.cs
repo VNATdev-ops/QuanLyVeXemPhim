@@ -103,7 +103,7 @@ namespace QuanLyVeXemPhim.Controller
                 CChonSuat s = new CChonSuat();
                 s.Phim.IDPhim = reader.GetString(0);
                 s.Rap.IDRap = reader.GetString(1);
-                s.SuatChieu.IDSuatChieu = reader.GetString(2)
+                s.SuatChieu.IDSuatChieu = reader.GetString(2);
                 // thêm vào ds
                 arrs.Add(s);
             }
