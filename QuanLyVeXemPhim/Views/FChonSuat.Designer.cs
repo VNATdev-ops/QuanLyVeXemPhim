@@ -42,14 +42,14 @@
             btnXoa = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtIDphim = new Button();
-            txtIDrap = new Button();
             txtIDsuatchieu = new Button();
-            listView1 = new ListView();
+            txtIDrap = new Button();
+            txtIDphim = new Button();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            groupBox2 = new GroupBox();
+            lsvDSCS = new ListView();
             label4 = new Label();
             panel2.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -96,6 +96,7 @@
             txtTimKiem.Size = new Size(203, 40);
             txtTimKiem.TabIndex = 1;
             txtTimKiem.UseVisualStyleBackColor = true;
+            txtTimKiem.Click += txtTimKiem_Click;
             // 
             // groupBox3
             // 
@@ -201,35 +202,29 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin chọn suất";
             // 
-            // groupBox2
+            // txtIDsuatchieu
             // 
-            groupBox2.Controls.Add(listView1);
-            groupBox2.Location = new Point(12, 267);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(776, 268);
-            groupBox2.TabIndex = 13;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Danh mục chọn suất";
+            txtIDsuatchieu.Location = new Point(175, 143);
+            txtIDsuatchieu.Name = "txtIDsuatchieu";
+            txtIDsuatchieu.Size = new Size(264, 45);
+            txtIDsuatchieu.TabIndex = 5;
+            txtIDsuatchieu.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // txtIDrap
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.8F);
-            label1.Location = new Point(44, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(75, 25);
-            label1.TabIndex = 0;
-            label1.Text = "ID Phim";
+            txtIDrap.Location = new Point(175, 87);
+            txtIDrap.Name = "txtIDrap";
+            txtIDrap.Size = new Size(264, 45);
+            txtIDrap.TabIndex = 4;
+            txtIDrap.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // txtIDphim
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.8F);
-            label2.Location = new Point(44, 99);
-            label2.Name = "label2";
-            label2.Size = new Size(66, 25);
-            label2.TabIndex = 1;
-            label2.Text = "ID Rạp";
+            txtIDphim.Location = new Point(175, 33);
+            txtIDphim.Name = "txtIDphim";
+            txtIDphim.Size = new Size(264, 45);
+            txtIDphim.TabIndex = 3;
+            txtIDphim.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -241,38 +236,45 @@
             label3.TabIndex = 2;
             label3.Text = "ID Suất chiếu";
             // 
-            // txtIDphim
+            // label2
             // 
-            txtIDphim.Location = new Point(175, 33);
-            txtIDphim.Name = "txtIDphim";
-            txtIDphim.Size = new Size(264, 45);
-            txtIDphim.TabIndex = 3;
-            txtIDphim.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.8F);
+            label2.Location = new Point(44, 99);
+            label2.Name = "label2";
+            label2.Size = new Size(66, 25);
+            label2.TabIndex = 1;
+            label2.Text = "ID Rạp";
             // 
-            // txtIDrap
+            // label1
             // 
-            txtIDrap.Location = new Point(175, 87);
-            txtIDrap.Name = "txtIDrap";
-            txtIDrap.Size = new Size(264, 45);
-            txtIDrap.TabIndex = 4;
-            txtIDrap.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F);
+            label1.Location = new Point(44, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(75, 25);
+            label1.TabIndex = 0;
+            label1.Text = "ID Phim";
             // 
-            // txtIDsuatchieu
+            // groupBox2
             // 
-            txtIDsuatchieu.Location = new Point(175, 143);
-            txtIDsuatchieu.Name = "txtIDsuatchieu";
-            txtIDsuatchieu.Size = new Size(264, 45);
-            txtIDsuatchieu.TabIndex = 5;
-            txtIDsuatchieu.UseVisualStyleBackColor = true;
+            groupBox2.Controls.Add(lsvDSCS);
+            groupBox2.Location = new Point(12, 267);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(776, 268);
+            groupBox2.TabIndex = 13;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Danh mục chọn suất";
             // 
-            // listView1
+            // lsvDSCS
             // 
-            listView1.Dock = DockStyle.Fill;
-            listView1.Location = new Point(3, 23);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(770, 242);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            lsvDSCS.Dock = DockStyle.Fill;
+            lsvDSCS.Location = new Point(3, 23);
+            lsvDSCS.Name = "lsvDSCS";
+            lsvDSCS.Size = new Size(770, 242);
+            lsvDSCS.TabIndex = 0;
+            lsvDSCS.UseCompatibleStateImageBehavior = false;
+            lsvDSCS.SelectedIndexChanged += lsvDSCS_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -296,6 +298,7 @@
             Controls.Add(panel1);
             Name = "FChonSuat";
             Text = "FChonSuat";
+            Load += FChonSuat_Load;
             panel2.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
@@ -332,7 +335,7 @@
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
-        private ListView listView1;
+        private ListView lsvDSCS;
         private Label label4;
     }
 }
