@@ -232,6 +232,7 @@
             lsvVeXemPhim.Size = new Size(1204, 195);
             lsvVeXemPhim.TabIndex = 0;
             lsvVeXemPhim.UseCompatibleStateImageBehavior = false;
+            lsvVeXemPhim.SelectedIndexChanged += lsvVeXemPhim_SelectedIndexChanged;
             // 
             // panel1
             // 
@@ -317,6 +318,7 @@
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(184, 27);
             txtTimKiem.TabIndex = 16;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // phim
             // 

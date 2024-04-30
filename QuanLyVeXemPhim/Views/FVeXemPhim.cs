@@ -74,8 +74,41 @@ namespace QuanLyVeXemPhim.Views
                 ListViewItem item = new ListViewItem(obj);
                 lsvVeXemPhim.Items.Add(item);
             }
+
             txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
 
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lsvVeXemPhim_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                ListViewItem item = lsvVeXemPhim.SelectedItems[0];
+                CVeXemPhim veXemPhim = new CVeXemPhim();
+                veXemPhim.IDVe = item.SubItems[0].Text;
+                int index = dsVeXemPhim.IndexOf(veXemPhim);
+                if (index < 0)
+                {
+                    return;
+                }
+
+                veXemPhim = dsVeXemPhim[index];
+
+                txtIDVe.Text = veXemPhim.IDVe;
+                txtIDThanhVien.Text = veXemPhim.ThanhVien.IDThanhVien;
+                txtIDPhim.Text = veXemPhim.Phim.IDPhim;
+                txtIDSuatChieu.Text = veXemPhim.SuatChieu.IDSuatChieu;
+                txtIDChoNgoi.Text = veXemPhim.ChoNgoi.IDChoNgoi;
+                txtGiaVe.Text = veXemPhim.GiaVe + "";
+                txtTinhTrang.Text = veXemPhim.TinhTrang;
+
+            }
+            catch { }
         }
     }
 }

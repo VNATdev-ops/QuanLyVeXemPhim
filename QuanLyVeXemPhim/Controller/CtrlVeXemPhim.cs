@@ -40,8 +40,10 @@ namespace QuanLyVeXemPhim.Controller
                 s.ChoNgoi = new CChoNgoi();
                 s.ChoNgoi.IDChoNgoi = reader.GetString(4);
                 s.GiaVe = (int)reader.GetDecimal(5);
+                s.TinhTrang = reader.GetString(6);
 
                 arrs.Add(s);
+
             }
             reader.Close();
             return arrs;
@@ -54,13 +56,14 @@ namespace QuanLyVeXemPhim.Controller
             {
                 string sql = "insert into vexemphim values (@idve, @idThanhVien,@idPhim,@idSuatChieu, @idChoNgoi, @giaVe, @tinhTrang)";
                 SqlCommand cmd = new SqlCommand(sql);
-                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
                 cmd.Parameters.AddWithValue("@idThanhVien", obj.ThanhVien.IDThanhVien);
                 cmd.Parameters.AddWithValue("@idPhim", obj.Phim.IDPhim);
                 cmd.Parameters.AddWithValue("@idSuatChieu", obj.SuatChieu.IDSuatChieu);
                 cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi.IDChoNgoi);
                 cmd.Parameters.AddWithValue("@giaVe", obj.GiaVe);
                 cmd.Parameters.AddWithValue("@tinhTrang", obj.TinhTrang);
+                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
+
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return (n > 0);
@@ -74,13 +77,14 @@ namespace QuanLyVeXemPhim.Controller
             {
                 string sql = "update vexemphim set idThanhVien=@idThanhVien, idPhim=@idPhim, idSuatChieu=@idSuatChieu, idChoNgoi=@idChoNgoi, giaVe=@giaVe, tinhTrang=@tinhTrang where                 string sql = \"update vexemphim set , idThanhVien=@idThanhVien, idPhim=@idPhim, idSuatChieu=@idSuatChieu, idChoNgoi=@idChoNgoi, giaVe=@giaVe, tinhTrang=@tinhTrang where idve=@idve";
                 SqlCommand cmd = new SqlCommand(sql);
-                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
                 cmd.Parameters.AddWithValue("@idThanhVien", obj.ThanhVien.IDThanhVien);
                 cmd.Parameters.AddWithValue("@idPhim", obj.Phim.IDPhim);
                 cmd.Parameters.AddWithValue("@idSuatChieu", obj.SuatChieu.IDSuatChieu);
                 cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi.IDChoNgoi);
                 cmd.Parameters.AddWithValue("@giaVe", obj.GiaVe);
                 cmd.Parameters.AddWithValue("@tinhTrang", obj.TinhTrang);
+                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
+
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return (n > 0);
