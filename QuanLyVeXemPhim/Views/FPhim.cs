@@ -49,6 +49,8 @@ namespace QuanLyVeXemPhim.Views
 
         private void FPhim_Load(object sender, EventArgs e)
         {
+
+            txtIDPhim.Focus();
             dsPhim = ctrPhim.findAll();
             int count = 0;
             foreach (CPhim s in dsPhim)
@@ -75,8 +77,9 @@ namespace QuanLyVeXemPhim.Views
             cbTrangThai.DataSource = dsTrangThai;
             List<string> dsDinhDang = new List<string> { "2D", "3D", "IMAX" };
             cbDinhDang.DataSource = dsDinhDang;
+            cbTrangThai.SelectedItem = null;
+            cbDinhDang.SelectedItem = null;
 
-            txtIDPhim.Focus();
         }
 
         private void lsvDSPhim_SelectedIndexChanged(object sender, EventArgs e)

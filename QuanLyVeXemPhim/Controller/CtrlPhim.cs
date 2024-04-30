@@ -83,7 +83,6 @@ namespace QuanLyVeXemPhim.Controller
             }
             catch (Exception ex)
             {
-                // Ghi nhận thông tin lỗi vào console hoặc file log
                 Console.WriteLine("Lỗi khi thêm phim vào cơ sở dữ liệu: " + ex.Message);
                 return false;
             }
@@ -119,8 +118,9 @@ namespace QuanLyVeXemPhim.Controller
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine("Lỗi khi cập nhật phim vào cơ sở dữ liệu: " + ex.Message);
                 return false;
             }
         }
@@ -136,7 +136,11 @@ namespace QuanLyVeXemPhim.Controller
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa phim khỏi cơ sở dữ liệu: " + ex.Message);
+                return false;
+            }
         }
 
         public List<CPhim> findCriteria(string dk)
