@@ -38,7 +38,6 @@ namespace QuanLyVeXemPhim.Views
             lsvVeXemPhim.View = View.Details;
             lsvVeXemPhim.FullRowSelect = true;
 
-
         }
 
         private void btnThem_Click(object sender, EventArgs e)
