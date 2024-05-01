@@ -49,7 +49,10 @@ namespace QuanLyVeXemPhim.Models
         {
             return HashCode.Combine(iDThanhVien);
         }
-        
 
+        public override string ToString()
+        {
+            return IDThanhVien;
+        }
     }
 }

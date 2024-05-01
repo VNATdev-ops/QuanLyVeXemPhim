@@ -12,9 +12,9 @@ namespace QuanLyVeXemPhim.Models
         private CVeXemPhim ve;
         private int soLuong;
 
-        public int SoLuong { get => soLuong; set => soLuong = value; }
         internal CHoaDon HoaDon { get => hoaDon; set => hoaDon = value; }
         internal CVeXemPhim Ve { get => ve; set => ve = value; }
+        public int SoLuong { get => soLuong; set => soLuong = value; }
 
         public CCTHDVe(CHoaDon hoaDon, CVeXemPhim ve, int soLuong)
         {

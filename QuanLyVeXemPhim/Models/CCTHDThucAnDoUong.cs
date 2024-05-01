@@ -12,9 +12,9 @@ namespace QuanLyVeXemPhim.Models
         private CThucAnDoUong sanPham;
         private int soLuong;
 
-        public int SoLuong { get => soLuong; set => soLuong = value; }
         internal CHoaDon HoaDon { get => hoaDon; set => hoaDon = value; }
         internal CThucAnDoUong SanPham { get => sanPham; set => sanPham = value; }
+        public int SoLuong { get => soLuong; set => soLuong = value; }
 
         public CCTHDThucAnDoUong(CHoaDon hoaDon, CThucAnDoUong sanPham, int soLuong)
         {
