@@ -17,9 +17,6 @@ namespace QuanLyVeXemPhim.Views
         CtrlChonSuat ctrlChonSuat = new CtrlChonSuat();
         List<CChonSuat> dsChonSuat = new List<CChonSuat>();
 
-        CtrlRapChieuPhim ctrlRapChieuPhim = new CtrlRapChieuPhim();
-        List<CRapChieuPhim> dsRapChieuPhim = new List<CRapChieuPhim>();
-
         public FChonSuat()
         {
             InitializeComponent();
@@ -57,8 +54,10 @@ namespace QuanLyVeXemPhim.Views
             {
                 ListViewItem item = lsvDSCS.SelectedItems[0];
                 CChonSuat chonSuat = new CChonSuat();
-                if (item != null) { return; }
-                chonSuat.Rap.IDRap = item.SubItems[0].Text;
+                //if (item != null) { return; }
+                if (lsvDSCS.SelectedItems.Count == 0)
+
+                chonSuat.Rap.IDRap = item.SubItems[1].Text;
                 int index = dsChonSuat.IndexOf(chonSuat);
                 // tìm kiếm phần tử được chọn ở vị trí nào trong ds
                 if (index < 0)

@@ -19,7 +19,7 @@ namespace QuanLyVeXemPhim.Controller
         }
         public List<CChonSuat> findall()
         {
-            string sql = "select * from ChonSuat";
+            string sql = "select * from chonsuat";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();

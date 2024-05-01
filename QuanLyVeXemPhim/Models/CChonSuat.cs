@@ -23,8 +23,12 @@ namespace QuanLyVeXemPhim.Models
             this.suatChieu = suatChieu;
         }
 
+
         public CChonSuat()
         {
+            this.Phim = new CPhim();
+            this.Rap = new CRapChieuPhim();
+            this.SuatChieu = new CSuatChieu();
         }
 
         public override bool Equals(object? obj)
