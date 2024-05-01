@@ -14,7 +14,7 @@ namespace QuanLyVeXemPhim
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            Application.Run(new FRapChieuPhim());
+            Application.Run(new FLichSuTichDiem());
 
         }
     }

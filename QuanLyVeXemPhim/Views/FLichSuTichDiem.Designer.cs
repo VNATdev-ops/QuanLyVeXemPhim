@@ -88,35 +88,35 @@
             // 
             txtSoDiemTichLuy.Location = new Point(197, 147);
             txtSoDiemTichLuy.Name = "txtSoDiemTichLuy";
-            txtSoDiemTichLuy.Size = new Size(421, 31);
+            txtSoDiemTichLuy.Size = new Size(666, 31);
             txtSoDiemTichLuy.TabIndex = 9;
             // 
             // txtIDThanhVien
             // 
-            txtIDThanhVien.Location = new Point(493, 94);
+            txtIDThanhVien.Location = new Point(617, 94);
             txtIDThanhVien.Name = "txtIDThanhVien";
-            txtIDThanhVien.Size = new Size(125, 31);
+            txtIDThanhVien.Size = new Size(246, 31);
             txtIDThanhVien.TabIndex = 8;
             // 
             // txtTongDiemTichLuy
             // 
-            txtTongDiemTichLuy.Location = new Point(493, 44);
+            txtTongDiemTichLuy.Location = new Point(617, 44);
             txtTongDiemTichLuy.Name = "txtTongDiemTichLuy";
-            txtTongDiemTichLuy.Size = new Size(125, 31);
+            txtTongDiemTichLuy.Size = new Size(246, 31);
             txtTongDiemTichLuy.TabIndex = 7;
             // 
             // txtThoiGianTichLuy
             // 
             txtThoiGianTichLuy.Location = new Point(197, 94);
             txtThoiGianTichLuy.Name = "txtThoiGianTichLuy";
-            txtThoiGianTichLuy.Size = new Size(125, 31);
+            txtThoiGianTichLuy.Size = new Size(246, 31);
             txtThoiGianTichLuy.TabIndex = 6;
             // 
             // txtIDLichSu
             // 
             txtIDLichSu.Location = new Point(197, 47);
             txtIDLichSu.Name = "txtIDLichSu";
-            txtIDLichSu.Size = new Size(125, 31);
+            txtIDLichSu.Size = new Size(246, 31);
             txtIDLichSu.TabIndex = 5;
             // 
             // label2
@@ -131,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(328, 50);
+            label5.Location = new Point(452, 50);
             label5.Name = "label5";
             label5.Size = new Size(159, 25);
             label5.TabIndex = 4;
@@ -140,11 +140,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(347, 100);
+            label4.Location = new Point(471, 100);
             label4.Name = "label4";
-            label4.Size = new Size(122, 25);
+            label4.Size = new Size(124, 25);
             label4.TabIndex = 3;
-            label4.Text = "ID Thành Viên";
+            label4.Text = "Mã thành viên";
             // 
             // label3
             // 
@@ -160,9 +160,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(47, 50);
             label1.Name = "label1";
-            label1.Size = new Size(91, 25);
+            label1.Size = new Size(92, 25);
             label1.TabIndex = 0;
-            label1.Text = "ID Lịch Sử";
+            label1.Text = "Mã lịch sử";
             // 
             // panel1
             // 
@@ -271,9 +271,9 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(50, 76);
+            txtTimKiem.Location = new Point(0, 82);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(125, 30);
+            txtTimKiem.Size = new Size(218, 30);
             txtTimKiem.TabIndex = 10;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -313,6 +313,7 @@
             txtTongSo.Size = new Size(203, 40);
             txtTongSo.TabIndex = 0;
             txtTongSo.UseVisualStyleBackColor = true;
+            txtTongSo.Click += txtTongSo_Click;
             // 
             // label6
             // 

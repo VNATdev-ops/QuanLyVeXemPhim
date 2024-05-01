@@ -40,7 +40,7 @@ namespace QuanLyVeXemPhim.Views
                 ListViewItem item = new ListViewItem(obj);
                 lsvLichSuTichDiem.Items.Add(item);
             }
-            txtTongDiemTichLuy.Text = lsvLichSuTichDiem.Items.Count.ToString();
+            txtTongSo.Text = lsvLichSuTichDiem.Items.Count.ToString();
         }
 
         private void txtSoDiemTichLuy_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace QuanLyVeXemPhim.Views
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
             lsvLichSuTichDiem.Items.Clear();
-            txtTongDiemTichLuy.Text = lsvLichSuTichDiem.Items.Count.ToString();
+            txtTongSo.Text = lsvLichSuTichDiem.Items.Count.ToString();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -169,12 +169,12 @@ namespace QuanLyVeXemPhim.Views
             try
             {
                 //ktra tính hợp lệ của dữ liệu
-                CLichSuTichDiem s = new CLichSuTichDiem();
+                CLichSuTichDiem s = new CLichSuTichDiem(); 
                 s.IDLichSu = txtIDLichSu.Text;
-                s.SoDiemTichLuy = int.Parse(txtSoDiemTichLuy.Text);
                 s.ThoiGianTichLuy = DateTime.Parse(txtThoiGianTichLuy.Text);
                 s.SoDiemTichLuy = int.Parse(txtSoDiemTichLuy.Text);
                 s.TongDiemTichLuy = int.Parse(txtTongDiemTichLuy.Text);
+                s.ThanhVien = new CThanhVien();
                 s.ThanhVien.IDThanhVien = txtIDThanhVien.Text;
 
                 if (ctrlLichSuTichDiem.insert(s))
@@ -189,7 +189,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch
             {
-
+                MessageBox.Show("Lỗi khi thêm");
             }
         }
 
@@ -213,6 +213,11 @@ namespace QuanLyVeXemPhim.Views
             {
 
             }
+        }
+
+        private void txtTongSo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
