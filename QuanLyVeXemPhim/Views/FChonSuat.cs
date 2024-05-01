@@ -17,6 +17,9 @@ namespace QuanLyVeXemPhim.Views
         CtrlChonSuat ctrlChonSuat = new CtrlChonSuat();
         List<CChonSuat> dsChonSuat = new List<CChonSuat>();
 
+        CtrlRapChieuPhim ctrlRapChieuPhim = new CtrlRapChieuPhim();
+        List<CRapChieuPhim> dsRapChieuPhim = new List<CRapChieuPhim>();
+
         public FChonSuat()
         {
             InitializeComponent();
@@ -32,9 +35,10 @@ namespace QuanLyVeXemPhim.Views
         private void FChonSuat_Load(object sender, EventArgs e)
         {
             dsChonSuat = ctrlChonSuat.findall();
+            //dsRapChieuPhim = ctrlRapChieuPhim.findall();
             foreach (CChonSuat s in dsChonSuat)
             {
-                string[] obj = { s.Rap.IDRap, s.Rap.IDRap, s.SuatChieu.IDSuatChieu };
+                string[] obj = { s.Phim.IDPhim, s.Rap.IDRap, s.SuatChieu.IDSuatChieu };
                 ListViewItem item = new ListViewItem(obj);
                 lsvDSCS.Items.Add(item);
             }
@@ -53,6 +57,7 @@ namespace QuanLyVeXemPhim.Views
             {
                 ListViewItem item = lsvDSCS.SelectedItems[0];
                 CChonSuat chonSuat = new CChonSuat();
+                if (item != null) { return; }
                 chonSuat.Rap.IDRap = item.SubItems[0].Text;
                 int index = dsChonSuat.IndexOf(chonSuat);
                 // tìm kiếm phần tử được chọn ở vị trí nào trong ds

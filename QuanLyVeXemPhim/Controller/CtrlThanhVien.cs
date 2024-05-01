@@ -20,7 +20,7 @@ namespace QuanLyVeXemPhim.Controller
 
         public List<CThanhVien> findall()
         {
-            string sql = "select * from thanhvien ";
+            string sql = "select * from thanhvien";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
@@ -29,7 +29,7 @@ namespace QuanLyVeXemPhim.Controller
             {
                 CThanhVien s = new CThanhVien();
                 s.IDThanhVien = reader.GetString(0);
-                s.TenThanhVien = reader.GetString(1);
+                s.TenThanhVien = reader.GetString(1);    
                 s.MatKhau = reader.GetString(2);
                 s.NgaySinh = reader.GetDateTime(3);
                 s.GioiTinh = reader.GetString(4);
@@ -78,6 +78,8 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@gioitinh", obj.GioiTinh);
                 cmd.Parameters.AddWithValue("@khuvuc", obj.KhuVuc);
                 cmd.Parameters.AddWithValue("@email", obj.NgaySinh);
+                cmd.Parameters.AddWithValue("@idthanhvien", obj.NgaySinh);
+
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return (n > 0);
