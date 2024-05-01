@@ -30,21 +30,21 @@
         {
             panel2 = new Panel();
             groupBox4 = new GroupBox();
+            txtTimKiem = new TextBox();
             phim = new Label();
-            txtTimKiem = new Button();
             groupBox3 = new GroupBox();
             label9 = new Label();
             txtTongSo = new Button();
             panel1 = new Panel();
             btnThoat = new Button();
             btnCapNhat = new Button();
-            btnSua = new Button();
+            btnNhapMoi = new Button();
             btnXoa = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
-            txtIDsuatchieu = new Button();
-            txtIDrap = new Button();
-            txtIDphim = new Button();
+            txtIDsuatchieu = new TextBox();
+            txtIDrap = new TextBox();
+            txtIDphim = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -71,14 +71,22 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(phim);
             groupBox4.Controls.Add(txtTimKiem);
+            groupBox4.Controls.Add(phim);
             groupBox4.Location = new Point(3, 143);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(215, 125);
             groupBox4.TabIndex = 1;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tìm kiếm";
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(32, 84);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(155, 30);
+            txtTimKiem.TabIndex = 4;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // phim
             // 
@@ -88,15 +96,6 @@
             phim.Size = new Size(132, 23);
             phim.TabIndex = 2;
             phim.Text = "Tìm kiếm lịch sử";
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Location = new Point(6, 70);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(203, 40);
-            txtTimKiem.TabIndex = 1;
-            txtTimKiem.UseVisualStyleBackColor = true;
-            txtTimKiem.Click += txtTimKiem_Click;
             // 
             // groupBox3
             // 
@@ -131,7 +130,7 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(btnThoat);
             panel1.Controls.Add(btnCapNhat);
-            panel1.Controls.Add(btnSua);
+            panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -139,6 +138,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 224);
             panel1.TabIndex = 10;
+            panel1.Paint += panel1_Paint;
             // 
             // btnThoat
             // 
@@ -148,6 +148,7 @@
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnCapNhat
             // 
@@ -157,15 +158,17 @@
             btnCapNhat.TabIndex = 3;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
             // 
-            // btnSua
+            // btnNhapMoi
             // 
-            btnSua.Location = new Point(36, 96);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(154, 32);
-            btnSua.TabIndex = 2;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
+            btnNhapMoi.Location = new Point(36, 96);
+            btnNhapMoi.Name = "btnNhapMoi";
+            btnNhapMoi.Size = new Size(154, 32);
+            btnNhapMoi.TabIndex = 2;
+            btnNhapMoi.Text = "Nhập mới";
+            btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnNhapMoi_Click;
             // 
             // btnXoa
             // 
@@ -175,6 +178,7 @@
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -184,6 +188,7 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox1
             // 
@@ -204,27 +209,24 @@
             // 
             // txtIDsuatchieu
             // 
-            txtIDsuatchieu.Location = new Point(175, 143);
+            txtIDsuatchieu.Location = new Point(166, 154);
             txtIDsuatchieu.Name = "txtIDsuatchieu";
-            txtIDsuatchieu.Size = new Size(264, 45);
+            txtIDsuatchieu.Size = new Size(280, 34);
             txtIDsuatchieu.TabIndex = 5;
-            txtIDsuatchieu.UseVisualStyleBackColor = true;
             // 
             // txtIDrap
             // 
-            txtIDrap.Location = new Point(175, 87);
+            txtIDrap.Location = new Point(166, 92);
             txtIDrap.Name = "txtIDrap";
-            txtIDrap.Size = new Size(264, 45);
+            txtIDrap.Size = new Size(280, 34);
             txtIDrap.TabIndex = 4;
-            txtIDrap.UseVisualStyleBackColor = true;
             // 
             // txtIDphim
             // 
-            txtIDphim.Location = new Point(175, 33);
+            txtIDphim.Location = new Point(166, 33);
             txtIDphim.Name = "txtIDphim";
-            txtIDphim.Size = new Size(264, 45);
+            txtIDphim.Size = new Size(280, 34);
             txtIDphim.TabIndex = 3;
-            txtIDphim.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -317,25 +319,25 @@
         private Panel panel2;
         private GroupBox groupBox4;
         private Label phim;
-        private Button txtTimKiem;
         private GroupBox groupBox3;
         private Label label9;
         private Button txtTongSo;
         private Panel panel1;
         private Button btnThoat;
         private Button btnCapNhat;
-        private Button btnSua;
+        private Button btnNhapMoi;
         private Button btnXoa;
         private Button btnThem;
         private GroupBox groupBox1;
-        private Button txtIDsuatchieu;
-        private Button txtIDrap;
-        private Button txtIDphim;
         private Label label3;
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
         private ListView lsvDSCS;
         private Label label4;
+        private TextBox txtTimKiem;
+        private TextBox txtIDsuatchieu;
+        private TextBox txtIDrap;
+        private TextBox txtIDphim;
     }
 }
