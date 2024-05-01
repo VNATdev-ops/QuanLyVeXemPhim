@@ -2,6 +2,7 @@
 using QuanLyVeXemPhim.Utils;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,11 @@ namespace QuanLyVeXemPhim.Controller
             {
                 CLichSuTichDiem s = new CLichSuTichDiem();
                 s.IDLichSu = reader.GetString(0);
-                s.SoDiemTichLuy = (int)reader.GetDecimal(1);
+                s.SoDiemTichLuy = reader.GetInt32(1);
                 s.ThoiGianTichLuy = reader.GetDateTime(2);
-                s.TongDiemTichLuy = (int)reader.GetDecimal(3);
+                s.TongDiemTichLuy = reader.GetInt32(3);
+                // Khởi tạo đối tượng ThanhVien trước khi gán giá trị
+                s.ThanhVien = new CThanhVien();
                 s.ThanhVien.IDThanhVien = reader.GetString(4);
                 // thêm vào ds
                 arrs.Add(s);
