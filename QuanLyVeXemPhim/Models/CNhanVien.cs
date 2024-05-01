@@ -13,7 +13,7 @@ namespace QuanLyVeXemPhim.Models
         private string matKhau;
         private DateTime ngaySinh;
         private string gioiTinh;
-        private int sdt;
+        private string sdt;  // Sửa kiểu dữ liệu từ int sang string
         private string email;
         private string chucVu;
 
@@ -22,18 +22,18 @@ namespace QuanLyVeXemPhim.Models
         public string MatKhau { get => matKhau; set => matKhau = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
-        public int Sdt { get => sdt; set => sdt = value; }
+        public string Sdt { get => sdt; set => sdt = value; }  // Sửa getter và setter
         public string Email { get => email; set => email = value; }
         public string ChucVu { get => chucVu; set => chucVu = value; }
 
-        public CNhanVien(string iDNhanVien, string tenNV, string matKhau, DateTime ngaySinh, string gioiTinh, int sdt, string email, string chucVu)
+        public CNhanVien(string iDNhanVien, string tenNV, string matKhau, DateTime ngaySinh, string gioiTinh, string sdt, string email, string chucVu)
         {
             this.iDNhanVien = iDNhanVien;
             this.tenNV = tenNV;
             this.matKhau = matKhau;
             this.ngaySinh = ngaySinh;
             this.gioiTinh = gioiTinh;
-            this.sdt = sdt;
+            this.sdt = sdt;  // Cập nhật tham số sdt
             this.email = email;
             this.chucVu = chucVu;
         }
@@ -44,8 +44,7 @@ namespace QuanLyVeXemPhim.Models
 
         public override bool Equals(object? obj)
         {
-            return obj is CNhanVien vien &&
-                   iDNhanVien == vien.iDNhanVien;
+            return obj is CNhanVien vien && iDNhanVien == vien.iDNhanVien;
         }
 
         public override int GetHashCode()

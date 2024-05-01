@@ -22,7 +22,7 @@ namespace QuanLyVeXemPhim.Controller
         // phương thức truy vấn toàn bộ sản phẩm
         public List<CLichSuTichDiem> findall()
         {
-            string sql = "select top 10 * from lichsutichdiem";
+            string sql = "select * from lichsutichdiem";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
@@ -53,8 +53,8 @@ namespace QuanLyVeXemPhim.Controller
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@idlichsu", obj.IDLichSu);
                 cmd.Parameters.AddWithValue("@sodiemtichluy", obj.SoDiemTichLuy);
-                cmd.Parameters.AddWithValue("@thoigiantichluy", obj.ThoiGianTichLuy);
                 cmd.Parameters.AddWithValue("@tongdiemtichluy", obj.TongDiemTichLuy);
+                cmd.Parameters.AddWithValue("@thoigiantichluy", obj.ThoiGianTichLuy);
                 cmd.Parameters.AddWithValue("@idthanhvien", obj.ThanhVien.IDThanhVien);
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
