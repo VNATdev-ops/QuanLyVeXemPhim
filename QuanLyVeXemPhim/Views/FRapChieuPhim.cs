@@ -20,15 +20,27 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDSRap.Width;
-            lsvDSRap.Columns.Add("Mã Rạp", 15 * width / 100);
-            lsvDSRap.Columns.Add("Tên rạp", 25 * width / 100);
-            lsvDSRap.Columns.Add("SDT", 20 * width / 100);
-            lsvDSRap.Columns.Add("Địa chỉ", 20 * width / 100);
-            lsvDSRap.Columns.Add("Số lượng phòng", 20 * width / 100);
-            lsvDSRap.Columns.Add("Logo", 20 * width / 100);
+            lsvDSRap.Columns.Add("Mã Rạp", 10 * width / 100);
+            lsvDSRap.Columns.Add("Tên rạp", 24 * width / 100);
+            lsvDSRap.Columns.Add("Địa chỉ", 40 * width / 100);
+            lsvDSRap.Columns.Add("Số lượng phòng", 15 * width / 100);
+            lsvDSRap.Columns.Add("Logo", 10 * width / 100);
 
             lsvDSRap.View = View.Details;
             lsvDSRap.FullRowSelect = true;
+        }
+        private void FRapChieuPhim_Load(object sender, EventArgs e)
+        {
+            dsRapChieuPhim = ctrlRapChieuPhim.findall();
+            foreach (CRapChieuPhim s in dsRapChieuPhim)
+            {
+                string logo = s.Logo ?? "";
+                string[] obj = { s.IDRap, s.TenRap, s.DiaChi, s.SoLuongPhong.ToString(), s.Logo };
+                ListViewItem item = new ListViewItem(obj);
+                lsvDSRap.Items.Add(item);
+                txtTongSo.Text = lsvDSRap.Items.Count.ToString();
+            }
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -39,7 +51,7 @@ namespace QuanLyVeXemPhim.Views
                 string tenrap = txtTenRap.Text;
                 string diachi = txtDiaChi.Text;
                 int soLuongPhong = int.Parse(txtSoLuongPhong.Text);
-                string logo = txtLogo.Text;
+                string logo = txtLogo.Text ?? "";
 
                 CRapChieuPhim rapChieuPhim = new CRapChieuPhim(idRap, tenrap, diachi, soLuongPhong, logo);
                 if (ctrlRapChieuPhim.insert(rapChieuPhim))
@@ -56,21 +68,13 @@ namespace QuanLyVeXemPhim.Views
 
 
             }
-            catch { }
-        }
-
-        private void FRapChieuPhim_Load(object sender, EventArgs e)
-        {
-            dsRapChieuPhim = ctrlRapChieuPhim.findall();
-            foreach (CRapChieuPhim s in dsRapChieuPhim)
+            catch 
             {
-                string[] obj = { s.IDRap, s.TenRap, s.SoLuongPhong.ToString(), s.Logo };
-                ListViewItem item = new ListViewItem(obj);
-                lsvDSRap.Items.Add(item);
-                txtTongSo.Text = lsvDSRap.Items.Count.ToString();
+                MessageBox.Show("Vui lòng nhập thông tin rạp chiếu phim.");
+                txtIDRap.Focus();
             }
-
         }
+
 
         private void lsvDSRap_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,28 +105,36 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem item = lsvDSRap.SelectedItems[0];
-                CRapChieuPhim rapChieuPhim = new CRapChieuPhim();
-                rapChieuPhim.IDRap = item.SubItems[0].Text;
-                int index = dsRapChieuPhim.IndexOf(rapChieuPhim);
-                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
-                if (index < 0) { return; }
-
-                //
-                rapChieuPhim = dsRapChieuPhim[index];
-                if (ctrlRapChieuPhim.delete(rapChieuPhim))
+                if (lsvDSRap.SelectedItems.Count > 0)
                 {
-                    MessageBox.Show("Xóa thành công");
-                    dsRapChieuPhim.Remove(rapChieuPhim);
-                    lsvDSRap.Items.Remove(item);
-                    txtTongSo.Text = lsvDSRap.Items.Count.ToString();
+                    ListViewItem item = lsvDSRap.SelectedItems[0];
+                    CRapChieuPhim rapChieuPhim = new CRapChieuPhim();
+                    rapChieuPhim.IDRap = item.SubItems[0].Text;
 
+                    int index = dsRapChieuPhim.IndexOf(rapChieuPhim);
+                    if (index >= 0)
+                    {
+                        rapChieuPhim = dsRapChieuPhim[index];
+                        if (ctrlRapChieuPhim.delete(rapChieuPhim))
+                        {
+                            MessageBox.Show("Xóa thành công.");
+                            dsRapChieuPhim.Remove(rapChieuPhim);
+                            lsvDSRap.Items.Remove(item);
+                            txtTongSo.Text = lsvDSRap.Items.Count.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại.");
+                        }
+                    }
                 }
-                else MessageBox.Show("Xóa thất bại!");
-
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
         }
+
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
@@ -139,22 +151,22 @@ namespace QuanLyVeXemPhim.Views
                 rapChieuPhim = dsRapChieuPhim[index];
                 rapChieuPhim.IDRap = txtIDRap.Text;
                 rapChieuPhim.TenRap = txtTenRap.Text;
-                rapChieuPhim.SoLuongPhong = int.Parse(txtSoLuongPhong.Text);
                 rapChieuPhim.DiaChi = txtDiaChi.Text;
+                rapChieuPhim.SoLuongPhong = int.Parse(txtSoLuongPhong.Text);
                 rapChieuPhim.Logo = txtLogo.Text;
 
                 if (ctrlRapChieuPhim.update(rapChieuPhim))
                 {
                     MessageBox.Show("Cập nhật thành công!");
-                    item.SubItems[1].Text = rapChieuPhim.IDRap;
-                    item.SubItems[2].Text = rapChieuPhim.TenRap;
-                    item.SubItems[3].Text = rapChieuPhim.SoLuongPhong + "";
+                    item.SubItems[0].Text = rapChieuPhim.IDRap;
+                    item.SubItems[1].Text = rapChieuPhim.TenRap;
                     item.SubItems[2].Text = rapChieuPhim.DiaChi;
-                    item.SubItems[2].Text = rapChieuPhim.Logo;
+                    item.SubItems[3].Text = rapChieuPhim.SoLuongPhong + "";
+                    item.SubItems[4].Text = rapChieuPhim.Logo;
 
                 }
                 else
-                    MessageBox.Show("Cập nhật thất bại!!!");
+                    MessageBox.Show("Cập nhật thất bại!");
             }
             catch
             {
@@ -169,22 +181,33 @@ namespace QuanLyVeXemPhim.Views
                 string dkFind = txtTimKiem.Text;
                 dsRapChieuPhim = ctrlRapChieuPhim.findCriteria(dkFind);
 
-                //xóa listview
                 lsvDSRap.Items.Clear();
                 foreach (CRapChieuPhim s in dsRapChieuPhim)
                 {
-                    string[] obj = { s.IDRap, s.TenRap, s.SoLuongPhong.ToString(), s.Logo };
+                    string logo = s.Logo ?? "";
+                    string[] obj = { s.IDRap, s.TenRap, s.DiaChi, s.SoLuongPhong.ToString(), logo };
                     ListViewItem item = new ListViewItem(obj);
                     lsvDSRap.Items.Add(item);
-
-
-
                 }
                 txtTongSo.Text = lsvDSRap.Items.Count.ToString();
             }
-
             catch { }
+        }
 
+        private void btnNhapMoi_Click(object sender, EventArgs e)
+        {
+            txtIDRap.Clear();
+            txtTenRap.Clear();
+            txtSoLuongPhong.Clear();
+            txtDiaChi.Clear();
+            txtLogo.Clear();
+            txtTimKiem.Clear();
+            txtIDRap.Focus();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

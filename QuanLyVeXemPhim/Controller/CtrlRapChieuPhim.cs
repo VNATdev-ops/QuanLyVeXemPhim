@@ -32,7 +32,10 @@ namespace QuanLyVeXemPhim.Controller
                 s.TenRap = reader.GetString(1);
                 s.DiaChi = reader.GetString(2);
                 s.SoLuongPhong = reader.GetInt32(3);
-                s.Logo = reader.GetString(4);
+                if (!reader.IsDBNull(4))
+                {
+                    s.Logo = reader.GetString(4);
+                }
                 // thêm vào ds
                 arrs.Add(s);
             }
@@ -82,7 +85,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "delete from rapchieuphim where idrap=@rap";
+                string sql = "delete from rapchieuphim where idrap = @idrap";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@idrap", obj.IDRap);
                 cmd.Connection = cnn;
@@ -93,11 +96,11 @@ namespace QuanLyVeXemPhim.Controller
         }
 
         public List<CRapChieuPhim> findCriteria(string DK)
-        {//cho phép tìm theo tên or mã sp hoặc nước sản xuất or đon vị tính
-            string sql = "select * from rapchieuphim where idrap like @dk or tenrap like @dk or diachi like @dk or logo like @dk";
+        {
+            string sql = "select * from rapchieuphim where idrap like @dk or tenrap like @dk or diachi like @dk";
             SqlCommand cmd = new SqlCommand(sql);
-            cmd.Parameters.AddWithValue("@dk", "%" + DK + "%");
             cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dk", "%" + DK + "%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<CRapChieuPhim> arrs = new List<CRapChieuPhim>();
             while (reader.Read())
