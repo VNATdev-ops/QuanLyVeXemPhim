@@ -16,5 +16,6 @@ namespace QuanLyVeXemPhim.Controller
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
+
     }
 }
