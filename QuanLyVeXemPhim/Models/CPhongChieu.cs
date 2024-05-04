@@ -12,21 +12,21 @@ namespace QuanLyVeXemPhim.Models
         private CRapChieuPhim rap;
         private string tenPhong;
         private string loaiPhong;
-        private int soLuongghe;
+        private int soLuongGhe;
 
         public string IDPhong { get => iDPhong; set => iDPhong = value; }
         public string TenPhong { get => tenPhong; set => tenPhong = value; }
         public string LoaiPhong { get => loaiPhong; set => loaiPhong = value; }
-        public int SoLuongghe { get => soLuongghe; set => soLuongghe = value; }
+        public int SoLuongGhe { get => soLuongGhe; set => soLuongGhe = value; }
         internal CRapChieuPhim Rap { get => rap; set => rap = value; }
 
-        public CPhongChieu(string iDPhong, CRapChieuPhim rap, string tenPhong, string loaiPhong, int soLuongghe)
+        public CPhongChieu(string iDPhong, CRapChieuPhim rap, string tenPhong, string loaiPhong, int soLuongGhe)
         {
             this.iDPhong = iDPhong;
             this.rap = rap;
             this.tenPhong = tenPhong;
             this.loaiPhong = loaiPhong;
-            this.soLuongghe = soLuongghe;
+            this.soLuongGhe = soLuongGhe;
         }
 
         public CPhongChieu()
