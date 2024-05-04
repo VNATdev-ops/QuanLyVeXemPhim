@@ -17,26 +17,6 @@ namespace QuanLyVeXemPhim.Controller
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
-        //public List<CCTHDVe> findAll()
-        //{
-        //    string sql = "select * from cthd_ve";
-        //    SqlCommand cmd = new SqlCommand(sql);
-        //    cmd.Connection = cnn;
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    List<CCTHDVe> arrs = new List<CCTHDVe>();
-        //    while (reader.Read())
-        //    {
-        //        CCTHDVe cthd = new CCTHDVe();
-        //        cthd.HoaDon.IDHoaDon = reader.GetString(0);
-        //        cthd.Ve.IDVe = reader.GetString(1);
-        //        cthd.SoLuong = reader.GetInt32(2);
-        //        arrs.Add(cthd);
-        //    }
-        //    reader.Close();
-        //    return arrs;
-        //}
-
-        //phuong thuc them hoa don
         public bool insert(CCTHDVe obj)
         {
             try

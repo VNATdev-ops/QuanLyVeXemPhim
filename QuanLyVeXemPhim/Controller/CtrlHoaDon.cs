@@ -13,6 +13,10 @@ namespace QuanLyVeXemPhim.Controller
     internal class CtrlHoaDon
     {
         SqlConnection cnn = null;
+        CtrlNhanVien ctrNV = new CtrlNhanVien();
+        CtrlThanhVien ctrTV = new CtrlThanhVien();
+        List<CNhanVien> dsNV = new List<CNhanVien>();
+        List<CThanhVien> dsTV = new List<CThanhVien>();
         public CtrlHoaDon()
         {
             ConnectDB cnnDB = new ConnectDB();
@@ -134,6 +138,36 @@ namespace QuanLyVeXemPhim.Controller
                 Console.WriteLine("Lỗi khi xóa thông tin hóa đơn khỏi cơ sở dữ liệu: " + ex.Message);
                 return false;
             }
+        }
+        public List<CHoaDon> findCriteria(string dk)
+        {
+            string sql = "select * from hoadon where idhoadon like @dk";
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dk", dk);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CHoaDon> arrs = new List<CHoaDon>();
+            while (reader.Read())
+            {
+                CHoaDon s = new CHoaDon();
+                s.IDHoaDon = reader.GetString(0);
+                s.NgayXuatHD = reader.GetDateTime(1);
+                if (!reader.IsDBNull(2))
+                {
+                    s.NhanVien = new CNhanVien();
+                    dsNV = ctrNV.findCriteria(reader.GetString(2));
+                    s.NhanVien = dsNV[0];
+                }
+                if (!reader.IsDBNull(3))
+                {
+                    s.ThanhVien = new CThanhVien();
+                    dsTV = ctrTV.findCriteria(reader.GetString(3));
+                    s.ThanhVien = dsTV[0];
+                }
+                arrs.Add(s);
+            }
+            reader.Close();
+            return arrs;
         }
     }
 }

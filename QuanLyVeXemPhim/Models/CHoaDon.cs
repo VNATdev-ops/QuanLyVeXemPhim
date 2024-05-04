@@ -10,13 +10,13 @@ namespace QuanLyVeXemPhim.Models
     {
         private string iDHoaDon;
         private DateTime ngayXuatHD;
-        private CNhanVien? nhanVien;
-        private CThanhVien? thanhVien;
+        private CNhanVien nhanVien;
+        private CThanhVien thanhVien;
 
         public string IDHoaDon { get => iDHoaDon; set => iDHoaDon = value; }
         public DateTime NgayXuatHD { get => ngayXuatHD; set => ngayXuatHD = value; }
-        internal CNhanVien? NhanVien { get => nhanVien; set => nhanVien = value; }
-        internal CThanhVien? ThanhVien { get => thanhVien; set => thanhVien = value; }
+        internal CNhanVien NhanVien { get => nhanVien; set => nhanVien = value; }
+        internal CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
 
         public CHoaDon(string iDHoaDon, DateTime ngayXuatHD, CNhanVien nhanVien, CThanhVien thanhVien)
         {

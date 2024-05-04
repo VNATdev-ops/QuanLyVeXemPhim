@@ -61,9 +61,9 @@ namespace QuanLyVeXemPhim.Views
 
         private void FHoaDon_Load(object sender, EventArgs e)
         {
-            //dsNhanVien = ctrNhanVien.findAll();
+            dsNhanVien = ctrNhanVien.findall();
             dsThanhVien = ctrThanhVien.findall();
-            //dsVe = ctrVeXemPhim.findAll();
+            dsVe = ctrVeXemPhim.findall();
             dsSanPham = ctrThucAnDoUong.findAll();
 
             //hien thi so hoa don
@@ -71,7 +71,6 @@ namespace QuanLyVeXemPhim.Views
             dTimeNgayHD.Value = DateTime.Today;
             txtTriGiaHD.Text = "0";
             txtSoLuong.Text = 1 + "";
-            //txtIDNhanVien.Text = dsNhanVien[0].IDNhanVien;
 
             //hien thi danh sach khach hang
             List<CThanhVien> dstv = new List<CThanhVien>();
@@ -79,8 +78,6 @@ namespace QuanLyVeXemPhim.Views
             cbTheThanhVien.DataSource = dstv;
 
             dsHoaDon = ctrHoaDon.findAll();
-            //dscthdVe = ctrCTHDVe.findAll();
-            //dscthdSanPham = ctrCTHDSanPham.findAll();
             foreach (CHoaDon s in dsHoaDon)
             {
                 string[] obj = { s.IDHoaDon, s.NgayXuatHD.ToString(), s.NhanVien != null ? s.NhanVien.IDNhanVien : "", s.ThanhVien != null ? s.ThanhVien.IDThanhVien : "" };
@@ -104,138 +101,132 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem itemhd = lsvDanhSachHD.SelectedItems[0];
-                CHoaDon hd = new CHoaDon();
-                hd.IDHoaDon = itemhd.SubItems[0].Text;
-                int index = dsHoaDon.IndexOf(hd);
-                if (index < 0)
-                    return;
-                hd = dsHoaDon[index];
-
-                txtSoHD.Text = hd.IDHoaDon;
-                dTimeNgayHD.Value = hd.NgayXuatHD;
-                if (hd.ThanhVien != null)
-                {
-                    cbTheThanhVien.Text = hd.ThanhVien.IDThanhVien;
-                }
-                else
-                {
-                    cbTheThanhVien.SelectedItem = null;
-                }
-                if (hd.NhanVien != null)
-                {
-                    txtNVXuatHD.Text = hd.NhanVien.TenNV + " _ " + hd.NhanVien.IDNhanVien;
-                }
-
-                // Xóa các lựa chọn trước đó trong danh sách chi tiết hóa đơn
-                lsvChiTietHD.Items.Clear();
                 if (lsvDanhSachHD.SelectedItems.Count > 0)
                 {
                     ListViewItem selectedItem = lsvDanhSachHD.SelectedItems[0];
                     string selectedHoaDonID = selectedItem.SubItems[0].Text;
+                    CHoaDon hd = new CHoaDon();
+                    hd.IDHoaDon = selectedHoaDonID;
 
+                    int index = dsHoaDon.IndexOf(hd);
+                    if (index < 0)
+                        return;
+                    hd = dsHoaDon[index];
+
+                    txtSoHD.Text = hd.IDHoaDon;
+                    dTimeNgayHD.Value = hd.NgayXuatHD;
+                    if (hd.ThanhVien != null)
+                    {
+                        cbTheThanhVien.Text = hd.ThanhVien.IDThanhVien;
+                    }
+                    else
+                    {
+                        cbTheThanhVien.SelectedItem = null;
+                    }
+                    if (hd.NhanVien != null)
+                    {
+                        txtNVXuatHD.Text = hd.NhanVien.IDNhanVien;
+                    }
+                    else
+                    {
+                        txtNVXuatHD.Text = "N/A";
+                    }
+
+                    // Xóa các lựa chọn trước đó trong danh sách chi tiết hóa đơn
+                    lsvChiTietHD.Items.Clear();
+
+                    // Lấy danh sách chi tiết hóa đơn từ CtrlCTHDSanPham
                     List<CCTHDThucAnDoUong> dscthdSanPham = ctrCTHDSanPham.findCriteria(selectedHoaDonID);
-                    List<CCTHDVe> dscthdVe = ctrCTHDVe.findCriteria(selectedHoaDonID);
-
                     foreach (CCTHDThucAnDoUong chiTietSanPham in dscthdSanPham)
                     {
                         string[] obj = {
-                            chiTietSanPham.SanPham.IDSanPham,
-                            chiTietSanPham.SanPham.TenSanPham,
-                            chiTietSanPham.SanPham.Gia.ToString(),
-                            chiTietSanPham.SoLuong.ToString(),
-                            (chiTietSanPham.SoLuong * chiTietSanPham.SanPham.Gia).ToString()
-                        };
+                    chiTietSanPham.SanPham.IDSanPham,
+                    chiTietSanPham.SanPham.TenSanPham,
+                    chiTietSanPham.SanPham.Gia.ToString(),
+                    chiTietSanPham.SoLuong.ToString(),
+                    (chiTietSanPham.SoLuong * chiTietSanPham.SanPham.Gia).ToString()
+                };
                         ListViewItem item = new ListViewItem(obj);
                         lsvChiTietHD.Items.Add(item);
-
-                        // Cập nhật tổng giá trị
-                        txtTriGiaHD.Text = (int.Parse(txtTriGiaHD.Text) + chiTietSanPham.SoLuong * chiTietSanPham.SanPham.Gia).ToString();
                     }
 
-                    foreach (CCTHDVe chiTietVe in dscthdVe)
-                    {
-                        string[] obj = {
-                            chiTietVe.Ve.IDVe,
-                            chiTietVe.Ve.Phim.TenPhim,
-                            chiTietVe.Ve.GiaVe.ToString(),
-                            chiTietVe.SoLuong.ToString(),
-                            (chiTietVe.SoLuong * chiTietVe.Ve.GiaVe).ToString()
-                        };
-                        ListViewItem item = new ListViewItem(obj);
-                        lsvChiTietHD.Items.Add(item);
-
-                        // Cập nhật tổng giá trị
-                        txtTriGiaHD.Text = (int.Parse(txtTriGiaHD.Text) + chiTietVe.SoLuong * chiTietVe.Ve.GiaVe).ToString();
-                    }
+                    // Cập nhật tổng giá trị hóa đơn
+                    CapNhatTongGiaTriHoaDon();
                 }
-                CapNhatSoLuongHD();
             }
             catch (Exception ex)
             {
                 // Xử lý ngoại lệ nếu có
-                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+        }
+
+
+        private void CapNhatTongGiaTriHoaDon()
+        {
+            // Khởi tạo tổng giá trị hóa đơn
+            decimal tongGiaTriHoaDon = 0;
+
+            // Lặp qua từng mục trong ListView chi tiết hóa đơn để tính tổng giá trị
+            foreach (ListViewItem item in lsvChiTietHD.Items)
+            {
+                // Lấy giá trị thành tiền từ cột cuối cùng
+                decimal thanhTien = decimal.Parse(item.SubItems[item.SubItems.Count - 1].Text);
+                tongGiaTriHoaDon += thanhTien;
+            }
+
+            // Hiển thị tổng giá trị hóa đơn trên TextBox
+            txtTriGiaHD.Text = tongGiaTriHoaDon.ToString();
         }
 
 
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {
-            //List<CVeXemPhim> dsVeXemPhim = new List<CVeXemPhim>();
-            //dsVeXemPhim = ctrVeXemPhim.findCriteria(txtTenSP.Text);
+            List<CVeXemPhim> dsVeXemPhim = new List<CVeXemPhim>();
+            dsVeXemPhim = ctrVeXemPhim.findCriteria(txtTenSP.Text);
 
             List<CThucAnDoUong> dsThucAnDoUong = new List<CThucAnDoUong>();
             dsThucAnDoUong = ctrThucAnDoUong.findCriteria(txtTenSP.Text);
 
-            //if (dsVeXemPhim.Count > 0 || dsThucAnDoUong.Count > 0)
-            //{
-            //    lstSanPham.Items.Clear();
-            //    foreach (CVeXemPhim veXemPhim in dsVeXemPhim)
-            //    {
-            //        // Thêm dữ liệu từ CVeXemPhim vào danh sách
-            //        lstSanPham.Items.Add(veXemPhim);
-            //    }
-
-            //    foreach (CThucAnDoUong thucAnDoUong in dsThucAnDoUong)
-            //    {
-            //        // Thêm dữ liệu từ CThucAnDoUong vào danh sách
-            //        lstSanPham.Items.Add(thucAnDoUong);
-            //    }
-            //}
-            foreach (CThucAnDoUong sp in dsThucAnDoUong)
+            if (dsVeXemPhim.Count > 0 || dsThucAnDoUong.Count > 0)
             {
-                // Thêm dữ liệu từ CThucAnDoUong vào danh sách
-                lstSanPham.Items.Add(sp);
+                lstSanPham.Items.Clear();
+                foreach (CVeXemPhim veXemPhim in dsVeXemPhim)
+                {
+                    // Thêm dữ liệu từ CVeXemPhim vào danh sách
+                    lstSanPham.Items.Add(veXemPhim);
+                }
+
+                foreach (CThucAnDoUong thucAnDoUong in dsThucAnDoUong)
+                {
+                    // Thêm dữ liệu từ CThucAnDoUong vào danh sách
+                    lstSanPham.Items.Add(thucAnDoUong);
+                }
             }
         }
 
         private void txtMaSP_TextChanged(object sender, EventArgs e)
         {
-            //List<CVeXemPhim> dsVeXemPhim = new List<CVeXemPhim>();
-            //dsVeXemPhim = ctrVeXemPhim.findCriteria(txtMaSP.Text);
+            List<CVeXemPhim> dsVeXemPhim = new List<CVeXemPhim>();
+            dsVeXemPhim = ctrVeXemPhim.findCriteria(txtMaSP.Text);
 
             List<CThucAnDoUong> dsThucAnDoUong = new List<CThucAnDoUong>();
             dsThucAnDoUong = ctrThucAnDoUong.findCriteria(txtMaSP.Text);
 
-            //if (dsVeXemPhim.Count > 0 || dsThucAnDoUong.Count > 0)
-            //{
-            //    lstSanPham.Items.Clear();
-            //    foreach (CVeXemPhim veXemPhim in dsVeXemPhim)
-            //    {
-            //        // Thêm dữ liệu từ CVeXemPhim vào danh sách
-            //        lstSanPham.Items.Add(veXemPhim);
-            //    }
-
-            //    foreach (CThucAnDoUong thucAnDoUong in dsThucAnDoUong)
-            //    {
-            //        // Thêm dữ liệu từ CThucAnDoUong vào danh sách
-            //        lstSanPham.Items.Add(thucAnDoUong);
-            //    }
-            //}
-            foreach (CThucAnDoUong sp in dsThucAnDoUong)
+            if (dsVeXemPhim.Count > 0 || dsThucAnDoUong.Count > 0)
             {
-                // Thêm dữ liệu từ CThucAnDoUong vào danh sách
-                lstSanPham.Items.Add(sp);
+                lstSanPham.Items.Clear();
+                foreach (CVeXemPhim veXemPhim in dsVeXemPhim)
+                {
+                    // Thêm dữ liệu từ CVeXemPhim vào danh sách
+                    lstSanPham.Items.Add(veXemPhim);
+                }
+
+                foreach (CThucAnDoUong thucAnDoUong in dsThucAnDoUong)
+                {
+                    // Thêm dữ liệu từ CThucAnDoUong vào danh sách
+                    lstSanPham.Items.Add(thucAnDoUong);
+                }
             }
         }
 
@@ -370,33 +361,37 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem item = lsvChiTietHD.SelectedItems[0];
-                string selectedID = item.SubItems[0].Text;
-
-                foreach (CCTHDVe cthdVe in dscthdVe)
+                if (lsvChiTietHD.SelectedItems.Count > 0)
                 {
-                    if (cthdVe.Ve.IDVe == selectedID)
+                    ListViewItem item = lsvChiTietHD.SelectedItems[0];
+                    string selectedID = item.SubItems[0].Text;
+
+                    foreach (CCTHDVe cthdVe in dscthdVe)
                     {
-                        txtMaSP.Text = cthdVe.Ve.IDVe;
-                        txtTenSP.Text = cthdVe.Ve.Phim.TenPhim;
-                        txtSoLuong.Text = cthdVe.SoLuong.ToString();
-                        return;
+                        if (cthdVe.Ve.IDVe == selectedID)
+                        {
+                            txtMaSP.Text = cthdVe.Ve.IDVe;
+                            txtTenSP.Text = cthdVe.Ve.Phim.TenPhim;
+                            txtSoLuong.Text = cthdVe.SoLuong.ToString();
+                            return;
+                        }
                     }
-                }
 
-                foreach (CCTHDThucAnDoUong cthdSanPham in dscthdSanPham)
-                {
-                    if (cthdSanPham.SanPham.IDSanPham == selectedID)
+                    foreach (CCTHDThucAnDoUong cthdSanPham in dscthdSanPham)
                     {
-                        txtMaSP.Text = cthdSanPham.SanPham.IDSanPham;
-                        txtTenSP.Text = cthdSanPham.SanPham.TenSanPham;
-                        txtSoLuong.Text = cthdSanPham.SoLuong.ToString();
-                        return;
+                        if (cthdSanPham.SanPham.IDSanPham == selectedID)
+                        {
+                            txtMaSP.Text = cthdSanPham.SanPham.IDSanPham;
+                            txtTenSP.Text = cthdSanPham.SanPham.TenSanPham;
+                            txtSoLuong.Text = cthdSanPham.SoLuong.ToString();
+                            return;
+                        }
                     }
                 }
             }
             catch { }
         }
+
 
 
         private void btnLuuHD_Click(object sender, EventArgs e)
@@ -501,6 +496,7 @@ namespace QuanLyVeXemPhim.Views
             txtMaSP.Clear();
             txtTenSP.Clear();
             txtSoLuong.Text = 1 + "";
+            txtNVXuatHD.Clear();
         }
 
         private void btnXoaCTHD_Click(object sender, EventArgs e)
@@ -585,23 +581,25 @@ namespace QuanLyVeXemPhim.Views
                 if (lsvDanhSachHD.SelectedItems.Count > 0)
                 {
                     ListViewItem item = lsvDanhSachHD.SelectedItems[0];
+                    string selectedID = item.SubItems[0].Text;
                     CHoaDon hd = new CHoaDon();
-                    hd.IDHoaDon = item.SubItems[0].Text;
-                    int index = dsHoaDon.IndexOf(hd);
-                    if (index < 0)
-                        return;
-                    hd = dsHoaDon[index];
+                    hd.IDHoaDon = selectedID;
+
                     if (ctrHoaDon.delete(hd))
                     {
                         MessageBox.Show("Xóa thông tin hóa đơn thành công.");
                         dsHoaDon.Remove(hd);
-                        lsvDanhSachHD.Items.RemoveAt(index);
+                        lsvDanhSachHD.Items.Remove(item);
                     }
                     else
+                    {
                         MessageBox.Show("Xóa thông tin hóa đơn thất bại.");
+                    }
                 }
                 else
+                {
                     MessageBox.Show("Vui lòng chọn một hóa đơn để xóa.");
+                }
                 CapNhatSoLuongHD();
             }
             catch

@@ -13,29 +13,16 @@ namespace QuanLyVeXemPhim.Controller
     internal class CtrlCTHDThucAnDoUong
     {
         SqlConnection cnn = null;
+        CtrlHoaDon ctrHoaDon = new CtrlHoaDon();
+        CtrlThucAnDoUong ctrSP = new CtrlThucAnDoUong();
+        List<CThucAnDoUong> dsSP = new List<CThucAnDoUong>(); 
+        List<CHoaDon> dsHD = new List<CHoaDon>();
+
         public CtrlCTHDThucAnDoUong()
         {
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
-        //public List<CCTHDThucAnDoUong> findAll()
-        //{
-        //    string sql = "select * from cthd_thucandouong";
-        //    SqlCommand cmd = new SqlCommand(sql);
-        //    cmd.Connection = cnn;
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    List<CCTHDThucAnDoUong> arrs = new List<CCTHDThucAnDoUong>();
-        //    while (reader.Read())
-        //    {
-        //        CCTHDThucAnDoUong cthd = new CCTHDThucAnDoUong();
-        //        cthd.HoaDon.IDHoaDon = reader.GetString(0);
-        //        cthd.SanPham.IDSanPham = reader.GetString(1);
-        //        cthd.SoLuong = reader.GetInt32(2);
-        //        arrs.Add(cthd);
-        //    }
-        //    reader.Close();
-        //    return arrs;
-        //}
         public bool insert(CCTHDThucAnDoUong obj)
         {
             try
@@ -84,15 +71,27 @@ namespace QuanLyVeXemPhim.Controller
             while (reader.Read())
             {
                 CCTHDThucAnDoUong s = new CCTHDThucAnDoUong();
-                s.HoaDon = new CHoaDon(); 
-                s.SanPham = new CThucAnDoUong(); 
-                s.HoaDon.IDHoaDon = reader.GetString(0);
-                s.SanPham.IDSanPham = reader.GetString(1);
+                s.HoaDon = GetHoaDonById(reader.GetString(0));
+                s.SanPham = GetSanPhamById(reader.GetString(1));
                 s.SoLuong = reader.GetInt32(2);
                 arrs.Add(s);
             }
             reader.Close();
             return arrs;
+        }
+
+        private CHoaDon GetHoaDonById(string idHoaDon)
+        {
+            dsHD = ctrHoaDon.findCriteria(idHoaDon);
+            CHoaDon hd = dsHD[0];
+            return hd;
+        }
+
+        private CThucAnDoUong GetSanPhamById(string idSanPham)
+        {
+            dsSP = ctrSP.findCriteria(idSanPham);
+            CThucAnDoUong sp = dsSP[0];
+            return sp;
         }
 
     }
