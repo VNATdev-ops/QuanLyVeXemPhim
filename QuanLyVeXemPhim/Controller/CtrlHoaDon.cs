@@ -130,7 +130,7 @@ namespace QuanLyVeXemPhim.Controller
             {
                 string sql = "delete from hoadon where idhoadon =@dk";
                 SqlCommand cmd = new SqlCommand(sql);
-                cmd.Parameters.AddWithValue("@idhoadon", dk);
+                cmd.Parameters.AddWithValue("@dk", dk);
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;

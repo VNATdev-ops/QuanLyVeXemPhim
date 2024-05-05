@@ -526,38 +526,33 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                if (lsvChiTietHD.SelectedItems.Count > 0)
+                // Tạo một danh sách tạm thời để lưu các mục cần xóa
+                List<ListViewItem> itemsToRemove = new List<ListViewItem>();
+                if (lsvChiTietHD.SelectedItems.Count > 0) 
                 {
-                    if(lsvChiTietHD.SelectedItems.Count ==1)
+                    // Lặp qua các mục được chọn trong ListView
+                    foreach (ListViewItem selectedItem in lsvChiTietHD.SelectedItems)
                     {
-                        ListViewItem selectedItem = lsvChiTietHD.SelectedItems[0];
                         int index = selectedItem.Index;
                         string selectedID = selectedItem.SubItems[0].Text;
-                        
-                        //sua sau
+
+                        // Xác định xem mục cần xóa thuộc danh sách loại sản phẩm nào
                         foreach (CCTHDVe cthdVe in dscthdVe)
                         {
                             if (cthdVe.Ve.IDVe == selectedID && cthdVe.HoaDon.IDHoaDon == txtSoHD.Text)
                             {
-                                if (ctrCTHDVe.delete(selectedID))
-                                {
-                                    MessageBox.Show("Xóa thông tin sản phẩm thành công.");
-                                    dscthdVe.Remove(cthdVe);
-                                    lsvChiTietHD.Items.RemoveAt(index);
-
-                                    // Kiểm tra nếu danh sách đã rỗng sau khi xóa
-                                    if (lsvChiTietHD.Items.Count == 0)
-                                    {
-                                        // Reset giá trị tổng tiền hóa đơn
-                                        txtTriGiaHD.Text = "0";
-                                    }
-
-                                    return;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
-                                }
+                                dscthdVe.Remove(cthdVe);
+                                itemsToRemove.Add(selectedItem);
+                                MessageBox.Show("Đã xóa khỏi danh sách chi tiết sản phẩm.");
+                                break;
+                                //if (ctrCTHDVe.delete(selectedID))
+                                //{
+                                    
+                                //}
+                                //else
+                                //{
+                                //    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
+                                //}
                             }
                         }
 
@@ -565,32 +560,39 @@ namespace QuanLyVeXemPhim.Views
                         {
                             if (cthdSanPham.HoaDon.IDHoaDon == txtSoHD.Text && cthdSanPham.SanPham.IDSanPham == selectedID)
                             {
-                                if (ctrCTHDSanPham.delete_byBothID(txtSoHD.Text, selectedID))
-                                {
-                                    MessageBox.Show("Xóa thông tin sản phẩm thành công.");
-                                    dscthdSanPham.Remove(cthdSanPham);
-                                    lsvChiTietHD.Items.RemoveAt(index);
-
-                                    // Kiểm tra nếu danh sách đã rỗng sau khi xóa
-                                    if (lsvChiTietHD.Items.Count == 0)
-                                    {
-                                        // Reset giá trị tổng tiền hóa đơn
-                                        txtTriGiaHD.Text = "0";
-                                    }
-
-                                    return;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
-                                }
+                                dscthdSanPham.Remove(cthdSanPham);
+                                itemsToRemove.Add(selectedItem);
+                                MessageBox.Show("Đã xóa khỏi danh sách chi tiết sản phẩm.");
+                                break;
+                                //if (ctrCTHDSanPham.delete_byBothID(txtSoHD.Text, selectedID))
+                                //{
+                                   
+                                //}
+                                //else
+                                //{
+                                //    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
+                                //}
                             }
                         }
+                    }
+
+                    // Xóa các mục được chọn khỏi ListView
+                    foreach (ListViewItem itemToRemove in itemsToRemove)
+                    {
+                        lsvChiTietHD.Items.Remove(itemToRemove);
+                        MessageBox.Show("Xóa thông tin sản phẩm thành công.");
+                    }
+
+                    // Kiểm tra nếu danh sách đã rỗng sau khi xóa
+                    if (lsvChiTietHD.Items.Count == 0)
+                    {
+                        // Reset giá trị tổng tiền hóa đơn
+                        txtTriGiaHD.Text = "0";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.");
+                    MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.");
                 }
             }
             catch (Exception ex)
@@ -607,64 +609,104 @@ namespace QuanLyVeXemPhim.Views
             {
                 if (lsvDanhSachHD.SelectedItems.Count > 0)
                 {
-                    ListViewItem item = lsvDanhSachHD.SelectedItems[0];
-                    string selectedID = item.SubItems[0].Text;
-                    CHoaDon hd = new CHoaDon();
-                    hd.IDHoaDon = selectedID;
+                    // Tạo một danh sách tạm thời để lưu các mục cần xóa từ ListView
+                    List<ListViewItem> itemsToRemove = new List<ListViewItem>();
+                    foreach(ListViewItem item in lsvDanhSachHD.SelectedItems)
+                    {
+                        //ListViewItem item = lsvDanhSachHD.SelectedItems[0];
+                        string selectedID = item.SubItems[0].Text;
 
-                    foreach(CCTHDThucAnDoUong cthdSP in dscthdSanPham)
-                    {
-                        if(cthdSP.HoaDon.IDHoaDon == selectedID)
+
+                        // Xóa hóa đơn khỏi ds hóa đơn
+                        foreach (CHoaDon hd in dsHoaDon)
                         {
-                            try
+                            //lặp đến khi tìm được hóa đơn cần xóa trong danh sách
+                            if (hd.IDHoaDon == selectedID)
                             {
-                                ctrCTHDSanPham.delete_bySingleID(selectedID);
-                                ctrHoaDon.delete(selectedID); 
-                                MessageBox.Show("Xóa thông tin hóa đơn thành công.");
+                                itemsToRemove.Add(item);
+                                // Xóa chi tiết hóa đơn sản phẩm của hóa đơn được chọn
+                                foreach (CCTHDThucAnDoUong cthdSP in dscthdSanPham)
+                                {
+                                    if (cthdSP.HoaDon.IDHoaDon == selectedID)
+                                    {
+                                        try
+                                        {
+                                            // Xóa chi tiết hóa đơn từ danh sách và ListView
+                                            ctrCTHDSanPham.delete_bySingleID(selectedID);
+                                            MessageBox.Show("Xóa chi tiết hóa đơn sản phẩm của hóa đơn thành công.");
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show("Lỗi khi xóa chi tiết hóa đơn sản phẩm: " + ex.Message);
+                                        }
+                                    }
+                                }
+
+                                // Xóa chi tiết hóa đơn vé của hóa đơn được chọn
+                                foreach (CCTHDVe cthdVe in dscthdVe)
+                                {
+                                    if (cthdVe.HoaDon.IDHoaDon == selectedID)
+                                    {
+                                        try
+                                        {
+                                            // Xóa chi tiết hóa đơn từ danh sách và ListView
+                                            ctrCTHDVe.delete(selectedID);
+                                            MessageBox.Show("Xóa chi tiết hóa đơn vé của hóa đơn thành công.");
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show("Lỗi khi xóa chi tiết hóa đơn vé: " + ex.Message);
+                                        }
+                                    }
+                                }
+
                                 dsHoaDon.Remove(hd);
-                                lsvDanhSachHD.Items.Remove(item);
+                                break;
                             }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Lỗi: " + ex.Message);
-                            }
+
                         }
-                    }
-                    foreach (CCTHDVe cthdVe in dscthdVe)
-                    {
-                        if (cthdVe.HoaDon.IDHoaDon == selectedID)
+
+                        // Xóa hóa đơn từ danh sách
+                        try
                         {
-                            try
-                            {
-                                ctrCTHDVe.delete(selectedID);
-                                ctrHoaDon.delete(selectedID);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Lỗi: " + ex.Message);
-                            }
+                            ctrHoaDon.delete(selectedID);
+                            MessageBox.Show("Xóa thông tin hóa đơn thành công.");
                         }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi xóa thông tin hóa đơn: " + ex.Message);
+                        }
+
                     }
-                    //if (ctrHoaDon.delete(hd) && (ctrCTHDSanPham.delete(cthdSP) || ctrCTHDVe.delete(cthdVe)))
-                    //{
-                    //    MessageBox.Show("Xóa thông tin hóa đơn thành công.");
-                    //    dsHoaDon.Remove(hd);
-                    //    lsvDanhSachHD.Items.Remove(item);
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Xóa thông tin hóa đơn thất bại.");
-                    //}
+
+                    // Xóa các mục đã được chọn khỏi ListView
+                    foreach (ListViewItem itemToRemove in itemsToRemove)
+                    {
+                        lsvDanhSachHD.Items.Remove(itemToRemove);
+                    }
+
+                    // Cập nhật lại số lượng hóa đơn
+                    CapNhatSoLuongHD();
+                    // xoa du lieu 
+                    lstSanPham.Items.Clear();
+                    lsvChiTietHD.Items.Clear();
+                    txtSoHD.Text = "";
+                    dTimeNgayHD.Value = DateTime.Now;
+                    cbTheThanhVien.SelectedItem = null;
+                    txtTriGiaHD.Text = "0";
+                    txtMaSP.Clear();
+                    txtTenSP.Clear();
+                    txtSoLuong.Text = "";
+                    txtNVXuatHD.Clear();
                 }
                 else
                 {
                     MessageBox.Show("Vui lòng chọn một hóa đơn để xóa.");
                 }
-                CapNhatSoLuongHD();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin hóa đơn.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin hóa đơn: " + ex.Message);
             }
         }
 
