@@ -23,6 +23,29 @@ namespace QuanLyVeXemPhim.Controller
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
+
+        public List<CCTHDThucAnDoUong> findAll()
+        {
+            string sql = "select * from cthd_thucandouong";
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CCTHDThucAnDoUong> arrs = new List<CCTHDThucAnDoUong>();
+            while (reader.Read())
+            {
+                CCTHDThucAnDoUong s = new CCTHDThucAnDoUong();
+                s.HoaDon = new CHoaDon();
+                s.SanPham = new CThucAnDoUong();
+                dsHD = ctrHoaDon.findCriteria(reader.GetString(0));
+                s.HoaDon = dsHD[0];
+                dsSP = ctrSP.findCriteria(reader.GetString(1));
+                s.SanPham = dsSP[0];
+                s.SoLuong = reader.GetInt32(2);
+                arrs.Add(s);
+            }
+            reader.Close();
+            return arrs;
+        }
         public bool insert(CCTHDThucAnDoUong obj)
         {
             try
@@ -43,14 +66,32 @@ namespace QuanLyVeXemPhim.Controller
                 return false;
             }
         }
-        public bool delete(CCTHDThucAnDoUong obj)
+        public bool delete_bySingleID(string dk)
         {
             try
             {
-                string sql = "delete from cthd_thucandouong where idsanpham =@idsanpham";
+                string sql = "delete from cthd_thucandouong where idhoadon = @dk or idsanpham = @dk";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
-                cmd.Parameters.AddWithValue("@idsanpham", obj.SanPham.IDSanPham);
+                cmd.Parameters.AddWithValue("@dk", dk);
+                int n = cmd.ExecuteNonQuery();
+                return n > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa sản phẩm khỏi cơ sở dữ liệu: " + ex.Message);
+                return false;
+            }
+        }
+        public bool delete_byBothID(string idHD, string idSP)
+        {
+            try
+            {
+                string sql = "delete from cthd_thucandouong where idhoadon = @idHD or idsanpham = @idSP";
+                SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
+                cmd.Parameters.AddWithValue("@idHD", idHD);
+                cmd.Parameters.AddWithValue("@idSP", idSP);
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
             }

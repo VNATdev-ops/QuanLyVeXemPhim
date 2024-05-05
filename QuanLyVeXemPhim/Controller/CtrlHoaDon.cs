@@ -39,11 +39,13 @@ namespace QuanLyVeXemPhim.Controller
                 s.NgayXuatHD = reader.GetDateTime(1);
                 if (!reader.IsDBNull(2))
                 {
-                    s.NhanVien.IDNhanVien = reader.GetString(2);
+                    dsNV = ctrNV.findCriteria(reader.GetString(2));
+                    s.NhanVien = dsNV[0];
                 }
                 if (!reader.IsDBNull(3))
                 {
-                    s.ThanhVien.IDThanhVien = reader.GetString(3);
+                   dsTV = ctrTV.findCriteria(reader.GetString(3));
+                    s.ThanhVien = dsTV[0];
                 }
 
                 arrs.Add(s);
@@ -122,13 +124,13 @@ namespace QuanLyVeXemPhim.Controller
             }
         }
 
-        public bool delete(CHoaDon obj)
+        public bool delete(string dk)
         {
             try
             {
-                string sql = "delete from hoadon where idhoadon =@idhoadon";
+                string sql = "delete from hoadon where idhoadon =@dk";
                 SqlCommand cmd = new SqlCommand(sql);
-                cmd.Parameters.AddWithValue("@idhoadon", obj.IDHoaDon);
+                cmd.Parameters.AddWithValue("@dk", dk);
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
