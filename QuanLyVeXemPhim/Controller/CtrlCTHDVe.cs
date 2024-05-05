@@ -17,6 +17,27 @@ namespace QuanLyVeXemPhim.Controller
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
+        public List<CCTHDVe> findAll()
+        {
+            string sql = "select * from cthd_ve";
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CCTHDVe> arrs = new List<CCTHDVe>();
+            while (reader.Read())
+            {
+                CCTHDVe s = new CCTHDVe();
+                s.HoaDon = new CHoaDon();
+                s.Ve = new CVeXemPhim();
+                s.HoaDon.IDHoaDon = reader.GetString(0);
+                s.Ve.IDVe = reader.GetString(1);
+                s.SoLuong = reader.GetInt32(2);
+                arrs.Add(s);
+            }
+            reader.Close();
+            return arrs;
+        }
+
         public bool insert(CCTHDVe obj)
         {
             try
@@ -36,14 +57,14 @@ namespace QuanLyVeXemPhim.Controller
                 return false;
             }
         }
-        public bool delete(CCTHDVe obj)
+        public bool delete(string dk)
         {
             try
             {
-                string sql = "delete from cthd_ve where idve =@idve";
+                string sql = "delete from cthd_ve where idhoadon = @dk or idve = @dk";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
-                cmd.Parameters.AddWithValue("@idve", obj.Ve.IDVe);
+                cmd.Parameters.AddWithValue("@dk", dk);
                 int n = cmd.ExecuteNonQuery();
                 return n > 0;
             }
