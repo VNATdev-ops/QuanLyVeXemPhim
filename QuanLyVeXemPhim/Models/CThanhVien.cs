@@ -52,7 +52,7 @@ namespace QuanLyVeXemPhim.Models
 
         public override string ToString()
         {
-            return IDThanhVien;
+            return IDThanhVien + " _ " + tenThanhVien;
         }
     }
 }

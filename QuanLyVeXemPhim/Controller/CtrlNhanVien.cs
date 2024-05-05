@@ -143,7 +143,7 @@ namespace QuanLyVeXemPhim.Controller
         }
         public List<CNhanVien> findCriteria(string DK)
         {//cho phép tìm theo tên or mã sp hoặc nước sản xuất or đon vị tính
-            string sql = " select * from nhanvien where TenNV like @dk or IDNhanVien like @dk or Sdt like @dk or ChucVu like @dk ";
+            string sql = " select * from nhanvien where TenNhanVien like @dk or IDNhanVien like @dk or Sdt like @dk or ChucVu like @dk ";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Parameters.AddWithValue("@dk", "%" + DK + "%");
             cmd.Connection = cnn;
