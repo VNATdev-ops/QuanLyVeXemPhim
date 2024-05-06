@@ -36,6 +36,7 @@ namespace QuanLyVeXemPhim.Views
         public FHoaDon()
         {
             InitializeComponent();
+
             //khai bao cot chi tiet hoa don
             int widthCT = lsvChiTietHD.Width;
             lsvChiTietHD.Columns.Add("ID sản phẩm", 10 * widthCT / 100);
@@ -59,7 +60,15 @@ namespace QuanLyVeXemPhim.Views
         {
             txtSoLuongHD.Text = dsHoaDon.Count.ToString();
         }
-
+        private decimal TriGiaHoaDon(System.Windows.Forms.ListView lsvChiTietHD)
+        {
+            decimal total = 0;
+            foreach (ListViewItem item in lsvChiTietHD.Items) 
+            {
+                total += decimal.Parse(item.SubItems[4].Text);
+            }
+            return total;
+        }
         private void FHoaDon_Load(object sender, EventArgs e)
         {
             dsNhanVien = ctrNhanVien.findall();
@@ -86,7 +95,7 @@ namespace QuanLyVeXemPhim.Views
                 if (s.ThanhVien == null) s.ThanhVien = new CThanhVien();
 
                 //doi ten thanh id
-                string[] obj = { s.IDHoaDon, s.NgayXuatHD.ToString(), s.NhanVien.IDNhanVien, s.ThanhVien.IDThanhVien};
+                string[] obj = { s.IDHoaDon, s.NgayXuatHD.ToString(), s.NhanVien.IDNhanVien, s.ThanhVien.IDThanhVien };
 
                 ListViewItem item = new ListViewItem(obj);
                 lsvDanhSachHD.Items.Add(item);
@@ -253,8 +262,8 @@ namespace QuanLyVeXemPhim.Views
                 hd.NgayXuatHD = dTimeNgayHD.Value;
 
                 // Lấy thông tin thành viên từ combobox thành viên
-                CThanhVien tv = null;
-                CNhanVien nv = null;
+                CThanhVien tv = new CThanhVien();
+                CNhanVien nv = new CNhanVien();
 
                 if (cbTheThanhVien.SelectedItem != null)
                 {
@@ -282,7 +291,8 @@ namespace QuanLyVeXemPhim.Views
                     ListViewItem item = new ListViewItem(obj);
                     lsvChiTietHD.Items.Add(item);
 
-                    txtTriGiaHD.Text = (int.Parse(txtTriGiaHD.Text) + cthdVe.SoLuong * sp.GiaVe).ToString();
+                    //txtTriGiaHD.Text = (int.Parse(txtTriGiaHD.Text) + cthdVe.SoLuong * sp.GiaVe).ToString();
+                    txtTriGiaHD.Text = (TriGiaHoaDon(lsvChiTietHD)).ToString();
                 }
                 else // Đã được chọn trong chi tiết hóa đơn vé
                 {
@@ -306,8 +316,8 @@ namespace QuanLyVeXemPhim.Views
                 hd.IDHoaDon = txtSoHD.Text;
                 hd.NgayXuatHD = dTimeNgayHD.Value;
 
-                CThanhVien tv = null;
-                CNhanVien nv = null;
+                CThanhVien tv = new CThanhVien();
+                CNhanVien nv = new CNhanVien();
 
                 if (cbTheThanhVien.SelectedItem != null)
                 {
@@ -352,7 +362,7 @@ namespace QuanLyVeXemPhim.Views
                     cthdSanPham.SoLuong += int.Parse(txtSoLuong.Text);
                     foreach (ListViewItem item in lsvChiTietHD.Items)
                     {
-                        if (item.SubItems[0].Text == cthdSanPham.SanPham.IDSanPham) 
+                        if (item.SubItems[0].Text == cthdSanPham.SanPham.IDSanPham)
                         {
                             item.SubItems[3].Text = cthdSanPham.SoLuong.ToString();
                             item.SubItems[4].Text = (cthdSanPham.SoLuong * sp.Gia).ToString();
@@ -363,6 +373,58 @@ namespace QuanLyVeXemPhim.Views
                 }
             }
         }
+
+        private void btnCapNhatSoLuong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lsvChiTietHD.SelectedItems.Count == 1) 
+                {
+                    if(int.Parse(txtSoLuong.Text) > 0)
+                    {
+                        ListViewItem item = lsvChiTietHD.SelectedItems[0];
+                        int index = lsvChiTietHD.Items.IndexOf(item);
+                        item.SubItems[3].Text = txtSoLuong.Text;
+
+                        // Cập nhật số lương trong danh sách chi tiết hóa đơn
+                        foreach (CCTHDVe cthd in dscthdVe)
+                        {
+                            if (cthd.HoaDon.IDHoaDon == txtSoHD.Text && cthd.Ve.IDVe == item.SubItems[0].Text)
+                            {
+                                cthd.SoLuong = int.Parse(txtSoLuong.Text);
+                                item.SubItems[3].Text = cthd.SoLuong.ToString();
+                                item.SubItems[4].Text = (cthd.SoLuong * cthd.Ve.GiaVe).ToString();
+                                break;
+                            }
+                        }
+                        foreach (CCTHDThucAnDoUong cthd in dscthdSanPham)
+                        {
+                            if (cthd.HoaDon.IDHoaDon == txtSoHD.Text && cthd.SanPham.IDSanPham == item.SubItems[0].Text)
+                            {
+                                cthd.SoLuong = int.Parse(txtSoLuong.Text);
+                                item.SubItems[3].Text = cthd.SoLuong.ToString();
+                                item.SubItems[4].Text = (cthd.SoLuong * cthd.SanPham.Gia).ToString();
+                                break;
+                            }
+                        }
+                        // Cập nhật trong listview
+                        lsvChiTietHD.Items[index] = item;
+                        txtTriGiaHD.Text = TriGiaHoaDon(lsvChiTietHD).ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập số lượng sản phẩm.");
+                        txtSoLuong.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một sản phẩm để cập nhật.");
+                }
+            }
+            catch { }
+        }
+
         private void lsvChiTietHD_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lsvChiTietHD.SelectedItems.Count == 0) return;
@@ -451,7 +513,7 @@ namespace QuanLyVeXemPhim.Views
                     // Lưu chi tiết hóa đơn vé
                     foreach (CCTHDVe cthdVe in dscthdVe)
                     {
-                        if(cthdVe.HoaDon.IDHoaDon == idhoadon)
+                        if (cthdVe.HoaDon.IDHoaDon == idhoadon)
                         {
                             cthdVe.HoaDon = hd;
                             if (ctrCTHDVe.insert(cthdVe))
@@ -528,7 +590,7 @@ namespace QuanLyVeXemPhim.Views
             {
                 // Tạo một danh sách tạm thời để lưu các mục cần xóa
                 List<ListViewItem> itemsToRemove = new List<ListViewItem>();
-                if (lsvChiTietHD.SelectedItems.Count > 0) 
+                if (lsvChiTietHD.SelectedItems.Count > 0)
                 {
                     // Lặp qua các mục được chọn trong ListView
                     foreach (ListViewItem selectedItem in lsvChiTietHD.SelectedItems)
@@ -547,7 +609,7 @@ namespace QuanLyVeXemPhim.Views
                                 break;
                                 //if (ctrCTHDVe.delete(selectedID))
                                 //{
-                                    
+
                                 //}
                                 //else
                                 //{
@@ -566,7 +628,7 @@ namespace QuanLyVeXemPhim.Views
                                 break;
                                 //if (ctrCTHDSanPham.delete_byBothID(txtSoHD.Text, selectedID))
                                 //{
-                                   
+
                                 //}
                                 //else
                                 //{
@@ -611,7 +673,7 @@ namespace QuanLyVeXemPhim.Views
                 {
                     // Tạo một danh sách tạm thời để lưu các mục cần xóa từ ListView
                     List<ListViewItem> itemsToRemove = new List<ListViewItem>();
-                    foreach(ListViewItem item in lsvDanhSachHD.SelectedItems)
+                    foreach (ListViewItem item in lsvDanhSachHD.SelectedItems)
                     {
                         //ListViewItem item = lsvDanhSachHD.SelectedItems[0];
                         string selectedID = item.SubItems[0].Text;
@@ -714,5 +776,6 @@ namespace QuanLyVeXemPhim.Views
         {
             this.Close();
         }
+
     }
 }

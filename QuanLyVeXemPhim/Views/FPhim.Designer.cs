@@ -54,7 +54,7 @@
             lsvDSPhim = new ListView();
             groupBox4 = new GroupBox();
             btnThoat = new Button();
-            btnHuy = new Button();
+            btnNhapMoi = new Button();
             bthXoa = new Button();
             btnCapNhat = new Button();
             btnThem = new Button();
@@ -293,7 +293,7 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(btnThoat);
-            groupBox4.Controls.Add(btnHuy);
+            groupBox4.Controls.Add(btnNhapMoi);
             groupBox4.Controls.Add(bthXoa);
             groupBox4.Controls.Add(btnCapNhat);
             groupBox4.Controls.Add(btnThem);
@@ -313,15 +313,15 @@
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
             // 
-            // btnHuy
+            // btnNhapMoi
             // 
-            btnHuy.Location = new Point(65, 115);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(169, 56);
-            btnHuy.TabIndex = 0;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = true;
-            btnHuy.Click += btnHuy_Click;
+            btnNhapMoi.Location = new Point(65, 115);
+            btnNhapMoi.Name = "btnNhapMoi";
+            btnNhapMoi.Size = new Size(169, 56);
+            btnNhapMoi.TabIndex = 0;
+            btnNhapMoi.Text = "Nhập mới";
+            btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnNhapMoi_Click;
             // 
             // bthXoa
             // 
@@ -472,7 +472,7 @@
         private Button bthXoa;
         private Button btnCapNhat;
         private Button btnThem;
-        private Button btnHuy;
+        private Button btnNhapMoi;
         private RichTextBox rtbMoTa;
         private TextBox txtTimKiem;
         private Label label2;

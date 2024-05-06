@@ -38,7 +38,7 @@
             panel1 = new Panel();
             btnThoat = new Button();
             btnCapNhat = new Button();
-            btnHuy = new Button();
+            btnNhapMoi = new Button();
             btnXoa = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
@@ -140,7 +140,7 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(btnThoat);
             panel1.Controls.Add(btnCapNhat);
-            panel1.Controls.Add(btnHuy);
+            panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -172,16 +172,16 @@
             btnCapNhat.UseVisualStyleBackColor = true;
             btnCapNhat.Click += btnCapNhat_Click;
             // 
-            // btnHuy
+            // btnNhapMoi
             // 
-            btnHuy.Location = new Point(45, 120);
-            btnHuy.Margin = new Padding(4);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(192, 40);
-            btnHuy.TabIndex = 2;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = true;
-            btnHuy.Click += btnHuy_Click;
+            btnNhapMoi.Location = new Point(45, 120);
+            btnNhapMoi.Margin = new Padding(4);
+            btnNhapMoi.Name = "btnNhapMoi";
+            btnNhapMoi.Size = new Size(192, 40);
+            btnNhapMoi.TabIndex = 2;
+            btnNhapMoi.Text = "Nhập mới";
+            btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnNhapMoi_Click;
             // 
             // btnXoa
             // 
@@ -384,7 +384,7 @@
         private Panel panel1;
         private Button btnThoat;
         private Button btnCapNhat;
-        private Button btnHuy;
+        private Button btnNhapMoi;
         private Button btnXoa;
         private Button btnThem;
         private GroupBox groupBox1;

@@ -40,7 +40,6 @@
             phim = new Label();
             groupBox3 = new GroupBox();
             label9 = new Label();
-            txtTongSo = new Button();
             groupBox1 = new GroupBox();
             txtSoLuongPhong = new TextBox();
             txtLogo = new TextBox();
@@ -55,6 +54,7 @@
             groupBox2 = new GroupBox();
             lsvDSRap = new ListView();
             label6 = new Label();
+            txtTongSo = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -178,8 +178,8 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(txtTongSo);
+            groupBox3.Controls.Add(label9);
             groupBox3.Location = new Point(4, 4);
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
@@ -198,15 +198,6 @@
             label9.Size = new Size(93, 30);
             label9.TabIndex = 1;
             label9.Text = "Tổng số ";
-            // 
-            // txtTongSo
-            // 
-            txtTongSo.Location = new Point(8, 88);
-            txtTongSo.Margin = new Padding(4);
-            txtTongSo.Name = "txtTongSo";
-            txtTongSo.Size = new Size(254, 50);
-            txtTongSo.TabIndex = 0;
-            txtTongSo.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -362,6 +353,15 @@
             label6.Text = "Quản lý rạp chiếu phim";
             label6.TextAlign = ContentAlignment.TopRight;
             // 
+            // txtTongSo
+            // 
+            txtTongSo.Location = new Point(22, 89);
+            txtTongSo.Margin = new Padding(4);
+            txtTongSo.Name = "txtTongSo";
+            txtTongSo.Size = new Size(210, 35);
+            txtTongSo.TabIndex = 10;
+            txtTongSo.TextChanged += txtTimKiem_TextChanged;
+            // 
             // FRapChieuPhim
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -402,7 +402,6 @@
         private Label phim;
         private GroupBox groupBox3;
         private Label label9;
-        private Button txtTongSo;
         private GroupBox groupBox1;
         private Label label5;
         private Label label4;
@@ -418,5 +417,6 @@
         private TextBox txtTenRap;
         private TextBox txtIDRap;
         private TextBox txtTimKiem;
+        private TextBox txtTongSo;
     }
 }

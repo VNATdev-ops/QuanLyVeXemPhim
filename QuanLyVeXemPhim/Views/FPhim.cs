@@ -218,7 +218,7 @@ namespace QuanLyVeXemPhim.Views
             }
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnNhapMoi_Click(object sender, EventArgs e)
         {
             txtIDPhim.Clear();
             txtTenPhim.Clear();

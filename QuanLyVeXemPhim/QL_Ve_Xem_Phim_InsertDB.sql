@@ -1,4 +1,6 @@
-﻿INSERT INTO NhanVien(IDNhanVien, TenNhanVien, MatKhau, NgaySinh, GioiTinh, Sdt, Email, ChucVu)
+﻿USE QL_Ve_Xem_Phim;
+
+INSERT INTO NhanVien(IDNhanVien, TenNhanVien, MatKhau, NgaySinh, GioiTinh, Sdt, Email, ChucVu)
 VALUES
 (10001, N'Văn Mai Hương', N'10012002', '2000-01-10', N'Nữ', N'5251100339', N'vanmaihuowng1001@gmail.com', N'Quản lý'),
 (10002, N'Hoàng Minh Nhật', N'11092003', '2003-09-11', N'Nam', N'1866770335', N'hoangminhnhat1109@gmail.com', N'Nhân viên'),

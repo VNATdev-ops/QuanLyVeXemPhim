@@ -34,7 +34,6 @@
             btnThoat = new Button();
             btnTaoHD = new Button();
             btnXoaHD = new Button();
-            btnCapNhatHD = new Button();
             btnLuuHD = new Button();
             groupBox4 = new GroupBox();
             lsvChiTietHD = new ListView();
@@ -48,6 +47,7 @@
             label8 = new Label();
             label6 = new Label();
             groupBox2 = new GroupBox();
+            btnCapNhatSoLuong = new Button();
             label7 = new Label();
             dTimeNgayHD = new DateTimePicker();
             cbTheThanhVien = new ComboBox();
@@ -104,9 +104,9 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(28, 343);
+            btnThoat.Location = new Point(28, 325);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(194, 58);
+            btnThoat.Size = new Size(194, 74);
             btnThoat.TabIndex = 16;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             // 
             // btnTaoHD
             // 
-            btnTaoHD.Location = new Point(28, 271);
+            btnTaoHD.Location = new Point(28, 228);
             btnTaoHD.Name = "btnTaoHD";
-            btnTaoHD.Size = new Size(194, 58);
+            btnTaoHD.Size = new Size(194, 74);
             btnTaoHD.TabIndex = 15;
             btnTaoHD.Text = "Tạo hóa đơn mới";
             btnTaoHD.UseVisualStyleBackColor = true;
@@ -124,29 +124,19 @@
             // 
             // btnXoaHD
             // 
-            btnXoaHD.Location = new Point(28, 191);
+            btnXoaHD.Location = new Point(28, 133);
             btnXoaHD.Name = "btnXoaHD";
-            btnXoaHD.Size = new Size(194, 58);
+            btnXoaHD.Size = new Size(194, 74);
             btnXoaHD.TabIndex = 14;
             btnXoaHD.Text = "Xóa hóa đơn";
             btnXoaHD.UseVisualStyleBackColor = true;
             btnXoaHD.Click += btnXoaHD_Click;
             // 
-            // btnCapNhatHD
-            // 
-            btnCapNhatHD.Enabled = false;
-            btnCapNhatHD.Location = new Point(28, 116);
-            btnCapNhatHD.Name = "btnCapNhatHD";
-            btnCapNhatHD.Size = new Size(194, 58);
-            btnCapNhatHD.TabIndex = 13;
-            btnCapNhatHD.Text = "Cập nhật hóa đơn";
-            btnCapNhatHD.UseVisualStyleBackColor = true;
-            // 
             // btnLuuHD
             // 
             btnLuuHD.Location = new Point(28, 42);
             btnLuuHD.Name = "btnLuuHD";
-            btnLuuHD.Size = new Size(194, 58);
+            btnLuuHD.Size = new Size(194, 74);
             btnLuuHD.TabIndex = 12;
             btnLuuHD.Text = "Lưu hóa đơn";
             btnLuuHD.UseVisualStyleBackColor = true;
@@ -157,7 +147,6 @@
             groupBox4.Controls.Add(btnThoat);
             groupBox4.Controls.Add(btnTaoHD);
             groupBox4.Controls.Add(btnXoaHD);
-            groupBox4.Controls.Add(btnCapNhatHD);
             groupBox4.Controls.Add(btnLuuHD);
             groupBox4.Location = new Point(1468, 120);
             groupBox4.Name = "groupBox4";
@@ -216,9 +205,9 @@
             // 
             // btnThemSP
             // 
-            btnThemSP.Location = new Point(468, 173);
+            btnThemSP.Location = new Point(397, 172);
             btnThemSP.Name = "btnThemSP";
-            btnThemSP.Size = new Size(112, 38);
+            btnThemSP.Size = new Size(183, 38);
             btnThemSP.TabIndex = 11;
             btnThemSP.Text = "Thêm";
             btnThemSP.UseVisualStyleBackColor = true;
@@ -257,6 +246,7 @@
             groupBox2.Controls.Add(txtSoLuong);
             groupBox2.Controls.Add(txtTenSP);
             groupBox2.Controls.Add(txtMaSP);
+            groupBox2.Controls.Add(btnCapNhatSoLuong);
             groupBox2.Controls.Add(btnThemSP);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label7);
@@ -267,6 +257,16 @@
             groupBox2.TabIndex = 17;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sản phẩm";
+            // 
+            // btnCapNhatSoLuong
+            // 
+            btnCapNhatSoLuong.Location = new Point(173, 172);
+            btnCapNhatSoLuong.Name = "btnCapNhatSoLuong";
+            btnCapNhatSoLuong.Size = new Size(183, 38);
+            btnCapNhatSoLuong.TabIndex = 11;
+            btnCapNhatSoLuong.Text = "Cập nhật số lượng";
+            btnCapNhatSoLuong.UseVisualStyleBackColor = true;
+            btnCapNhatSoLuong.Click += btnCapNhatSoLuong_Click;
             // 
             // label7
             // 
@@ -451,6 +451,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1778, 1144);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -461,6 +462,7 @@
             Controls.Add(groupBox1);
             Controls.Add(lblTenForm);
             Controls.Add(groupBox6);
+            ForeColor = SystemColors.ControlText;
             Name = "FHoaDon";
             Text = "FHoaDon";
             Load += FHoaDon_Load;
@@ -486,7 +488,6 @@
         private Button btnThoat;
         private Button btnTaoHD;
         private Button btnXoaHD;
-        private Button btnCapNhatHD;
         private Button btnLuuHD;
         private GroupBox groupBox4;
         private ListView lsvChiTietHD;
@@ -520,5 +521,6 @@
         private Label lblSoLuongHD;
         private TextBox txtNVXuatHD;
         private Label lblNVXuatHD;
+        private Button btnCapNhatSoLuong;
     }
 }
