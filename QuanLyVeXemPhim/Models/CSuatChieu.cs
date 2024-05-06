@@ -52,5 +52,7 @@ namespace QuanLyVeXemPhim.Models
         {
             return HashCode.Combine(IDSuatChieu);
         }
+
+
     }
 }

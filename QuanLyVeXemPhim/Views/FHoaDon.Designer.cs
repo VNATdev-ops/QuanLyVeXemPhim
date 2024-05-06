@@ -477,6 +477,7 @@
             Controls.Add(groupBox6);
             ForeColor = SystemColors.ControlText;
             Name = "FHoaDon";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FHoaDon";
             Load += FHoaDon_Load;
             groupBox5.ResumeLayout(false);

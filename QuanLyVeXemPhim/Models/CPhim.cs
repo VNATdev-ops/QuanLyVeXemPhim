@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Drawing.Printing;
+using QuanLyVeXemPhim.Views;
 
 namespace QuanLyVeXemPhim.Models
 {
@@ -60,6 +61,11 @@ namespace QuanLyVeXemPhim.Models
         public override int GetHashCode()
         {
             return HashCode.Combine(iDPhim);
+        }
+
+        public override string ToString()
+        {
+            return iDPhim + " _ " + tenPhim;
         }
     }
 }

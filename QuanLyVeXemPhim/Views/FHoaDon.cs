@@ -127,7 +127,6 @@ namespace QuanLyVeXemPhim.Views
                 if (s.NhanVien == null) s.NhanVien = new CNhanVien();
                 if (s.ThanhVien == null) s.ThanhVien = new CThanhVien();
 
-                //doi ten thanh id
                 string[] obj = { s.IDHoaDon, s.NgayXuatHD.ToString(), s.NhanVien.IDNhanVien, s.ThanhVien.IDThanhVien };
 
                 ListViewItem item = new ListViewItem(obj);
@@ -827,5 +826,6 @@ namespace QuanLyVeXemPhim.Views
         {
             ClearTextBoxSanPham();
         }
+
     }
 }

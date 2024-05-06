@@ -110,7 +110,10 @@ namespace QuanLyVeXemPhim.Controller
                 s.TenRap = reader.GetString(1);
                 s.DiaChi = reader.GetString(2);
                 s.SoLuongPhong = reader.GetInt32(3);
-                s.Logo = reader.GetString(4);
+                if (!reader.IsDBNull(4)) 
+                {
+                    s.Logo = reader.GetString(4);
+                }
                 // thêm vào ds
                 arrs.Add(s);
             }

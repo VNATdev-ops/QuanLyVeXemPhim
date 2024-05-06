@@ -246,7 +246,7 @@ namespace QuanLyVeXemPhim.Views
                 string dkTim = txtTimKiem.Text;
                 dsPhim = ctrPhim.findCriteria(dkTim);
                 lsvDSPhim.Items.Clear();
-                foreach(CPhim s in dsPhim)
+                foreach (CPhim s in dsPhim)
                 {
                     string[] obj = {s.IDPhim, s.TenPhim, s.TheLoai, s.DaoDien, s.MoTa,
                 s.HinhAnh, s.NgayPH +"", s.DoDai +"", s.TrangThai,s.DinhDang};
@@ -264,9 +264,9 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[9].Text = s.DinhDang;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
     }
