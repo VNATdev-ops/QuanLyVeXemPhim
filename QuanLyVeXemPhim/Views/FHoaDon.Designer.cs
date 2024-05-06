@@ -48,6 +48,7 @@
             label6 = new Label();
             groupBox2 = new GroupBox();
             btnCapNhatSoLuong = new Button();
+            btnHuy = new Button();
             label7 = new Label();
             dTimeNgayHD = new DateTimePicker();
             cbTheThanhVien = new ComboBox();
@@ -79,7 +80,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(66, 47);
+            label10.Location = new Point(45, 47);
             label10.Name = "label10";
             label10.Size = new Size(118, 25);
             label10.TabIndex = 4;
@@ -89,24 +90,24 @@
             // 
             groupBox5.Controls.Add(txtIDNhanVien);
             groupBox5.Controls.Add(label10);
-            groupBox5.Location = new Point(1468, 635);
+            groupBox5.Location = new Point(1520, 669);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(242, 159);
+            groupBox5.Size = new Size(203, 159);
             groupBox5.TabIndex = 22;
             groupBox5.TabStop = false;
             // 
             // txtIDNhanVien
             // 
-            txtIDNhanVien.Location = new Point(28, 89);
+            txtIDNhanVien.Location = new Point(18, 93);
             txtIDNhanVien.Name = "txtIDNhanVien";
-            txtIDNhanVien.Size = new Size(194, 31);
+            txtIDNhanVien.Size = new Size(166, 31);
             txtIDNhanVien.TabIndex = 13;
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(28, 325);
+            btnThoat.Location = new Point(18, 321);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(194, 74);
+            btnThoat.Size = new Size(166, 74);
             btnThoat.TabIndex = 16;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -114,9 +115,9 @@
             // 
             // btnTaoHD
             // 
-            btnTaoHD.Location = new Point(28, 228);
+            btnTaoHD.Location = new Point(18, 224);
             btnTaoHD.Name = "btnTaoHD";
-            btnTaoHD.Size = new Size(194, 74);
+            btnTaoHD.Size = new Size(166, 74);
             btnTaoHD.TabIndex = 15;
             btnTaoHD.Text = "Tạo hóa đơn mới";
             btnTaoHD.UseVisualStyleBackColor = true;
@@ -124,9 +125,9 @@
             // 
             // btnXoaHD
             // 
-            btnXoaHD.Location = new Point(28, 133);
+            btnXoaHD.Location = new Point(18, 129);
             btnXoaHD.Name = "btnXoaHD";
-            btnXoaHD.Size = new Size(194, 74);
+            btnXoaHD.Size = new Size(166, 74);
             btnXoaHD.TabIndex = 14;
             btnXoaHD.Text = "Xóa hóa đơn";
             btnXoaHD.UseVisualStyleBackColor = true;
@@ -134,9 +135,9 @@
             // 
             // btnLuuHD
             // 
-            btnLuuHD.Location = new Point(28, 42);
+            btnLuuHD.Location = new Point(18, 38);
             btnLuuHD.Name = "btnLuuHD";
-            btnLuuHD.Size = new Size(194, 74);
+            btnLuuHD.Size = new Size(166, 74);
             btnLuuHD.TabIndex = 12;
             btnLuuHD.Text = "Lưu hóa đơn";
             btnLuuHD.UseVisualStyleBackColor = true;
@@ -148,9 +149,9 @@
             groupBox4.Controls.Add(btnTaoHD);
             groupBox4.Controls.Add(btnXoaHD);
             groupBox4.Controls.Add(btnLuuHD);
-            groupBox4.Location = new Point(1468, 120);
+            groupBox4.Location = new Point(1520, 120);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(242, 431);
+            groupBox4.Size = new Size(203, 422);
             groupBox4.TabIndex = 21;
             groupBox4.TabStop = false;
             // 
@@ -158,7 +159,7 @@
             // 
             lsvChiTietHD.Location = new Point(31, 47);
             lsvChiTietHD.Name = "lsvChiTietHD";
-            lsvChiTietHD.Size = new Size(549, 315);
+            lsvChiTietHD.Size = new Size(582, 271);
             lsvChiTietHD.TabIndex = 20;
             lsvChiTietHD.UseCompatibleStateImageBehavior = false;
             lsvChiTietHD.SelectedIndexChanged += lsvChiTietHD_SelectedIndexChanged;
@@ -177,21 +178,21 @@
             lstSanPham.ItemHeight = 25;
             lstSanPham.Location = new Point(31, 40);
             lstSanPham.Name = "lstSanPham";
-            lstSanPham.Size = new Size(549, 154);
+            lstSanPham.Size = new Size(582, 154);
             lstSanPham.TabIndex = 0;
             // 
             // txtSoLuong
             // 
             txtSoLuong.Location = new Point(173, 123);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(407, 31);
+            txtSoLuong.Size = new Size(440, 31);
             txtSoLuong.TabIndex = 13;
             // 
             // txtTenSP
             // 
             txtTenSP.Location = new Point(173, 82);
             txtTenSP.Name = "txtTenSP";
-            txtTenSP.Size = new Size(407, 31);
+            txtTenSP.Size = new Size(440, 31);
             txtTenSP.TabIndex = 12;
             txtTenSP.TextChanged += txtTenSP_TextChanged;
             // 
@@ -199,15 +200,15 @@
             // 
             txtMaSP.Location = new Point(173, 40);
             txtMaSP.Name = "txtMaSP";
-            txtMaSP.Size = new Size(407, 31);
+            txtMaSP.Size = new Size(440, 31);
             txtMaSP.TabIndex = 10;
             txtMaSP.TextChanged += txtMaSP_TextChanged;
             // 
             // btnThemSP
             // 
-            btnThemSP.Location = new Point(397, 172);
+            btnThemSP.Location = new Point(493, 209);
             btnThemSP.Name = "btnThemSP";
-            btnThemSP.Size = new Size(183, 38);
+            btnThemSP.Size = new Size(120, 40);
             btnThemSP.TabIndex = 11;
             btnThemSP.Text = "Thêm";
             btnThemSP.UseVisualStyleBackColor = true;
@@ -216,9 +217,9 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(lstSanPham);
-            groupBox3.Location = new Point(835, 377);
+            groupBox3.Location = new Point(835, 441);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(606, 221);
+            groupBox3.Size = new Size(642, 221);
             groupBox3.TabIndex = 18;
             groupBox3.TabStop = false;
             groupBox3.Text = "Danh sách sản phẩm";
@@ -247,26 +248,37 @@
             groupBox2.Controls.Add(txtTenSP);
             groupBox2.Controls.Add(txtMaSP);
             groupBox2.Controls.Add(btnCapNhatSoLuong);
+            groupBox2.Controls.Add(btnHuy);
             groupBox2.Controls.Add(btnThemSP);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
             groupBox2.Location = new Point(835, 120);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(606, 241);
+            groupBox2.Size = new Size(642, 286);
             groupBox2.TabIndex = 17;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sản phẩm";
             // 
             // btnCapNhatSoLuong
             // 
-            btnCapNhatSoLuong.Location = new Point(173, 172);
+            btnCapNhatSoLuong.Location = new Point(335, 209);
             btnCapNhatSoLuong.Name = "btnCapNhatSoLuong";
-            btnCapNhatSoLuong.Size = new Size(183, 38);
+            btnCapNhatSoLuong.Size = new Size(120, 40);
             btnCapNhatSoLuong.TabIndex = 11;
-            btnCapNhatSoLuong.Text = "Cập nhật số lượng";
+            btnCapNhatSoLuong.Text = "Cập nhật";
             btnCapNhatSoLuong.UseVisualStyleBackColor = true;
             btnCapNhatSoLuong.Click += btnCapNhatSoLuong_Click;
+            // 
+            // btnHuy
+            // 
+            btnHuy.Location = new Point(173, 209);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(120, 40);
+            btnHuy.TabIndex = 11;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label7
             // 
@@ -294,9 +306,9 @@
             // 
             // txtTriGiaHD
             // 
-            txtTriGiaHD.Enabled = false;
             txtTriGiaHD.Location = new Point(267, 174);
             txtTriGiaHD.Name = "txtTriGiaHD";
+            txtTriGiaHD.ReadOnly = true;
             txtTriGiaHD.Size = new Size(428, 31);
             txtTriGiaHD.TabIndex = 9;
             // 
@@ -364,9 +376,9 @@
             // 
             // txtNVXuatHD
             // 
-            txtNVXuatHD.Enabled = false;
             txtNVXuatHD.Location = new Point(267, 219);
             txtNVXuatHD.Name = "txtNVXuatHD";
+            txtNVXuatHD.ReadOnly = true;
             txtNVXuatHD.Size = new Size(428, 31);
             txtNVXuatHD.TabIndex = 9;
             // 
@@ -390,7 +402,7 @@
             // 
             // btnXoaCTHD
             // 
-            btnXoaCTHD.Location = new Point(445, 382);
+            btnXoaCTHD.Location = new Point(478, 343);
             btnXoaCTHD.Name = "btnXoaCTHD";
             btnXoaCTHD.Size = new Size(135, 46);
             btnXoaCTHD.TabIndex = 14;
@@ -402,9 +414,9 @@
             // 
             groupBox6.Controls.Add(btnXoaCTHD);
             groupBox6.Controls.Add(lsvChiTietHD);
-            groupBox6.Location = new Point(835, 635);
+            groupBox6.Location = new Point(835, 669);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(606, 452);
+            groupBox6.Size = new Size(642, 418);
             groupBox6.TabIndex = 1;
             groupBox6.TabStop = false;
             groupBox6.Text = "Chi tiết hóa đơn";
@@ -424,6 +436,7 @@
             // lsvDanhSachHD
             // 
             lsvDanhSachHD.Location = new Point(31, 48);
+            lsvDanhSachHD.MultiSelect = false;
             lsvDanhSachHD.Name = "lsvDanhSachHD";
             lsvDanhSachHD.Size = new Size(664, 520);
             lsvDanhSachHD.TabIndex = 20;
@@ -432,10 +445,10 @@
             // 
             // txtSoLuongHD
             // 
-            txtSoLuongHD.Enabled = false;
-            txtSoLuongHD.Location = new Point(220, 593);
+            txtSoLuongHD.Location = new Point(267, 593);
             txtSoLuongHD.Name = "txtSoLuongHD";
-            txtSoLuongHD.Size = new Size(475, 31);
+            txtSoLuongHD.ReadOnly = true;
+            txtSoLuongHD.Size = new Size(428, 31);
             txtSoLuongHD.TabIndex = 9;
             // 
             // lblSoLuongHD
@@ -522,5 +535,6 @@
         private TextBox txtNVXuatHD;
         private Label lblNVXuatHD;
         private Button btnCapNhatSoLuong;
+        private Button btnHuy;
     }
 }

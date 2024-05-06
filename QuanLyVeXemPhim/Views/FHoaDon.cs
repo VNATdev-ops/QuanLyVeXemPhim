@@ -39,11 +39,11 @@ namespace QuanLyVeXemPhim.Views
 
             //khai bao cot chi tiet hoa don
             int widthCT = lsvChiTietHD.Width;
-            lsvChiTietHD.Columns.Add("ID sản phẩm", 10 * widthCT / 100);
+            lsvChiTietHD.Columns.Add("ID", 16 * widthCT / 100);
             lsvChiTietHD.Columns.Add("Tên sản phẩm", 30 * widthCT / 100);
-            lsvChiTietHD.Columns.Add("Giá bán", 10 * widthCT / 100);
-            lsvChiTietHD.Columns.Add("Số lượng", 19 * widthCT / 100);
-            lsvChiTietHD.Columns.Add("Thành tiền", 20 * widthCT / 100);
+            lsvChiTietHD.Columns.Add("Giá bán", 18 * widthCT / 100);
+            lsvChiTietHD.Columns.Add("Số lượng", 18 * widthCT / 100);
+            lsvChiTietHD.Columns.Add("Thành tiền", 18 * widthCT / 100);
             lsvChiTietHD.View = View.Details;
             lsvChiTietHD.FullRowSelect = true;
 
@@ -56,6 +56,11 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachHD.View = View.Details;
             lsvDanhSachHD.FullRowSelect = true;
         }
+        private int TaoSoHD()
+        {
+            string str = string.Format("{0:MMddhhmmss}", DateTime.Now);
+            return int.Parse(str);
+        }
         private void CapNhatSoLuongHD()
         {
             txtSoLuongHD.Text = dsHoaDon.Count.ToString();
@@ -63,11 +68,39 @@ namespace QuanLyVeXemPhim.Views
         private decimal TriGiaHoaDon(System.Windows.Forms.ListView lsvChiTietHD)
         {
             decimal total = 0;
-            foreach (ListViewItem item in lsvChiTietHD.Items) 
+            foreach (ListViewItem item in lsvChiTietHD.Items)
             {
                 total += decimal.Parse(item.SubItems[4].Text);
             }
             return total;
+        }
+        private void ClearTextBoxSanPham()
+        {
+            txtMaSP.Clear();
+            txtTenSP.Clear();
+            txtSoLuong.Text = 1 + "";
+        }
+        private void LockSPButton()
+        {
+            btnThemSP.Enabled = false;
+            btnCapNhatSoLuong.Enabled = false;
+            btnHuy.Enabled = false;
+            btnXoaCTHD.Enabled = false;
+            btnLuuHD.Enabled = false;
+            txtSoHD.ReadOnly = true;
+            cbTheThanhVien.Enabled = false;
+            dTimeNgayHD.Enabled = false;
+        }
+        private void UnlockSPButton()
+        {
+            btnThemSP.Enabled = true;
+            btnCapNhatSoLuong.Enabled = true;
+            btnHuy.Enabled = true;
+            btnXoaCTHD.Enabled = true;
+            btnLuuHD.Enabled = true;
+            txtSoHD.ReadOnly = false;
+            cbTheThanhVien.Enabled = true;
+            dTimeNgayHD.Enabled = true;
         }
         private void FHoaDon_Load(object sender, EventArgs e)
         {
@@ -106,11 +139,6 @@ namespace QuanLyVeXemPhim.Views
 
             }
             CapNhatSoLuongHD();
-        }
-        private int TaoSoHD()
-        {
-            string str = string.Format("{0:MMddhhmmss}", DateTime.Now);
-            return int.Parse(str);
         }
         private void lsvDanhSachHD_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -161,6 +189,7 @@ namespace QuanLyVeXemPhim.Views
                         ListViewItem item = new ListViewItem(obj);
                         lsvChiTietHD.Items.Add(item);
                     }
+                    LockSPButton();
 
                     // Cập nhật tổng giá trị hóa đơn
                     CapNhatTongGiaTriHoaDon();
@@ -371,16 +400,19 @@ namespace QuanLyVeXemPhim.Views
                     dscthdSanPham[index] = cthdSanPham;
                     txtTriGiaHD.Text = ((decimal.Parse(txtTriGiaHD.Text)) + (int.Parse(txtSoLuong.Text) * sp.Gia)).ToString();
                 }
+                lstSanPham.ClearSelected();
             }
+
+            ClearTextBoxSanPham();
         }
 
         private void btnCapNhatSoLuong_Click(object sender, EventArgs e)
         {
             try
             {
-                if (lsvChiTietHD.SelectedItems.Count == 1) 
+                if (lsvChiTietHD.SelectedItems.Count == 1)
                 {
-                    if(int.Parse(txtSoLuong.Text) > 0)
+                    if (int.Parse(txtSoLuong.Text) > 0)
                     {
                         ListViewItem item = lsvChiTietHD.SelectedItems[0];
                         int index = lsvChiTietHD.Items.IndexOf(item);
@@ -450,9 +482,7 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    txtMaSP.Clear();
-                    txtTenSP.Clear();
-                    txtSoLuong.Clear();
+                    ClearTextBoxSanPham();
                 }
             }
         }
@@ -468,9 +498,7 @@ namespace QuanLyVeXemPhim.Views
             }
             else
             {
-                txtMaSP.Clear();
-                txtTenSP.Clear();
-                txtSoLuong.Clear();
+                ClearTextBoxSanPham();
             }
         }
 
@@ -496,6 +524,12 @@ namespace QuanLyVeXemPhim.Views
                         return;
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập mã nhân viên.");
+                    txtIDNhanVien.Focus();
+                    return;
+                }
 
                 // Lấy thông tin thành viên từ combobox
                 CThanhVien thanhvien = new CThanhVien();
@@ -519,7 +553,6 @@ namespace QuanLyVeXemPhim.Views
                             if (ctrCTHDVe.insert(cthdVe))
                             {
                                 MessageBox.Show("Lưu chi tiết hóa đơn vé thành công.");
-                                btnThemSP.Enabled = false;
                             }
                             else
                             {
@@ -537,7 +570,6 @@ namespace QuanLyVeXemPhim.Views
                             if (ctrCTHDSanPham.insert(cthdSanPham))
                             {
                                 MessageBox.Show("Lưu chi tiết hóa đơn sản phẩm thành công.");
-                                btnThemSP.Enabled = false;
                             }
                             else
                             {
@@ -545,10 +577,13 @@ namespace QuanLyVeXemPhim.Views
                             }
                         }
                     }
+
+                    LockSPButton();
                 }
                 else
                 {
                     MessageBox.Show("Lưu hóa đơn thất bại.");
+                    return;
                 }
 
                 // Hiển thị thông tin hóa đơn đã lưu
@@ -569,7 +604,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnTaoHD_Click(object sender, EventArgs e)
         {
-            btnThemSP.Enabled = true;
+            UnlockSPButton();
             // xoa du lieu trong listbox, listview
             lstSanPham.Items.Clear();
             lsvChiTietHD.Items.Clear();
@@ -607,14 +642,6 @@ namespace QuanLyVeXemPhim.Views
                                 itemsToRemove.Add(selectedItem);
                                 MessageBox.Show("Đã xóa khỏi danh sách chi tiết sản phẩm.");
                                 break;
-                                //if (ctrCTHDVe.delete(selectedID))
-                                //{
-
-                                //}
-                                //else
-                                //{
-                                //    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
-                                //}
                             }
                         }
 
@@ -626,14 +653,6 @@ namespace QuanLyVeXemPhim.Views
                                 itemsToRemove.Add(selectedItem);
                                 MessageBox.Show("Đã xóa khỏi danh sách chi tiết sản phẩm.");
                                 break;
-                                //if (ctrCTHDSanPham.delete_byBothID(txtSoHD.Text, selectedID))
-                                //{
-
-                                //}
-                                //else
-                                //{
-                                //    MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
-                                //}
                             }
                         }
                     }
@@ -644,6 +663,8 @@ namespace QuanLyVeXemPhim.Views
                         lsvChiTietHD.Items.Remove(itemToRemove);
                         MessageBox.Show("Xóa thông tin sản phẩm thành công.");
                     }
+
+                    ClearTextBoxSanPham();
 
                     // Kiểm tra nếu danh sách đã rỗng sau khi xóa
                     if (lsvChiTietHD.Items.Count == 0)
@@ -777,5 +798,34 @@ namespace QuanLyVeXemPhim.Views
             this.Close();
         }
 
+        //private void lstSanPham_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (lstSanPham.SelectedItem != null)
+        //    {
+        //        if (lstSanPham.SelectedItem is CThucAnDoUong)
+        //        {
+        //            CThucAnDoUong item = (CThucAnDoUong)lstSanPham.SelectedItem;
+        //            txtMaSP.Text = item.IDSanPham;
+        //            txtTenSP.Text = item.TenSanPham;
+
+        //        }
+        //        else if (lstSanPham.SelectedItem is CVeXemPhim)
+        //        {
+        //            CVeXemPhim item = (CVeXemPhim)lstSanPham.SelectedItem;
+        //            txtMaSP.Text = item.IDVe;
+        //            txtTenSP.Text = item.Phim.TenPhim;
+        //        }
+        //        if (lstSanPham.Items.Count == 1)
+        //        {
+        //            lstSanPham.Focus();
+        //            lstSanPham.Select();
+        //        }
+        //    }
+        //}
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxSanPham();
+        }
     }
 }
