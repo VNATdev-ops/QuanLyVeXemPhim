@@ -36,6 +36,7 @@ namespace QuanLyVeXemPhim.Views
         public FHoaDon()
         {
             InitializeComponent();
+
             //khai bao cot chi tiet hoa don
             int widthCT = lsvChiTietHD.Width;
             lsvChiTietHD.Columns.Add("ID sản phẩm", 10 * widthCT / 100);

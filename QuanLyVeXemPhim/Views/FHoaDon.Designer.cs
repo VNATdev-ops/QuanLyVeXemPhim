@@ -47,6 +47,7 @@
             label8 = new Label();
             label6 = new Label();
             groupBox2 = new GroupBox();
+            btnCapNhatSoLuong = new Button();
             label7 = new Label();
             dTimeNgayHD = new DateTimePicker();
             cbTheThanhVien = new ComboBox();
@@ -66,7 +67,6 @@
             lsvDanhSachHD = new ListView();
             txtSoLuongHD = new TextBox();
             lblSoLuongHD = new Label();
-            btnCapNhatSoLuong = new Button();
             groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -258,6 +258,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Sản phẩm";
             // 
+            // btnCapNhatSoLuong
+            // 
+            btnCapNhatSoLuong.Location = new Point(173, 172);
+            btnCapNhatSoLuong.Name = "btnCapNhatSoLuong";
+            btnCapNhatSoLuong.Size = new Size(183, 38);
+            btnCapNhatSoLuong.TabIndex = 11;
+            btnCapNhatSoLuong.Text = "Cập nhật số lượng";
+            btnCapNhatSoLuong.UseVisualStyleBackColor = true;
+            btnCapNhatSoLuong.Click += btnCapNhatSoLuong_Click;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -437,20 +447,11 @@
             lblSoLuongHD.TabIndex = 6;
             lblSoLuongHD.Text = "Số lượng hóa đơn";
             // 
-            // btnCapNhatSoLuong
-            // 
-            btnCapNhatSoLuong.Location = new Point(173, 172);
-            btnCapNhatSoLuong.Name = "btnCapNhatSoLuong";
-            btnCapNhatSoLuong.Size = new Size(183, 38);
-            btnCapNhatSoLuong.TabIndex = 11;
-            btnCapNhatSoLuong.Text = "Cập nhật số lượng";
-            btnCapNhatSoLuong.UseVisualStyleBackColor = true;
-            btnCapNhatSoLuong.Click += btnCapNhatSoLuong_Click;
-            // 
             // FHoaDon
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1778, 1144);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -461,6 +462,7 @@
             Controls.Add(groupBox1);
             Controls.Add(lblTenForm);
             Controls.Add(groupBox6);
+            ForeColor = SystemColors.ControlText;
             Name = "FHoaDon";
             Text = "FHoaDon";
             Load += FHoaDon_Load;
