@@ -15,7 +15,7 @@ namespace QuanLyVeXemPhim.Views
     public partial class FChonSuat : Form
     {
         CtrlChonSuat ctrlChonSuat = new CtrlChonSuat();
-        List<CChonSuat> dsChonSuat = new List<CChonSuat>();
+        private List<CChonSuat> dsChonSuat = new List<CChonSuat>();
 
         public FChonSuat()
         {
@@ -32,7 +32,6 @@ namespace QuanLyVeXemPhim.Views
         private void FChonSuat_Load(object sender, EventArgs e)
         {
             dsChonSuat = ctrlChonSuat.findall();
-            //dsRapChieuPhim = ctrlRapChieuPhim.findall();
             foreach (CChonSuat s in dsChonSuat)
             {
                 string[] obj = { s.Phim.IDPhim, s.Rap.IDRap, s.SuatChieu.IDSuatChieu };
@@ -50,27 +49,21 @@ namespace QuanLyVeXemPhim.Views
         private void lsvDSCS_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            if (lsvDSCS.SelectedItems.Count == 0) return;  
+
+            ListViewItem item = lsvDSCS.SelectedItems[0];
+            if (item == null) return;
             try
             {
-                ListViewItem item = lsvDSCS.SelectedItems[0];
-                CChonSuat chonSuat = new CChonSuat();
-                //if (item != null) { return; }
-                if (lsvDSCS.SelectedItems.Count == 0)
-
-                chonSuat.Rap.IDRap = item.SubItems[1].Text;
-                int index = dsChonSuat.IndexOf(chonSuat);
-                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
-                if (index < 0)
-                {
-                    return;
-                }
-                chonSuat = dsChonSuat[index];
-
-                txtIDphim.Text = chonSuat.Phim.IDPhim;
-                txtIDrap.Text = chonSuat.Rap.IDRap;
-                txtIDsuatchieu.Text = chonSuat.SuatChieu.IDSuatChieu;
+                
+                txtIDphim.Text = item.SubItems[0].Text;    // ID Phim
+                txtIDrap.Text = item.SubItems[1].Text;     // ID Rạp
+                txtIDsuatchieu.Text = item.SubItems[2].Text; // ID Suất chiếu
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating text boxes: " + ex.Message);
+            }
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
@@ -157,27 +150,34 @@ namespace QuanLyVeXemPhim.Views
                 string maRap = txtIDrap.Text;
                 string maSuatChieu = txtIDsuatchieu.Text;
                 // Tạo các đối tượng phim, rạp và suất chiếu
-                CPhim phim = new CPhim();
-                phim.IDPhim = maPhim;
+                //CPhim phim = new CPhim();
+                //phim.IDPhim = maPhim;
 
-                CRapChieuPhim rap = new CRapChieuPhim();
-                rap.IDRap = maRap;
+                //CRapChieuPhim rap = new CRapChieuPhim();
+                //rap.IDRap = maRap;
 
-                CSuatChieu suatChieu = new CSuatChieu();
-                suatChieu.IDSuatChieu = maSuatChieu;
+                //CSuatChieu suatChieu = new CSuatChieu();
+                //suatChieu.IDSuatChieu = maSuatChieu;
 
-                // Khởi tạo đối tượng ChonSuat với các đối tượng đã tạo
-                CChonSuat s = new CChonSuat(phim, rap, suatChieu);
-                //CChonSuat s = new CChonSuat (maPhim, maRap, maSuatChieu);
-                if (ctrlChonSuat.insert(s))
+
+                // Create CChonSuat object
+                CChonSuat chonSuat = new CChonSuat();
+                chonSuat.Phim.IDPhim = maPhim;
+                chonSuat.Rap.IDRap = maRap;
+                chonSuat.SuatChieu.IDSuatChieu = maSuatChieu;
+
+                if (ctrlChonSuat.insert(chonSuat))
                 {
                     string[] objsp = { maPhim, maRap, maSuatChieu };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvDSCS.Items.Add(item);
-                    dsChonSuat.Add(s);
+                    dsChonSuat.Add(chonSuat);
                     txtTongSo.Text = lsvDSCS.Items.Count.ToString();
                     MessageBox.Show("Thêm thành công");
                 }
+                else
+                    MessageBox.Show("Thêm thất bại!");
+
             }
             catch { }
         }

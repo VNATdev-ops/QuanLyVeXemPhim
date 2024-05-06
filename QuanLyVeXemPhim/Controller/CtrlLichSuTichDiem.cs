@@ -121,7 +121,12 @@ namespace QuanLyVeXemPhim.Controller
             reader.Close();
             return arrs;
         }
+
+        
+            
+        
+
     }
 
-    
+
 }

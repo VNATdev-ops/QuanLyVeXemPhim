@@ -86,14 +86,14 @@
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 54);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1210, 228);
+            groupBox1.Size = new Size(1067, 228);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin vé xem phim";
             // 
             // txtTinhTrang
             // 
-            txtTinhTrang.Location = new Point(935, 58);
+            txtTinhTrang.Location = new Point(856, 54);
             txtTinhTrang.Name = "txtTinhTrang";
             txtTinhTrang.Size = new Size(184, 34);
             txtTinhTrang.TabIndex = 18;
@@ -102,7 +102,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(786, 64);
+            label9.Location = new Point(707, 60);
             label9.Name = "label9";
             label9.Size = new Size(101, 28);
             label9.TabIndex = 17;
@@ -110,7 +110,7 @@
             // 
             // txtIDPhim
             // 
-            txtIDPhim.Location = new Point(935, 115);
+            txtIDPhim.Location = new Point(856, 111);
             txtIDPhim.Name = "txtIDPhim";
             txtIDPhim.Size = new Size(184, 34);
             txtIDPhim.TabIndex = 16;
@@ -154,7 +154,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(788, 121);
+            label6.Location = new Point(709, 117);
             label6.Name = "label6";
             label6.Size = new Size(89, 28);
             label6.TabIndex = 10;
@@ -219,7 +219,7 @@
             s.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             s.Location = new Point(12, 309);
             s.Name = "s";
-            s.Size = new Size(1210, 228);
+            s.Size = new Size(1067, 228);
             s.TabIndex = 1;
             s.TabStop = false;
             s.Text = "Danh Sách Vé Xem Phim";
@@ -229,7 +229,7 @@
             lsvVeXemPhim.Dock = DockStyle.Fill;
             lsvVeXemPhim.Location = new Point(3, 30);
             lsvVeXemPhim.Name = "lsvVeXemPhim";
-            lsvVeXemPhim.Size = new Size(1204, 195);
+            lsvVeXemPhim.Size = new Size(1061, 195);
             lsvVeXemPhim.TabIndex = 0;
             lsvVeXemPhim.UseCompatibleStateImageBehavior = false;
             lsvVeXemPhim.SelectedIndexChanged += lsvVeXemPhim_SelectedIndexChanged;
@@ -241,7 +241,7 @@
             panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Location = new Point(1228, 54);
+            panel1.Location = new Point(1085, 36);
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 224);
             panel1.TabIndex = 5;
@@ -300,7 +300,7 @@
             // 
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
-            panel2.Location = new Point(1228, 284);
+            panel2.Location = new Point(1085, 266);
             panel2.Name = "panel2";
             panel2.Size = new Size(221, 271);
             panel2.TabIndex = 6;
@@ -375,7 +375,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1470, 590);
+            ClientSize = new Size(1319, 590);
             Controls.Add(label8);
             Controls.Add(panel2);
             Controls.Add(panel1);
