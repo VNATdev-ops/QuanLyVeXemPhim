@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Models
 {
-    internal class CLichSuTichDiem
+    public class CLichSuTichDiem // Thay đổi từ internal sang public
     {
         private string iDLichSu;
         private int soDiemTichLuy;
@@ -18,7 +18,7 @@ namespace QuanLyVeXemPhim.Models
         public int SoDiemTichLuy { get => soDiemTichLuy; set => soDiemTichLuy = value; }
         public DateTime ThoiGianTichLuy { get => thoiGianTichLuy; set => thoiGianTichLuy = value; }
         public int TongDiemTichLuy { get => tongDiemTichLuy; set => tongDiemTichLuy = value; }
-        internal CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
+        public CThanhVien ThanhVien { get => thanhVien; set => thanhVien = value; }
 
         public CLichSuTichDiem(string iDLichSu, int soDiemTichLuy, DateTime thoiGianTichLuy, int tongDiemTichLuy, CThanhVien thanhVien)
         {
@@ -44,12 +44,12 @@ namespace QuanLyVeXemPhim.Models
             return HashCode.Combine(iDLichSu);
         }
 
+        // Phương thức khác
         //public CLichSuTichDiem(int lichSuID, int nguoiDungID)
         //{
         //    this.lichSuID = lichSuID;
         //    this.nguoiDungID = nguoiDungID;
         //}
-
 
     }
 }

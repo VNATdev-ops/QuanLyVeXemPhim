@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Models
 {
-    internal class CThanhVien
+    public class CThanhVien
     {
         private string iDThanhVien;
         private string tenThanhVien;

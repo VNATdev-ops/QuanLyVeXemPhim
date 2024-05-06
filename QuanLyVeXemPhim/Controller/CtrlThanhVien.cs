@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Controller
 {
-    internal class CtrlThanhVien
+    public class CtrlThanhVien
     {
         SqlConnection cnn = null;
+
         public CtrlThanhVien()
         {
             ConnectDB cnnDB = new ConnectDB();
@@ -21,6 +22,7 @@ namespace QuanLyVeXemPhim.Controller
         public List<CThanhVien> findall()
         {
             string sql = "select * from thanhvien";
+
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
@@ -77,8 +79,8 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@ngaysinh", obj.NgaySinh);
                 cmd.Parameters.AddWithValue("@gioitinh", obj.GioiTinh);
                 cmd.Parameters.AddWithValue("@khuvuc", obj.KhuVuc);
-                cmd.Parameters.AddWithValue("@email", obj.NgaySinh);
-                cmd.Parameters.AddWithValue("@idthanhvien", obj.NgaySinh);
+                cmd.Parameters.AddWithValue("@email", obj.Email);
+                cmd.Parameters.AddWithValue("@idthanhvien", obj.IDThanhVien);
 
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
@@ -135,4 +137,6 @@ namespace QuanLyVeXemPhim.Controller
         }
 
     }
+
+   
 }

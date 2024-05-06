@@ -18,22 +18,32 @@ namespace QuanLyVeXemPhim.Views
     {
         CtrlThanhVien ctrlThanhVien = new CtrlThanhVien();
         List<CThanhVien> dsThanhVien = new List<CThanhVien>();
+
+        private CtrlLichSuTichDiem ctrlLichSuTichDiem = new CtrlLichSuTichDiem();
+
+
+        // 
+
         public FThanhVien()
         {
             InitializeComponent();
             int width = lsvDanhSachTV.Width;
-            lsvDanhSachTV.Columns.Add("Mã TV", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Tên thành viên", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Mật khẩu", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Ngày sinh", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Giới tính", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Khu vực", 14 * width / 100);
-            lsvDanhSachTV.Columns.Add("Email", 14 * width / 100);
+            lsvDanhSachTV.Columns.Add("Mã TV", width / 100);
+            lsvDanhSachTV.Columns.Add("Tên thành viên", width / 100);
+            lsvDanhSachTV.Columns.Add("Mật khẩu", width / 100);
+            lsvDanhSachTV.Columns.Add("Ngày sinh", width / 100);
+            lsvDanhSachTV.Columns.Add("Giới tính", width / 100);
+            lsvDanhSachTV.Columns.Add("Khu vực", width / 100);
+            lsvDanhSachTV.Columns.Add("Email", width / 100);            
+
+        
 
             lsvDanhSachTV.View = View.Details;
             lsvDanhSachTV.FullRowSelect = true;
 
         }
+
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -81,10 +91,15 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+
+                if (lsvDanhSachTV.SelectedItems.Count == 0)
+                    return;
+
                 ListViewItem item = lsvDanhSachTV.SelectedItems[0];
                 CThanhVien thanhVien = new CThanhVien();
                 thanhVien.IDThanhVien = item.SubItems[0].Text;
                 int index = dsThanhVien.IndexOf(thanhVien);
+
                 // tìm kiếm phần tử được chọn ở vị trí nào trong ds
                 if (index < 0) { return; }
                 {
@@ -97,6 +112,9 @@ namespace QuanLyVeXemPhim.Views
                     txtGioiTinh.Text = thanhVien.GioiTinh;
                     txtKhuVuc.Text = thanhVien.KhuVuc;
                     txtEmail.Text = thanhVien.Email;
+
+                    // Load the loyalty point history for the selected member
+                    //LoadLichSuTichDiem(idThanhVien);
                 }
             }
             catch { }
@@ -192,6 +210,21 @@ namespace QuanLyVeXemPhim.Views
         }
 
         private void txtNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void lsvLichSuTichDiem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

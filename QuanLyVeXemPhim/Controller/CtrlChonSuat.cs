@@ -44,7 +44,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "insert into chonsuat values (@maphim,@marap,@masuatchieu)";
+                string sql = "insert into chonsuat values (@maphim, @marap, @masuatchieu)";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@maphim", obj.Phim.IDPhim);
                 cmd.Parameters.AddWithValue("@marap", obj.Rap.IDRap);
