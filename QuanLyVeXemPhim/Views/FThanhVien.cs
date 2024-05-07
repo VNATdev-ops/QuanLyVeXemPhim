@@ -19,7 +19,7 @@ namespace QuanLyVeXemPhim.Views
         CtrlThanhVien ctrlThanhVien = new CtrlThanhVien();
         List<CThanhVien> dsThanhVien = new List<CThanhVien>();
 
-        private CtrlLichSuTichDiem ctrlLichSuTichDiem = new CtrlLichSuTichDiem();
+        //private CtrlLichSuTichDiem ctrlLichSuTichDiem = new CtrlLichSuTichDiem();
 
 
         // 
