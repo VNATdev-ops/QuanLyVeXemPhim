@@ -76,6 +76,8 @@ namespace QuanLyVeXemPhim.Views
             List<string> dsDinhDang = new List<string> { "2D", "3D", "IMAX" };
             cbDinhDang.DataSource = dsDinhDang;
 
+            //txtHinhAnh.Text = "None";
+            txtIDPhim.Clear();
             txtIDPhim.Focus();
         }
 
@@ -115,7 +117,7 @@ namespace QuanLyVeXemPhim.Views
                 string theloai = txtTheLoai.Text;
                 string daodien = txtDaoDien.Text;
                 string mota = rtbMoTa.Text;
-                string hinhanh = txtHinhAnh.Text ?? null;
+                string? hinhanh = txtHinhAnh.Text ?? null;
                 DateTime ngayphathanh = dtNgayPH.Value;
                 int dodai = int.Parse(txtDoDai.Text);
                 string trangthai = cbTrangThai.Text;

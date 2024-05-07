@@ -59,20 +59,13 @@ namespace QuanLyVeXemPhim.Controller
                 string sql = "insert into phim values (@idphim, @tenphim, @theloai, @daodien, @mota, " +
                              "@hinhanh, @ngayphathanh, @dodai, @trangthai, @dinhdang)";
                 SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@idphim", obj.IDPhim);
                 cmd.Parameters.AddWithValue("@tenphim", obj.TenPhim);
                 cmd.Parameters.AddWithValue("@theloai", obj.TheLoai);
                 cmd.Parameters.AddWithValue("@daodien", obj.DaoDien);
                 cmd.Parameters.AddWithValue("@mota", obj.MoTa);
-                if (obj.HinhAnh == null)
-                {
-                    cmd.Parameters.Add("@hinhanh", SqlDbType.NVarChar).Value = DBNull.Value;
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@hinhanh", obj.HinhAnh);
-                }
-
+                cmd.Parameters.AddWithValue("@hinhanh", obj.HinhAnh);
                 cmd.Parameters.AddWithValue("@ngayphathanh", obj.NgayPH);
                 cmd.Parameters.AddWithValue("@dodai", obj.DoDai);
                 cmd.Parameters.AddWithValue("@trangthai", obj.TrangThai);
@@ -96,6 +89,7 @@ namespace QuanLyVeXemPhim.Controller
                              "hinhanh = @hinhanh, ngayphathanh = @ngayphathanh, dodai = @dodai, trangthai = @trangthai, dinhdang = @dinhdang " +
                              "where idphim = @idphim";
                 SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@tenphim", obj.TenPhim);
                 cmd.Parameters.AddWithValue("@theloai", obj.TheLoai);
                 cmd.Parameters.AddWithValue("@daodien", obj.DaoDien);
