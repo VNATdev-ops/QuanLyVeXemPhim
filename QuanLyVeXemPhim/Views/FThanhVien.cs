@@ -28,15 +28,15 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachTV.Width;
-            lsvDanhSachTV.Columns.Add("Mã TV", width / 100);
-            lsvDanhSachTV.Columns.Add("Tên thành viên", width / 100);
-            lsvDanhSachTV.Columns.Add("Mật khẩu", width / 100);
-            lsvDanhSachTV.Columns.Add("Ngày sinh", width / 100);
-            lsvDanhSachTV.Columns.Add("Giới tính", width / 100);
-            lsvDanhSachTV.Columns.Add("Khu vực", width / 100);
-            lsvDanhSachTV.Columns.Add("Email", width / 100);            
+            lsvDanhSachTV.Columns.Add("Mã TV", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Tên thành viên", 20 * width / 100);
+            lsvDanhSachTV.Columns.Add("Mật khẩu", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Ngày sinh", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Giới tính", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Khu vực", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Email", 30 * width / 100);
 
-        
+
 
             lsvDanhSachTV.View = View.Details;
             lsvDanhSachTV.FullRowSelect = true;
@@ -227,6 +227,19 @@ namespace QuanLyVeXemPhim.Views
         private void lsvLichSuTichDiem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNhapMoi_Click(object sender, EventArgs e)
+        {
+            txtIDThanhVien.Clear();
+            txtTenThanhVien.Clear();
+            txtGioiTinh.Clear();
+            txtMatKhau.Clear();
+            txtNgaySinh.Value = DateTime.Now;
+            txtKhuVuc.Clear();
+            txtEmail.Clear();
+
+            txtIDThanhVien.Focus();
         }
     }
 }
