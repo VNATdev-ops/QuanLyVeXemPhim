@@ -90,7 +90,7 @@
             // txtTrangThai
             // 
             txtTrangThai.Location = new Point(433, 153);
-            txtTrangThai.Margin = new Padding(2, 2, 2, 2);
+            txtTrangThai.Margin = new Padding(2);
             txtTrangThai.Name = "txtTrangThai";
             txtTrangThai.Size = new Size(178, 31);
             txtTrangThai.TabIndex = 21;
@@ -98,7 +98,7 @@
             // txtSoLuongGhe
             // 
             txtSoLuongGhe.Location = new Point(744, 153);
-            txtSoLuongGhe.Margin = new Padding(2, 2, 2, 2);
+            txtSoLuongGhe.Margin = new Padding(2);
             txtSoLuongGhe.Name = "txtSoLuongGhe";
             txtSoLuongGhe.Size = new Size(280, 31);
             txtSoLuongGhe.TabIndex = 22;
@@ -106,7 +106,7 @@
             // txtLoaiPhong
             // 
             txtLoaiPhong.Location = new Point(744, 85);
-            txtLoaiPhong.Margin = new Padding(2, 2, 2, 2);
+            txtLoaiPhong.Margin = new Padding(2);
             txtLoaiPhong.Name = "txtLoaiPhong";
             txtLoaiPhong.Size = new Size(280, 31);
             txtLoaiPhong.TabIndex = 23;
@@ -114,7 +114,7 @@
             // txtIDphong
             // 
             txtIDphong.Location = new Point(433, 40);
-            txtIDphong.Margin = new Padding(2, 2, 2, 2);
+            txtIDphong.Margin = new Padding(2);
             txtIDphong.Name = "txtIDphong";
             txtIDphong.Size = new Size(178, 31);
             txtIDphong.TabIndex = 25;
@@ -122,7 +122,7 @@
             // txtLoaiChoNgoi
             // 
             txtLoaiChoNgoi.Location = new Point(155, 96);
-            txtLoaiChoNgoi.Margin = new Padding(2, 2, 2, 2);
+            txtLoaiChoNgoi.Margin = new Padding(2);
             txtLoaiChoNgoi.Name = "txtLoaiChoNgoi";
             txtLoaiChoNgoi.Size = new Size(455, 31);
             txtLoaiChoNgoi.TabIndex = 26;
@@ -130,7 +130,7 @@
             // txtVitri
             // 
             txtVitri.Location = new Point(155, 153);
-            txtVitri.Margin = new Padding(2, 2, 2, 2);
+            txtVitri.Margin = new Padding(2);
             txtVitri.Name = "txtVitri";
             txtVitri.Size = new Size(130, 31);
             txtVitri.TabIndex = 26;
@@ -138,7 +138,7 @@
             // txtIDchongoi
             // 
             txtIDchongoi.Location = new Point(155, 40);
-            txtIDchongoi.Margin = new Padding(2, 2, 2, 2);
+            txtIDchongoi.Margin = new Padding(2);
             txtIDchongoi.Name = "txtIDchongoi";
             txtIDchongoi.Size = new Size(162, 31);
             txtIDchongoi.TabIndex = 27;
@@ -236,7 +236,7 @@
             // txtTimKiem
             // 
             txtTimKiem.Location = new Point(18, 81);
-            txtTimKiem.Margin = new Padding(2, 2, 2, 2);
+            txtTimKiem.Margin = new Padding(2);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(178, 30);
             txtTimKiem.TabIndex = 21;
@@ -264,7 +264,7 @@
             // txtTongSo
             // 
             txtTongSo.Location = new Point(18, 79);
-            txtTongSo.Margin = new Padding(2, 2, 2, 2);
+            txtTongSo.Margin = new Padding(2);
             txtTongSo.Name = "txtTongSo";
             txtTongSo.Size = new Size(178, 30);
             txtTongSo.TabIndex = 21;
@@ -351,7 +351,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 582);
+            ClientSize = new Size(908, 582);
             Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(panel1);
