@@ -51,7 +51,7 @@ namespace QuanLyVeXemPhim.Controller
             string sql = "select * from nhanvien where IDNhanVien=@IDNhanVien and sodt=@pw ";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@manv", manv);
+            cmd.Parameters.AddWithValue("@IDNhanVien", manv);
             cmd.Parameters.AddWithValue("@pw", pw);
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -81,10 +81,10 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update nhanvien set TenNV=@TenNV, MatKhau=@MatKhau, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, Sdt=@Sdt, Email=@Email, ChucVu=@ChucVu where IDNhanVien=@IDNhanVien";
+                string sql = "update nhanvien set TenNhanVien=@TenNhanVien, MatKhau=@MatKhau, NgaySinh=@NgaySinh, GioiTinh=@GioiTinh, Sdt=@Sdt, Email=@Email, ChucVu=@ChucVu where IDNhanVien=@IDNhanVien";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@IDNhanVien", obj.IDNhanVien);
-                cmd.Parameters.AddWithValue("@TenNV", obj.TenNV);
+                cmd.Parameters.AddWithValue("@TenNhanVien", obj.TenNV);
                 cmd.Parameters.AddWithValue("@MatKhau", obj.MatKhau);
                 cmd.Parameters.AddWithValue("@NgaySinh", obj.NgaySinh);
                 cmd.Parameters.AddWithValue("@GioiTinh", obj.GioiTinh);
