@@ -36,16 +36,10 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachTV.Columns.Add("Khu vực", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Email", 30 * width / 100);
 
+
+
             lsvDanhSachTV.View = View.Details;
             lsvDanhSachTV.FullRowSelect = true;
-
-            lsvLichSuTichDiem.View = View.Details;
-            lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 120);
-            lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 100);
-            lsvLichSuTichDiem.Columns.Add("Thời Gian Tích Lũy", 150);
-            lsvLichSuTichDiem.Columns.Add("Tổng Điểm Tích Lũy", 120);
-            lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 100);
-            lsvLichSuTichDiem.FullRowSelect = true;
 
         }
 
@@ -93,40 +87,19 @@ namespace QuanLyVeXemPhim.Views
             }
         }
 
-        private void LoadLichSuTichDiem(string idThanhVien)
-        {
-            List<CLichSuTichDiem> dsLichSuTichDiem = ctrlLichSuTichDiem.FindLichSuTichDiemByThanhVien(idThanhVien);
-            lsvLichSuTichDiem.Items.Clear();
-
-            foreach (CLichSuTichDiem lsd in dsLichSuTichDiem)
-            {
-                ListViewItem item = new ListViewItem(new string[] {
-            lsd.IDLichSu,
-            lsd.SoDiemTichLuy.ToString(),
-            lsd.ThoiGianTichLuy.ToString("dd/MM/yyyy"),
-            lsd.TongDiemTichLuy.ToString(),
-            lsd.ThanhVien.IDThanhVien
-        });
-
-                lsvLichSuTichDiem.Items.Add(item);
-            }
-        }
-
-
         private void lsvDanhSachTV_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (lsvDanhSachTV.SelectedItems.Count == 0)
-                return;
             try
             {
 
+                if (lsvDanhSachTV.SelectedItems.Count == 0)
+                    return;
 
                 ListViewItem item = lsvDanhSachTV.SelectedItems[0];
                 CThanhVien thanhVien = new CThanhVien();
                 thanhVien.IDThanhVien = item.SubItems[0].Text;
                 int index = dsThanhVien.IndexOf(thanhVien);
-                string idThanhVien = item.SubItems[0].Text;
+
                 // tìm kiếm phần tử được chọn ở vị trí nào trong ds
                 if (index < 0) { return; }
                 {
@@ -139,11 +112,10 @@ namespace QuanLyVeXemPhim.Views
                     txtGioiTinh.Text = thanhVien.GioiTinh;
                     txtKhuVuc.Text = thanhVien.KhuVuc;
                     txtEmail.Text = thanhVien.Email;
-        
-                }
-                // Load the loyalty point history for the selected member
-                LoadLichSuTichDiem(idThanhVien);
 
+                    // Load the loyalty point history for the selected member
+                    //LoadLichSuTichDiem(idThanhVien);
+                }
             }
             catch { }
         }
@@ -268,15 +240,6 @@ namespace QuanLyVeXemPhim.Views
             txtEmail.Clear();
 
             txtIDThanhVien.Focus();
-        }
-
-       
-
-
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
