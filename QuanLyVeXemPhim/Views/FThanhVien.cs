@@ -93,24 +93,24 @@ namespace QuanLyVeXemPhim.Views
             }
         }
 
-        private void LoadLichSuTichDiem(string idThanhVien)
-        {
-            List<CLichSuTichDiem> dsLichSuTichDiem = ctrlLichSuTichDiem.FindLichSuTichDiemByThanhVien(idThanhVien);
-            lsvLichSuTichDiem.Items.Clear();
+        //private void LoadLichSuTichDiem(string idThanhVien)
+        //{
+        //    List<CLichSuTichDiem> dsLichSuTichDiem = ctrlLichSuTichDiem.FindLichSuTichDiemByThanhVien(idThanhVien);
+        //    lsvLichSuTichDiem.Items.Clear();
 
-            foreach (CLichSuTichDiem lsd in dsLichSuTichDiem)
-            {
-                ListViewItem item = new ListViewItem(new string[] {
-            lsd.IDLichSu,
-            lsd.SoDiemTichLuy.ToString(),
-            lsd.ThoiGianTichLuy.ToString("dd/MM/yyyy"),
-            lsd.TongDiemTichLuy.ToString(),
-            lsd.ThanhVien.IDThanhVien
-        });
+        //    foreach (CLichSuTichDiem lsd in dsLichSuTichDiem)
+        //    {
+        //        ListViewItem item = new ListViewItem(new string[] {
+        //    lsd.IDLichSu,
+        //    lsd.SoDiemTichLuy.ToString(),
+        //    lsd.ThoiGianTichLuy.ToString("dd/MM/yyyy"),
+        //    lsd.TongDiemTichLuy.ToString(),
+        //    lsd.ThanhVien.IDThanhVien
+        //});
 
-                lsvLichSuTichDiem.Items.Add(item);
-            }
-        }
+        //        lsvLichSuTichDiem.Items.Add(item);
+        //    }
+        //}
 
 
         private void lsvDanhSachTV_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace QuanLyVeXemPhim.Views
         
                 }
                 // Load the loyalty point history for the selected member
-                LoadLichSuTichDiem(idThanhVien);
+                //LoadLichSuTichDiem(idThanhVien);
 
             }
             catch { }
