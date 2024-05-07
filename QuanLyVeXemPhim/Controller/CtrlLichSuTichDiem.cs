@@ -122,11 +122,7 @@ namespace QuanLyVeXemPhim.Controller
             return arrs;
         }
 
-        
-            
-        
+     }
+
 
     }
-
-
-}
