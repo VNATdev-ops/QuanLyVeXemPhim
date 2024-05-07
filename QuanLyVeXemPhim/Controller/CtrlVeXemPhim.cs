@@ -49,41 +49,6 @@ namespace QuanLyVeXemPhim.Controller
             return arrs;
         }
 
-        public List<CLichSuTichDiem> FindAllLichSuTichDiem()
-        {
-            string sql = "select l.IDLichSu, l.SoDiemTichLuy, l.ThoiGianTichLuy, l.TongDiemTichLuy, t.IDThanhVien, t.TenThanhVien, t.MatKhau, t.NgaySinh, t.GioiTinh, t.KhuVuc, t.Email from LichSuTichDiem l join ThanhVien t on l.IDThanhVien = t.IDThanhVien";
-            SqlCommand cmd = new SqlCommand(sql);
-            cmd.Connection = cnn;
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<CLichSuTichDiem> arrs = new List<CLichSuTichDiem>();
-
-            while (reader.Read())
-            {
-                CThanhVien thanhVien = new CThanhVien
-                {
-                    IDThanhVien = reader.GetString(4),
-                    TenThanhVien = reader.GetString(5),
-                    MatKhau = reader.GetString(6),
-                    NgaySinh = reader.GetDateTime(7),
-                    GioiTinh = reader.GetString(8),
-                    KhuVuc = reader.GetString(9),
-                    Email = reader.GetString(10)
-                };
-
-                CLichSuTichDiem s = new CLichSuTichDiem(
-                    reader.GetString(0),
-                    reader.GetInt32(1),
-                    reader.GetDateTime(2),
-                    reader.GetInt32(3),
-                    thanhVien
-                );
-
-                arrs.Add(s);
-            }
-            reader.Close();
-            return arrs;
-        }
-
 
         public bool insert (CVeXemPhim obj)
         {
@@ -128,8 +93,6 @@ namespace QuanLyVeXemPhim.Controller
 
         }
 
-
-
         public bool delete(CVeXemPhim obj) 
         {
             try
@@ -173,40 +136,5 @@ namespace QuanLyVeXemPhim.Controller
             reader.Close();
             return arrs;
         }
-
-        public List<CLichSuTichDiem> FindLichSuTichDiemByCriteria(string dk)
-        {
-            string sql = "select l.IDLichSu, l.SoDiemTichLuy, l.ThoiGianTichLuy, l.TongDiemTichLuy, t.IDThanhVien, t.TenThanhVien from LichSuTichDiem l join ThanhVien t on l.IDThanhVien = t.IDThanhVien where l.IDLichSu like @dk or t.IDThanhVien like @dk";
-            SqlCommand cmd = new SqlCommand(sql);
-            cmd.Parameters.AddWithValue("@dk", "%" + dk + "%");
-            cmd.Connection = cnn;
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<CLichSuTichDiem> arrs = new List<CLichSuTichDiem>();
-
-            while (reader.Read())
-            {
-                CThanhVien thanhVien = new CThanhVien
-                {
-                    IDThanhVien = reader.GetString(4),
-                    TenThanhVien = reader.GetString(5)
-                };
-
-                CLichSuTichDiem s = new CLichSuTichDiem
-                {
-                    IDLichSu = reader.GetString(0),
-                    SoDiemTichLuy = reader.GetInt32(1),
-                    ThoiGianTichLuy = reader.GetDateTime(2),
-                    TongDiemTichLuy = reader.GetInt32(3),
-                    ThanhVien = thanhVien
-                };
-
-                arrs.Add(s);
-            }
-            reader.Close();
-            return arrs;
-        }
-
-
-
     }
 }

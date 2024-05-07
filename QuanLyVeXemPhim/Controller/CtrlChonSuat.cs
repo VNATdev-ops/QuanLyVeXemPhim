@@ -62,15 +62,11 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update chonsuat set marap = @marap, masuatchieu = @masuatchieu where maphim = @maphim";
-                
+                string sql = "update chonsuat set  marap=@marap,masuatchieu=@masuatchieu, where maphim=@maphim,";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@maphim", obj.Phim.IDPhim);
                 cmd.Parameters.AddWithValue("@marap", obj.Rap.IDRap);
                 cmd.Parameters.AddWithValue("@masuatchieu", obj.SuatChieu.IDSuatChieu);
-
-
-
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return (n > 0);
@@ -83,7 +79,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "delete from chonsuat where maphim = @maphim";
+                string sql = "delete from chonsuat where maphim=@maphim";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@maphim", obj.Phim.IDPhim);
                 cmd.Connection = cnn;
