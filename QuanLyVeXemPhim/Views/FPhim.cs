@@ -162,6 +162,8 @@ namespace QuanLyVeXemPhim.Views
                 phim.DoDai = int.Parse(txtDoDai.Text);
                 phim.TrangThai = cbTrangThai.Text;
                 phim.DinhDang = cbDinhDang.Text;
+                dsPhim[index] = phim;
+
                 //
                 if (ctrPhim.update(phim))
                 {
@@ -177,7 +179,10 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[9].Text = phim.DinhDang;
                 }
                 else
+                {
                     MessageBox.Show("Cập nhật thông tin phim thất bại.");
+                    return;
+                }
                 CapNhatSoLuongPhim();
             }
             catch

@@ -15,27 +15,30 @@ namespace QuanLyVeXemPhim.Views
     public partial class FSuatChieu : Form
     {
         List<CSuatChieu> dsSuatChieu = new List<CSuatChieu>();
-        List<CPhim> dsPhim = new List<CPhim>();
-        List<CRapChieuPhim> dsRap = new List<CRapChieuPhim>();
-        List<CPhongChieu> dsPhong = new List<CPhongChieu>();
-
         CtrlSuatChieu ctrSuatChieu = new CtrlSuatChieu();
-        CtrlPhim ctrPhim = new CtrlPhim();
-        CtrlRapChieuPhim ctrRapChieuPhim = new CtrlRapChieuPhim();
+
+        List<CPhim> dsPhim = new List<CPhim>();
+        CtrlPhim ctrlPhim = new CtrlPhim();
+
+        List<CRapChieuPhim> dsRap = new List<CRapChieuPhim>();
+        CtrlRapChieuPhim ctrRap = new CtrlRapChieuPhim();
+
+        List<CPhongChieu> dsPhongChieu = new List<CPhongChieu>();
         CtrlPhongChieu ctrPhongChieu = new CtrlPhongChieu();
 
         public FSuatChieu()
         {
             InitializeComponent();
+
             int width = lsvSuatChieu.Width;
-            lsvSuatChieu.Columns.Add("ID Suất chiếu", 13 * width / 100);
-            lsvSuatChieu.Columns.Add("Phim", 10 * width / 100);
+            lsvSuatChieu.Columns.Add("ID Suất chiếu", 9 * width / 100);
+            lsvSuatChieu.Columns.Add("Phim", 30 * width / 100);
             lsvSuatChieu.Columns.Add("Rạp", 10 * width / 100);
             lsvSuatChieu.Columns.Add("Phòng", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Số lượng vé", 14 * width / 100);
-            lsvSuatChieu.Columns.Add("Thời gian chiếu", 22 * width / 100);
+            lsvSuatChieu.Columns.Add("Số lượng vé", 10 * width / 100);
+            lsvSuatChieu.Columns.Add("Thời gian chiếu", 10 * width / 100);
             lsvSuatChieu.Columns.Add("Số lượng còn lại", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Trạng thái", 12 * width / 100);
+            lsvSuatChieu.Columns.Add("Trạng thái", 10 * width / 100);
 
             lsvSuatChieu.View = View.Details;
             lsvSuatChieu.FullRowSelect = true;
@@ -44,72 +47,68 @@ namespace QuanLyVeXemPhim.Views
         {
             txtTongSo.Text = dsSuatChieu.Count + "";
         }
+        private void ResetListViewSuatChieu()
+        {
+            dsSuatChieu = ctrSuatChieu.findAll();
+            foreach (CSuatChieu sc in dsSuatChieu)
+            {
+                string[] obj = { sc.IDSuatChieu, sc.Phim.TenPhim, sc.Rap.TenRap, sc.Phong.TenPhong, sc.SoLuongVe.ToString(), sc.ThoiGianChieu.ToString(), sc.SoLuongConLai.ToString(), sc.TrangThai };
+                ListViewItem item = new ListViewItem(obj);
+                lsvSuatChieu.Items.Add(item);
+            }
+        }
+
         private void FSuatChieu_Load(object sender, EventArgs e)
         {
             dsSuatChieu = ctrSuatChieu.findAll();
-            dsPhim = ctrPhim.findAll();
-            dsRap = ctrRapChieuPhim.findall();
-            dsPhong = ctrPhongChieu.findAll();
+            dsPhim = ctrlPhim.findAll();
+            dsRap = ctrRap.findall();
+            dsPhongChieu = ctrPhongChieu.findAll();
 
-            // Tạo DataSource cho combobox
             cmbPhim.DataSource = dsPhim;
             cmbRap.DataSource = dsRap;
-            cmbPhong.DataSource = dsPhong;
+            cmbPhong.DataSource = dsPhongChieu;
             List<string> dsTrangThai = new List<string> { "Còn Trống", "Hết Vé" };
             cmbTrangThai.DataSource = dsTrangThai;
 
-            if (!string.IsNullOrEmpty(txtSoLuongConLai.Text))
+            foreach (CSuatChieu sc in dsSuatChieu)
             {
-                if (int.Parse(txtSoLuongConLai.Text) == 0)
-                {
-                    cmbTrangThai.Text = "Hết Vé";
-                }
-            }
-
-            lsvSuatChieu.Items.Clear();
-            foreach (CSuatChieu s in dsSuatChieu)
-            {
-                string[] obj = { s.IDSuatChieu, s.Phim.TenPhim, s.Rap.TenRap, s.Phong.TenPhong, s.SoLuongVe + "", s.ThoiGianChieu + "", s.SoLuongConLai + "", s.TrangThai };
+                string[] obj = { sc.IDSuatChieu, sc.Phim.TenPhim, sc.Rap.TenRap, sc.Phong.TenPhong, sc.SoLuongVe.ToString(), sc.ThoiGianChieu.ToString(), sc.SoLuongConLai.ToString(), sc.TrangThai };
                 ListViewItem item = new ListViewItem(obj);
                 lsvSuatChieu.Items.Add(item);
-                //item.SubItems[0].Text = s.IDSuatChieu;
-                //item.SubItems[1].Text = s.Phim.TenPhim;
-                //item.SubItems[2].Text = s.Rap.TenRap;
-                //item.SubItems[3].Text = s.Phong.TenPhong;
-                //item.SubItems[4].Text = s.SoLuongVe + "";
-                //item.SubItems[5].Text = s.ThoiGianChieu + "";
-                //item.SubItems[6].Text = s.SoLuongConLai + "";
-                //item.SubItems[7].Text = s.TrangThai;
             }
             CapNhatSoLuongSuatChieu();
         }
 
         private void lsvSuatChieu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (lsvSuatChieu.SelectedItems.Count > 0)
             {
-                // Hiển thị thông tin của item lên 
-                ListViewItem item = lsvSuatChieu.SelectedItems[0];
-                CSuatChieu sc = new CSuatChieu();
-                sc.IDSuatChieu = item.SubItems[0].Text;
-                int index = dsSuatChieu.IndexOf(sc);
-                if (index < 0)
-                    return;
-                sc = dsSuatChieu[index];
+                try
+                {
+                    ListViewItem item = new ListViewItem();
+                    item = lsvSuatChieu.SelectedItems[0];
+                    CSuatChieu sc = new CSuatChieu();
+                    sc.IDSuatChieu = item.SubItems[0].Text;
+                    int index = dsSuatChieu.IndexOf(sc);
 
-                txtIDSuatChieu.Text = sc.IDSuatChieu;
-                cmbPhim.Text = sc.Phim.ToString();
-                cmbRap.Text = sc.Rap.ToString();
-                cmbPhong.Text = sc.Phong.ToString();
-                txtSoLuongVe.Text = sc.SoLuongVe + "";
-                dtThoiGianChieu.Value = sc.ThoiGianChieu;
-                txtSoLuongConLai.Text = sc.SoLuongConLai + "";
-                cmbTrangThai.Text = sc.TrangThai;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-                return;
+                    if (index < 0 || index >= dsSuatChieu.Count)
+                        return;
+                    sc = dsSuatChieu[index];
+
+                    txtIDSuatChieu.Text = sc.IDSuatChieu;
+                    cmbPhim.Text = sc.Phim.ToString();
+                    cmbRap.Text = sc.Rap.ToString();
+                    cmbPhong.Text = sc.Phong.ToString();
+                    txtSoLuongVe.Text = sc.SoLuongVe.ToString();
+                    dtThoiGianChieu.Value = sc.ThoiGianChieu;
+                    txtSoLuongConLai.Text = sc.SoLuongConLai.ToString();
+                    cmbTrangThai.Text = sc.TrangThai;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
             }
         }
 
@@ -122,40 +121,38 @@ namespace QuanLyVeXemPhim.Views
                     MessageBox.Show("Vui lòng chọn phim, rạp chiếu và phòng chiếu trước khi thêm suất chiếu mới.");
                     return;
                 }
-                //
-                string idSC = txtIDSuatChieu.Text;
-                CPhim phim = new CPhim();
+
+                CSuatChieu sc = new CSuatChieu();
+                sc.Phim = new CPhim();
+                sc.Rap = new CRapChieuPhim();
+                sc.Phong = new CPhongChieu();
+
+                sc.IDSuatChieu = txtIDSuatChieu.Text;
                 if (cmbPhim.SelectedItem != null)
                 {
-                    phim = (CPhim)cmbPhim.SelectedItem;
-                    string idPhim = phim.IDPhim;
+                    sc.Phim = (CPhim)cmbPhim.SelectedItem;
                 }
-                CRapChieuPhim rap = new CRapChieuPhim();
                 if (cmbRap.SelectedItem != null)
                 {
-                    rap = (CRapChieuPhim)cmbRap.SelectedItem;
-                    string idRap = rap.IDRap;
+                    sc.Rap = (CRapChieuPhim)cmbRap.SelectedItem;
                 }
-                CPhongChieu phongChieu = new CPhongChieu();
                 if (cmbPhong.SelectedItem != null)
                 {
-                    phongChieu = (CPhongChieu)cmbPhong.SelectedItem;
-                    string idPhong = phongChieu.IDPhong;
+                    sc.Phong = (CPhongChieu)cmbPhong.SelectedItem;
                 }
-                int slVe = int.Parse(txtSoLuongVe.Text);
-                DateTime timeChieu = dtThoiGianChieu.Value;
-                int slVeConLai = int.Parse(txtSoLuongConLai.Text);
-                string trangThai = cmbTrangThai.Text;
+                sc.SoLuongVe = int.Parse(txtSoLuongVe.Text);
+                sc.ThoiGianChieu = dtThoiGianChieu.Value;
+                sc.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
+                sc.TrangThai = cmbTrangThai.Text;
 
-                // 
-                CSuatChieu s = new CSuatChieu(idSC, phim, rap, phongChieu, slVe, timeChieu, slVeConLai, trangThai);
-                if (ctrSuatChieu.insert(s))
+                if (ctrSuatChieu.insert(sc))
                 {
                     MessageBox.Show("Thêm thông tin suất chiếu thành công.");
-                    string[] objsc = { idSC, phim.TenPhim, rap.TenRap, phongChieu.TenPhong, slVe + "", timeChieu + "", slVeConLai + "", trangThai };
-                    ListViewItem item = new ListViewItem(objsc);
+                    string[] obj = { sc.IDSuatChieu, sc.Phim.TenPhim, sc.Rap.TenRap, sc.Phong.TenPhong,
+                        sc.SoLuongVe.ToString(), sc.ThoiGianChieu.ToString(), sc.SoLuongConLai.ToString(), sc.TrangThai };
+                    ListViewItem item = new ListViewItem(obj);
                     lsvSuatChieu.Items.Add(item);
-                    dsSuatChieu.Add(s);
+                    dsSuatChieu.Add(sc);
                 }
                 else
                 {
@@ -166,8 +163,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin suất chiếu.\n" + ex.Message);
-                return;
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -182,90 +178,109 @@ namespace QuanLyVeXemPhim.Views
             txtSoLuongConLai.Clear();
             cmbTrangThai.SelectedItem = null;
         }
+
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            try
+            if (lsvSuatChieu.SelectedItems.Count > 0)
             {
-                if (cmbPhim.SelectedItem == null || cmbRap.SelectedItem == null || cmbPhong.SelectedItem == null)
+                try
                 {
-                    MessageBox.Show("Vui lòng chọn phim, rạp chiếu và phòng chiếu trước khi cập nhật suất chiếu.");
-                    return;
+                    if (cmbPhim.SelectedItem == null || cmbRap.SelectedItem == null || cmbPhong.SelectedItem == null)
+                    {
+                        MessageBox.Show("Vui lòng chọn phim, rạp chiếu và phòng chiếu trước khi cập nhật suất chiếu.");
+                        return;
+                    }
+
+                    ListViewItem item = new ListViewItem();
+                    item = lsvSuatChieu.SelectedItems[0];
+                    CSuatChieu sc = new CSuatChieu();
+                    sc.IDSuatChieu = item.SubItems[0].Text;
+                    int index = dsSuatChieu.IndexOf(sc);
+
+                    if (index < 0 || index >= dsSuatChieu.Count)
+                        return;
+                    sc = dsSuatChieu[index];
+
+                    sc.Phim = new CPhim();
+                    sc.Rap = new CRapChieuPhim();
+                    sc.Phong = new CPhongChieu();
+
+                    sc = dsSuatChieu[index];
+                    sc.Phim = (CPhim)cmbPhim.SelectedItem;
+                    sc.Rap = (CRapChieuPhim)cmbRap.SelectedItem;
+                    sc.Phong = (CPhongChieu)cmbPhong.SelectedItem;
+                    sc.SoLuongVe = int.Parse(txtSoLuongVe.Text);
+                    sc.ThoiGianChieu = dtThoiGianChieu.Value;
+                    sc.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
+                    sc.TrangThai = cmbTrangThai.Text;
+
+                    dsSuatChieu[index] = sc;
+
+                    if (ctrSuatChieu.update(sc))
+                    {
+                        MessageBox.Show("Cập nhật thành công!");
+                        item.SubItems[1].Text = sc.Phim.TenPhim;
+                        item.SubItems[2].Text = sc.Rap.TenRap;
+                        item.SubItems[3].Text = sc.Phong.TenPhong;
+                        item.SubItems[4].Text = sc.SoLuongVe.ToString();
+                        item.SubItems[5].Text = sc.ThoiGianChieu.ToString();
+                        item.SubItems[6].Text = sc.SoLuongConLai.ToString();
+                        item.SubItems[7].Text = sc.TrangThai;
+                    }
+
                 }
-
-                ListViewItem item = lsvSuatChieu.SelectedItems[0];
-                CSuatChieu suatChieu = new CSuatChieu();
-                suatChieu.IDSuatChieu = item.SubItems[0].Text;
-                int index = dsSuatChieu.IndexOf(suatChieu);
-                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
-                if (index < 0) { return; }
-
-                //
-                suatChieu.Phim = new CPhim();
-                suatChieu.Rap = new CRapChieuPhim();
-                suatChieu.Phong = new CPhongChieu();
-
-                suatChieu = dsSuatChieu[index];
-                suatChieu.Phim = (CPhim)cmbPhim.SelectedItem;
-                suatChieu.Rap = (CRapChieuPhim)cmbRap.SelectedItem;
-                suatChieu.Phong = (CPhongChieu)cmbPhong.SelectedItem;
-                suatChieu.SoLuongVe = int.Parse(txtSoLuongVe.Text);
-                suatChieu.ThoiGianChieu = dtThoiGianChieu.Value;
-                suatChieu.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
-                suatChieu.TrangThai = cmbTrangThai.Text;
-
-                if (ctrSuatChieu.update(suatChieu))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Cập nhật thành công!");
-                    item.SubItems[1].Text = suatChieu.Phim.TenPhim;
-                    item.SubItems[2].Text = suatChieu.Rap.TenRap;
-                    item.SubItems[3].Text = suatChieu.Phong.TenPhong;
-                    item.SubItems[4].Text = suatChieu.SoLuongVe + "";
-                    item.SubItems[5].Text = suatChieu.ThoiGianChieu + "";
-                    item.SubItems[6].Text = suatChieu.SoLuongConLai + "";
-                    item.SubItems[7].Text = suatChieu.TrangThai;
-                }
-
-                else
-                {
-                    MessageBox.Show("Cập nhật thất bại!");
-                    return;
+                    MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
-                return;
+                MessageBox.Show("Vui lòng chọn suất chiếu để cập nhật.");
             }
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
+            if (lsvSuatChieu.SelectedItems.Count > 0)
             {
-                ListViewItem item = lsvSuatChieu.SelectedItems[0];
-                CSuatChieu SC = new CSuatChieu();
-                SC.IDSuatChieu = item.SubItems[0].Text;
-                int index = dsSuatChieu.IndexOf(SC);
-                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
-                if (index < 0) { return; }
-
-                //
-                SC = dsSuatChieu[index];
-                if (ctrSuatChieu.delete(SC))
+                try
                 {
-                    MessageBox.Show("Xóa thành công.");
-                    dsSuatChieu.Remove(SC);
-                    lsvSuatChieu.Items.Remove(item);
+                    ListViewItem item = new ListViewItem();
+                    item = lsvSuatChieu.SelectedItems[0];
+                    CSuatChieu sc = new CSuatChieu();
+                    sc.IDSuatChieu = item.SubItems[0].Text;
+                    int index = dsSuatChieu.IndexOf(sc);
 
+                    if (index < 0 || index >= dsSuatChieu.Count)
+                        return;
+                    sc = dsSuatChieu[index];
+
+                    if (ctrSuatChieu.delete(sc))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        dsSuatChieu.Remove(sc);
+                        lsvSuatChieu.Items.Remove(item);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại!");
+                        return;
+                    }
                 }
-                else MessageBox.Show("Xóa thất bại!");
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+                CapNhatSoLuongSuatChieu();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Vui lòng chọn suất chiếu để xóa.");
                 return;
             }
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -278,16 +293,20 @@ namespace QuanLyVeXemPhim.Views
             try
             {
                 string dkTim = txtTimKiem.Text;
-                dsSuatChieu = ctrSuatChieu.findCriteria(dkTim);
-                lsvSuatChieu.Items.Clear();
-                foreach (CSuatChieu s in dsSuatChieu)
+                List<CSuatChieu> dsSuatChieuTim = new List<CSuatChieu>();
+                dsSuatChieuTim = ctrSuatChieu.findCriteria(dkTim);
+                if (dsSuatChieuTim.Count > 0)
                 {
-                    string[] obj = { s.IDSuatChieu, s.Phim.TenPhim, s.Rap.TenRap, s.Phong.TenPhong, s.SoLuongVe + "", s.ThoiGianChieu + "", s.SoLuongConLai + "", s.TrangThai };
-                    ListViewItem item = new ListViewItem(obj);
-                    lsvSuatChieu.Items.Add(item);
-                    // Cập nhật số lượng suất chiếu sau mỗi lần thay đổi
-                    CapNhatSoLuongSuatChieu();
+                    lsvSuatChieu.Items.Clear();
+                    foreach (CSuatChieu sc in dsSuatChieuTim)
+                    {
+                        string[] obj = { sc.IDSuatChieu, sc.Phim.TenPhim, sc.Rap.TenRap, sc.Phong.TenPhong,
+                        sc.SoLuongVe.ToString(), sc.ThoiGianChieu.ToString(), sc.SoLuongConLai.ToString(), sc.TrangThai };
+                        ListViewItem item = new ListViewItem(obj);
+                        lsvSuatChieu.Items.Add(item);
+                    }
                 }
+                CapNhatSoLuongSuatChieu();
             }
             catch (Exception ex)
             {
@@ -296,3 +315,5 @@ namespace QuanLyVeXemPhim.Views
         }
     }
 }
+
+

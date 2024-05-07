@@ -128,7 +128,7 @@ namespace QuanLyVeXemPhim.Controller
                 "or idrap like @dk " +
                 "or idphong like @dk";
             SqlCommand cmd = new SqlCommand(sql);
-            cmd.Parameters.AddWithValue("@dk", dk);
+            cmd.Parameters.AddWithValue("@dk", "%" + dk + "%");
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
             List<CSuatChieu> arrs = new List<CSuatChieu>();
