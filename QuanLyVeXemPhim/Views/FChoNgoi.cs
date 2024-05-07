@@ -171,6 +171,11 @@ namespace QuanLyVeXemPhim.Views
         private void btnHuy_Click(object sender, EventArgs e)
         {
             lsvDanhSachCN.Clear();
+            txtIDchongoi.Text = string.Empty;
+            txtIDphong.Text = string.Empty;
+            txtLoaiChoNgoi.Text = string.Empty;
+            txtVitri.Text = string.Empty;
+            txtTrangThai.Text = string.Empty;
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
 
         }
