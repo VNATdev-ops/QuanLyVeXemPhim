@@ -53,7 +53,7 @@ namespace QuanLyVeXemPhim.Views
             CapNhatSoLuongSP();
 
             //combobox
-            List<string> dsLoaiSP = new List<string> { "Thức ăn", "Nước uống" };
+            List<string> dsLoaiSP = new List<string> { "Thức ăn", "Nước uống", "Vé xem phim" };
             cbLoaiSP.DataSource = dsLoaiSP;
             cbLoaiSP.SelectedItem = null;
         }

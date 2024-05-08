@@ -21,11 +21,11 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID chỗ ngồi", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID phòng", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Loại chỗ ngồi", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Vị Trí", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Trạng thái", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Ghế", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Phòng", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("Loại ghế", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("Vị trí", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("Trạng thái", 30 * width / 100);
 
 
             lsvDanhSachCN.View = View.Details;
@@ -171,6 +171,11 @@ namespace QuanLyVeXemPhim.Views
         private void btnHuy_Click(object sender, EventArgs e)
         {
             lsvDanhSachCN.Clear();
+            txtIDchongoi.Text = string.Empty;
+            txtIDphong.Text = string.Empty;
+            txtLoaiChoNgoi.Text = string.Empty;
+            txtVitri.Text = string.Empty;
+            txtTrangThai.Text = string.Empty;
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
 
         }
