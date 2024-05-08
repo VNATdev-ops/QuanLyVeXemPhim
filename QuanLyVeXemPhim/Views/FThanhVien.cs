@@ -39,13 +39,13 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachTV.View = View.Details;
             lsvDanhSachTV.FullRowSelect = true;
 
-            lsvLichSuTichDiem.View = View.Details;
-            lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 120);
-            lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 100);
-            lsvLichSuTichDiem.Columns.Add("Thời Gian Tích Lũy", 150);
-            lsvLichSuTichDiem.Columns.Add("Tổng Điểm Tích Lũy", 120);
-            lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 100);
-            lsvLichSuTichDiem.FullRowSelect = true;
+            //lsvLichSuTichDiem.View = View.Details;
+            //lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 120);
+            //lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 100);
+            //lsvLichSuTichDiem.Columns.Add("Thời Gian Tích Lũy", 150);
+            //lsvLichSuTichDiem.Columns.Add("Tổng Điểm Tích Lũy", 120);
+            //lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 100);
+            //lsvLichSuTichDiem.FullRowSelect = true;
 
         }
 
