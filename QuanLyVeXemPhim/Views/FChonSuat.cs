@@ -161,10 +161,32 @@ namespace QuanLyVeXemPhim.Views
 
 
                 // Create CChonSuat object
-                CChonSuat chonSuat = new CChonSuat();
-                chonSuat.Phim.IDPhim = maPhim;
-                chonSuat.Rap.IDRap = maRap;
-                chonSuat.SuatChieu.IDSuatChieu = maSuatChieu;
+
+                //CChonSuat chonSuat = new CChonSuat();
+                //chonSuat.Phim.IDPhim = maPhim;
+                //chonSuat.Rap.IDRap = maRap;
+                //chonSuat.SuatChieu.IDSuatChieu = maSuatChieu;
+
+                //if (ctrlChonSuat.insert(chonSuat))
+                //{
+                //    string[] objsp = { maPhim, maRap, maSuatChieu };
+                //    ListViewItem item = new ListViewItem(objsp);
+                //    lsvDSCS.Items.Add(item);
+                //    dsChonSuat.Add(chonSuat);
+                //    txtTongSo.Text = lsvDSCS.Items.Count.ToString();
+                //    MessageBox.Show("Thêm thành công");
+                //}
+                //else
+                //    MessageBox.Show("Thêm thất bại!");
+
+                
+
+                CChonSuat chonSuat = new CChonSuat
+                {
+                    Phim = new CPhim { IDPhim = maPhim },
+                    Rap = new CRapChieuPhim { IDRap = maRap },
+                    SuatChieu = new CSuatChieu { IDSuatChieu = maSuatChieu }
+                };
 
                 if (ctrlChonSuat.insert(chonSuat))
                 {
@@ -176,8 +198,9 @@ namespace QuanLyVeXemPhim.Views
                     MessageBox.Show("Thêm thành công");
                 }
                 else
+                {
                     MessageBox.Show("Thêm thất bại!");
-
+                }
             }
             catch { }
         }

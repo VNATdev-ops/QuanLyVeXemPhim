@@ -1,6 +1,6 @@
-CREATE DATABASE QL_Ve_Xem_Phim;
+CREATE DATABASE QL_Rap_Chieu_Phim;
 
-USE QL_Ve_Xem_Phim;
+USE QL_Rap_Chieu_Phim;
 
 CREATE TABLE ThanhVien (
     IDThanhVien NVARCHAR(50) PRIMARY KEY,
@@ -16,7 +16,6 @@ CREATE TABLE LichSuTichDiem (
     IDLichSu NVARCHAR(50) PRIMARY KEY,
     SoDiemTichLuy INT,
     ThoiGianTichLuy DATETIME,
-    TongDiemTichLuy INT,
     IDThanhVien NVARCHAR(50),
     FOREIGN KEY (IDThanhVien) REFERENCES ThanhVien(IDThanhVien)
 );
@@ -126,13 +125,6 @@ CREATE TABLE HoaDon (
 	FOREIGN KEY (IDThanhVien) REFERENCES ThanhVien(IDThanhVien)
 );
 
-CREATE TABLE CTHD_Ve (
-	IDHoaDon NVARCHAR(50),
-	IDve NVARCHAR(50),
-	SoLuong INT,
-	FOREIGN KEY (IDHoaDon) REFERENCES HoaDon(IDHoaDon),
-	FOREIGN KEY (IDve) REFERENCES VeXemPhim(IDve)
-);
 CREATE TABLE CTHD_ThucAnDoUong (
 	IDHoaDon NVARCHAR(50),
 	IDSanPham NVARCHAR(50),
