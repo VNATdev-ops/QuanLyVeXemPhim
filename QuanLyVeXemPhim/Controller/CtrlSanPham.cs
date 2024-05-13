@@ -33,9 +33,11 @@ namespace QuanLyVeXemPhim.Controller
                 s.Loai = reader.GetString(1);
                 s.TenSanPham = reader.GetString(2);
                 s.Gia= reader.GetDecimal(3);
-                if (!reader.IsDBNull(4))
+                s.DonViTinh = reader.GetString(4);
+                s.SoLuong = reader.GetInt32(5);
+                if (!reader.IsDBNull(6))
                 {
-                    s.Hinh = reader.GetString(4);
+                    s.Hinh = reader.GetString(6);
                 }
 
                 arrs.Add(s);
@@ -47,13 +49,15 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "insert into sanpham values (@idsanpham, @loai, @tensanpham, @gia, @hinh)";
+                string sql = "insert into sanpham values (@idsanpham, @loai, @tensanpham, @gia, @donvitinh, @soluong, @hinh)";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@idsanpham", obj.IDSanPham);
                 cmd.Parameters.AddWithValue("@loai", obj.Loai);
                 cmd.Parameters.AddWithValue("@tensanpham", obj.TenSanPham);
                 cmd.Parameters.AddWithValue("@gia", obj.Gia);
+                cmd.Parameters.AddWithValue("@donvitinh", obj.DonViTinh);
+                cmd.Parameters.AddWithValue("@soluong", obj.SoLuong);
                 if (obj.Hinh == null)
                 {
                     cmd.Parameters.Add("@hinh", SqlDbType.NVarChar).Value = DBNull.Value;
@@ -76,13 +80,15 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update sanpham set loai =@loai, tensanpham =@tensanpham, gia =@gia, hinh =@hinh" +
+                string sql = "update sanpham set loai =@loai, tensanpham =@tensanpham, gia =@gia, donvitinh =@donvitinh, soluong =@soluong, hinh =@hinh" +
                 " where idsanpham =@idsanpham";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@loai", obj.Loai);
                 cmd.Parameters.AddWithValue("@tensanpham", obj.TenSanPham);
                 cmd.Parameters.AddWithValue("@gia", obj.Gia);
+                cmd.Parameters.AddWithValue("@donvitinh", obj.DonViTinh);
+                cmd.Parameters.AddWithValue("@soluong", obj.SoLuong);
                 if(obj.Hinh == null)
                 {
                     cmd.Parameters.Add("@hinh", SqlDbType.NVarChar).Value = DBNull.Value;
