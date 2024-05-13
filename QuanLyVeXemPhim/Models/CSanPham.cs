@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Models
 {
-    internal class CThucAnDoUong
+    internal class CSanPham
     {
         private string iDSanPham;
         private string loai;
@@ -21,7 +21,7 @@ namespace QuanLyVeXemPhim.Models
         public decimal Gia { get => gia; set => gia = value; }
         public string Hinh { get => hinh; set => hinh = value; }
 
-        public CThucAnDoUong(string iDSanPham, string loai, string tenSanPham, decimal gia, string hinh)
+        public CSanPham(string iDSanPham, string loai, string tenSanPham, decimal gia, string hinh)
         {
             this.iDSanPham = iDSanPham;
             this.loai = loai;
@@ -30,13 +30,13 @@ namespace QuanLyVeXemPhim.Models
             this.hinh = hinh;
         }
 
-        public CThucAnDoUong()
+        public CSanPham()
         {
         }
 
         public override bool Equals(object? obj)
         {
-            return obj is CThucAnDoUong thucAnDoUong &&
+            return obj is CSanPham thucAnDoUong &&
                    iDSanPham == thucAnDoUong.iDSanPham;
         }
 

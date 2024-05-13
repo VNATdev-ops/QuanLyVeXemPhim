@@ -79,8 +79,9 @@
             // 
             // dTimeNgayHD
             // 
+            dTimeNgayHD.CustomFormat = "";
             dTimeNgayHD.Font = new Font("Segoe UI", 10F);
-            dTimeNgayHD.Location = new Point(294, 142);
+            dTimeNgayHD.Location = new Point(294, 141);
             dTimeNgayHD.Name = "dTimeNgayHD";
             dTimeNgayHD.Size = new Size(433, 34);
             dTimeNgayHD.TabIndex = 11;
@@ -88,7 +89,7 @@
             // txtTriGiaHD
             // 
             txtTriGiaHD.Font = new Font("Segoe UI", 10F);
-            txtTriGiaHD.Location = new Point(294, 194);
+            txtTriGiaHD.Location = new Point(294, 195);
             txtTriGiaHD.Name = "txtTriGiaHD";
             txtTriGiaHD.ReadOnly = true;
             txtTriGiaHD.Size = new Size(433, 34);
@@ -97,7 +98,7 @@
             // txtSoHD
             // 
             txtSoHD.Font = new Font("Segoe UI", 10F);
-            txtSoHD.Location = new Point(294, 44);
+            txtSoHD.Location = new Point(294, 43);
             txtSoHD.Name = "txtSoHD";
             txtSoHD.Size = new Size(433, 34);
             txtSoHD.TabIndex = 8;
@@ -106,7 +107,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F);
-            label5.Location = new Point(34, 149);
+            label5.Location = new Point(34, 148);
             label5.Name = "label5";
             label5.Size = new Size(171, 28);
             label5.TabIndex = 7;
@@ -182,7 +183,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(34, 47);
+            label2.Location = new Point(34, 48);
             label2.Name = "label2";
             label2.Size = new Size(113, 28);
             label2.TabIndex = 4;
@@ -192,7 +193,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(41, 47);
+            label10.Location = new Point(41, 48);
             label10.Name = "label10";
             label10.Size = new Size(136, 28);
             label10.TabIndex = 4;
@@ -201,19 +202,19 @@
             // lblTenForm
             // 
             lblTenForm.AutoSize = true;
-            lblTenForm.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTenForm.Font = new Font("Roboto", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTenForm.Location = new Point(73, 50);
             lblTenForm.Name = "lblTenForm";
-            lblTenForm.Size = new Size(442, 54);
+            lblTenForm.Size = new Size(485, 58);
             lblTenForm.TabIndex = 24;
             lblTenForm.Text = "HÓA ĐƠN BÁN HÀNG";
             // 
             // btnXoaCTHD
             // 
             btnXoaCTHD.Font = new Font("Segoe UI", 10F);
-            btnXoaCTHD.Location = new Point(526, 306);
+            btnXoaCTHD.Location = new Point(542, 314);
             btnXoaCTHD.Name = "btnXoaCTHD";
-            btnXoaCTHD.Size = new Size(148, 52);
+            btnXoaCTHD.Size = new Size(132, 45);
             btnXoaCTHD.TabIndex = 14;
             btnXoaCTHD.Text = "Xóa";
             btnXoaCTHD.UseVisualStyleBackColor = true;
@@ -225,7 +226,7 @@
             groupBox7.Controls.Add(txtSoLuongHD);
             groupBox7.Controls.Add(lblSoLuongHD);
             groupBox7.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            groupBox7.Location = new Point(73, 502);
+            groupBox7.Location = new Point(73, 503);
             groupBox7.Name = "groupBox7";
             groupBox7.Size = new Size(764, 606);
             groupBox7.TabIndex = 27;
@@ -279,7 +280,7 @@
             lsvChiTietHD.Font = new Font("Segoe UI", 10F);
             lsvChiTietHD.Location = new Point(6, 36);
             lsvChiTietHD.Name = "lsvChiTietHD";
-            lsvChiTietHD.Size = new Size(694, 240);
+            lsvChiTietHD.Size = new Size(694, 241);
             lsvChiTietHD.TabIndex = 20;
             lsvChiTietHD.UseCompatibleStateImageBehavior = false;
             lsvChiTietHD.SelectedIndexChanged += lsvChiTietHD_SelectedIndexChanged;
@@ -336,7 +337,7 @@
             groupBox1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             groupBox1.Location = new Point(73, 150);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(764, 320);
+            groupBox1.Size = new Size(764, 321);
             groupBox1.TabIndex = 25;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin hóa đơn";
@@ -451,14 +452,15 @@
             panel1.Controls.Add(btnLuuHD);
             panel1.Font = new Font("Segoe UI", 10F);
             panel1.Location = new Point(1660, 150);
-            panel1.Margin = new Padding(4);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 403);
             panel1.TabIndex = 32;
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(26, 306);
+            btnThoat.Font = new Font("Roboto", 10F);
+            btnThoat.Location = new Point(26, 307);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(176, 67);
             btnThoat.TabIndex = 36;
@@ -468,7 +470,8 @@
             // 
             // btnXoaHD
             // 
-            btnXoaHD.Location = new Point(26, 121);
+            btnXoaHD.Font = new Font("Roboto", 10F);
+            btnXoaHD.Location = new Point(26, 120);
             btnXoaHD.Name = "btnXoaHD";
             btnXoaHD.Size = new Size(176, 67);
             btnXoaHD.TabIndex = 34;
@@ -478,6 +481,7 @@
             // 
             // btnTaoHD
             // 
+            btnTaoHD.Font = new Font("Roboto", 10F);
             btnTaoHD.Location = new Point(26, 214);
             btnTaoHD.Name = "btnTaoHD";
             btnTaoHD.Size = new Size(176, 67);
@@ -488,6 +492,7 @@
             // 
             // btnLuuHD
             // 
+            btnLuuHD.Font = new Font("Roboto", 10F);
             btnLuuHD.Location = new Point(26, 34);
             btnLuuHD.Name = "btnLuuHD";
             btnLuuHD.Size = new Size(176, 67);

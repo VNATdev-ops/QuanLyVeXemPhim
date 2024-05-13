@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\FHoaDon.cs\**" />
+    <EmbeddedResource Remove="Views\FHoaDon.cs\**" />
+    <None Remove="Views\FHoaDon.cs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\FSuatChieu.cs~RFed221d.TMP" />
   </ItemGroup>
 

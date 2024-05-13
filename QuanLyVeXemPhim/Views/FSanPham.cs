@@ -15,8 +15,8 @@ namespace QuanLyVeXemPhim.Views
 {
     public partial class FSanPham : Form
     {
-        CtrlThucAnDoUong ctrThucAnDoUong = new CtrlThucAnDoUong();
-        List<CThucAnDoUong> dsSanPham = new List<CThucAnDoUong>();
+        CtrlSanPham ctrSanPham = new CtrlSanPham();
+        List<CSanPham> dsSanPham = new List<CSanPham>();
         public FSanPham()
         {
             InitializeComponent();
@@ -38,8 +38,8 @@ namespace QuanLyVeXemPhim.Views
 
         private void FSanPham_Load(object sender, EventArgs e)
         {
-            dsSanPham = ctrThucAnDoUong.findAll();
-            foreach (CThucAnDoUong s in dsSanPham)
+            dsSanPham = ctrSanPham.findAll();
+            foreach (CSanPham s in dsSanPham)
             {
                 string[] obj = { s.IDSanPham, s.Loai, s.TenSanPham, s.Gia + "", s.Hinh };
                 ListViewItem item = new ListViewItem(obj);
@@ -63,7 +63,7 @@ namespace QuanLyVeXemPhim.Views
             try
             {
                 ListViewItem item = lsvDSSP.SelectedItems[0];
-                CThucAnDoUong sp = new CThucAnDoUong();
+                CSanPham sp = new CSanPham();
                 sp.IDSanPham = item.SubItems[0].Text;
                 int index = dsSanPham.IndexOf(sp);
                 if (index < 0)
@@ -90,8 +90,8 @@ namespace QuanLyVeXemPhim.Views
                 decimal gia = Decimal.Parse(txtGia.Text);
                 string hinh = txtHinhAnh.Text ?? null;
 
-                CThucAnDoUong s = new CThucAnDoUong(idsanpham, loai, tensanpham, gia, hinh);
-                if (ctrThucAnDoUong.insert(s))
+                CSanPham s = new CSanPham(idsanpham, loai, tensanpham, gia, hinh);
+                if (ctrSanPham.insert(s))
                 {
                     MessageBox.Show("Thêm thông tin sản phẩm thành công.");
                     string[] objsp = { idsanpham, loai, tensanpham, gia.ToString(), hinh };
@@ -114,7 +114,7 @@ namespace QuanLyVeXemPhim.Views
             try
             {
                 ListViewItem item = lsvDSSP.SelectedItems[0];
-                CThucAnDoUong sp = new CThucAnDoUong();
+                CSanPham sp = new CSanPham();
                 sp.IDSanPham = item.SubItems[0].Text;
                 int index = dsSanPham.IndexOf(sp);
                 if (index < 0)
@@ -127,7 +127,7 @@ namespace QuanLyVeXemPhim.Views
                 sp.Gia = Decimal.Parse(txtGia.Text);
                 sp.Hinh = txtHinhAnh.Text ?? null;
                 //
-                if (ctrThucAnDoUong.update(sp))
+                if (ctrSanPham.update(sp))
                 {
                     MessageBox.Show("Cập nhật thông tin sản phẩm thành công.");
                     item.SubItems[1].Text = sp.Loai;
@@ -152,13 +152,13 @@ namespace QuanLyVeXemPhim.Views
                 if (lsvDSSP.SelectedItems.Count > 0)
                 {
                     ListViewItem item = lsvDSSP.SelectedItems[0];
-                    CThucAnDoUong sp = new CThucAnDoUong();
+                    CSanPham sp = new CSanPham();
                     sp.IDSanPham = item.SubItems[0].Text;
                     int index = dsSanPham.IndexOf(sp);
                     if (index < 0)
                         return;
                     sp = dsSanPham[index];
-                    if (ctrThucAnDoUong.delete(sp))
+                    if (ctrSanPham.delete(sp))
                     {
                         MessageBox.Show("Xóa thông tin sản phẩm thành công.");
                         dsSanPham.Remove(sp);
@@ -177,7 +177,7 @@ namespace QuanLyVeXemPhim.Views
             }
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnNhapMoi_Click(object sender, EventArgs e)
         {
             txtIDSP.Clear();
             cbLoaiSP.SelectedItem = null;
@@ -187,7 +187,6 @@ namespace QuanLyVeXemPhim.Views
             //
             txtIDSP.Focus();
         }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -198,9 +197,9 @@ namespace QuanLyVeXemPhim.Views
             try
             {
                 string dkTim = txtTimKiem.Text;
-                dsSanPham = ctrThucAnDoUong.findCriteria(dkTim);
+                dsSanPham = ctrSanPham.findCriteria(dkTim);
                 lsvDSSP.Items.Clear();
-                foreach (CThucAnDoUong s in dsSanPham)
+                foreach (CSanPham s in dsSanPham)
                 {
                     string[] obj = { s.IDSanPham, s.Loai, s.TenSanPham, s.Gia.ToString(), s.Hinh };
                     ListViewItem item = new ListViewItem(obj);
