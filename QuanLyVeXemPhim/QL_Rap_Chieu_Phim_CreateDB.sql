@@ -108,11 +108,13 @@ CREATE TABLE VeXemPhim (
     FOREIGN KEY (IDChoNgoi) REFERENCES ChoNgoi(IDChoNgoi)
 );
 
-CREATE TABLE ThucAnDoUong (
+CREATE TABLE SanPham (
     IDSanPham NVARCHAR(50) PRIMARY KEY,
     Loai NVARCHAR(50),
     TenSanPham NVARCHAR(255),
     Gia DECIMAL(10, 2),
+    DonViTinh NVARCHAR(50),
+    SoLuong INT,
     Hinh NVARCHAR(MAX) 
 );
 
@@ -125,10 +127,10 @@ CREATE TABLE HoaDon (
 	FOREIGN KEY (IDThanhVien) REFERENCES ThanhVien(IDThanhVien)
 );
 
-CREATE TABLE CTHD_ThucAnDoUong (
+CREATE TABLE CTHD (
 	IDHoaDon NVARCHAR(50),
 	IDSanPham NVARCHAR(50),
 	SoLuong INT,
 	FOREIGN KEY (IDHoaDon) REFERENCES HoaDon(IDHoaDon),
-	FOREIGN KEY (IDSanPham) REFERENCES ThucAnDoUong(IDSanPham)
+	FOREIGN KEY (IDSanPham) REFERENCES SanPham(IDSanPham)
 );

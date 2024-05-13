@@ -14,16 +14,16 @@ VALUES
 ('TV002', N'Mai Hồng Ngọc', '19022001', '2001-02-19', N'Nữ', N'Bình Thạnh', N'maihongng,oc19022001@gmail.com'),
 ('TV003', N'Nhật Kim Anh', '10102005', '2005-10-10', N'Nữ', N'Thủ Đức', N'nhatkhimanh1010@gmail.com');
 
-INSERT INTO ThucAnDoUong(IDSanPham, Loai, TenSanPham, Gia, Hinh)
+INSERT INTO SanPham(IDSanPham, Loai, TenSanPham, Gia, DonViTinh, SoLuong, Hinh)
 VALUES
-('A1BCRM', N'Thức ăn', N'Bắp Caramel', 68000, NULL),
-('A1BPM', N'Thức ăn', N'Bắp Phô Mai', 74000, NULL),
-('B1CCML', N'Đồ uống', N'Cacao Milo', 51000, NULL),
-('B1CCCL', N'Đồ uống', N'Coca cola', 19000, NULL),
-('B1SD', N'Đồ uống', N'Soda trái cây', 25000, NULL),
-('V1IN3D', N'Vé xem phim', N'Inception (3D)', 100000, NULL),
-('V1TG3D', N'Vé xem phim', N'The Godfather (3D)', 100000, NULL),
-('V1TSR3D', N'Vé xem phim', N'The Shawshank Redemption (3D)', 100000, NULL);
+('A1BCRM', N'Thức ăn', N'Bắp Caramel', 68000, N'Hộp', 40, NULL),
+('A1BPM', N'Thức ăn', N'Bắp Phô Mai', 74000, N'Hộp', 40, NULL),
+('B1CCML', N'Đồ uống', N'Cacao Milo', 51000, N'Ly', 100, NULL),
+('B1CCCL', N'Đồ uống', N'Coca cola', 19000, N'Ly', 100, NULL),
+('B1SD', N'Đồ uống', N'Soda trái cây', 25000, N'Ly', 100, NULL),
+('V1IN3D', N'Vé xem phim', N'Inception (3D)', 100000, N'Vé', 100, NULL),
+('V1TG3D', N'Vé xem phim', N'The Godfather (3D)', 100000, N'Vé', 100, NULL),
+('V1TSR3D', N'Vé xem phim', N'The Shawshank Redemption (3D)', 100000, N'Vé', 100, NULL);
 
 INSERT INTO Phim(IDPhim, TenPhim, TheLoai, DaoDien, MoTa, HinhAnh, NgayPhatHanh, DoDai, TrangThai, DinhDang)
 VALUES
@@ -151,7 +151,7 @@ VALUES
 ('HD005', '2024-05-08 12:20:00', 'NV10001', 'TV002'),
 ('HD006', '2024-05-08 14:30:00', 'NV10001', 'TV003');
 
-INSERT INTO CTHD_ThucAnDoUong (IDHoaDon, IDSanPham, SoLuong)
+INSERT INTO CTHD (IDHoaDon, IDSanPham, SoLuong)
 VALUES
 ('HD004', 'A1BCRM', 2),
 ('HD004', 'B1CCML', 1),
