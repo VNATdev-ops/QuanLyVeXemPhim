@@ -45,6 +45,37 @@ namespace QuanLyVeXemPhim.Controller
         }
 
 
+
+        //public List<CLichSuTichDiem> FindAllLichSuTichDiem()
+        //{
+        //    List<CLichSuTichDiem> arrs = new List<CLichSuTichDiem>();
+        //    string sql = "SELECT * FROM lichsutichdiem";
+
+        //    using (SqlConnection cnn = new SqlConnection("YourConnectionStringHere"))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand(sql, cnn))
+        //        {
+        //            cnn.Open();
+        //            using (SqlDataReader reader = cmd.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    CLichSuTichDiem s = new CLichSuTichDiem();
+        //                    s.IDLichSu = reader.GetString(0);
+        //                    s.SoDiemTichLuy = reader.GetInt32(1);
+        //                    s.ThoiGianTichLuy = reader.GetDateTime(2);
+        //                    s.TongDiemTichLuy = reader.GetInt32(3);
+        //                    s.ThanhVien = new CThanhVien() { IDThanhVien = reader.GetString(4) }; // Proper instantiation
+
+        //                    arrs.Add(s);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return arrs;
+        //}
+
+
         public bool insert(CThanhVien obj)
         {
             try

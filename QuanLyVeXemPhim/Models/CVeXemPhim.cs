@@ -16,6 +16,7 @@ namespace QuanLyVeXemPhim.Models
         private CChoNgoi choNgoi;
         private decimal giaVe;
         private string tinhTrang;
+        public string ChonSuat { get; set; }
 
         public string IDVe { get => iDVe; set => iDVe = value; }
         public decimal GiaVe { get => giaVe; set => giaVe = value; }

@@ -179,7 +179,7 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrlLichSuTichDiem.insert(s))
                 {
-                    string[] objsp = { s.IDLichSu, s.SoDiemTichLuy.ToString(), s.ThoiGianTichLuy.ToString(), s.TongDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
+                    string[] objsp = { s.IDLichSu, s.ThoiGianTichLuy.ToString(), s.SoDiemTichLuy.ToString(), s.TongDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvLichSuTichDiem.Items.Add(item);
                     dsLichSuTichDiem.Add(s);

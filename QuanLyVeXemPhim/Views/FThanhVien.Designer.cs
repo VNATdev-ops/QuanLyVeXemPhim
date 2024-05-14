@@ -385,9 +385,9 @@
             // groupBox5
             // 
             groupBox5.Controls.Add(lsvLichSuTichDiem);
-            groupBox5.Location = new Point(1060, 57);
+            groupBox5.Location = new Point(1060, 363);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(286, 579);
+            groupBox5.Size = new Size(286, 273);
             groupBox5.TabIndex = 15;
             groupBox5.TabStop = false;
             groupBox5.Text = "groupBox5";
@@ -397,7 +397,7 @@
             lsvLichSuTichDiem.Dock = DockStyle.Fill;
             lsvLichSuTichDiem.Location = new Point(3, 23);
             lsvLichSuTichDiem.Name = "lsvLichSuTichDiem";
-            lsvLichSuTichDiem.Size = new Size(280, 553);
+            lsvLichSuTichDiem.Size = new Size(280, 247);
             lsvLichSuTichDiem.TabIndex = 0;
             lsvLichSuTichDiem.UseCompatibleStateImageBehavior = false;
             lsvLichSuTichDiem.SelectedIndexChanged += listView1_SelectedIndexChanged;

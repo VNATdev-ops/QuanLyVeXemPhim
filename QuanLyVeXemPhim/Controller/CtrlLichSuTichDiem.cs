@@ -45,6 +45,41 @@ namespace QuanLyVeXemPhim.Controller
 
         }
 
+        public List<CLichSuTichDiem> FindLichSuTichDiemByThanhVien(string idThanhVien)
+        {
+            List<CLichSuTichDiem> results = new List<CLichSuTichDiem>();
+            string connectionString = "Data Source = DESKTOP-45GKJAU\\SQLEXPRESS; " +
+                   "Initial Catalog = QL_Ve_Xem_Phim ; Integrated Security = true";  // Replace with your actual connection string
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM LichSuTichDiem WHERE IDThanhVien = @IDThanhVien", conn))
+                {
+                    cmd.Parameters.AddWithValue("@IDThanhVien", idThanhVien);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CLichSuTichDiem lichSu = new CLichSuTichDiem()
+                            {
+                                IDLichSu = reader["IDLichSu"].ToString(),
+                                SoDiemTichLuy = Convert.ToInt32(reader["SoDiemTichLuy"]),
+                                ThoiGianTichLuy = Convert.ToDateTime(reader["ThoiGianTichLuy"]),
+                                TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]),
+                                ThanhVien = new CThanhVien { IDThanhVien = reader["IDThanhVien"].ToString() }
+                            };
+                            results.Add(lichSu);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return results;
+        }
+
+
+
+
         public bool insert(CLichSuTichDiem obj)
         {
             try
