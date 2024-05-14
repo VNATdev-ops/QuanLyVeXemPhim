@@ -21,11 +21,11 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID Ghế", 15 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID Phòng", 15 * width / 100);
-            lsvDanhSachCN.Columns.Add("Loại ghế", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Vị trí", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Trạng thái", 30 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Ghế", 24 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Phòng", 24 * width / 100);
+            lsvDanhSachCN.Columns.Add("Loại ghế", 26 * width / 100);
+            lsvDanhSachCN.Columns.Add("Vị trí", 26 * width / 100);
+            
 
 
             lsvDanhSachCN.View = View.Details;
@@ -38,17 +38,17 @@ namespace QuanLyVeXemPhim.Views
             string maPhong = txtIDphong.Text;
             string loaiChoNgoi = txtLoaiChoNgoi.Text;
             string viTri = txtVitri.Text;
-            string trangThai = txtTrangThai.Text;
+            
             CChoNgoi choNgoi = new CChoNgoi();
             choNgoi.IDChoNgoi = maCN;
             choNgoi.Phong = new CPhongChieu();
             choNgoi.Phong.IDPhong = maPhong;
             choNgoi.LoaiChoNgoi = loaiChoNgoi;
             choNgoi.ViTri = viTri;
-            choNgoi.TrangThai = trangThai;
+            
             if (ctrChoNgoi.insert(choNgoi))
             {
-                string[] objCN = { maCN, maPhong, loaiChoNgoi, viTri, trangThai };
+                string[] objCN = { maCN, maPhong, loaiChoNgoi, viTri};
                 ListViewItem item = new ListViewItem(objCN);
                 lsvDanhSachCN.Items.Add(item);
                 dsChoNgoi.Add(choNgoi);
@@ -64,7 +64,7 @@ namespace QuanLyVeXemPhim.Views
             dsChoNgoi = ctrChoNgoi.findAll();
             foreach (CChoNgoi s in dsChoNgoi)
             {
-                string[] obj = { s.IDChoNgoi, s.Phong.IDPhong, s.LoaiChoNgoi, s.ViTri, s.TrangThai };
+                string[] obj = { s.IDChoNgoi, s.Phong.IDPhong, s.LoaiChoNgoi, s.ViTri };
                 ListViewItem item = new ListViewItem(obj);
                 lsvDanhSachCN.Items.Add(item);
             }
@@ -90,7 +90,7 @@ namespace QuanLyVeXemPhim.Views
                 txtIDphong.Text = choNgoi.Phong.IDPhong;
                 txtLoaiChoNgoi.Text = choNgoi.LoaiChoNgoi;
                 txtVitri.Text = choNgoi.ViTri;
-                txtTrangThai.Text = choNgoi.TrangThai;
+                
 
             }
             catch
@@ -148,13 +148,13 @@ namespace QuanLyVeXemPhim.Views
             choNgoi.Phong.IDPhong = txtIDphong.Text;
             choNgoi.LoaiChoNgoi = txtLoaiChoNgoi.Text;
             choNgoi.ViTri = txtVitri.Text;
-            choNgoi.TrangThai = txtTrangThai.Text;
+            
             if (ctrChoNgoi.update(choNgoi))
             {
                 item.SubItems[1].Text = choNgoi.Phong.IDPhong;
                 item.SubItems[2].Text = choNgoi.LoaiChoNgoi;
                 item.SubItems[3].Text = choNgoi.ViTri;
-                item.SubItems[4].Text = choNgoi.TrangThai;
+                
                 MessageBox.Show("Cập nhật thành công");
             }
             else
@@ -175,7 +175,7 @@ namespace QuanLyVeXemPhim.Views
             txtIDphong.Text = string.Empty;
             txtLoaiChoNgoi.Text = string.Empty;
             txtVitri.Text = string.Empty;
-            txtTrangThai.Text = string.Empty;
+            
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
 
         }
@@ -191,7 +191,7 @@ namespace QuanLyVeXemPhim.Views
                 lsvDanhSachCN.Items.Clear();
                 foreach (CChoNgoi s in dsChoNgoi)
                 {
-                    string[] obj = { s.IDChoNgoi, s.Phong.IDPhong, s.LoaiChoNgoi, s.ViTri, s.TrangThai };
+                    string[] obj = { s.IDChoNgoi, s.Phong.IDPhong, s.LoaiChoNgoi, s.ViTri };
                     ListViewItem item = new ListViewItem(obj);
                     lsvDanhSachCN.Items.Add(item);
 

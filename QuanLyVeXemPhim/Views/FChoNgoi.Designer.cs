@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txtTrangThai = new TextBox();
             txtSoLuongGhe = new TextBox();
             txtLoaiPhong = new TextBox();
             txtIDphong = new TextBox();
@@ -37,7 +36,6 @@
             txtVitri = new TextBox();
             txtIDchongoi = new TextBox();
             label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -67,7 +65,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtTrangThai);
             groupBox1.Controls.Add(txtSoLuongGhe);
             groupBox1.Controls.Add(txtLoaiPhong);
             groupBox1.Controls.Add(txtIDphong);
@@ -75,7 +72,6 @@
             groupBox1.Controls.Add(txtVitri);
             groupBox1.Controls.Add(txtIDchongoi);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
@@ -87,19 +83,9 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin chỗ ngồi";
             // 
-            // txtTrangThai
-            // 
-            txtTrangThai.Location = new Point(433, 153);
-            txtTrangThai.Margin = new Padding(2, 2, 2, 2);
-            txtTrangThai.Margin = new Padding(2);
-            txtTrangThai.Name = "txtTrangThai";
-            txtTrangThai.Size = new Size(178, 31);
-            txtTrangThai.TabIndex = 21;
-            // 
             // txtSoLuongGhe
             // 
             txtSoLuongGhe.Location = new Point(744, 153);
-            txtSoLuongGhe.Margin = new Padding(2, 2, 2, 2);
             txtSoLuongGhe.Margin = new Padding(2);
             txtSoLuongGhe.Name = "txtSoLuongGhe";
             txtSoLuongGhe.Size = new Size(280, 31);
@@ -108,7 +94,6 @@
             // txtLoaiPhong
             // 
             txtLoaiPhong.Location = new Point(744, 85);
-            txtLoaiPhong.Margin = new Padding(2, 2, 2, 2);
             txtLoaiPhong.Margin = new Padding(2);
             txtLoaiPhong.Name = "txtLoaiPhong";
             txtLoaiPhong.Size = new Size(280, 31);
@@ -117,7 +102,6 @@
             // txtIDphong
             // 
             txtIDphong.Location = new Point(433, 40);
-            txtIDphong.Margin = new Padding(2, 2, 2, 2);
             txtIDphong.Margin = new Padding(2);
             txtIDphong.Name = "txtIDphong";
             txtIDphong.Size = new Size(178, 31);
@@ -126,7 +110,6 @@
             // txtLoaiChoNgoi
             // 
             txtLoaiChoNgoi.Location = new Point(155, 96);
-            txtLoaiChoNgoi.Margin = new Padding(2, 2, 2, 2);
             txtLoaiChoNgoi.Margin = new Padding(2);
             txtLoaiChoNgoi.Name = "txtLoaiChoNgoi";
             txtLoaiChoNgoi.Size = new Size(455, 31);
@@ -135,7 +118,6 @@
             // txtVitri
             // 
             txtVitri.Location = new Point(155, 153);
-            txtVitri.Margin = new Padding(2, 2, 2, 2);
             txtVitri.Margin = new Padding(2);
             txtVitri.Name = "txtVitri";
             txtVitri.Size = new Size(130, 31);
@@ -144,7 +126,6 @@
             // txtIDchongoi
             // 
             txtIDchongoi.Location = new Point(155, 40);
-            txtIDchongoi.Margin = new Padding(2, 2, 2, 2);
             txtIDchongoi.Margin = new Padding(2);
             txtIDchongoi.Name = "txtIDchongoi";
             txtIDchongoi.Size = new Size(162, 31);
@@ -159,16 +140,6 @@
             label5.Size = new Size(48, 25);
             label5.TabIndex = 4;
             label5.Text = "Vị trí";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.8F);
-            label4.Location = new Point(334, 158);
-            label4.Name = "label4";
-            label4.Size = new Size(89, 25);
-            label4.TabIndex = 3;
-            label4.Text = "Trạng thái";
             // 
             // label3
             // 
@@ -243,7 +214,6 @@
             // txtTimKiem
             // 
             txtTimKiem.Location = new Point(18, 81);
-            txtTimKiem.Margin = new Padding(2, 2, 2, 2);
             txtTimKiem.Margin = new Padding(2);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(178, 30);
@@ -272,7 +242,6 @@
             // txtTongSo
             // 
             txtTongSo.Location = new Point(18, 79);
-            txtTongSo.Margin = new Padding(2, 2, 2, 2);
             txtTongSo.Margin = new Padding(2);
             txtTongSo.Name = "txtTongSo";
             txtTongSo.Size = new Size(178, 30);
@@ -360,7 +329,6 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 582);
             ClientSize = new Size(908, 582);
             Controls.Add(label6);
             Controls.Add(panel2);
@@ -388,7 +356,6 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
@@ -405,7 +372,6 @@
         private Button btnThem;
         private ListView lsvDanhSachCN;
         private Label label6;
-        private TextBox txtTrangThai;
         private TextBox txtSoLuongGhe;
         private TextBox txtLoaiPhong;
         private TextBox txtIDphong;
