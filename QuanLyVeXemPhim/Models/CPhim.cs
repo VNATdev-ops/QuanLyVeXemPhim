@@ -65,7 +65,7 @@ namespace QuanLyVeXemPhim.Models
 
         public override string ToString()
         {
-            return iDPhim + " _ " + tenPhim;
+            return tenPhim;
         }
     }
 }

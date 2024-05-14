@@ -10,32 +10,32 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Controller
 {
-    internal class CtrlCTHDThucAnDoUong
+    internal class CtrlCTHD
     {
         SqlConnection cnn = null;
         CtrlHoaDon ctrHoaDon = new CtrlHoaDon();
-        CtrlThucAnDoUong ctrSP = new CtrlThucAnDoUong();
-        List<CThucAnDoUong> dsSP = new List<CThucAnDoUong>(); 
+        CtrlSanPham ctrSP = new CtrlSanPham();
+        List<CSanPham> dsSP = new List<CSanPham>(); 
         List<CHoaDon> dsHD = new List<CHoaDon>();
 
-        public CtrlCTHDThucAnDoUong()
+        public CtrlCTHD()
         {
             ConnectDB cnnDB = new ConnectDB();
             cnn = cnnDB.getConnection();
         }
 
-        public List<CCTHDThucAnDoUong> findAll()
+        public List<CCTHD> findAll()
         {
-            string sql = "select * from cthd_thucandouong";
+            string sql = "select * from cthd";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
-            List<CCTHDThucAnDoUong> arrs = new List<CCTHDThucAnDoUong>();
+            List<CCTHD> arrs = new List<CCTHD>();
             while (reader.Read())
             {
-                CCTHDThucAnDoUong s = new CCTHDThucAnDoUong();
+                CCTHD s = new CCTHD();
                 s.HoaDon = new CHoaDon();
-                s.SanPham = new CThucAnDoUong();
+                s.SanPham = new CSanPham();
                 dsHD = ctrHoaDon.findCriteria(reader.GetString(0));
                 s.HoaDon = dsHD[0];
                 dsSP = ctrSP.findCriteria(reader.GetString(1));
@@ -46,11 +46,11 @@ namespace QuanLyVeXemPhim.Controller
             reader.Close();
             return arrs;
         }
-        public bool insert(CCTHDThucAnDoUong obj)
+        public bool insert(CCTHD obj)
         {
             try
             {
-                string sql = "insert into cthd_thucandouong (idhoadon, idsanpham, soluong) values (@idhoadon, @idsanpham, @soluong)";
+                string sql = "insert into cthd (idhoadon, idsanpham, soluong) values (@idhoadon, @idsanpham, @soluong)";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@idhoadon", obj.HoaDon.IDHoaDon);
                 cmd.Parameters.AddWithValue("@idsanpham", obj.SanPham.IDSanPham);
@@ -70,7 +70,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "delete from cthd_thucandouong where idhoadon = @dk or idsanpham = @dk";
+                string sql = "delete from cthd where idhoadon = @dk or idsanpham = @dk";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@dk", dk);
@@ -87,7 +87,7 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "delete from cthd_thucandouong where idhoadon = @idHD or idsanpham = @idSP";
+                string sql = "delete from cthd where idhoadon = @idHD or idsanpham = @idSP";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Connection = cnn;
                 cmd.Parameters.AddWithValue("@idHD", idHD);
@@ -101,17 +101,17 @@ namespace QuanLyVeXemPhim.Controller
                 return false;
             }
         }
-        public List<CCTHDThucAnDoUong> findCriteria(string dk)
+        public List<CCTHD> findCriteria(string dk)
         {
-            string sql = "select * from cthd_thucandouong where idhoadon = @dk";
+            string sql = "select * from cthd where idhoadon = @dk";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@dk", dk);
             SqlDataReader reader = cmd.ExecuteReader();
-            List<CCTHDThucAnDoUong> arrs = new List<CCTHDThucAnDoUong>();
+            List<CCTHD> arrs = new List<CCTHD>();
             while (reader.Read())
             {
-                CCTHDThucAnDoUong s = new CCTHDThucAnDoUong();
+                CCTHD s = new CCTHD();
                 s.HoaDon = GetHoaDonById(reader.GetString(0));
                 s.SanPham = GetSanPhamById(reader.GetString(1));
                 s.SoLuong = reader.GetInt32(2);
@@ -128,10 +128,10 @@ namespace QuanLyVeXemPhim.Controller
             return hd;
         }
 
-        private CThucAnDoUong GetSanPhamById(string idSanPham)
+        private CSanPham GetSanPhamById(string idSanPham)
         {
             dsSP = ctrSP.findCriteria(idSanPham);
-            CThucAnDoUong sp = dsSP[0];
+            CSanPham sp = dsSP[0];
             return sp;
         }
 

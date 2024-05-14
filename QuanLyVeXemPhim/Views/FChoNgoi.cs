@@ -21,11 +21,11 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID chỗ ngồi", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID phòng", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Loại chỗ ngồi", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Vị Trí", 20 * width / 100);
-            lsvDanhSachCN.Columns.Add("Trạng thái", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Ghế", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Phòng", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("Loại ghế", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("Vị trí", 20 * width / 100);
+            lsvDanhSachCN.Columns.Add("Trạng thái", 30 * width / 100);
 
 
             lsvDanhSachCN.View = View.Details;

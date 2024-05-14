@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,19 @@ namespace QuanLyVeXemPhim.Controller
     internal class CtrlVeXemPhim
     {
         SqlConnection cnn = null;
+
+        List<CThanhVien> dsThanhVien = new List<CThanhVien>();
+        CtrlThanhVien ctrThanhVien = new CtrlThanhVien();
+
+        List<CPhim> dsPhim = new List<CPhim>();
+        CtrlPhim ctrPhim = new CtrlPhim();
+
+        List<CSuatChieu> dsSuatChieu = new List<CSuatChieu>();
+        CtrlSuatChieu ctrSuatChieu = new CtrlSuatChieu();
+
+        List<CChoNgoi> dsChoNgoi = new List<CChoNgoi>();
+        CtrlChoNgoi ctrChoNgoi = new CtrlChoNgoi();
+
         public CtrlVeXemPhim()
         {
             ConnectDB cnnDB = new ConnectDB();
@@ -31,14 +45,19 @@ namespace QuanLyVeXemPhim.Controller
             {
                 CVeXemPhim s = new CVeXemPhim();
                 s.IDVe = reader.GetString(0);
-                s.ThanhVien = new CThanhVien();
-                s.ThanhVien.IDThanhVien = reader.GetString(1);
-                s.Phim = new CPhim();
-                s.Phim.IDPhim = reader.GetString(2);
-                s.SuatChieu = new CSuatChieu();
-                s.SuatChieu.IDSuatChieu = reader.GetString(3);
-                s.ChoNgoi = new CChoNgoi();
-                s.ChoNgoi.IDChoNgoi = reader.GetString(4);
+                //
+                dsThanhVien = ctrThanhVien.findCriteria(reader.GetString(1));
+                s.ThanhVien = dsThanhVien[0];
+                //
+                dsPhim = ctrPhim.findCriteria(reader.GetString(2));
+                s.Phim = dsPhim[0];
+                //
+                dsSuatChieu = ctrSuatChieu.findCriteria(reader.GetString(3));
+                s.SuatChieu = dsSuatChieu[0];
+                //
+                dsChoNgoi = ctrChoNgoi.findCriteria(reader.GetString(4));
+                s.ChoNgoi = dsChoNgoi[0];
+                //
                 s.GiaVe = (int)reader.GetDecimal(5);
                 s.TinhTrang = reader.GetString(6);
 

@@ -67,5 +67,10 @@ namespace QuanLyVeXemPhim.Models
         {
             return HashCode.Combine(iDVe);
         }
+
+        public override string ToString()
+        {
+            return iDVe + " _ " + Phim1 + " (" + giaVe + ")";
+        }
     }
 }

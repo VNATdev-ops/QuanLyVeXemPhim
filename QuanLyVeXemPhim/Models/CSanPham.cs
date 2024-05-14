@@ -7,37 +7,43 @@ using System.Threading.Tasks;
 
 namespace QuanLyVeXemPhim.Models
 {
-    internal class CThucAnDoUong
+    internal class CSanPham
     {
         private string iDSanPham;
         private string loai;
         private string tenSanPham;
         private decimal gia;
+        private string donViTinh;
+        private int soLuong;
         private string hinh;
 
         public string IDSanPham { get => iDSanPham; set => iDSanPham = value; }
         public string Loai { get => loai; set => loai = value; }
         public string TenSanPham { get => tenSanPham; set => tenSanPham = value; }
         public decimal Gia { get => gia; set => gia = value; }
+        public string DonViTinh { get => donViTinh; set => donViTinh = value; }
+        public int SoLuong { get => soLuong; set => soLuong = value; }
         public string Hinh { get => hinh; set => hinh = value; }
 
-        public CThucAnDoUong(string iDSanPham, string loai, string tenSanPham, decimal gia, string hinh)
+        public CSanPham(string iDSanPham, string loai, string tenSanPham, decimal gia, string donViTinh, int soLuong, string hinh)
         {
             this.iDSanPham = iDSanPham;
             this.loai = loai;
             this.tenSanPham = tenSanPham;
             this.gia = gia;
+            this.donViTinh = donViTinh;
+            this.soLuong = soLuong;
             this.hinh = hinh;
         }
 
-        public CThucAnDoUong()
+        public CSanPham()
         {
         }
 
         public override bool Equals(object? obj)
         {
-            return obj is CThucAnDoUong thucAnDoUong &&
-                   iDSanPham == thucAnDoUong.iDSanPham;
+            return obj is CSanPham pham &&
+                   iDSanPham == pham.iDSanPham;
         }
 
         public override int GetHashCode()
@@ -49,5 +55,6 @@ namespace QuanLyVeXemPhim.Models
         {
             return tenSanPham + " (" + gia + ")";
         }
+
     }
 }
