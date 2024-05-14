@@ -103,11 +103,28 @@ namespace QuanLyVeXemPhim.Controller
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Lỗi khi cập nhật phim vào cơ sở dữ liệu: " + ex.Message);
+                Console.WriteLine("Lỗi khi cập nhật sản phẩm vào cơ sở dữ liệu: " + ex.Message);
                 return false;
             }
         }
-
+        public bool updateSoLuong(CSanPham obj)
+        {
+            try
+            {
+                string sql = "update sanpham set soluong = @soluong where idsanpham =@idsanpham";
+                SqlCommand cmd = new SqlCommand(sql);
+                cmd.Connection = cnn;
+                cmd.Parameters.AddWithValue("@soluong", obj.SoLuong);
+                cmd.Parameters.AddWithValue("@idsanpham", obj.IDSanPham);
+                int n = cmd.ExecuteNonQuery();
+                return n > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm sản phẩm vào cơ sở dữ liệu: " + ex.Message);
+                return false;
+            }
+        }
         public bool delete(CSanPham obj)
         {
             try
@@ -142,8 +159,10 @@ namespace QuanLyVeXemPhim.Controller
                 s.Loai = reader.GetString(1);
                 s.TenSanPham = reader.GetString(2);
                 s.Gia = reader.GetDecimal(3);
-                if(!reader.IsDBNull(4))
-                    s.Hinh = reader.GetString(4);
+                s.DonViTinh = reader.GetString(4);
+                s.SoLuong = reader.GetInt32(5);
+                if(!reader.IsDBNull(6))
+                    s.Hinh = reader.GetString(6);
                 arrs.Add(s);
             }
             reader.Close(); 

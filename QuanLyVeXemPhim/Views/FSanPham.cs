@@ -97,18 +97,47 @@ namespace QuanLyVeXemPhim.Views
                 string donvitinh = txtDonViTinh.Text;
                 int soluong = int.Parse(txtSoLuong.Text);
                 string hinh = txtHinhAnh.Text ?? null;
-
                 CSanPham s = new CSanPham(idsanpham, loai, tensanpham, gia, donvitinh, soluong, hinh);
-                if (ctrSanPham.insert(s))
+
+                //Kiểm tra trùng mã sản phẩm
+                CSanPham SanPhamTonTai = dsSanPham.FirstOrDefault(sp => sp.IDSanPham == idsanpham);
+                if (SanPhamTonTai != null)
                 {
-                    MessageBox.Show("Thêm thông tin sản phẩm thành công.");
-                    string[] objsp = { idsanpham, loai, tensanpham, gia.ToString(), donvitinh, soluong.ToString(), hinh };
-                    ListViewItem item = new ListViewItem(objsp);
-                    lsvDSSP.Items.Add(item);
-                    dsSanPham.Add(s);
+                    DialogResult result = MessageBox.Show("Mã sản phẩm đã tồn tại. Bạn có muốn thêm sản phẩm không?", "Xác nhận thêm sản phẩm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(result == DialogResult.Yes)
+                    {
+                        SanPhamTonTai.SoLuong += soluong;
+                        if (ctrSanPham.updateSoLuong(SanPhamTonTai))
+                        {
+                            MessageBox.Show("Thêm thông tin sản phẩm thành công.");
+                            foreach (ListViewItem item in lsvDSSP.Items)
+                            {
+                                if (item.SubItems[0].Text == SanPhamTonTai.IDSanPham)
+                                {
+                                    item.SubItems[5].Text = SanPhamTonTai.SoLuong.ToString();
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                            MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
+                    }
                 }
+                
                 else
-                    MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
+                {
+                    if (ctrSanPham.insert(s))
+                    {
+                        MessageBox.Show("Thêm thông tin sản phẩm thành công.");
+                        string[] objsp = { idsanpham, loai, tensanpham, gia.ToString(), donvitinh, soluong.ToString(), hinh };
+                        ListViewItem item = new ListViewItem(objsp);
+                        lsvDSSP.Items.Add(item);
+                        dsSanPham.Add(s);
+                    }
+                    else
+                        MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
+                }
+
                 CapNhatSoLuongSP();
             }
             catch (Exception ex)
