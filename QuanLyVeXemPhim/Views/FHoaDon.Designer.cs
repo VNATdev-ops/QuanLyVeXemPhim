@@ -212,7 +212,7 @@
             // btnXoaCTHD
             // 
             btnXoaCTHD.Font = new Font("Roboto", 10F);
-            btnXoaCTHD.Location = new Point(542, 276);
+            btnXoaCTHD.Location = new Point(542, 282);
             btnXoaCTHD.Name = "btnXoaCTHD";
             btnXoaCTHD.Size = new Size(132, 39);
             btnXoaCTHD.TabIndex = 14;
@@ -236,10 +236,10 @@
             // lsvDanhSachHD
             // 
             lsvDanhSachHD.Font = new Font("Roboto", 10F);
-            lsvDanhSachHD.Location = new Point(7, 29);
+            lsvDanhSachHD.Location = new Point(0, 44);
             lsvDanhSachHD.MultiSelect = false;
             lsvDanhSachHD.Name = "lsvDanhSachHD";
-            lsvDanhSachHD.Size = new Size(751, 409);
+            lsvDanhSachHD.Size = new Size(764, 409);
             lsvDanhSachHD.TabIndex = 20;
             lsvDanhSachHD.UseCompatibleStateImageBehavior = false;
             lsvDanhSachHD.SelectedIndexChanged += lsvDanhSachHD_SelectedIndexChanged;
@@ -247,17 +247,17 @@
             // txtSoLuongHD
             // 
             txtSoLuongHD.Font = new Font("Roboto", 10F);
-            txtSoLuongHD.Location = new Point(228, 465);
+            txtSoLuongHD.Location = new Point(594, 473);
             txtSoLuongHD.Name = "txtSoLuongHD";
             txtSoLuongHD.ReadOnly = true;
-            txtSoLuongHD.Size = new Size(499, 32);
+            txtSoLuongHD.Size = new Size(133, 32);
             txtSoLuongHD.TabIndex = 9;
             // 
             // lblSoLuongHD
             // 
             lblSoLuongHD.AutoSize = true;
             lblSoLuongHD.Font = new Font("Roboto", 10F);
-            lblSoLuongHD.Location = new Point(34, 467);
+            lblSoLuongHD.Location = new Point(400, 475);
             lblSoLuongHD.Name = "lblSoLuongHD";
             lblSoLuongHD.Size = new Size(165, 24);
             lblSoLuongHD.TabIndex = 6;
@@ -278,9 +278,9 @@
             // lsvChiTietHD
             // 
             lsvChiTietHD.Font = new Font("Roboto", 10F);
-            lsvChiTietHD.Location = new Point(6, 37);
+            lsvChiTietHD.Location = new Point(0, 46);
             lsvChiTietHD.Name = "lsvChiTietHD";
-            lsvChiTietHD.Size = new Size(694, 223);
+            lsvChiTietHD.Size = new Size(706, 223);
             lsvChiTietHD.TabIndex = 20;
             lsvChiTietHD.UseCompatibleStateImageBehavior = false;
             lsvChiTietHD.SelectedIndexChanged += lsvChiTietHD_SelectedIndexChanged;
@@ -359,9 +359,9 @@
             // 
             lstSanPham.Font = new Font("Roboto", 10F);
             lstSanPham.FormattingEnabled = true;
-            lstSanPham.Location = new Point(6, 40);
+            lstSanPham.Location = new Point(0, 46);
             lstSanPham.Name = "lstSanPham";
-            lstSanPham.Size = new Size(693, 148);
+            lstSanPham.Size = new Size(706, 148);
             lstSanPham.TabIndex = 0;
             // 
             // btnThemSP

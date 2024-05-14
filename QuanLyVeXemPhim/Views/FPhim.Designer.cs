@@ -52,12 +52,6 @@
             lblHinhAnh = new Label();
             lblIDPhim = new Label();
             lsvDSPhim = new ListView();
-            groupBox4 = new GroupBox();
-            btnThoat = new Button();
-            btnNhapMoi = new Button();
-            bthXoa = new Button();
-            btnCapNhat = new Button();
-            btnThem = new Button();
             txtTimKiem = new TextBox();
             label2 = new Label();
             groupBox5 = new GroupBox();
@@ -65,58 +59,70 @@
             txtSoLuongDangChieu = new TextBox();
             lblSoLuongPhim = new Label();
             groupBox2 = new GroupBox();
+            panel1 = new Panel();
+            btnThoat = new Button();
+            btnNhapMoi = new Button();
+            btnThem = new Button();
+            bthXoa = new Button();
+            btnCapNhat = new Button();
             groupBox1.SuspendLayout();
-            groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblTenForm
             // 
             lblTenForm.AutoSize = true;
-            lblTenForm.Location = new Point(476, 55);
+            lblTenForm.Font = new Font("Roboto", 24F);
+            lblTenForm.Location = new Point(68, 50);
             lblTenForm.Name = "lblTenForm";
-            lblTenForm.Size = new Size(134, 25);
+            lblTenForm.Size = new Size(345, 58);
             lblTenForm.TabIndex = 0;
             lblTenForm.Text = "QUẢN LÝ PHIM";
             // 
             // lblTenPhim
             // 
             lblTenPhim.AutoSize = true;
-            lblTenPhim.Location = new Point(31, 97);
+            lblTenPhim.Font = new Font("Roboto", 10F);
+            lblTenPhim.Location = new Point(28, 93);
             lblTenPhim.Name = "lblTenPhim";
-            lblTenPhim.Size = new Size(84, 25);
+            lblTenPhim.Size = new Size(93, 24);
             lblTenPhim.TabIndex = 1;
             lblTenPhim.Text = "Tên phim";
             // 
             // lblTheLoai
             // 
             lblTheLoai.AutoSize = true;
-            lblTheLoai.Location = new Point(31, 144);
+            lblTheLoai.Font = new Font("Roboto", 10F);
+            lblTheLoai.Location = new Point(28, 139);
             lblTheLoai.Name = "lblTheLoai";
-            lblTheLoai.Size = new Size(73, 25);
+            lblTheLoai.Size = new Size(81, 24);
             lblTheLoai.TabIndex = 1;
             lblTheLoai.Text = "Thể loại";
             // 
             // lblDaoDien
             // 
             lblDaoDien.AutoSize = true;
-            lblDaoDien.Location = new Point(31, 194);
+            lblDaoDien.Font = new Font("Roboto", 10F);
+            lblDaoDien.Location = new Point(28, 187);
             lblDaoDien.Name = "lblDaoDien";
-            lblDaoDien.Size = new Size(84, 25);
+            lblDaoDien.Size = new Size(88, 24);
             lblDaoDien.TabIndex = 1;
             lblDaoDien.Text = "Đạo diễn";
             // 
             // txtSoLuongPhim
             // 
             txtSoLuongPhim.Enabled = false;
-            txtSoLuongPhim.Location = new Point(316, 43);
+            txtSoLuongPhim.Location = new Point(178, 49);
             txtSoLuongPhim.Name = "txtSoLuongPhim";
-            txtSoLuongPhim.Size = new Size(150, 31);
+            txtSoLuongPhim.ReadOnly = true;
+            txtSoLuongPhim.Size = new Size(87, 32);
             txtSoLuongPhim.TabIndex = 2;
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(234, 219, 200);
             groupBox1.Controls.Add(rtbMoTa);
             groupBox1.Controls.Add(cbDinhDang);
             groupBox1.Controls.Add(txtDoDai);
@@ -137,9 +143,10 @@
             groupBox1.Controls.Add(lblIDPhim);
             groupBox1.Controls.Add(lblDaoDien);
             groupBox1.Controls.Add(lblTenPhim);
-            groupBox1.Location = new Point(33, 107);
+            groupBox1.Font = new Font("Roboto", 12F);
+            groupBox1.Location = new Point(68, 142);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1069, 585);
+            groupBox1.Size = new Size(1193, 595);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phim";
@@ -147,226 +154,183 @@
             // rtbMoTa
             // 
             rtbMoTa.BorderStyle = BorderStyle.None;
-            rtbMoTa.Location = new Point(194, 349);
+            rtbMoTa.Font = new Font("Roboto", 10F);
+            rtbMoTa.Location = new Point(207, 335);
             rtbMoTa.Name = "rtbMoTa";
-            rtbMoTa.Size = new Size(804, 206);
+            rtbMoTa.Size = new Size(925, 197);
             rtbMoTa.TabIndex = 7;
             rtbMoTa.Text = "";
             // 
             // cbDinhDang
             // 
+            cbDinhDang.Font = new Font("Roboto", 10F);
             cbDinhDang.FormattingEnabled = true;
-            cbDinhDang.Location = new Point(791, 291);
+            cbDinhDang.Location = new Point(864, 279);
             cbDinhDang.Name = "cbDinhDang";
-            cbDinhDang.Size = new Size(207, 33);
+            cbDinhDang.Size = new Size(268, 32);
             cbDinhDang.TabIndex = 6;
             // 
             // txtDoDai
             // 
-            txtDoDai.Location = new Point(791, 241);
+            txtDoDai.Font = new Font("Roboto", 10F);
+            txtDoDai.Location = new Point(864, 231);
             txtDoDai.Name = "txtDoDai";
-            txtDoDai.Size = new Size(207, 31);
+            txtDoDai.Size = new Size(268, 32);
             txtDoDai.TabIndex = 2;
             // 
             // cbTrangThai
             // 
+            cbTrangThai.Font = new Font("Roboto", 10F);
             cbTrangThai.FormattingEnabled = true;
-            cbTrangThai.Location = new Point(194, 291);
+            cbTrangThai.Location = new Point(207, 279);
             cbTrangThai.Name = "cbTrangThai";
-            cbTrangThai.Size = new Size(390, 33);
+            cbTrangThai.Size = new Size(429, 32);
             cbTrangThai.TabIndex = 6;
             // 
             // dtNgayPH
             // 
-            dtNgayPH.Location = new Point(194, 241);
+            dtNgayPH.Font = new Font("Roboto", 10F);
+            dtNgayPH.Location = new Point(207, 231);
             dtNgayPH.Name = "dtNgayPH";
-            dtNgayPH.Size = new Size(390, 31);
+            dtNgayPH.Size = new Size(429, 32);
             dtNgayPH.TabIndex = 5;
             // 
             // txtDaoDien
             // 
-            txtDaoDien.Location = new Point(194, 188);
+            txtDaoDien.Font = new Font("Roboto", 10F);
+            txtDaoDien.Location = new Point(207, 180);
             txtDaoDien.Name = "txtDaoDien";
-            txtDaoDien.Size = new Size(804, 31);
+            txtDaoDien.Size = new Size(925, 32);
             txtDaoDien.TabIndex = 2;
             // 
             // txtHinhAnh
             // 
-            txtHinhAnh.Location = new Point(791, 42);
+            txtHinhAnh.Font = new Font("Roboto", 10F);
+            txtHinhAnh.Location = new Point(864, 40);
             txtHinhAnh.Name = "txtHinhAnh";
-            txtHinhAnh.Size = new Size(207, 31);
+            txtHinhAnh.Size = new Size(268, 32);
             txtHinhAnh.TabIndex = 2;
             // 
             // txtIDPhim
             // 
-            txtIDPhim.Location = new Point(194, 42);
+            txtIDPhim.Font = new Font("Roboto", 10F);
+            txtIDPhim.Location = new Point(207, 40);
             txtIDPhim.Name = "txtIDPhim";
-            txtIDPhim.Size = new Size(390, 31);
+            txtIDPhim.Size = new Size(429, 32);
             txtIDPhim.TabIndex = 2;
             // 
             // txtTenPhim
             // 
-            txtTenPhim.Location = new Point(194, 91);
+            txtTenPhim.Font = new Font("Roboto", 10F);
+            txtTenPhim.Location = new Point(207, 87);
             txtTenPhim.Name = "txtTenPhim";
-            txtTenPhim.Size = new Size(804, 31);
+            txtTenPhim.Size = new Size(925, 32);
             txtTenPhim.TabIndex = 2;
             // 
             // txtTheLoai
             // 
-            txtTheLoai.Location = new Point(194, 138);
+            txtTheLoai.Font = new Font("Roboto", 10F);
+            txtTheLoai.Location = new Point(207, 132);
             txtTheLoai.Name = "txtTheLoai";
-            txtTheLoai.Size = new Size(804, 31);
+            txtTheLoai.Size = new Size(925, 32);
             txtTheLoai.TabIndex = 2;
             // 
             // lblDinhDang
             // 
             lblDinhDang.AutoSize = true;
-            lblDinhDang.Location = new Point(644, 299);
+            lblDinhDang.Font = new Font("Roboto", 10F);
+            lblDinhDang.Location = new Point(702, 287);
             lblDinhDang.Name = "lblDinhDang";
-            lblDinhDang.Size = new Size(95, 25);
+            lblDinhDang.Size = new Size(99, 24);
             lblDinhDang.TabIndex = 1;
             lblDinhDang.Text = "Định dạng";
             // 
             // lblTrangThai
             // 
             lblTrangThai.AutoSize = true;
-            lblTrangThai.Location = new Point(31, 299);
+            lblTrangThai.Font = new Font("Roboto", 10F);
+            lblTrangThai.Location = new Point(28, 287);
             lblTrangThai.Name = "lblTrangThai";
-            lblTrangThai.Size = new Size(89, 25);
+            lblTrangThai.Size = new Size(100, 24);
             lblTrangThai.TabIndex = 1;
             lblTrangThai.Text = "Trạng thái";
             // 
             // lblMoTa
             // 
             lblMoTa.AutoSize = true;
-            lblMoTa.Location = new Point(31, 345);
+            lblMoTa.Font = new Font("Roboto", 10F);
+            lblMoTa.Location = new Point(28, 332);
             lblMoTa.Name = "lblMoTa";
-            lblMoTa.Size = new Size(59, 25);
+            lblMoTa.Size = new Size(61, 24);
             lblMoTa.TabIndex = 1;
             lblMoTa.Text = "Mô tả";
             // 
             // lblDoDai
             // 
             lblDoDai.AutoSize = true;
-            lblDoDai.Location = new Point(644, 247);
+            lblDoDai.Font = new Font("Roboto", 10F);
+            lblDoDai.Location = new Point(702, 237);
             lblDoDai.Name = "lblDoDai";
-            lblDoDai.Size = new Size(117, 25);
+            lblDoDai.Size = new Size(125, 24);
             lblDoDai.TabIndex = 1;
             lblDoDai.Text = "Độ dài (phút)";
             // 
             // lblNgayPH
             // 
             lblNgayPH.AutoSize = true;
-            lblNgayPH.Location = new Point(31, 247);
+            lblNgayPH.Font = new Font("Roboto", 10F);
+            lblNgayPH.Location = new Point(28, 237);
             lblNgayPH.Name = "lblNgayPH";
-            lblNgayPH.Size = new Size(139, 25);
+            lblNgayPH.Size = new Size(149, 24);
             lblNgayPH.TabIndex = 1;
             lblNgayPH.Text = "Ngày phát hành";
             // 
             // lblHinhAnh
             // 
             lblHinhAnh.AutoSize = true;
-            lblHinhAnh.Location = new Point(644, 48);
+            lblHinhAnh.Font = new Font("Roboto", 10F);
+            lblHinhAnh.Location = new Point(702, 46);
             lblHinhAnh.Name = "lblHinhAnh";
-            lblHinhAnh.Size = new Size(83, 25);
+            lblHinhAnh.Size = new Size(89, 24);
             lblHinhAnh.TabIndex = 1;
             lblHinhAnh.Text = "Hình ảnh";
             // 
             // lblIDPhim
             // 
             lblIDPhim.AutoSize = true;
-            lblIDPhim.Location = new Point(31, 48);
+            lblIDPhim.Font = new Font("Roboto", 10F);
+            lblIDPhim.Location = new Point(28, 46);
             lblIDPhim.Name = "lblIDPhim";
-            lblIDPhim.Size = new Size(76, 25);
+            lblIDPhim.Size = new Size(78, 24);
             lblIDPhim.TabIndex = 1;
             lblIDPhim.Text = "ID phim";
             // 
             // lsvDSPhim
             // 
-            lsvDSPhim.Location = new Point(31, 44);
+            lsvDSPhim.Font = new Font("Roboto", 10F);
+            lsvDSPhim.Location = new Point(0, 105);
             lsvDSPhim.Name = "lsvDSPhim";
-            lsvDSPhim.Size = new Size(1576, 248);
+            lsvDSPhim.Size = new Size(1542, 275);
             lsvDSPhim.TabIndex = 0;
             lsvDSPhim.UseCompatibleStateImageBehavior = false;
             lsvDSPhim.SelectedIndexChanged += lsvDSPhim_SelectedIndexChanged;
             // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(btnThoat);
-            groupBox4.Controls.Add(btnNhapMoi);
-            groupBox4.Controls.Add(bthXoa);
-            groupBox4.Controls.Add(btnCapNhat);
-            groupBox4.Controls.Add(btnThem);
-            groupBox4.Location = new Point(1150, 225);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(527, 286);
-            groupBox4.TabIndex = 5;
-            groupBox4.TabStop = false;
-            // 
-            // btnThoat
-            // 
-            btnThoat.Location = new Point(65, 196);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(401, 56);
-            btnThoat.TabIndex = 0;
-            btnThoat.Text = "Thoát";
-            btnThoat.UseVisualStyleBackColor = true;
-            btnThoat.Click += btnThoat_Click;
-            // 
-            // btnNhapMoi
-            // 
-            btnNhapMoi.Location = new Point(65, 115);
-            btnNhapMoi.Name = "btnNhapMoi";
-            btnNhapMoi.Size = new Size(169, 56);
-            btnNhapMoi.TabIndex = 0;
-            btnNhapMoi.Text = "Nhập mới";
-            btnNhapMoi.UseVisualStyleBackColor = true;
-            btnNhapMoi.Click += btnNhapMoi_Click;
-            // 
-            // bthXoa
-            // 
-            bthXoa.Location = new Point(297, 115);
-            bthXoa.Name = "bthXoa";
-            bthXoa.Size = new Size(169, 56);
-            bthXoa.TabIndex = 0;
-            bthXoa.Text = "Xóa";
-            bthXoa.UseVisualStyleBackColor = true;
-            bthXoa.Click += bthXoa_Click;
-            // 
-            // btnCapNhat
-            // 
-            btnCapNhat.Location = new Point(297, 43);
-            btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(169, 56);
-            btnCapNhat.TabIndex = 0;
-            btnCapNhat.Text = "Cập nhật";
-            btnCapNhat.UseVisualStyleBackColor = true;
-            btnCapNhat.Click += btnCapNhat_Click;
-            // 
-            // btnThem
-            // 
-            btnThem.Location = new Point(65, 43);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(169, 56);
-            btnThem.TabIndex = 0;
-            btnThem.Text = "Thêm";
-            btnThem.UseVisualStyleBackColor = true;
-            btnThem.Click += btnThem_Click;
-            // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(1150, 160);
+            txtTimKiem.Font = new Font("Roboto", 10F);
+            txtTimKiem.Location = new Point(207, 49);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(527, 31);
+            txtTimKiem.Size = new Size(1286, 32);
             txtTimKiem.TabIndex = 6;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1150, 120);
+            label2.Font = new Font("Roboto", 10F);
+            label2.Location = new Point(28, 52);
             label2.Name = "label2";
-            label2.Size = new Size(84, 25);
+            label2.Size = new Size(94, 24);
             label2.TabIndex = 7;
             label2.Text = "Tìm kiếm";
             // 
@@ -376,70 +340,141 @@
             groupBox5.Controls.Add(txtSoLuongDangChieu);
             groupBox5.Controls.Add(txtSoLuongPhim);
             groupBox5.Controls.Add(lblSoLuongPhim);
-            groupBox5.Location = new Point(1150, 535);
+            groupBox5.Location = new Point(1313, 565);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(527, 157);
+            groupBox5.Size = new Size(297, 172);
             groupBox5.TabIndex = 8;
             groupBox5.TabStop = false;
             // 
             // lblSoLuongDangChieu
             // 
             lblSoLuongDangChieu.AutoSize = true;
-            lblSoLuongDangChieu.Location = new Point(38, 97);
+            lblSoLuongDangChieu.Location = new Point(19, 104);
             lblSoLuongDangChieu.Name = "lblSoLuongDangChieu";
-            lblSoLuongDangChieu.Size = new Size(223, 25);
+            lblSoLuongDangChieu.Size = new Size(109, 24);
             lblSoLuongDangChieu.TabIndex = 1;
-            lblSoLuongDangChieu.Text = "Số lượng phim đang chiếu";
+            lblSoLuongDangChieu.Text = "Đang chiếu";
             // 
             // txtSoLuongDangChieu
             // 
             txtSoLuongDangChieu.Enabled = false;
-            txtSoLuongDangChieu.Location = new Point(316, 94);
+            txtSoLuongDangChieu.Location = new Point(178, 98);
             txtSoLuongDangChieu.Name = "txtSoLuongDangChieu";
-            txtSoLuongDangChieu.Size = new Size(150, 31);
+            txtSoLuongDangChieu.ReadOnly = true;
+            txtSoLuongDangChieu.Size = new Size(87, 32);
             txtSoLuongDangChieu.TabIndex = 2;
             // 
             // lblSoLuongPhim
             // 
             lblSoLuongPhim.AutoSize = true;
-            lblSoLuongPhim.Location = new Point(38, 43);
+            lblSoLuongPhim.Location = new Point(19, 55);
             lblSoLuongPhim.Name = "lblSoLuongPhim";
-            lblSoLuongPhim.Size = new Size(131, 25);
+            lblSoLuongPhim.Size = new Size(138, 24);
             lblSoLuongPhim.TabIndex = 1;
             lblSoLuongPhim.Text = "Số lượng phim";
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(lsvDSPhim);
-            groupBox2.Location = new Point(33, 718);
+            groupBox2.Controls.Add(txtTimKiem);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Font = new Font("Roboto", 12F);
+            groupBox2.Location = new Point(68, 766);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1644, 320);
+            groupBox2.Size = new Size(1542, 380);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phim";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(16, 44, 87);
+            panel1.Controls.Add(btnThoat);
+            panel1.Controls.Add(btnNhapMoi);
+            panel1.Controls.Add(btnThem);
+            panel1.Controls.Add(bthXoa);
+            panel1.Controls.Add(btnCapNhat);
+            panel1.Font = new Font("Segoe UI", 10F);
+            panel1.Location = new Point(1313, 142);
+            panel1.Margin = new Padding(4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(297, 396);
+            panel1.TabIndex = 34;
+            // 
+            // btnThoat
+            // 
+            btnThoat.Location = new Point(42, 314);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(206, 56);
+            btnThoat.TabIndex = 0;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
+            // 
+            // btnNhapMoi
+            // 
+            btnNhapMoi.Location = new Point(42, 169);
+            btnNhapMoi.Name = "btnNhapMoi";
+            btnNhapMoi.Size = new Size(206, 56);
+            btnNhapMoi.TabIndex = 0;
+            btnNhapMoi.Text = "Nhập mới";
+            btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnNhapMoi_Click;
+            // 
+            // btnThem
+            // 
+            btnThem.Location = new Point(42, 28);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(206, 56);
+            btnThem.TabIndex = 0;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
+            // 
+            // bthXoa
+            // 
+            bthXoa.Location = new Point(42, 241);
+            bthXoa.Name = "bthXoa";
+            bthXoa.Size = new Size(206, 56);
+            bthXoa.TabIndex = 0;
+            bthXoa.Text = "Xóa";
+            bthXoa.UseVisualStyleBackColor = true;
+            bthXoa.Click += bthXoa_Click;
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.Location = new Point(42, 97);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(206, 56);
+            btnCapNhat.TabIndex = 0;
+            btnCapNhat.Text = "Cập nhật";
+            btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
+            // 
             // FPhim
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1758, 1087);
+            BackColor = Color.FromArgb(254, 250, 246);
+            ClientSize = new Size(1678, 1194);
+            Controls.Add(panel1);
             Controls.Add(groupBox5);
-            Controls.Add(label2);
-            Controls.Add(txtTimKiem);
-            Controls.Add(groupBox4);
             Controls.Add(groupBox2);
             Controls.Add(lblTenForm);
             Controls.Add(groupBox1);
+            Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "FPhim";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FPhim";
             Load += FPhim_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox4.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -468,15 +503,9 @@
         private DateTimePicker dtNgayPH;
         private ComboBox cbDinhDang;
         private ComboBox cbTrangThai;
-        private GroupBox groupBox4;
-        private Button bthXoa;
-        private Button btnCapNhat;
-        private Button btnThem;
-        private Button btnNhapMoi;
         private RichTextBox rtbMoTa;
         private TextBox txtTimKiem;
         private Label label2;
-        private Button btnThoat;
         private TextBox txtTenPhim;
         private GroupBox groupBox5;
         private Label lblSoLuongDangChieu;
@@ -488,5 +517,11 @@
         private Label lblIDPhim;
         private TextBox txtHinhAnh;
         private Label lblHinhAnh;
+        private Panel panel1;
+        private Button btnThoat;
+        private Button btnNhapMoi;
+        private Button btnThem;
+        private Button bthXoa;
+        private Button btnCapNhat;
     }
 }
