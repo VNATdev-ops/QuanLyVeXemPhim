@@ -22,7 +22,7 @@ namespace QuanLyVeXemPhim.Models
         {
         }
 
-        public CChoNgoi(string iDChoNgoi, CPhongChieu phong, string loaiChoNgoi, string viTri, string trangThai)
+        public CChoNgoi(string iDChoNgoi, CPhongChieu phong, string loaiChoNgoi, string viTri)
         {
             this.iDChoNgoi = iDChoNgoi;
             this.phong = phong;

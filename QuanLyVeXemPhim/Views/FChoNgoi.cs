@@ -14,7 +14,6 @@ namespace QuanLyVeXemPhim.Views
 {
     public partial class FChoNgoi : Form
     {
-
         CtrlChoNgoi ctrChoNgoi = new CtrlChoNgoi();
         List<CChoNgoi> dsChoNgoi = new List<CChoNgoi>();
         public FChoNgoi()
@@ -26,12 +25,9 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachCN.Columns.Add("Loại ghế", 35 * width / 100);
             lsvDanhSachCN.Columns.Add("Vị trí", 35 * width / 100);
 
-
             lsvDanhSachCN.View = View.Details;
             lsvDanhSachCN.FullRowSelect = true;
         }
-
-
 
         private void FChoNgoi_Load(object sender, EventArgs e)
         {
@@ -46,17 +42,10 @@ namespace QuanLyVeXemPhim.Views
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
         }
 
-
-
-
-
-
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
 
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -73,9 +62,6 @@ namespace QuanLyVeXemPhim.Views
                     string[] obj = { s.IDChoNgoi, s.Phong.IDPhong, s.LoaiChoNgoi, s.ViTri };
                     ListViewItem item = new ListViewItem(obj);
                     lsvDanhSachCN.Items.Add(item);
-
-
-
                 }
             }
             catch { }
@@ -144,35 +130,32 @@ namespace QuanLyVeXemPhim.Views
 
         private void lsvDanhSachCN_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            try
             {
-                try
+                ListViewItem item = lsvDanhSachCN.SelectedItems[0];
+                CChoNgoi choNgoi = new CChoNgoi();
+                choNgoi.IDChoNgoi = item.SubItems[0].Text;
+                int index = dsChoNgoi.IndexOf(choNgoi);
+                if (index < 0)
                 {
-                    ListViewItem item = lsvDanhSachCN.SelectedItems[0];
-                    CChoNgoi choNgoi = new CChoNgoi();
-                    choNgoi.IDChoNgoi = item.SubItems[0].Text;
-                    int index = dsChoNgoi.IndexOf(choNgoi);
-                    if (index < 0)
-                    {
-                        return;
-                    }
-                    choNgoi = dsChoNgoi[index];
-
-                    txtIDchongoi.Text = choNgoi.IDChoNgoi;
-                    txtIDphong.Text = choNgoi.Phong.IDPhong;
-                    txtLoaiChoNgoi.Text = choNgoi.LoaiChoNgoi;
-                    txtVitri.Text = choNgoi.ViTri;
-
+                    return;
                 }
-                catch
-                {
+                choNgoi = dsChoNgoi[index];
 
-                }
+                txtIDchongoi.Text = choNgoi.IDChoNgoi;
+                txtIDphong.Text = choNgoi.Phong.IDPhong;
+                txtLoaiChoNgoi.Text = choNgoi.LoaiChoNgoi;
+                txtVitri.Text = choNgoi.ViTri;
+
+            }
+            catch
+            {
+
             }
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            lsvDanhSachCN.Clear();
             txtIDchongoi.Text = string.Empty;
             txtIDphong.Text = string.Empty;
             txtLoaiChoNgoi.Text = string.Empty;
@@ -207,11 +190,6 @@ namespace QuanLyVeXemPhim.Views
             {
                 MessageBox.Show(" cập nhật thất bại");
             }
-        }
-
-        private void btnThoat_Click_1(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

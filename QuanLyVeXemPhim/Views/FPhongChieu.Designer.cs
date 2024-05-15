@@ -67,22 +67,23 @@
             // 
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
-            panel2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(1168, 384);
+            panel2.Font = new Font("Roboto", 10F);
+            panel2.Location = new Point(1341, 599);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(276, 339);
+            panel2.Size = new Size(270, 325);
             panel2.TabIndex = 16;
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(phim);
             groupBox4.Controls.Add(txtTimKiem);
-            groupBox4.Location = new Point(4, 179);
+            groupBox4.Font = new Font("Roboto", 10F);
+            groupBox4.Location = new Point(4, 172);
             groupBox4.Margin = new Padding(4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(4);
-            groupBox4.Size = new Size(269, 156);
+            groupBox4.Size = new Size(262, 150);
             groupBox4.TabIndex = 1;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tìm kiếm";
@@ -90,18 +91,20 @@
             // phim
             // 
             phim.AutoSize = true;
-            phim.Location = new Point(26, 41);
+            phim.Font = new Font("Roboto", 10F);
+            phim.Location = new Point(29, 46);
             phim.Margin = new Padding(4, 0, 4, 0);
             phim.Name = "phim";
-            phim.Size = new Size(219, 30);
+            phim.Size = new Size(207, 24);
             phim.TabIndex = 2;
             phim.Text = "Tìm kiếm phòng chiếu";
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(24, 85);
+            txtTimKiem.Font = new Font("Roboto", 10F);
+            txtTimKiem.Location = new Point(29, 89);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(221, 35);
+            txtTimKiem.Size = new Size(207, 32);
             txtTimKiem.TabIndex = 20;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -109,11 +112,12 @@
             // 
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(txtTongSo);
+            groupBox3.Font = new Font("Roboto", 10F);
             groupBox3.Location = new Point(4, 4);
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
-            groupBox3.Size = new Size(269, 156);
+            groupBox3.Size = new Size(262, 150);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thống kê";
@@ -121,41 +125,44 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(80, 55);
+            label9.Font = new Font("Roboto", 10F);
+            label9.Location = new Point(88, 42);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(93, 30);
+            label9.Size = new Size(85, 24);
             label9.TabIndex = 1;
             label9.Text = "Tổng số ";
             // 
             // txtTongSo
             // 
-            txtTongSo.Location = new Point(24, 99);
+            txtTongSo.Font = new Font("Roboto", 10F);
+            txtTongSo.Location = new Point(29, 84);
             txtTongSo.Name = "txtTongSo";
-            txtTongSo.Size = new Size(221, 35);
+            txtTongSo.Size = new Size(207, 32);
             txtTongSo.TabIndex = 20;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(16, 44, 87);
             panel1.Controls.Add(btnThoat);
             panel1.Controls.Add(btnCapNhat);
             panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel1.Location = new Point(1168, 96);
+            panel1.Font = new Font("Roboto", 10F);
+            panel1.Location = new Point(1341, 142);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(276, 280);
+            panel1.Size = new Size(270, 412);
             panel1.TabIndex = 15;
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(45, 215);
+            btnThoat.Font = new Font("Roboto", 10F);
+            btnThoat.Location = new Point(44, 327);
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(192, 40);
+            btnThoat.Size = new Size(187, 58);
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -163,10 +170,11 @@
             // 
             // btnCapNhat
             // 
-            btnCapNhat.Location = new Point(45, 168);
+            btnCapNhat.Font = new Font("Roboto", 10F);
+            btnCapNhat.Location = new Point(44, 101);
             btnCapNhat.Margin = new Padding(4);
             btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(192, 40);
+            btnCapNhat.Size = new Size(187, 58);
             btnCapNhat.TabIndex = 3;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
@@ -174,10 +182,11 @@
             // 
             // btnNhapMoi
             // 
-            btnNhapMoi.Location = new Point(45, 120);
+            btnNhapMoi.Font = new Font("Roboto", 10F);
+            btnNhapMoi.Location = new Point(44, 176);
             btnNhapMoi.Margin = new Padding(4);
             btnNhapMoi.Name = "btnNhapMoi";
-            btnNhapMoi.Size = new Size(192, 40);
+            btnNhapMoi.Size = new Size(187, 58);
             btnNhapMoi.TabIndex = 2;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
@@ -185,10 +194,11 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(45, 72);
+            btnXoa.Font = new Font("Roboto", 10F);
+            btnXoa.Location = new Point(44, 251);
             btnXoa.Margin = new Padding(4);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(192, 40);
+            btnXoa.Size = new Size(187, 58);
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -196,10 +206,11 @@
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(45, 25);
+            btnThem.Font = new Font("Roboto", 10F);
+            btnThem.Location = new Point(44, 30);
             btnThem.Margin = new Padding(4);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(192, 40);
+            btnThem.Size = new Size(187, 58);
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
@@ -207,6 +218,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(234, 219, 200);
             groupBox1.Controls.Add(txtTenPhong);
             groupBox1.Controls.Add(txtSoLuongGhe);
             groupBox1.Controls.Add(txtLoaiPhong);
@@ -217,110 +229,120 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(15, 96);
+            groupBox1.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(74, 142);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(1145, 280);
+            groupBox1.Size = new Size(1187, 246);
             groupBox1.TabIndex = 17;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phòng chiếu";
             // 
             // txtTenPhong
             // 
-            txtTenPhong.Location = new Point(159, 209);
+            txtTenPhong.Font = new Font("Roboto", 10F);
+            txtTenPhong.Location = new Point(208, 107);
             txtTenPhong.Name = "txtTenPhong";
-            txtTenPhong.Size = new Size(349, 36);
+            txtTenPhong.Size = new Size(373, 32);
             txtTenPhong.TabIndex = 20;
             // 
             // txtSoLuongGhe
             // 
-            txtSoLuongGhe.Location = new Point(701, 215);
+            txtSoLuongGhe.Font = new Font("Roboto", 10F);
+            txtSoLuongGhe.Location = new Point(208, 164);
             txtSoLuongGhe.Name = "txtSoLuongGhe";
-            txtSoLuongGhe.Size = new Size(349, 36);
+            txtSoLuongGhe.Size = new Size(373, 32);
             txtSoLuongGhe.TabIndex = 20;
             // 
             // txtLoaiPhong
             // 
-            txtLoaiPhong.Location = new Point(701, 130);
+            txtLoaiPhong.Font = new Font("Roboto", 10F);
+            txtLoaiPhong.Location = new Point(772, 107);
             txtLoaiPhong.Name = "txtLoaiPhong";
-            txtLoaiPhong.Size = new Size(349, 36);
+            txtLoaiPhong.Size = new Size(373, 32);
             txtLoaiPhong.TabIndex = 20;
             // 
             // txtIDphong
             // 
-            txtIDphong.Location = new Point(159, 133);
+            txtIDphong.Font = new Font("Roboto", 10F);
+            txtIDphong.Location = new Point(208, 51);
             txtIDphong.Name = "txtIDphong";
-            txtIDphong.Size = new Size(349, 36);
+            txtIDphong.Size = new Size(373, 32);
             txtIDphong.TabIndex = 20;
             // 
             // txtIDrap
             // 
-            txtIDrap.Location = new Point(159, 51);
+            txtIDrap.Font = new Font("Roboto", 10F);
+            txtIDrap.Location = new Point(772, 50);
             txtIDrap.Name = "txtIDrap";
-            txtIDrap.Size = new Size(390, 36);
+            txtIDrap.Size = new Size(373, 32);
             txtIDrap.TabIndex = 20;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(544, 220);
+            label5.Font = new Font("Roboto", 10F);
+            label5.Location = new Point(46, 172);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(143, 30);
+            label5.Size = new Size(126, 24);
             label5.TabIndex = 4;
             label5.Text = "Số lượng ghế";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(544, 136);
+            label4.Font = new Font("Roboto", 10F);
+            label4.Location = new Point(640, 115);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(121, 30);
+            label4.Size = new Size(108, 24);
             label4.TabIndex = 3;
             label4.Text = "Loại phòng";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(41, 215);
+            label3.Font = new Font("Roboto", 10F);
+            label3.Location = new Point(46, 115);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(116, 30);
+            label3.Size = new Size(103, 24);
             label3.TabIndex = 2;
             label3.Text = "Tên phòng";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(41, 57);
+            label2.Font = new Font("Roboto", 10F);
+            label2.Location = new Point(640, 58);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(77, 30);
+            label2.Size = new Size(67, 24);
             label2.TabIndex = 1;
             label2.Text = "ID Rạp";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(41, 136);
+            label1.Font = new Font("Roboto", 10F);
+            label1.Location = new Point(46, 59);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(103, 30);
+            label1.Size = new Size(90, 24);
             label1.TabIndex = 0;
-            label1.Text = "ID phòng";
+            label1.Text = "ID Phòng";
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(lsvDanhSachPC);
-            groupBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(15, 384);
+            groupBox2.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox2.Location = new Point(74, 443);
             groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4);
-            groupBox2.Size = new Size(1145, 339);
+            groupBox2.Size = new Size(1187, 481);
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phòng chiếu";
@@ -328,10 +350,11 @@
             // lsvDanhSachPC
             // 
             lsvDanhSachPC.Dock = DockStyle.Fill;
+            lsvDanhSachPC.Font = new Font("Roboto", 10F);
             lsvDanhSachPC.Location = new Point(4, 33);
             lsvDanhSachPC.Margin = new Padding(4);
             lsvDanhSachPC.Name = "lsvDanhSachPC";
-            lsvDanhSachPC.Size = new Size(1137, 302);
+            lsvDanhSachPC.Size = new Size(1179, 444);
             lsvDanhSachPC.TabIndex = 0;
             lsvDanhSachPC.UseCompatibleStateImageBehavior = false;
             lsvDanhSachPC.SelectedIndexChanged += lsvDanhSach_SelectedIndexChanged;
@@ -339,24 +362,26 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(548, 46);
+            label6.Font = new Font("Roboto", 24F);
+            label6.Location = new Point(74, 50);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(239, 32);
+            label6.Size = new Size(538, 58);
             label6.TabIndex = 19;
-            label6.Text = "Quản lý phòng chiếu";
+            label6.Text = "QUẢN LÝ PHÒNG CHIẾU";
             // 
             // FPhongChieu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1459, 740);
+            BackColor = Color.FromArgb(254, 250, 246);
+            ClientSize = new Size(1678, 1144);
             Controls.Add(label6);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "FPhongChieu";
             Text = "FPhongChieu";
