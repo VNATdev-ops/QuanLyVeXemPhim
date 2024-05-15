@@ -66,7 +66,6 @@ CREATE TABLE ChoNgoi (
     IDPhong NVARCHAR(50),
     LoaiChoNgoi NVARCHAR(255),
     ViTri NVARCHAR(255),
-    TrangThai NVARCHAR(50),
     FOREIGN KEY (IDPhong) REFERENCES PhongChieu(IDPhong)
 );
 
