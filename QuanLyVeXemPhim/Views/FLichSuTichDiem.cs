@@ -24,7 +24,7 @@ namespace QuanLyVeXemPhim.Views
             lsvLichSuTichDiem.Columns.Add("Mã lịch sử", 15 * width / 100);
             lsvLichSuTichDiem.Columns.Add("Thời gian tích lũy", 20 * width / 100);
             lsvLichSuTichDiem.Columns.Add("Số điểm tích lũy", 20 * width / 100);
-            lsvLichSuTichDiem.Columns.Add("Tổng điểm tích lũy", 20 * width / 100);
+            //lsvLichSuTichDiem.Columns.Add("Tổng điểm tích lũy", 20 * width / 100);
             lsvLichSuTichDiem.Columns.Add("Mã người dùng", 20 * width / 100);
 
             lsvLichSuTichDiem.View = View.Details;
@@ -36,7 +36,7 @@ namespace QuanLyVeXemPhim.Views
             dsLichSuTichDiem = ctrlLichSuTichDiem.findall();
             foreach (CLichSuTichDiem s in dsLichSuTichDiem)
             {
-                string[] obj = { s.IDLichSu, s.ThoiGianTichLuy.ToString(), s.SoDiemTichLuy.ToString(), s.TongDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
+                string[] obj = { s.IDLichSu, s.ThoiGianTichLuy.ToString(), s.SoDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
                 ListViewItem item = new ListViewItem(obj);
                 lsvLichSuTichDiem.Items.Add(item);
             }
@@ -71,7 +71,7 @@ namespace QuanLyVeXemPhim.Views
                 txtIDLichSu.Text = lichSuTichDiem.IDLichSu;
                 txtThoiGianTichLuy.Text = lichSuTichDiem.ThoiGianTichLuy.ToString();
                 txtSoDiemTichLuy.Text = lichSuTichDiem.SoDiemTichLuy.ToString();
-                txtTongDiemTichLuy.Text = lichSuTichDiem.TongDiemTichLuy.ToString();
+                //txtTongDiemTichLuy.Text = lichSuTichDiem.TongDiemTichLuy.ToString();
                 txtIDThanhVien.Text = lichSuTichDiem.ThanhVien.IDThanhVien.ToString();
 
             }
@@ -108,7 +108,7 @@ namespace QuanLyVeXemPhim.Views
                 lichSuTichDiem.IDLichSu = txtIDLichSu.Text;
                 lichSuTichDiem.ThoiGianTichLuy = DateTime.Parse(txtThoiGianTichLuy.Text);
                 lichSuTichDiem.SoDiemTichLuy = int.Parse(txtSoDiemTichLuy.Text);
-                lichSuTichDiem.TongDiemTichLuy = int.Parse(txtTongDiemTichLuy.Text);
+                //lichSuTichDiem.TongDiemTichLuy = int.Parse(txtTongDiemTichLuy.Text);
                 lichSuTichDiem.ThanhVien.IDThanhVien = lichSuTichDiem.ThanhVien.IDThanhVien;
                 //cập nhật xuống dữ liệu
                 if (ctrlLichSuTichDiem.update(lichSuTichDiem))
@@ -118,7 +118,7 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[1].Text = lichSuTichDiem.IDLichSu;
                     item.SubItems[2].Text = lichSuTichDiem.ThoiGianTichLuy.ToString();
                     item.SubItems[3].Text = lichSuTichDiem.SoDiemTichLuy.ToString();
-                    item.SubItems[4].Text = lichSuTichDiem.TongDiemTichLuy.ToString();
+                    //item.SubItems[4].Text = lichSuTichDiem.TongDiemTichLuy.ToString();
                     item.SubItems[5].Text = lichSuTichDiem.ThanhVien.IDThanhVien;
                     MessageBox.Show("Cập nhật thành công");
                 }
@@ -173,13 +173,13 @@ namespace QuanLyVeXemPhim.Views
                 s.IDLichSu = txtIDLichSu.Text;
                 s.ThoiGianTichLuy = DateTime.Parse(txtThoiGianTichLuy.Text);
                 s.SoDiemTichLuy = int.Parse(txtSoDiemTichLuy.Text);
-                s.TongDiemTichLuy = int.Parse(txtTongDiemTichLuy.Text);
+                //s.TongDiemTichLuy = int.Parse(txtTongDiemTichLuy.Text);
                 s.ThanhVien = new CThanhVien();
                 s.ThanhVien.IDThanhVien = txtIDThanhVien.Text;
 
                 if (ctrlLichSuTichDiem.insert(s))
                 {
-                    string[] objsp = { s.IDLichSu, s.ThoiGianTichLuy.ToString(), s.SoDiemTichLuy.ToString(), s.TongDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
+                    string[] objsp = { s.IDLichSu, s.ThoiGianTichLuy.ToString(), s.SoDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvLichSuTichDiem.Items.Add(item);
                     dsLichSuTichDiem.Add(s);
@@ -203,11 +203,11 @@ namespace QuanLyVeXemPhim.Views
                 lsvLichSuTichDiem.Items.Clear();
                 foreach (CLichSuTichDiem s in dsLichSuTichDiem)
                 {
-                    string[] obj = { s.IDLichSu, s.SoDiemTichLuy.ToString(), s.ThoiGianTichLuy.ToString(), s.TongDiemTichLuy.ToString(), s.ThanhVien.IDThanhVien };
+                    string[] obj = { s.IDLichSu, s.SoDiemTichLuy.ToString(), s.ThoiGianTichLuy.ToString(), s.ThanhVien.IDThanhVien };
                     ListViewItem item = new ListViewItem(obj);
                     lsvLichSuTichDiem.Items.Add(item);
                 }
-                txtTongDiemTichLuy.Text = lsvLichSuTichDiem.Items.Count.ToString();
+                txtTongSo.Text = lsvLichSuTichDiem.Items.Count.ToString();
             }
             catch
             {

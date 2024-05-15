@@ -31,11 +31,9 @@
             groupBox1 = new GroupBox();
             txtSoDiemTichLuy = new TextBox();
             txtIDThanhVien = new TextBox();
-            txtTongDiemTichLuy = new TextBox();
             txtThoiGianTichLuy = new TextBox();
             txtIDLichSu = new TextBox();
             label2 = new Label();
-            label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
@@ -67,11 +65,9 @@
             // 
             groupBox1.Controls.Add(txtSoDiemTichLuy);
             groupBox1.Controls.Add(txtIDThanhVien);
-            groupBox1.Controls.Add(txtTongDiemTichLuy);
             groupBox1.Controls.Add(txtThoiGianTichLuy);
             groupBox1.Controls.Add(txtIDLichSu);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label1);
@@ -86,24 +82,17 @@
             // 
             // txtSoDiemTichLuy
             // 
-            txtSoDiemTichLuy.Location = new Point(197, 147);
+            txtSoDiemTichLuy.Location = new Point(617, 94);
             txtSoDiemTichLuy.Name = "txtSoDiemTichLuy";
-            txtSoDiemTichLuy.Size = new Size(666, 31);
+            txtSoDiemTichLuy.Size = new Size(246, 31);
             txtSoDiemTichLuy.TabIndex = 9;
             // 
             // txtIDThanhVien
             // 
-            txtIDThanhVien.Location = new Point(617, 94);
+            txtIDThanhVien.Location = new Point(617, 47);
             txtIDThanhVien.Name = "txtIDThanhVien";
             txtIDThanhVien.Size = new Size(246, 31);
             txtIDThanhVien.TabIndex = 8;
-            // 
-            // txtTongDiemTichLuy
-            // 
-            txtTongDiemTichLuy.Location = new Point(617, 44);
-            txtTongDiemTichLuy.Name = "txtTongDiemTichLuy";
-            txtTongDiemTichLuy.Size = new Size(246, 31);
-            txtTongDiemTichLuy.TabIndex = 7;
             // 
             // txtThoiGianTichLuy
             // 
@@ -122,25 +111,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(47, 153);
+            label2.Location = new Point(471, 103);
             label2.Name = "label2";
             label2.Size = new Size(139, 25);
             label2.TabIndex = 1;
             label2.Text = "Số điểm tích lũy";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(452, 50);
-            label5.Name = "label5";
-            label5.Size = new Size(159, 25);
-            label5.TabIndex = 4;
-            label5.Text = "Tổng điểm tích lũy";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(471, 100);
+            label4.Location = new Point(471, 53);
             label4.Name = "label4";
             label4.Size = new Size(124, 25);
             label4.TabIndex = 3;
@@ -354,7 +334,6 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Label label5;
         private Label label4;
         private Label label3;
         private Label label1;
@@ -375,7 +354,6 @@
         private Label label6;
         private TextBox txtSoDiemTichLuy;
         private TextBox txtIDThanhVien;
-        private TextBox txtTongDiemTichLuy;
         private TextBox txtThoiGianTichLuy;
         private TextBox txtIDLichSu;
         private Label label2;

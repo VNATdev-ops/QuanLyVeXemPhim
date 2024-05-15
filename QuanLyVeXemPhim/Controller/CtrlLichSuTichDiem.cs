@@ -33,10 +33,10 @@ namespace QuanLyVeXemPhim.Controller
                 s.IDLichSu = reader.GetString(0);
                 s.SoDiemTichLuy = reader.GetInt32(1);
                 s.ThoiGianTichLuy = reader.GetDateTime(2);
-                s.TongDiemTichLuy = reader.GetInt32(3);
+                //s.TongDiemTichLuy = reader.GetInt32(3);
                 // Khởi tạo đối tượng ThanhVien trước khi gán giá trị
                 s.ThanhVien = new CThanhVien();
-                s.ThanhVien.IDThanhVien = reader.GetString(4);
+                s.ThanhVien.IDThanhVien = reader.GetString(3);
                 // thêm vào ds
                 arrs.Add(s);
             }
@@ -65,7 +65,7 @@ namespace QuanLyVeXemPhim.Controller
                                 IDLichSu = reader["IDLichSu"].ToString(),
                                 SoDiemTichLuy = Convert.ToInt32(reader["SoDiemTichLuy"]),
                                 ThoiGianTichLuy = Convert.ToDateTime(reader["ThoiGianTichLuy"]),
-                                TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]),
+                                //TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]),
                                 ThanhVien = new CThanhVien { IDThanhVien = reader["IDThanhVien"].ToString() }
                             };
                             results.Add(lichSu);
