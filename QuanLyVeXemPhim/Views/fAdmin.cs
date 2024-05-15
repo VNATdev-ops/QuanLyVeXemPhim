@@ -49,7 +49,7 @@ namespace QuanLyVeXemPhim.Views
             OpenChildForm(new FThanhVien());
 
             // Cập nhật label nếu cần
-            label1.Text = "Quản lý vé xem phim";
+            //label1.Text = "Quản lý vé xem phim";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -58,13 +58,13 @@ namespace QuanLyVeXemPhim.Views
             {
                 currentFormChild.Close();
             }
-            label1.Text = "";
+            //label1.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FVeXemPhim());
-            label1.Text = button2.Text;
+            //label1.Text = button2.Text;
 
         }
 
@@ -76,7 +76,7 @@ namespace QuanLyVeXemPhim.Views
         private void button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FLichSuTichDiem());
-            label1.Text = button3.Text;
+            //label1.Text = button3.Text;
         }
 
         private void lịchSửTíchĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace QuanLyVeXemPhim.Views
         private void button4_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FChonSuat());
-            label1.Text = button3.Text;
+            //label1.Text = button3.Text;
         }
     }
 }

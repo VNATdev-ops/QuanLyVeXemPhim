@@ -39,12 +39,9 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            panel_Top = new Panel();
-            label1 = new Label();
             splitContainer_Body = new Panel();
             panel_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel_Top.SuspendLayout();
             SuspendLayout();
             // 
             // panel_Left
@@ -150,47 +147,26 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // panel_Top
-            // 
-            panel_Top.BackColor = SystemColors.ControlLight;
-            panel_Top.Controls.Add(label1);
-            panel_Top.Location = new Point(288, 18);
-            panel_Top.Name = "panel_Top";
-            panel_Top.Size = new Size(323, 63);
-            panel_Top.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(60, 17);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 31);
-            label1.TabIndex = 3;
-            label1.Text = "label1";
-            // 
             // splitContainer_Body
             // 
-            splitContainer_Body.Location = new Point(292, 87);
+            splitContainer_Body.Location = new Point(288, 18);
             splitContainer_Body.Name = "splitContainer_Body";
-            splitContainer_Body.Size = new Size(1654, 748);
+            splitContainer_Body.Size = new Size(1626, 748);
             splitContainer_Body.TabIndex = 2;
             // 
             // fAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2080, 937);
+            ClientSize = new Size(1916, 844);
             Controls.Add(splitContainer_Body);
-            Controls.Add(panel_Top);
             Controls.Add(panel_Left);
             Name = "fAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "fAdmin";
             Load += fAdmin_Load;
             panel_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel_Top.ResumeLayout(false);
-            panel_Top.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -204,9 +180,7 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private Panel panel_Top;
         private Panel panel2;
-        private Label label1;
         private PictureBox pictureBox1;
         private Panel splitContainer_Body;
     }

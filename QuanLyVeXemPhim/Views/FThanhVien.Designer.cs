@@ -390,7 +390,7 @@
             groupBox5.Size = new Size(286, 273);
             groupBox5.TabIndex = 15;
             groupBox5.TabStop = false;
-            groupBox5.Text = "groupBox5";
+            groupBox5.Text = "Điểm tích lũy";
             // 
             // lsvLichSuTichDiem
             // 
