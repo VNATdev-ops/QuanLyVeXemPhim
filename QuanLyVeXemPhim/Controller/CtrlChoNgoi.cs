@@ -47,7 +47,6 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@IDPhong", obj.Phong.IDPhong);
                 cmd.Parameters.AddWithValue("@LoaiChoNgoi", obj.LoaiChoNgoi);
                 cmd.Parameters.AddWithValue("@ViTri", obj.ViTri);
-                
 
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
@@ -73,13 +72,12 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update chongoi set IDPhong=@IDPhong, LoaiChoNgoi=@LoaiChoNgoi, ViTri=@ViTri, where IDChoNgoi=@IDChoNgoi";
+                string sql = "update chongoi set IDPhong=@IDPhong, LoaiChoNgoi=@LoaiChoNgoi, ViTri=@ViTri where IDChoNgoi=@IDChoNgoi";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@IDChoNgoi", obj.IDChoNgoi);
                 cmd.Parameters.AddWithValue("@IDPhong", obj.Phong.IDPhong);
                 cmd.Parameters.AddWithValue("@LoaiChoNgoi", obj.LoaiChoNgoi);
                 cmd.Parameters.AddWithValue("@ViTri", obj.ViTri);
-                
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
                 return (n > 0);
@@ -103,7 +101,6 @@ namespace QuanLyVeXemPhim.Controller
                 s.Phong.IDPhong = reader.GetString(1);
                 s.LoaiChoNgoi = reader.GetString(2);
                 s.ViTri = reader.GetString(3);
-                
                 arrs.Add(s);
 
             }

@@ -120,7 +120,7 @@
             txtVitri.Location = new Point(155, 153);
             txtVitri.Margin = new Padding(2);
             txtVitri.Name = "txtVitri";
-            txtVitri.Size = new Size(130, 31);
+            txtVitri.Size = new Size(456, 31);
             txtVitri.TabIndex = 26;
             // 
             // txtIDchongoi
@@ -189,6 +189,7 @@
             lsvDanhSachCN.Size = new Size(640, 245);
             lsvDanhSachCN.TabIndex = 0;
             lsvDanhSachCN.UseCompatibleStateImageBehavior = false;
+            lsvDanhSachCN.SelectedIndexChanged += lsvDanhSachCN_SelectedIndexChanged_1;
             // 
             // panel2
             // 
@@ -278,6 +279,7 @@
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click_1;
             // 
             // btnCapNhat
             // 
@@ -287,6 +289,7 @@
             btnCapNhat.TabIndex = 3;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click_1;
             // 
             // btnNhapMoi
             // 
@@ -296,6 +299,7 @@
             btnNhapMoi.TabIndex = 2;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
+            btnNhapMoi.Click += btnNhapMoi_Click;
             // 
             // btnXoa
             // 
@@ -305,6 +309,7 @@
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click_1;
             // 
             // btnThem
             // 
@@ -314,6 +319,7 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click_1;
             // 
             // label6
             // 

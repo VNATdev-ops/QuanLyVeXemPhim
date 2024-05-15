@@ -21,43 +21,17 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID Ghế", 24 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID Phòng", 24 * width / 100);
-            lsvDanhSachCN.Columns.Add("Loại ghế", 26 * width / 100);
-            lsvDanhSachCN.Columns.Add("Vị trí", 26 * width / 100);
-            
+            lsvDanhSachCN.Columns.Add("ID Ghế", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Phòng", 15 * width / 100);
+            lsvDanhSachCN.Columns.Add("Loại ghế", 35 * width / 100);
+            lsvDanhSachCN.Columns.Add("Vị trí", 35 * width / 100);
 
 
             lsvDanhSachCN.View = View.Details;
             lsvDanhSachCN.FullRowSelect = true;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            string maCN = txtIDchongoi.Text;
-            string maPhong = txtIDphong.Text;
-            string loaiChoNgoi = txtLoaiChoNgoi.Text;
-            string viTri = txtVitri.Text;
-            
-            CChoNgoi choNgoi = new CChoNgoi();
-            choNgoi.IDChoNgoi = maCN;
-            choNgoi.Phong = new CPhongChieu();
-            choNgoi.Phong.IDPhong = maPhong;
-            choNgoi.LoaiChoNgoi = loaiChoNgoi;
-            choNgoi.ViTri = viTri;
-            
-            if (ctrChoNgoi.insert(choNgoi))
-            {
-                string[] objCN = { maCN, maPhong, loaiChoNgoi, viTri};
-                ListViewItem item = new ListViewItem(objCN);
-                lsvDanhSachCN.Items.Add(item);
-                dsChoNgoi.Add(choNgoi);
-                txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
-                MessageBox.Show("Thêm thành công");
-            }
-            else
-                MessageBox.Show("Thêm thất bại!");
-        }
+
 
         private void FChoNgoi_Load(object sender, EventArgs e)
         {
@@ -72,113 +46,18 @@ namespace QuanLyVeXemPhim.Views
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
         }
 
-        private void lsvDanhSachCN_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ListViewItem item = lsvDanhSachCN.SelectedItems[0];
-                CChoNgoi choNgoi = new CChoNgoi();
-                choNgoi.IDChoNgoi = item.SubItems[0].Text;
-                int index = dsChoNgoi.IndexOf(choNgoi);
-                if (index < 0)
-                {
-                    return;
-                }
-                choNgoi = dsChoNgoi[index];
 
-                txtIDchongoi.Text = choNgoi.IDChoNgoi;
-                txtIDphong.Text = choNgoi.Phong.IDPhong;
-                txtLoaiChoNgoi.Text = choNgoi.LoaiChoNgoi;
-                txtVitri.Text = choNgoi.ViTri;
-                
 
-            }
-            catch
-            {
 
-            }
-        }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            try
-            {
 
-                ListViewItem item = lsvDanhSachCN.SelectedItems[0];
-                CChoNgoi choNgoi = new CChoNgoi();
-                choNgoi.IDChoNgoi = item.SubItems[0].Text;
-                int index = dsChoNgoi.IndexOf(choNgoi);
-                if (index < 0)
-                {
-                    return;
-                }
-                choNgoi = dsChoNgoi[index];
-                if (ctrChoNgoi.delete(choNgoi))
-                {
-                    dsChoNgoi.Remove(choNgoi);
-                    lsvDanhSachCN.Items.Remove(item);
-                    MessageBox.Show("Xóa Thành Công");
-                }
-                else
-                {
-
-                    MessageBox.Show("Xóa Thất Bại.");
-                }
-
-                txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            ListViewItem item = lsvDanhSachCN.SelectedItems[0];
-            CChoNgoi choNgoi = new CChoNgoi();
-            choNgoi.IDChoNgoi = item.SubItems[0].Text;
-            int index = dsChoNgoi.IndexOf(choNgoi);
-            if (index < 0)
-            {
-                return;
-            }
-            choNgoi = dsChoNgoi[index];
-            choNgoi.Phong = new CPhongChieu();
-            choNgoi.Phong.IDPhong = txtIDphong.Text;
-            choNgoi.LoaiChoNgoi = txtLoaiChoNgoi.Text;
-            choNgoi.ViTri = txtVitri.Text;
-            
-            if (ctrChoNgoi.update(choNgoi))
-            {
-                item.SubItems[1].Text = choNgoi.Phong.IDPhong;
-                item.SubItems[2].Text = choNgoi.LoaiChoNgoi;
-                item.SubItems[3].Text = choNgoi.ViTri;
-                
-                MessageBox.Show("Cập nhật thành công");
-            }
-            else
-            {
-                MessageBox.Show(" cập nhật thất bại");
-            }
-        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            lsvDanhSachCN.Clear();
-            txtIDchongoi.Text = string.Empty;
-            txtIDphong.Text = string.Empty;
-            txtLoaiChoNgoi.Text = string.Empty;
-            txtVitri.Text = string.Empty;
-            
-            txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
 
-        }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
@@ -200,6 +79,139 @@ namespace QuanLyVeXemPhim.Views
                 }
             }
             catch { }
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            string maCN = txtIDchongoi.Text;
+            string maPhong = txtIDphong.Text;
+            string loaiChoNgoi = txtLoaiChoNgoi.Text;
+            string viTri = txtVitri.Text;
+            CChoNgoi choNgoi = new CChoNgoi();
+            choNgoi.IDChoNgoi = maCN;
+            choNgoi.Phong = new CPhongChieu();
+            choNgoi.Phong.IDPhong = maPhong;
+            choNgoi.LoaiChoNgoi = loaiChoNgoi;
+            choNgoi.ViTri = viTri;
+            if (ctrChoNgoi.insert(choNgoi))
+            {
+                string[] objCN = { maCN, maPhong, loaiChoNgoi, viTri };
+                ListViewItem item = new ListViewItem(objCN);
+                lsvDanhSachCN.Items.Add(item);
+                dsChoNgoi.Add(choNgoi);
+                txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+                MessageBox.Show("Thêm thất bại!");
+        }
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+
+                    ListViewItem item = lsvDanhSachCN.SelectedItems[0];
+                    CChoNgoi choNgoi = new CChoNgoi();
+                    choNgoi.IDChoNgoi = item.SubItems[0].Text;
+                    int index = dsChoNgoi.IndexOf(choNgoi);
+                    if (index < 0)
+                    {
+                        return;
+                    }
+                    choNgoi = dsChoNgoi[index];
+                    if (ctrChoNgoi.delete(choNgoi))
+                    {
+                        dsChoNgoi.Remove(choNgoi);
+                        lsvDanhSachCN.Items.Remove(item);
+                        MessageBox.Show("Xóa Thành Công");
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Xóa Thất Bại.");
+                    }
+
+                    txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void lsvDanhSachCN_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+                    ListViewItem item = lsvDanhSachCN.SelectedItems[0];
+                    CChoNgoi choNgoi = new CChoNgoi();
+                    choNgoi.IDChoNgoi = item.SubItems[0].Text;
+                    int index = dsChoNgoi.IndexOf(choNgoi);
+                    if (index < 0)
+                    {
+                        return;
+                    }
+                    choNgoi = dsChoNgoi[index];
+
+                    txtIDchongoi.Text = choNgoi.IDChoNgoi;
+                    txtIDphong.Text = choNgoi.Phong.IDPhong;
+                    txtLoaiChoNgoi.Text = choNgoi.LoaiChoNgoi;
+                    txtVitri.Text = choNgoi.ViTri;
+
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void btnNhapMoi_Click(object sender, EventArgs e)
+        {
+            lsvDanhSachCN.Clear();
+            txtIDchongoi.Text = string.Empty;
+            txtIDphong.Text = string.Empty;
+            txtLoaiChoNgoi.Text = string.Empty;
+            txtVitri.Text = string.Empty;
+            txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
+
+        }
+
+        private void btnCapNhat_Click_1(object sender, EventArgs e)
+        {
+            ListViewItem item = lsvDanhSachCN.SelectedItems[0];
+            CChoNgoi choNgoi = new CChoNgoi();
+            choNgoi.IDChoNgoi = item.SubItems[0].Text;
+            int index = dsChoNgoi.IndexOf(choNgoi);
+            if (index < 0)
+            {
+                return;
+            }
+            choNgoi = dsChoNgoi[index];
+            choNgoi.Phong = new CPhongChieu();
+            choNgoi.Phong.IDPhong = txtIDphong.Text;
+            choNgoi.LoaiChoNgoi = txtLoaiChoNgoi.Text;
+            choNgoi.ViTri = txtVitri.Text;
+            if (ctrChoNgoi.update(choNgoi))
+            {
+                item.SubItems[1].Text = choNgoi.Phong.IDPhong;
+                item.SubItems[2].Text = choNgoi.LoaiChoNgoi;
+                item.SubItems[3].Text = choNgoi.ViTri;
+                MessageBox.Show("Cập nhật thành công");
+            }
+            else
+            {
+                MessageBox.Show(" cập nhật thất bại");
+            }
+        }
+
+        private void btnThoat_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

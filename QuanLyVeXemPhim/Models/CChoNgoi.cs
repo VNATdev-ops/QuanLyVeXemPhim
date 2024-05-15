@@ -12,12 +12,10 @@ namespace QuanLyVeXemPhim.Models
         private CPhongChieu phong;
         private string loaiChoNgoi;
         private string viTri;
-        private string trangThai;
 
         public string IDChoNgoi { get => iDChoNgoi; set => iDChoNgoi = value; }
         public string LoaiChoNgoi { get => loaiChoNgoi; set => loaiChoNgoi = value; }
         public string ViTri { get => viTri; set => viTri = value; }
-        public string TrangThai { get => trangThai; set => trangThai = value; }
         internal CPhongChieu Phong { get => phong; set => phong = value; }
 
         public CChoNgoi()
@@ -30,7 +28,6 @@ namespace QuanLyVeXemPhim.Models
             this.phong = phong;
             this.loaiChoNgoi = loaiChoNgoi;
             this.viTri = viTri;
-            this.trangThai = trangThai;
         }
 
         public override bool Equals(object? obj)
