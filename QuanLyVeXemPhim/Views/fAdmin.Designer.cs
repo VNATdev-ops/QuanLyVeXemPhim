@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             panel_Left = new Panel();
+            button9 = new Button();
+            button8 = new Button();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             button7 = new Button();
@@ -40,6 +42,7 @@
             button2 = new Button();
             button1 = new Button();
             splitContainer_Body = new Panel();
+            button10 = new Button();
             panel_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -47,6 +50,9 @@
             // panel_Left
             // 
             panel_Left.BackColor = SystemColors.ControlLight;
+            panel_Left.Controls.Add(button10);
+            panel_Left.Controls.Add(button9);
+            panel_Left.Controls.Add(button8);
             panel_Left.Controls.Add(pictureBox1);
             panel_Left.Controls.Add(panel2);
             panel_Left.Controls.Add(button7);
@@ -58,14 +64,34 @@
             panel_Left.Controls.Add(button1);
             panel_Left.Location = new Point(7, 18);
             panel_Left.Name = "panel_Left";
-            panel_Left.Size = new Size(279, 817);
+            panel_Left.Size = new Size(279, 994);
             panel_Left.TabIndex = 0;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(3, 778);
+            button9.Name = "button9";
+            button9.Size = new Size(273, 67);
+            button9.TabIndex = 10;
+            button9.Text = "Hóa đơn";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(3, 705);
+            button8.Name = "button8";
+            button8.Size = new Size(273, 67);
+            button8.TabIndex = 9;
+            button8.Text = "Quản lý chỗ ngồi";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(65, 60);
+            pictureBox1.Location = new Point(59, 60);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(136, 59);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -86,8 +112,9 @@
             button7.Name = "button7";
             button7.Size = new Size(273, 67);
             button7.TabIndex = 8;
-            button7.Text = "button7";
+            button7.Text = "Quản lý phòng chiếu";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
@@ -95,8 +122,9 @@
             button6.Name = "button6";
             button6.Size = new Size(273, 67);
             button6.TabIndex = 7;
-            button6.Text = "button6";
+            button6.Text = "Quản lý suất chiếu";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -104,8 +132,9 @@
             button5.Name = "button5";
             button5.Size = new Size(273, 67);
             button5.TabIndex = 6;
-            button5.Text = "button5";
+            button5.Text = "Quản lý nhân viên";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -123,7 +152,7 @@
             button3.Name = "button3";
             button3.Size = new Size(273, 67);
             button3.TabIndex = 4;
-            button3.Text = "Lịch Sử tích điểm";
+            button3.Text = "Quản lý phim";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -151,14 +180,24 @@
             // 
             splitContainer_Body.Location = new Point(288, 18);
             splitContainer_Body.Name = "splitContainer_Body";
-            splitContainer_Body.Size = new Size(1626, 748);
+            splitContainer_Body.Size = new Size(1753, 994);
             splitContainer_Body.TabIndex = 2;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(3, 851);
+            button10.Name = "button10";
+            button10.Size = new Size(273, 67);
+            button10.TabIndex = 11;
+            button10.Text = "Quản lý rạp chiếu phim";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // fAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1916, 844);
+            ClientSize = new Size(2053, 1024);
             Controls.Add(splitContainer_Body);
             Controls.Add(panel_Left);
             Name = "fAdmin";
@@ -183,5 +222,8 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private Panel splitContainer_Body;
+        private Button button8;
+        private Button button9;
+        private Button button10;
     }
 }

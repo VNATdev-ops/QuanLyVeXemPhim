@@ -75,7 +75,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FLichSuTichDiem());
+            OpenChildForm(new FPhim());
             //label1.Text = button3.Text;
         }
 
@@ -94,6 +94,36 @@ namespace QuanLyVeXemPhim.Views
         {
             OpenChildForm(new FChonSuat());
             //label1.Text = button3.Text;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FNhanVien());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FSuatChieu());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FPhongChieu());
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FChoNgoi());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FHoaDon());
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FRapChieuPhim());
         }
     }
 }
