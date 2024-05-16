@@ -216,7 +216,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Roboto", 10F);
-            label5.Location = new Point(777, 105);
+            label5.Location = new Point(795, 105);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(54, 24);

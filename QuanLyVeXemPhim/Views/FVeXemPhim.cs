@@ -272,5 +272,9 @@ namespace QuanLyVeXemPhim.Views
             lsvVeXemPhim.Items.Clear();
             txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }

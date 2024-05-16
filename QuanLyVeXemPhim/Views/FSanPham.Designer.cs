@@ -64,44 +64,45 @@
             // txtSoLuongSP
             // 
             txtSoLuongSP.Enabled = false;
-            txtSoLuongSP.Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSoLuongSP.Font = new Font("Microsoft Sans Serif", 10F);
             txtSoLuongSP.Location = new Point(1238, 476);
             txtSoLuongSP.Name = "txtSoLuongSP";
             txtSoLuongSP.ReadOnly = true;
-            txtSoLuongSP.Size = new Size(282, 32);
+            txtSoLuongSP.Size = new Size(282, 30);
             txtSoLuongSP.TabIndex = 2;
             // 
             // lblSoLuongSP
             // 
             lblSoLuongSP.AutoSize = true;
-            lblSoLuongSP.Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSoLuongSP.Font = new Font("Microsoft Sans Serif", 10F);
             lblSoLuongSP.Location = new Point(1035, 484);
             lblSoLuongSP.Name = "lblSoLuongSP";
-            lblSoLuongSP.Size = new Size(181, 24);
+            lblSoLuongSP.Size = new Size(181, 25);
             lblSoLuongSP.TabIndex = 1;
             lblSoLuongSP.Text = "Số lượng sản phẩm";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto", 10F);
+            label2.Font = new Font("Microsoft Sans Serif", 10F);
             label2.Location = new Point(27, 54);
             label2.Name = "label2";
-            label2.Size = new Size(94, 24);
+            label2.Size = new Size(91, 25);
             label2.TabIndex = 14;
             label2.Text = "Tìm kiếm";
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Font = new Font("Roboto", 10F);
+            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
             txtTimKiem.Location = new Point(149, 46);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(1371, 32);
+            txtTimKiem.Size = new Size(1371, 30);
             txtTimKiem.TabIndex = 13;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // btnThoat
             // 
+            btnThoat.Font = new Font("Microsoft Sans Serif", 10F);
             btnThoat.Location = new Point(44, 327);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(187, 58);
@@ -112,6 +113,7 @@
             // 
             // btnNhapMoi
             // 
+            btnNhapMoi.Font = new Font("Microsoft Sans Serif", 10F);
             btnNhapMoi.Location = new Point(44, 176);
             btnNhapMoi.Name = "btnNhapMoi";
             btnNhapMoi.Size = new Size(187, 58);
@@ -122,6 +124,7 @@
             // 
             // bthXoa
             // 
+            bthXoa.Font = new Font("Microsoft Sans Serif", 10F);
             bthXoa.Location = new Point(44, 251);
             bthXoa.Name = "bthXoa";
             bthXoa.Size = new Size(187, 58);
@@ -132,6 +135,7 @@
             // 
             // btnCapNhat
             // 
+            btnCapNhat.Font = new Font("Microsoft Sans Serif", 10F);
             btnCapNhat.Location = new Point(44, 101);
             btnCapNhat.Name = "btnCapNhat";
             btnCapNhat.Size = new Size(187, 58);
@@ -142,6 +146,7 @@
             // 
             // btnThem
             // 
+            btnThem.Font = new Font("Microsoft Sans Serif", 10F);
             btnThem.Location = new Point(44, 30);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(187, 58);
@@ -157,7 +162,7 @@
             groupBox2.Controls.Add(lsvDSSP);
             groupBox2.Controls.Add(txtTimKiem);
             groupBox2.Controls.Add(lblSoLuongSP);
-            groupBox2.Font = new Font("Roboto", 12F);
+            groupBox2.Font = new Font("Microsoft Sans Serif", 12F);
             groupBox2.Location = new Point(74, 604);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1550, 534);
@@ -167,7 +172,7 @@
             // 
             // lsvDSSP
             // 
-            lsvDSSP.Font = new Font("Roboto", 10F);
+            lsvDSSP.Font = new Font("Microsoft Sans Serif", 10F);
             lsvDSSP.Location = new Point(0, 101);
             lsvDSSP.Name = "lsvDSSP";
             lsvDSSP.Size = new Size(1550, 357);
@@ -178,10 +183,10 @@
             // lblTenForm
             // 
             lblTenForm.AutoSize = true;
-            lblTenForm.Font = new Font("Roboto", 24F);
+            lblTenForm.Font = new Font("Microsoft Sans Serif", 24F);
             lblTenForm.Location = new Point(74, 50);
             lblTenForm.Name = "lblTenForm";
-            lblTenForm.Size = new Size(468, 58);
+            lblTenForm.Size = new Size(499, 55);
             lblTenForm.TabIndex = 9;
             lblTenForm.Text = "QUẢN LÝ SẢN PHẨM";
             // 
@@ -202,7 +207,7 @@
             groupBox1.Controls.Add(lblIDSanPham);
             groupBox1.Controls.Add(lblGia);
             groupBox1.Controls.Add(lblTenSanPham);
-            groupBox1.Font = new Font("Roboto", 12F);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 12F);
             groupBox1.Location = new Point(74, 142);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1176, 412);
@@ -212,128 +217,128 @@
             // 
             // cbLoaiSP
             // 
-            cbLoaiSP.Font = new Font("Roboto", 10F);
+            cbLoaiSP.Font = new Font("Microsoft Sans Serif", 10F);
             cbLoaiSP.FormattingEnabled = true;
             cbLoaiSP.Location = new Point(782, 52);
             cbLoaiSP.Name = "cbLoaiSP";
-            cbLoaiSP.Size = new Size(330, 32);
+            cbLoaiSP.Size = new Size(330, 33);
             cbLoaiSP.TabIndex = 6;
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Font = new Font("Roboto", 10F);
+            txtSoLuong.Font = new Font("Microsoft Sans Serif", 10F);
             txtSoLuong.Location = new Point(228, 251);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(884, 32);
+            txtSoLuong.Size = new Size(884, 30);
             txtSoLuong.TabIndex = 2;
             // 
             // txtDonViTinh
             // 
-            txtDonViTinh.Font = new Font("Roboto", 10F);
+            txtDonViTinh.Font = new Font("Microsoft Sans Serif", 10F);
             txtDonViTinh.Location = new Point(228, 202);
             txtDonViTinh.Name = "txtDonViTinh";
-            txtDonViTinh.Size = new Size(884, 32);
+            txtDonViTinh.Size = new Size(884, 30);
             txtDonViTinh.TabIndex = 2;
             // 
             // txtGia
             // 
-            txtGia.Font = new Font("Roboto", 10F);
+            txtGia.Font = new Font("Microsoft Sans Serif", 10F);
             txtGia.Location = new Point(228, 152);
             txtGia.Name = "txtGia";
-            txtGia.Size = new Size(884, 32);
+            txtGia.Size = new Size(884, 30);
             txtGia.TabIndex = 2;
             // 
             // txtHinhAnh
             // 
-            txtHinhAnh.Font = new Font("Roboto", 10F);
+            txtHinhAnh.Font = new Font("Microsoft Sans Serif", 10F);
             txtHinhAnh.Location = new Point(228, 302);
             txtHinhAnh.Name = "txtHinhAnh";
-            txtHinhAnh.Size = new Size(884, 32);
+            txtHinhAnh.Size = new Size(884, 30);
             txtHinhAnh.TabIndex = 2;
             // 
             // txtIDSP
             // 
-            txtIDSP.Font = new Font("Roboto", 10F);
+            txtIDSP.Font = new Font("Microsoft Sans Serif", 10F);
             txtIDSP.Location = new Point(228, 52);
             txtIDSP.Name = "txtIDSP";
-            txtIDSP.Size = new Size(300, 32);
+            txtIDSP.Size = new Size(300, 30);
             txtIDSP.TabIndex = 2;
             // 
             // txtTenSP
             // 
-            txtTenSP.Font = new Font("Roboto", 10F);
+            txtTenSP.Font = new Font("Microsoft Sans Serif", 10F);
             txtTenSP.Location = new Point(228, 102);
             txtTenSP.Name = "txtTenSP";
-            txtTenSP.Size = new Size(884, 32);
+            txtTenSP.Size = new Size(884, 30);
             txtTenSP.TabIndex = 2;
             // 
             // lblLoaiSP
             // 
             lblLoaiSP.AutoSize = true;
-            lblLoaiSP.Font = new Font("Roboto", 10F);
+            lblLoaiSP.Font = new Font("Microsoft Sans Serif", 10F);
             lblLoaiSP.Location = new Point(602, 60);
             lblLoaiSP.Name = "lblLoaiSP";
-            lblLoaiSP.Size = new Size(141, 24);
+            lblLoaiSP.Size = new Size(140, 25);
             lblLoaiSP.TabIndex = 1;
             lblLoaiSP.Text = "Loại sản phẩm";
             // 
             // lblSoLuong
             // 
             lblSoLuong.AutoSize = true;
-            lblSoLuong.Font = new Font("Roboto", 10F);
+            lblSoLuong.Font = new Font("Microsoft Sans Serif", 10F);
             lblSoLuong.Location = new Point(48, 260);
             lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(88, 24);
+            lblSoLuong.Size = new Size(90, 25);
             lblSoLuong.TabIndex = 1;
             lblSoLuong.Text = "Số lượng";
             // 
             // lblHinhAnh
             // 
             lblHinhAnh.AutoSize = true;
-            lblHinhAnh.Font = new Font("Roboto", 10F);
+            lblHinhAnh.Font = new Font("Microsoft Sans Serif", 10F);
             lblHinhAnh.Location = new Point(50, 310);
             lblHinhAnh.Name = "lblHinhAnh";
-            lblHinhAnh.Size = new Size(89, 24);
+            lblHinhAnh.Size = new Size(90, 25);
             lblHinhAnh.TabIndex = 1;
             lblHinhAnh.Text = "Hình ảnh";
             // 
             // lblDonViTinh
             // 
             lblDonViTinh.AutoSize = true;
-            lblDonViTinh.Font = new Font("Roboto", 10F);
+            lblDonViTinh.Font = new Font("Microsoft Sans Serif", 10F);
             lblDonViTinh.Location = new Point(48, 210);
             lblDonViTinh.Name = "lblDonViTinh";
-            lblDonViTinh.Size = new Size(104, 24);
+            lblDonViTinh.Size = new Size(103, 25);
             lblDonViTinh.TabIndex = 1;
             lblDonViTinh.Text = "Đơn vị tính";
             // 
             // lblIDSanPham
             // 
             lblIDSanPham.AutoSize = true;
-            lblIDSanPham.Font = new Font("Roboto", 10F);
+            lblIDSanPham.Font = new Font("Microsoft Sans Serif", 10F);
             lblIDSanPham.Location = new Point(48, 60);
             lblIDSanPham.Name = "lblIDSanPham";
-            lblIDSanPham.Size = new Size(121, 24);
+            lblIDSanPham.Size = new Size(122, 25);
             lblIDSanPham.TabIndex = 1;
             lblIDSanPham.Text = "ID sản phẩm";
             // 
             // lblGia
             // 
             lblGia.AutoSize = true;
-            lblGia.Font = new Font("Roboto", 10F);
+            lblGia.Font = new Font("Microsoft Sans Serif", 10F);
             lblGia.Location = new Point(48, 160);
             lblGia.Name = "lblGia";
-            lblGia.Size = new Size(79, 24);
+            lblGia.Size = new Size(78, 25);
             lblGia.TabIndex = 1;
             lblGia.Text = "Giá tiền";
             // 
             // lblTenSanPham
             // 
             lblTenSanPham.AutoSize = true;
-            lblTenSanPham.Font = new Font("Roboto", 10F);
+            lblTenSanPham.Font = new Font("Microsoft Sans Serif", 10F);
             lblTenSanPham.Location = new Point(48, 110);
             lblTenSanPham.Name = "lblTenSanPham";
-            lblTenSanPham.Size = new Size(136, 24);
+            lblTenSanPham.Size = new Size(138, 25);
             lblTenSanPham.TabIndex = 1;
             lblTenSanPham.Text = "Tên sản phẩm";
             // 
@@ -345,7 +350,7 @@
             panel1.Controls.Add(btnThem);
             panel1.Controls.Add(bthXoa);
             panel1.Controls.Add(btnCapNhat);
-            panel1.Font = new Font("Segoe UI", 10F);
+            panel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(1353, 142);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";

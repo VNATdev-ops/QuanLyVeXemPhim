@@ -116,7 +116,6 @@ namespace QuanLyVeXemPhim.Views
 
         private void lsvDanhSachTV_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (lsvDanhSachTV.SelectedItems.Count == 0)
                 return;
             try
@@ -140,7 +139,7 @@ namespace QuanLyVeXemPhim.Views
                     txtGioiTinh.Text = thanhVien.GioiTinh;
                     txtKhuVuc.Text = thanhVien.KhuVuc;
                     txtEmail.Text = thanhVien.Email;
-        
+
                 }
                 // Load the loyalty point history for the selected member
                 LoadLichSuTichDiem(idThanhVien);
@@ -185,11 +184,6 @@ namespace QuanLyVeXemPhim.Views
                 }
             }
             catch { }
-        }
-
-        private void txtTimKiem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -238,24 +232,9 @@ namespace QuanLyVeXemPhim.Views
             catch { }
         }
 
-        private void txtNgaySinh_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void lsvLichSuTichDiem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
@@ -269,15 +248,6 @@ namespace QuanLyVeXemPhim.Views
             txtEmail.Clear();
 
             txtIDThanhVien.Focus();
-        }
-
-       
-
-
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
