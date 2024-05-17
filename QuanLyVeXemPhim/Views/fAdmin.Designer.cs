@@ -64,10 +64,12 @@
             panel_Left.Controls.Add(btnPhim);
             panel_Left.Controls.Add(btnVeXemPhim);
             panel_Left.Controls.Add(btnThanhVien);
+            panel_Left.Dock = DockStyle.Left;
             panel_Left.Location = new Point(0, 0);
             panel_Left.Margin = new Padding(4);
+            panel_Left.MaximumSize = new Size(350, 1500);
             panel_Left.Name = "panel_Left";
-            panel_Left.Size = new Size(350, 1250);
+            panel_Left.Size = new Size(350, 1244);
             panel_Left.TabIndex = 0;
             // 
             // btnRapChieuPhim
@@ -77,7 +79,7 @@
             btnRapChieuPhim.FlatStyle = FlatStyle.Flat;
             btnRapChieuPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnRapChieuPhim.ForeColor = SystemColors.HighlightText;
-            btnRapChieuPhim.Location = new Point(0, 200);
+            btnRapChieuPhim.Location = new Point(0, 235);
             btnRapChieuPhim.Margin = new Padding(4);
             btnRapChieuPhim.Name = "btnRapChieuPhim";
             btnRapChieuPhim.Padding = new Padding(60, 0, 0, 0);
@@ -95,7 +97,7 @@
             btnHoaDon.FlatStyle = FlatStyle.Flat;
             btnHoaDon.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnHoaDon.ForeColor = SystemColors.HighlightText;
-            btnHoaDon.Location = new Point(0, 570);
+            btnHoaDon.Location = new Point(0, 605);
             btnHoaDon.Margin = new Padding(4);
             btnHoaDon.Name = "btnHoaDon";
             btnHoaDon.Padding = new Padding(60, 0, 0, 0);
@@ -113,7 +115,7 @@
             btnChoNgoi.FlatStyle = FlatStyle.Flat;
             btnChoNgoi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnChoNgoi.ForeColor = SystemColors.HighlightText;
-            btnChoNgoi.Location = new Point(0, 300);
+            btnChoNgoi.Location = new Point(0, 335);
             btnChoNgoi.Margin = new Padding(4);
             btnChoNgoi.Name = "btnChoNgoi";
             btnChoNgoi.Padding = new Padding(60, 0, 0, 0);
@@ -126,13 +128,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.Right;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(60, 74);
+            pictureBox1.Location = new Point(73, 74);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(170, 74);
+            pictureBox1.Size = new Size(136, 59);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -153,7 +154,7 @@
             btnPhongChieu.FlatStyle = FlatStyle.Flat;
             btnPhongChieu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnPhongChieu.ForeColor = SystemColors.HighlightText;
-            btnPhongChieu.Location = new Point(0, 250);
+            btnPhongChieu.Location = new Point(0, 285);
             btnPhongChieu.Margin = new Padding(4);
             btnPhongChieu.Name = "btnPhongChieu";
             btnPhongChieu.Padding = new Padding(60, 0, 0, 0);
@@ -171,7 +172,7 @@
             btnSuatChieu.FlatStyle = FlatStyle.Flat;
             btnSuatChieu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnSuatChieu.ForeColor = SystemColors.HighlightText;
-            btnSuatChieu.Location = new Point(0, 420);
+            btnSuatChieu.Location = new Point(0, 455);
             btnSuatChieu.Margin = new Padding(4);
             btnSuatChieu.Name = "btnSuatChieu";
             btnSuatChieu.Padding = new Padding(60, 0, 0, 0);
@@ -184,19 +185,22 @@
             // 
             // btnThoatCT
             // 
+            btnThoatCT.Cursor = Cursors.Hand;
+            btnThoatCT.Dock = DockStyle.Bottom;
             btnThoatCT.FlatAppearance.BorderSize = 0;
-            btnThoatCT.FlatAppearance.MouseOverBackColor = SystemColors.HotTrack;
+            btnThoatCT.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnThoatCT.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnThoatCT.FlatStyle = FlatStyle.Flat;
             btnThoatCT.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnThoatCT.ForeColor = SystemColors.HighlightText;
-            btnThoatCT.Location = new Point(0, 1150);
+            btnThoatCT.Location = new Point(0, 1146);
             btnThoatCT.Margin = new Padding(4);
             btnThoatCT.Name = "btnThoatCT";
             btnThoatCT.Padding = new Padding(60, 0, 0, 0);
-            btnThoatCT.Size = new Size(350, 50);
+            btnThoatCT.Size = new Size(350, 98);
             btnThoatCT.TabIndex = 6;
             btnThoatCT.Text = "Thoát";
-            btnThoatCT.TextAlign = ContentAlignment.MiddleLeft;
+            btnThoatCT.TextAlign = ContentAlignment.TopLeft;
             btnThoatCT.UseVisualStyleBackColor = true;
             btnThoatCT.Click += btnThoatCT_Click;
             // 
@@ -207,7 +211,7 @@
             btnNhanVien.FlatStyle = FlatStyle.Flat;
             btnNhanVien.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnNhanVien.ForeColor = SystemColors.HighlightText;
-            btnNhanVien.Location = new Point(0, 690);
+            btnNhanVien.Location = new Point(0, 725);
             btnNhanVien.Margin = new Padding(4);
             btnNhanVien.Name = "btnNhanVien";
             btnNhanVien.Padding = new Padding(60, 0, 0, 0);
@@ -226,7 +230,7 @@
             btnSanPham.FlatStyle = FlatStyle.Flat;
             btnSanPham.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnSanPham.ForeColor = SystemColors.HighlightText;
-            btnSanPham.Location = new Point(0, 520);
+            btnSanPham.Location = new Point(0, 555);
             btnSanPham.Margin = new Padding(4);
             btnSanPham.Name = "btnSanPham";
             btnSanPham.Padding = new Padding(60, 0, 0, 0);
@@ -244,7 +248,7 @@
             btnPhim.FlatStyle = FlatStyle.Flat;
             btnPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnPhim.ForeColor = SystemColors.HighlightText;
-            btnPhim.Location = new Point(0, 370);
+            btnPhim.Location = new Point(0, 405);
             btnPhim.Margin = new Padding(4);
             btnPhim.Name = "btnPhim";
             btnPhim.Padding = new Padding(60, 0, 0, 0);
@@ -262,7 +266,7 @@
             btnVeXemPhim.FlatStyle = FlatStyle.Flat;
             btnVeXemPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnVeXemPhim.ForeColor = SystemColors.HighlightText;
-            btnVeXemPhim.Location = new Point(0, 470);
+            btnVeXemPhim.Location = new Point(0, 505);
             btnVeXemPhim.Margin = new Padding(4);
             btnVeXemPhim.Name = "btnVeXemPhim";
             btnVeXemPhim.Padding = new Padding(60, 0, 0, 0);
@@ -281,7 +285,7 @@
             btnThanhVien.FlatStyle = FlatStyle.Flat;
             btnThanhVien.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnThanhVien.ForeColor = SystemColors.HighlightText;
-            btnThanhVien.Location = new Point(0, 640);
+            btnThanhVien.Location = new Point(0, 675);
             btnThanhVien.Margin = new Padding(4);
             btnThanhVien.Name = "btnThanhVien";
             btnThanhVien.Padding = new Padding(60, 0, 0, 0);
@@ -294,10 +298,13 @@
             // 
             // splitContainer_Body
             // 
+            splitContainer_Body.AutoScroll = true;
+            splitContainer_Body.Dock = DockStyle.Fill;
             splitContainer_Body.Location = new Point(350, 0);
             splitContainer_Body.Margin = new Padding(4);
+            splitContainer_Body.MaximumSize = new Size(3000, 2000);
             splitContainer_Body.Name = "splitContainer_Body";
-            splitContainer_Body.Size = new Size(1910, 1250);
+            splitContainer_Body.Size = new Size(1910, 1244);
             splitContainer_Body.TabIndex = 2;
             // 
             // fAdmin
@@ -309,7 +316,6 @@
             Controls.Add(splitContainer_Body);
             Controls.Add(panel_Left);
             Margin = new Padding(4);
-            MaximumSize = new Size(2282, 1300);
             Name = "fAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "fAdmin";

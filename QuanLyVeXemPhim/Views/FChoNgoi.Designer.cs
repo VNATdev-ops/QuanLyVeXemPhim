@@ -53,12 +53,14 @@
             btnNhapMoi = new Button();
             btnXoa = new Button();
             btnThem = new Button();
+            panel3 = new Panel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             panel2.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -203,7 +205,7 @@
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
             panel2.Font = new Font("Roboto", 10F);
-            panel2.Location = new Point(1516, 675);
+            panel2.Location = new Point(49, 675);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(295, 339);
@@ -290,7 +292,7 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Roboto", 10F);
-            panel1.Location = new Point(1516, 199);
+            panel1.Location = new Point(49, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 429);
@@ -356,20 +358,32 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click_1;
             // 
+            // panel3
+            // 
+            panel3.Controls.Add(panel2);
+            panel3.Controls.Add(panel1);
+            panel3.Dock = DockStyle.Right;
+            panel3.Location = new Point(1454, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(424, 1194);
+            panel3.TabIndex = 20;
+            // 
             // FChoNgoi
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Controls.Add(panel3);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
+            MaximumSize = new Size(3000, 2000);
             Name = "FChoNgoi";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FChoNgoi";
             Load += FChoNgoi_Load;
             groupBox1.ResumeLayout(false);
@@ -381,6 +395,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -412,5 +427,6 @@
         private Button btnNhapMoi;
         private Button btnXoa;
         private Button btnThem;
+        private Panel panel3;
     }
 }

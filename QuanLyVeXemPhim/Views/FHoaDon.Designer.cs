@@ -47,6 +47,8 @@
             lsvDanhSachHD = new ListView();
             txtSoLuongHD = new TextBox();
             lblSoLuongHD = new Label();
+            txtTimKiem = new TextBox();
+            lblTimKiem = new Label();
             groupBox6 = new GroupBox();
             lsvChiTietHD = new ListView();
             txtSoLuong = new TextBox();
@@ -68,8 +70,7 @@
             btnXoaHD = new Button();
             btnTaoHD = new Button();
             btnLuuHD = new Button();
-            lblTimKiem = new Label();
-            txtTimKiem = new TextBox();
+            panelRight = new Panel();
             groupBox7.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -77,6 +78,7 @@
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
+            panelRight.SuspendLayout();
             SuspendLayout();
             // 
             // dTimeNgayHD
@@ -267,6 +269,25 @@
             lblSoLuongHD.TabIndex = 6;
             lblSoLuongHD.Text = "Số lượng hóa đơn";
             // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
+            txtTimKiem.Location = new Point(143, 46);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(584, 30);
+            txtTimKiem.TabIndex = 8;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
+            // lblTimKiem
+            // 
+            lblTimKiem.AutoSize = true;
+            lblTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
+            lblTimKiem.Location = new Point(34, 49);
+            lblTimKiem.Name = "lblTimKiem";
+            lblTimKiem.Size = new Size(91, 25);
+            lblTimKiem.TabIndex = 4;
+            lblTimKiem.Text = "Tìm kiếm";
+            // 
             // groupBox6
             // 
             groupBox6.Controls.Add(btnXoaCTHD);
@@ -313,7 +334,7 @@
             groupBox5.Controls.Add(txtIDNhanVien);
             groupBox5.Controls.Add(label10);
             groupBox5.Font = new Font("Microsoft Sans Serif", 10F);
-            groupBox5.Location = new Point(1626, 575);
+            groupBox5.Location = new Point(26, 596);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(223, 140);
             groupBox5.TabIndex = 31;
@@ -459,7 +480,7 @@
             panel1.Controls.Add(btnTaoHD);
             panel1.Controls.Add(btnLuuHD);
             panel1.Font = new Font("Microsoft Sans Serif", 10F);
-            panel1.Location = new Point(1626, 199);
+            panel1.Location = new Point(26, 199);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 345);
@@ -509,42 +530,36 @@
             btnLuuHD.UseVisualStyleBackColor = true;
             btnLuuHD.Click += btnLuuHD_Click;
             // 
-            // lblTimKiem
+            // panelRight
             // 
-            lblTimKiem.AutoSize = true;
-            lblTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
-            lblTimKiem.Location = new Point(34, 49);
-            lblTimKiem.Name = "lblTimKiem";
-            lblTimKiem.Size = new Size(91, 25);
-            lblTimKiem.TabIndex = 4;
-            lblTimKiem.Text = "Tìm kiếm";
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTimKiem.Location = new Point(143, 46);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(584, 30);
-            txtTimKiem.TabIndex = 8;
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            panelRight.BackgroundImageLayout = ImageLayout.None;
+            panelRight.Controls.Add(panel1);
+            panelRight.Controls.Add(groupBox5);
+            panelRight.Dock = DockStyle.Right;
+            panelRight.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panelRight.Location = new Point(1588, 0);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new Size(290, 1194);
+            panelRight.TabIndex = 33;
             // 
             // FHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
-            Controls.Add(panel1);
             Controls.Add(lblTenForm);
             Controls.Add(groupBox7);
             Controls.Add(groupBox6);
-            Controls.Add(groupBox5);
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(label9);
+            Controls.Add(panelRight);
             Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
+            MaximumSize = new Size(3000, 2000);
             Name = "FHoaDon";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FHoaDon";
@@ -560,6 +575,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             panel1.ResumeLayout(false);
+            panelRight.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -608,5 +624,6 @@
         private Button btnLuuHD;
         private TextBox txtTimKiem;
         private Label lblTimKiem;
+        private Panel panelRight;
     }
 }

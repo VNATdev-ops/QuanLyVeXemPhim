@@ -20,10 +20,10 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID Ghế", 15 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID Phòng", 15 * width / 100);
-            lsvDanhSachCN.Columns.Add("Loại ghế", 35 * width / 100);
-            lsvDanhSachCN.Columns.Add("Vị trí", 35 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Ghế", 25 * width / 100);
+            lsvDanhSachCN.Columns.Add("ID Phòng", 25 * width / 100);
+            lsvDanhSachCN.Columns.Add("Loại ghế", 28 * width / 100);
+            lsvDanhSachCN.Columns.Add("Vị trí", 19 * width / 100);
 
             lsvDanhSachCN.View = View.Details;
             lsvDanhSachCN.FullRowSelect = true;
