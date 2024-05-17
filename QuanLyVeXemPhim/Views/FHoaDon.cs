@@ -660,5 +660,27 @@ namespace QuanLyVeXemPhim.Views
                 }
             }
         }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string dkTim = txtTimKiem.Text;
+                dsHoaDon = ctrHoaDon.findCriteria(dkTim);
+                lsvDanhSachHD.Items.Clear();
+                foreach (CHoaDon s in dsHoaDon)
+                {
+                    if (s.NhanVien == null) s.NhanVien = new CNhanVien();
+                    if (s.ThanhVien == null) s.ThanhVien = new CThanhVien();
+                    string[] obj = {s.IDHoaDon, s.NgayXuatHD.ToString(), s.NhanVien.IDNhanVien, s.ThanhVien.IDThanhVien};
+                    ListViewItem item = new ListViewItem(obj);
+                    lsvDanhSachHD.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
     }
 }

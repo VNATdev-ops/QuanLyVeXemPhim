@@ -46,10 +46,10 @@
             // btnDangNhap
             // 
             btnDangNhap.Font = new Font("Microsoft Sans Serif", 10F);
-            btnDangNhap.Location = new Point(679, 179);
+            btnDangNhap.Location = new Point(609, 178);
             btnDangNhap.Margin = new Padding(4);
             btnDangNhap.Name = "btnDangNhap";
-            btnDangNhap.Size = new Size(118, 36);
+            btnDangNhap.Size = new Size(145, 40);
             btnDangNhap.TabIndex = 2;
             btnDangNhap.Text = "Đăng nhập";
             btnDangNhap.UseVisualStyleBackColor = true;
@@ -70,10 +70,10 @@
             // btnThoat
             // 
             btnThoat.Font = new Font("Microsoft Sans Serif", 10F);
-            btnThoat.Location = new Point(808, 179);
+            btnThoat.Location = new Point(781, 178);
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(118, 36);
+            btnThoat.Size = new Size(145, 40);
             btnThoat.TabIndex = 3;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;

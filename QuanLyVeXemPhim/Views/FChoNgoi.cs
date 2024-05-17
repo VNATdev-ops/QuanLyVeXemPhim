@@ -44,7 +44,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
 
@@ -190,6 +190,11 @@ namespace QuanLyVeXemPhim.Views
             {
                 MessageBox.Show(" cập nhật thất bại");
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

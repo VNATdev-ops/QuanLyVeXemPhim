@@ -146,7 +146,7 @@ namespace QuanLyVeXemPhim.Controller
             string sql = "select * from hoadon where idhoadon like @dk";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@dk", dk);
+            cmd.Parameters.AddWithValue("@dk", "%" + dk + "%");
             SqlDataReader reader = cmd.ExecuteReader();
             List<CHoaDon> arrs = new List<CHoaDon>();
             while (reader.Read())

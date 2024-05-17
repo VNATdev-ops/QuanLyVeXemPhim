@@ -28,7 +28,6 @@ namespace QuanLyVeXemPhim.Views
             {
                 e.Cancel = true;
             }
-
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)

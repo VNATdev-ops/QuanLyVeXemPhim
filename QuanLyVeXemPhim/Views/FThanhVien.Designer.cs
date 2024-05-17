@@ -73,11 +73,11 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(74, 50);
+            label8.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold);
+            label8.Location = new Point(73, 74);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(539, 55);
+            label8.Size = new Size(557, 55);
             label8.TabIndex = 14;
             label8.Text = "QUẢN LÝ THÀNH VIÊN";
             // 
@@ -85,7 +85,7 @@
             // 
             groupBox3.Controls.Add(txtTongSo);
             groupBox3.Controls.Add(label9);
-            groupBox3.Font = new Font("Microsoft Sans Serif", 10F);
+            groupBox3.Font = new Font("Microsoft Sans Serif", 12F);
             groupBox3.Location = new Point(5, 4);
             groupBox3.Margin = new Padding(5, 4, 5, 4);
             groupBox3.Name = "groupBox3";
@@ -120,7 +120,7 @@
             // 
             groupBox4.Controls.Add(txtTimKiem);
             groupBox4.Controls.Add(lblTim);
-            groupBox4.Font = new Font("Microsoft Sans Serif", 10F);
+            groupBox4.Font = new Font("Microsoft Sans Serif", 12F);
             groupBox4.Location = new Point(5, 179);
             groupBox4.Margin = new Padding(5, 4, 5, 4);
             groupBox4.Name = "groupBox4";
@@ -133,10 +133,10 @@
             // txtTimKiem
             // 
             txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTimKiem.Location = new Point(10, 91);
+            txtTimKiem.Location = new Point(20, 91);
             txtTimKiem.Margin = new Padding(5, 4, 5, 4);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(240, 30);
+            txtTimKiem.Size = new Size(222, 30);
             txtTimKiem.TabIndex = 3;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -156,7 +156,7 @@
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
             panel2.Font = new Font("Microsoft Sans Serif", 10F);
-            panel2.Location = new Point(1557, 646);
+            panel2.Location = new Point(1557, 667);
             panel2.Margin = new Padding(5, 4, 5, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(270, 339);
@@ -180,7 +180,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox1.Location = new Point(74, 142);
+            groupBox1.Location = new Point(73, 199);
             groupBox1.Margin = new Padding(5, 4, 5, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(5, 4, 5, 4);
@@ -192,7 +192,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Microsoft Sans Serif", 10F);
-            txtEmail.Location = new Point(210, 284);
+            txtEmail.Location = new Point(210, 279);
             txtEmail.Margin = new Padding(5, 4, 5, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(678, 30);
@@ -202,7 +202,7 @@
             // txtKhuVuc
             // 
             txtKhuVuc.Font = new Font("Microsoft Sans Serif", 10F);
-            txtKhuVuc.Location = new Point(210, 340);
+            txtKhuVuc.Location = new Point(210, 335);
             txtKhuVuc.Margin = new Padding(5, 4, 5, 4);
             txtKhuVuc.Name = "txtKhuVuc";
             txtKhuVuc.Size = new Size(678, 30);
@@ -212,7 +212,7 @@
             // txtGioiTinh
             // 
             txtGioiTinh.Font = new Font("Microsoft Sans Serif", 10F);
-            txtGioiTinh.Location = new Point(210, 172);
+            txtGioiTinh.Location = new Point(210, 167);
             txtGioiTinh.Margin = new Padding(5, 4, 5, 4);
             txtGioiTinh.Name = "txtGioiTinh";
             txtGioiTinh.Size = new Size(678, 30);
@@ -222,7 +222,7 @@
             // txtMatKhau
             // 
             txtMatKhau.Font = new Font("Microsoft Sans Serif", 10F);
-            txtMatKhau.Location = new Point(210, 395);
+            txtMatKhau.Location = new Point(210, 390);
             txtMatKhau.Margin = new Padding(5, 4, 5, 4);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.Size = new Size(678, 30);
@@ -232,7 +232,7 @@
             // txtTenThanhVien
             // 
             txtTenThanhVien.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTenThanhVien.Location = new Point(210, 118);
+            txtTenThanhVien.Location = new Point(210, 113);
             txtTenThanhVien.Margin = new Padding(5, 4, 5, 4);
             txtTenThanhVien.Name = "txtTenThanhVien";
             txtTenThanhVien.Size = new Size(678, 30);
@@ -242,7 +242,7 @@
             // txtIDThanhVien
             // 
             txtIDThanhVien.Font = new Font("Microsoft Sans Serif", 10F);
-            txtIDThanhVien.Location = new Point(210, 60);
+            txtIDThanhVien.Location = new Point(210, 55);
             txtIDThanhVien.Margin = new Padding(5, 4, 5, 4);
             txtIDThanhVien.Name = "txtIDThanhVien";
             txtIDThanhVien.Size = new Size(678, 30);
@@ -252,7 +252,7 @@
             // txtNgaySinh
             // 
             txtNgaySinh.Font = new Font("Microsoft Sans Serif", 10F);
-            txtNgaySinh.Location = new Point(210, 227);
+            txtNgaySinh.Location = new Point(210, 222);
             txtNgaySinh.Margin = new Padding(5, 4, 5, 4);
             txtNgaySinh.Name = "txtNgaySinh";
             txtNgaySinh.Size = new Size(678, 30);
@@ -262,7 +262,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(54, 340);
+            label7.Location = new Point(54, 335);
             label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
             label7.Size = new Size(60, 25);
@@ -273,7 +273,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(54, 287);
+            label6.Location = new Point(54, 282);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(84, 25);
@@ -284,7 +284,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10F);
-            label5.Location = new Point(54, 177);
+            label5.Location = new Point(54, 172);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(82, 25);
@@ -295,7 +295,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(54, 232);
+            label4.Location = new Point(54, 227);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(99, 25);
@@ -306,7 +306,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10F);
-            label3.Location = new Point(54, 398);
+            label3.Location = new Point(54, 393);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(93, 25);
@@ -317,7 +317,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(50, 123);
+            label2.Location = new Point(50, 118);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(142, 25);
@@ -328,7 +328,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(50, 63);
+            label1.Location = new Point(50, 58);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(134, 25);
@@ -339,11 +339,11 @@
             // 
             groupBox2.Controls.Add(lsvDanhSachTV);
             groupBox2.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox2.Location = new Point(74, 646);
+            groupBox2.Location = new Point(73, 699);
             groupBox2.Margin = new Padding(5, 4, 5, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(5, 4, 5, 4);
-            groupBox2.Size = new Size(943, 461);
+            groupBox2.Size = new Size(943, 433);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách thành viên";
@@ -355,7 +355,7 @@
             lsvDanhSachTV.Location = new Point(5, 32);
             lsvDanhSachTV.Margin = new Padding(5, 4, 5, 4);
             lsvDanhSachTV.Name = "lsvDanhSachTV";
-            lsvDanhSachTV.Size = new Size(933, 425);
+            lsvDanhSachTV.Size = new Size(933, 397);
             lsvDanhSachTV.TabIndex = 0;
             lsvDanhSachTV.UseCompatibleStateImageBehavior = false;
             lsvDanhSachTV.SelectedIndexChanged += lsvDanhSachTV_SelectedIndexChanged;
@@ -363,12 +363,12 @@
             // groupBox5
             // 
             groupBox5.Controls.Add(lsvLichSuTichDiem);
-            groupBox5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox5.Location = new Point(1073, 142);
+            groupBox5.Font = new Font("Microsoft Sans Serif", 12F);
+            groupBox5.Location = new Point(1073, 199);
             groupBox5.Margin = new Padding(5, 4, 5, 4);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new Padding(5, 4, 5, 4);
-            groupBox5.Size = new Size(430, 965);
+            groupBox5.Size = new Size(430, 933);
             groupBox5.TabIndex = 15;
             groupBox5.TabStop = false;
             groupBox5.Text = "Điểm tích lũy";
@@ -380,7 +380,7 @@
             lsvLichSuTichDiem.Location = new Point(5, 32);
             lsvLichSuTichDiem.Margin = new Padding(5, 4, 5, 4);
             lsvLichSuTichDiem.Name = "lsvLichSuTichDiem";
-            lsvLichSuTichDiem.Size = new Size(420, 929);
+            lsvLichSuTichDiem.Size = new Size(420, 897);
             lsvLichSuTichDiem.TabIndex = 0;
             lsvLichSuTichDiem.UseCompatibleStateImageBehavior = false;
             // 
@@ -393,7 +393,7 @@
             panel3.Controls.Add(bthXoa);
             panel3.Controls.Add(button4);
             panel3.Font = new Font("Microsoft Sans Serif", 10F);
-            panel3.Location = new Point(1557, 142);
+            panel3.Location = new Point(1557, 199);
             panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(270, 412);

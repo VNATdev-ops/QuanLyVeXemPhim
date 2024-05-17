@@ -89,26 +89,6 @@ namespace QuanLyVeXemPhim.Views
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FVeXemPhim_Load(object sender, EventArgs e)
         {
             dsVeXemPhim = ctrlVeXemPhim.findall();
@@ -189,7 +169,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -267,14 +247,10 @@ namespace QuanLyVeXemPhim.Views
             catch { }
         }
 
-        private void btnSua_Click(object sender, EventArgs e) // nhap moi
+        private void btnNhapMoi_Click(object sender, EventArgs e) 
         {
             lsvVeXemPhim.Items.Clear();
             txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-                    }
     }
 }

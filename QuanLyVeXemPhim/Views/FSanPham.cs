@@ -104,7 +104,7 @@ namespace QuanLyVeXemPhim.Views
                 if (SanPhamTonTai != null)
                 {
                     DialogResult result = MessageBox.Show("Mã sản phẩm đã tồn tại. Bạn có muốn thêm sản phẩm không?", "Xác nhận thêm sản phẩm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if(result == DialogResult.Yes)
+                    if (result == DialogResult.Yes)
                     {
                         SanPhamTonTai.SoLuong += soluong;
                         if (ctrSanPham.updateSoLuong(SanPhamTonTai))
@@ -123,7 +123,7 @@ namespace QuanLyVeXemPhim.Views
                             MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
                     }
                 }
-                
+
                 else
                 {
                     if (ctrSanPham.insert(s))

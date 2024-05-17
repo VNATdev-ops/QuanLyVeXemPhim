@@ -68,6 +68,8 @@
             btnXoaHD = new Button();
             btnTaoHD = new Button();
             btnLuuHD = new Button();
+            lblTimKiem = new Label();
+            txtTimKiem = new TextBox();
             groupBox7.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -225,10 +227,12 @@
             groupBox7.Controls.Add(lsvDanhSachHD);
             groupBox7.Controls.Add(txtSoLuongHD);
             groupBox7.Controls.Add(lblSoLuongHD);
+            groupBox7.Controls.Add(txtTimKiem);
+            groupBox7.Controls.Add(lblTimKiem);
             groupBox7.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox7.Location = new Point(73, 569);
+            groupBox7.Location = new Point(73, 561);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(764, 519);
+            groupBox7.Size = new Size(764, 582);
             groupBox7.TabIndex = 27;
             groupBox7.TabStop = false;
             groupBox7.Text = "Danh sách hóa đơn";
@@ -236,7 +240,7 @@
             // lsvDanhSachHD
             // 
             lsvDanhSachHD.Font = new Font("Microsoft Sans Serif", 10F);
-            lsvDanhSachHD.Location = new Point(0, 44);
+            lsvDanhSachHD.Location = new Point(0, 104);
             lsvDanhSachHD.MultiSelect = false;
             lsvDanhSachHD.Name = "lsvDanhSachHD";
             lsvDanhSachHD.Size = new Size(764, 409);
@@ -247,7 +251,7 @@
             // txtSoLuongHD
             // 
             txtSoLuongHD.Font = new Font("Microsoft Sans Serif", 10F);
-            txtSoLuongHD.Location = new Point(594, 473);
+            txtSoLuongHD.Location = new Point(594, 530);
             txtSoLuongHD.Name = "txtSoLuongHD";
             txtSoLuongHD.ReadOnly = true;
             txtSoLuongHD.Size = new Size(133, 30);
@@ -257,7 +261,7 @@
             // 
             lblSoLuongHD.AutoSize = true;
             lblSoLuongHD.Font = new Font("Microsoft Sans Serif", 10F);
-            lblSoLuongHD.Location = new Point(400, 475);
+            lblSoLuongHD.Location = new Point(400, 532);
             lblSoLuongHD.Name = "lblSoLuongHD";
             lblSoLuongHD.Size = new Size(166, 25);
             lblSoLuongHD.TabIndex = 6;
@@ -364,6 +368,7 @@
             lstSanPham.Name = "lstSanPham";
             lstSanPham.Size = new Size(683, 154);
             lstSanPham.TabIndex = 0;
+            lstSanPham.SelectedIndexChanged += lstSanPham_SelectedIndexChanged;
             // 
             // btnThemSP
             // 
@@ -504,12 +509,31 @@
             btnLuuHD.UseVisualStyleBackColor = true;
             btnLuuHD.Click += btnLuuHD_Click;
             // 
+            // lblTimKiem
+            // 
+            lblTimKiem.AutoSize = true;
+            lblTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
+            lblTimKiem.Location = new Point(34, 49);
+            lblTimKiem.Name = "lblTimKiem";
+            lblTimKiem.Size = new Size(91, 25);
+            lblTimKiem.TabIndex = 4;
+            lblTimKiem.Text = "Tìm kiếm";
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
+            txtTimKiem.Location = new Point(143, 46);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(584, 30);
+            txtTimKiem.TabIndex = 8;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
             // FHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 250, 246);
-            ClientSize = new Size(1956, 1194);
+            ClientSize = new Size(1878, 1194);
             Controls.Add(panel1);
             Controls.Add(lblTenForm);
             Controls.Add(groupBox7);
@@ -582,5 +606,7 @@
         private Button btnXoaHD;
         private Button btnTaoHD;
         private Button btnLuuHD;
+        private TextBox txtTimKiem;
+        private Label lblTimKiem;
     }
 }

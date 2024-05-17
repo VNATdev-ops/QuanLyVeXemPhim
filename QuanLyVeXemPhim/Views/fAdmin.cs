@@ -41,9 +41,7 @@ namespace QuanLyVeXemPhim.Views
         }
 
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnThanhVien_Click(object sender, EventArgs e)
         {
 
             OpenChildForm(new FThanhVien());
@@ -61,7 +59,7 @@ namespace QuanLyVeXemPhim.Views
             //label1.Text = "";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnVe_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FVeXemPhim());
             //label1.Text = button2.Text;
@@ -73,7 +71,7 @@ namespace QuanLyVeXemPhim.Views
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnPhim_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FPhim());
             //label1.Text = button3.Text;
@@ -90,40 +88,54 @@ namespace QuanLyVeXemPhim.Views
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnSanPham_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FChonSuat());
+            OpenChildForm(new FSanPham());
             //label1.Text = button3.Text;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnNhanVien_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FNhanVien());
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnSuatChieu_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FSuatChieu());
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnPhongChieu_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FPhongChieu());
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btnChoNgoi_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FChoNgoi());
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void btnHoaDon_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FHoaDon());
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void btnRapChieuPhim_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FRapChieuPhim());
+        }
+
+        private void btnThoatCT_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void fAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

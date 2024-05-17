@@ -313,6 +313,10 @@ namespace QuanLyVeXemPhim.Views
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }
 

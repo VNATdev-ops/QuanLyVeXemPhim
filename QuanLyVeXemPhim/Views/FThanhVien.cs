@@ -234,7 +234,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
