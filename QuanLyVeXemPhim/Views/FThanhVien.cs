@@ -20,15 +20,13 @@ namespace QuanLyVeXemPhim.Views
         List<CThanhVien> dsThanhVien = new List<CThanhVien>();
 
         private CtrlLichSuTichDiem ctrlLichSuTichDiem = new CtrlLichSuTichDiem();
-
-
-        // 
+        List<CLichSuTichDiem> dsLichSuTichDiem = new List<CLichSuTichDiem>();
 
         public FThanhVien()
         {
             InitializeComponent();
             int width = lsvDanhSachTV.Width;
-            lsvDanhSachTV.Columns.Add("Mã TV", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("ID Thành viên", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Tên thành viên", 20 * width / 100);
             lsvDanhSachTV.Columns.Add("Mật khẩu", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Ngày sinh", 10 * width / 100);
@@ -40,16 +38,13 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachTV.FullRowSelect = true;
 
             lsvLichSuTichDiem.View = View.Details;
-            lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 120);
-            lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 100);
+            lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 125);
+            lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 50);
             lsvLichSuTichDiem.Columns.Add("Thời Gian Tích Lũy", 150);
-            lsvLichSuTichDiem.Columns.Add("Tổng Điểm Tích Lũy", 120);
-            lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 100);
+            lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 115);
             lsvLichSuTichDiem.FullRowSelect = true;
 
         }
-
-
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -67,7 +62,7 @@ namespace QuanLyVeXemPhim.Views
                     matKhau, ngaySinh, gioiTinh, khuVuc, email);
                 if (ctrlThanhVien.insert(thanhVien))
                 {
-                    MessageBox.Show("Thêm thành công!");
+                    MessageBox.Show("Thêm thành công.");
                     string[] objsp = { idTV, tenThanhVien, matKhau, ngaySinh + "", gioiTinh, khuVuc, email + "" };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvDanhSachTV.Items.Add(item);
@@ -75,14 +70,18 @@ namespace QuanLyVeXemPhim.Views
                     txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
                 }
                 else
-                    MessageBox.Show("Thêm thất bại!");
+                    MessageBox.Show("Thêm thất bại.");
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void FThanhVien_Load(object sender, EventArgs e)
         {
             dsThanhVien = ctrlThanhVien.findall();
+            dsLichSuTichDiem = ctrlLichSuTichDiem.findall();
             foreach (CThanhVien s in dsThanhVien)
             {
                 string[] obj = { s.IDThanhVien, s.TenThanhVien, s.MatKhau, s.NgaySinh + "",
@@ -98,19 +97,21 @@ namespace QuanLyVeXemPhim.Views
         {
             List<CLichSuTichDiem> dsLichSuTichDiem = ctrlLichSuTichDiem.FindLichSuTichDiemByThanhVien(idThanhVien);
             lsvLichSuTichDiem.Items.Clear();
+            int tongDiem = 0;
 
             foreach (CLichSuTichDiem lsd in dsLichSuTichDiem)
             {
                 ListViewItem item = new ListViewItem(new string[] {
-            lsd.IDLichSu,
-            lsd.SoDiemTichLuy.ToString(),
-            lsd.ThoiGianTichLuy.ToString("dd/MM/yyyy"),
-            lsd.TongDiemTichLuy.ToString(),
-            lsd.ThanhVien.IDThanhVien
-        });
+                    lsd.IDLichSu,
+                    lsd.SoDiemTichLuy.ToString(),
+                    lsd.ThoiGianTichLuy.ToString("dd/MM/yyyy"),
+                    lsd.ThanhVien.IDThanhVien
+                });
 
                 lsvLichSuTichDiem.Items.Add(item);
+                tongDiem += lsd.SoDiemTichLuy;
             }
+            txtTongDiem.Text = tongDiem.ToString();
         }
 
 
@@ -120,7 +121,6 @@ namespace QuanLyVeXemPhim.Views
                 return;
             try
             {
-
 
                 ListViewItem item = lsvDanhSachTV.SelectedItems[0];
                 CThanhVien thanhVien = new CThanhVien();
@@ -145,7 +145,10 @@ namespace QuanLyVeXemPhim.Views
                 LoadLichSuTichDiem(idThanhVien);
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -170,7 +173,7 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrlThanhVien.update(thanhVien))
                 {
-                    MessageBox.Show("Cập nhật thành công!");
+                    MessageBox.Show("Cập nhật thành công.");
                     item.SubItems[1].Text = thanhVien.TenThanhVien;
                     item.SubItems[2].Text = thanhVien.MatKhau;
                     item.SubItems[3].Text = thanhVien.NgaySinh + "";
@@ -180,10 +183,13 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại!");
+                    MessageBox.Show("Cập nhật thất bại.");
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -200,16 +206,19 @@ namespace QuanLyVeXemPhim.Views
                 thanhVien = dsThanhVien[index];
                 if (ctrlThanhVien.delete(thanhVien))
                 {
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show("Xóa thành công.");
                     dsThanhVien.Remove(thanhVien);
                     lsvDanhSachTV.Items.Remove(item);
                     txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
 
                 }
-                else MessageBox.Show("Xóa thất bại!");
+                else MessageBox.Show("Xóa thất bại.");
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -229,7 +238,10 @@ namespace QuanLyVeXemPhim.Views
                 }
                 txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -246,6 +258,8 @@ namespace QuanLyVeXemPhim.Views
             txtNgaySinh.Value = DateTime.Now;
             txtKhuVuc.Clear();
             txtEmail.Clear();
+            lsvLichSuTichDiem.Items.Clear();
+            txtTongDiem.Clear();
 
             txtIDThanhVien.Focus();
         }

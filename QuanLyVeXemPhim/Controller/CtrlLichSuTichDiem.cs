@@ -45,50 +45,38 @@ namespace QuanLyVeXemPhim.Controller
 
         }
 
+        //public List<CLichSuTichDiem> FindLichSuTichDiemByThanhVien(string idThanhVien)
         public List<CLichSuTichDiem> FindLichSuTichDiemByThanhVien(string idThanhVien)
         {
-            List<CLichSuTichDiem> results = new List<CLichSuTichDiem>();
-            string connectionString = "Data Source = DESKTOP-45GKJAU\\SQLEXPRESS; " +
-                   "Initial Catalog = QL_Ve_Xem_Phim ; Integrated Security = true";  // Replace with your actual connection string
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            string sql = "select * from lichsutichdiem where idthanhvien like @dk ";
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dk", "%" + idThanhVien + "%");
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<CLichSuTichDiem> arrs = new List<CLichSuTichDiem>();
+            while (reader.Read())
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM LichSuTichDiem WHERE IDThanhVien = @IDThanhVien", conn))
-                {
-                    cmd.Parameters.AddWithValue("@IDThanhVien", idThanhVien);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            CLichSuTichDiem lichSu = new CLichSuTichDiem()
-                            {
-                                IDLichSu = reader["IDLichSu"].ToString(),
-                                SoDiemTichLuy = Convert.ToInt32(reader["SoDiemTichLuy"]),
-                                ThoiGianTichLuy = Convert.ToDateTime(reader["ThoiGianTichLuy"]),
-                                //TongDiemTichLuy = Convert.ToInt32(reader["TongDiemTichLuy"]),
-                                ThanhVien = new CThanhVien { IDThanhVien = reader["IDThanhVien"].ToString() }
-                            };
-                            results.Add(lichSu);
-                        }
-                    }
-                }
-                conn.Close();
+                CLichSuTichDiem s = new CLichSuTichDiem();
+                s.ThanhVien = new CThanhVien();
+                s.IDLichSu = reader.GetString(0);
+                s.SoDiemTichLuy = reader.GetInt32(1);
+                s.ThoiGianTichLuy = reader.GetDateTime(2);
+                s.ThanhVien.IDThanhVien = reader.GetString(3);
+                // thêm vào ds
+                arrs.Add(s);
             }
-            return results;
+            reader.Close();
+            return arrs;
         }
-
-
-
 
         public bool insert(CLichSuTichDiem obj)
         {
             try
             {
-                string sql = "insert into lichsutichdiem values (@idlichsu,@sodiemtichluy,@thoigiantichluy,@tongdiemtichluy,@idthanhvien)";
+                string sql = "insert into lichsutichdiem values (@idlichsu,@sodiemtichluy,@thoigiantichluy,@idthanhvien)";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@idlichsu", obj.IDLichSu);
                 cmd.Parameters.AddWithValue("@sodiemtichluy", obj.SoDiemTichLuy);
-                cmd.Parameters.AddWithValue("@tongdiemtichluy", obj.TongDiemTichLuy);
                 cmd.Parameters.AddWithValue("@thoigiantichluy", obj.ThoiGianTichLuy);
                 cmd.Parameters.AddWithValue("@idthanhvien", obj.ThanhVien.IDThanhVien);
                 cmd.Connection = cnn;
@@ -103,11 +91,10 @@ namespace QuanLyVeXemPhim.Controller
         {
             try
             {
-                string sql = "update lichsutichdiem set sodiemtichluy=@sodiemtichluy, thoigiantichluy=@thoigiantichluy,tongdiemtichluy=@tongdiemtichluy, where idthanhvien=@idthanhvien";
+                string sql = "update lichsutichdiem set sodiemtichluy=@sodiemtichluy, thoigiantichluy=@thoigiantichluy, where idthanhvien=@idthanhvien";
                 SqlCommand cmd = new SqlCommand(sql);
                 cmd.Parameters.AddWithValue("@sodiemtichluy", obj.SoDiemTichLuy);
                 cmd.Parameters.AddWithValue("@thoigiantichluy", obj.ThoiGianTichLuy);
-                cmd.Parameters.AddWithValue("@tongdiemtichluy", obj.TongDiemTichLuy);
                 cmd.Parameters.AddWithValue("@idthanhvien", obj.ThanhVien.IDThanhVien);
                 cmd.Parameters.AddWithValue("@idlichsu", obj.IDLichSu);
                 cmd.Connection = cnn;
@@ -135,8 +122,7 @@ namespace QuanLyVeXemPhim.Controller
         //tìm sản phẩm theo ĐK
         public List<CLichSuTichDiem> findCriteria(string DK)
         {
-            //cho phép tìm theo tên or mã sp hoặc nước sản xuất or đon vị tính
-            string sql = "select * from lichsutichdiem where idlichsu like @dk or idthanhvien like @dk or tongdiemtichluy like @dk";
+            string sql = "select * from lichsutichdiem where idlichsu like @dk or idthanhvien like @dk ";
             SqlCommand cmd = new SqlCommand(sql);
             cmd.Parameters.AddWithValue("@dk", "%" + DK + "%");
             cmd.Connection = cnn;
@@ -145,11 +131,11 @@ namespace QuanLyVeXemPhim.Controller
             while (reader.Read())
             {
                 CLichSuTichDiem s = new CLichSuTichDiem();
+                s.ThanhVien = new CThanhVien();
                 s.IDLichSu = reader.GetString(0);
-                s.SoDiemTichLuy = (int)reader.GetDecimal(1);
+                s.SoDiemTichLuy = reader.GetInt32(1);
                 s.ThoiGianTichLuy = reader.GetDateTime(2);
-                s.TongDiemTichLuy = (int)reader.GetDecimal(3);
-                s.ThanhVien.IDThanhVien = reader.GetString(4);
+                s.ThanhVien.IDThanhVien = reader.GetString(3);
                 // thêm vào ds
                 arrs.Add(s);
             }

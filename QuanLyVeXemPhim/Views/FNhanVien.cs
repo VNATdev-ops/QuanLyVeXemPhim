@@ -47,6 +47,7 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvNhanVien.SelectedItems.Count == 0) { return; }
                 ListViewItem item = lsvNhanVien.SelectedItems[0];
                 CNhanVien nhanVien = new CNhanVien();
                 nhanVien.IDNhanVien = item.SubItems[0].Text;
@@ -69,7 +70,10 @@ namespace QuanLyVeXemPhim.Views
                 }
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -98,13 +102,22 @@ namespace QuanLyVeXemPhim.Views
                 else
                     MessageBox.Show("Thêm thất bại.");
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             try
             {
+                if(lsvNhanVien.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn dữ liệu cần xóa.");
+                    return;
+                }
+
                 ListViewItem item = lsvNhanVien.SelectedItems[0];
                 CNhanVien nhanVien = new CNhanVien();
                 nhanVien.IDNhanVien = item.SubItems[0].Text;
@@ -125,13 +138,21 @@ namespace QuanLyVeXemPhim.Views
                 else MessageBox.Show("Xóa thất bại!");
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             try
             {
+                if(lsvNhanVien.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn dữ liệu cần cập nhật.");
+                    return;
+                }
                 ListViewItem item = lsvNhanVien.SelectedItems[0];
                 CNhanVien nhanVien = new CNhanVien();
                 nhanVien.IDNhanVien = item.SubItems[0].Text;
@@ -164,7 +185,10 @@ namespace QuanLyVeXemPhim.Views
                 else
                     MessageBox.Show("Cập nhật thất bại.");
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void txtTimKiemNV_TextChanged(object sender, EventArgs e)
@@ -185,7 +209,10 @@ namespace QuanLyVeXemPhim.Views
                 txtTongSo.Text = lsvNhanVien.Items.Count.ToString();
             }
 
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
@@ -198,6 +225,7 @@ namespace QuanLyVeXemPhim.Views
             txtSoDienThoai.Clear();
             txtEmail.Clear();
             txtChucVu.Clear();
+            lsvNhanVien.SelectedItems.Clear();
             txtIDNhanVien.Focus();
         }
 

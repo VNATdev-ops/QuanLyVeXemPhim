@@ -66,7 +66,7 @@ namespace QuanLyVeXemPhim.Controller
                 return false;
             }
         }
-        public bool delete_bySingleID(string dk)
+        public bool delete(string dk)
         {
             try
             {
@@ -83,24 +83,7 @@ namespace QuanLyVeXemPhim.Controller
                 return false;
             }
         }
-        public bool delete_byBothID(string idHD, string idSP)
-        {
-            try
-            {
-                string sql = "delete from cthd where idhoadon = @idHD or idsanpham = @idSP";
-                SqlCommand cmd = new SqlCommand(sql);
-                cmd.Connection = cnn;
-                cmd.Parameters.AddWithValue("@idHD", idHD);
-                cmd.Parameters.AddWithValue("@idSP", idSP);
-                int n = cmd.ExecuteNonQuery();
-                return n > 0;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi khi xóa sản phẩm khỏi cơ sở dữ liệu: " + ex.Message);
-                return false;
-            }
-        }
+      
         public List<CCTHD> findCriteria(string dk)
         {
             string sql = "select * from cthd where idhoadon = @dk";

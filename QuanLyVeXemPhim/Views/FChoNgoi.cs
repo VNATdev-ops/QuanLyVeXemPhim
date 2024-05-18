@@ -64,7 +64,10 @@ namespace QuanLyVeXemPhim.Views
                     lsvDanhSachCN.Items.Add(item);
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnThem_Click_1(object sender, EventArgs e)
@@ -86,45 +89,47 @@ namespace QuanLyVeXemPhim.Views
                 lsvDanhSachCN.Items.Add(item);
                 dsChoNgoi.Add(choNgoi);
                 txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
-                MessageBox.Show("Thêm thành công");
+                MessageBox.Show("Thêm thông tin chỗ ngồi thành công.");
             }
             else
-                MessageBox.Show("Thêm thất bại!");
+                MessageBox.Show("Thêm thông tin chỗ ngồi thất bại.");
         }
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
+            try
             {
-                try
+                if(lsvDanhSachCN.SelectedItems.Count == 0) 
+                { 
+                    MessageBox.Show("Vui lòng chọn dữ liệu cần xóa.");
+                    return; 
+                }
+                ListViewItem item = lsvDanhSachCN.SelectedItems[0];
+                CChoNgoi choNgoi = new CChoNgoi();
+                choNgoi.IDChoNgoi = item.SubItems[0].Text;
+                int index = dsChoNgoi.IndexOf(choNgoi);
+                if (index < 0)
+                {
+                    return;
+                }
+                choNgoi = dsChoNgoi[index];
+                if (ctrChoNgoi.delete(choNgoi))
+                {
+                    dsChoNgoi.Remove(choNgoi);
+                    lsvDanhSachCN.Items.Remove(item);
+                    MessageBox.Show("Xóa thông tin chỗ ngồi thành công.");
+                }
+                else
                 {
 
-                    ListViewItem item = lsvDanhSachCN.SelectedItems[0];
-                    CChoNgoi choNgoi = new CChoNgoi();
-                    choNgoi.IDChoNgoi = item.SubItems[0].Text;
-                    int index = dsChoNgoi.IndexOf(choNgoi);
-                    if (index < 0)
-                    {
-                        return;
-                    }
-                    choNgoi = dsChoNgoi[index];
-                    if (ctrChoNgoi.delete(choNgoi))
-                    {
-                        dsChoNgoi.Remove(choNgoi);
-                        lsvDanhSachCN.Items.Remove(item);
-                        MessageBox.Show("Xóa Thành Công");
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Xóa Thất Bại.");
-                    }
-
-                    txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
+                    MessageBox.Show("Xóa thông tin chỗ ngồi thất bại.");
                 }
-                catch
-                {
 
-                }
+                txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -132,6 +137,7 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvDanhSachCN.SelectedItems.Count == 0) { return; }
                 ListViewItem item = lsvDanhSachCN.SelectedItems[0];
                 CChoNgoi choNgoi = new CChoNgoi();
                 choNgoi.IDChoNgoi = item.SubItems[0].Text;
@@ -148,9 +154,9 @@ namespace QuanLyVeXemPhim.Views
                 txtVitri.Text = choNgoi.ViTri;
 
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -161,11 +167,16 @@ namespace QuanLyVeXemPhim.Views
             txtLoaiChoNgoi.Text = string.Empty;
             txtVitri.Text = string.Empty;
             txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
-
+            txtIDchongoi.Focus();
         }
 
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
+            if (lsvDanhSachCN.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn dữ liệu cần cập nhật.");
+                return;
+            }
             ListViewItem item = lsvDanhSachCN.SelectedItems[0];
             CChoNgoi choNgoi = new CChoNgoi();
             choNgoi.IDChoNgoi = item.SubItems[0].Text;
@@ -184,17 +195,12 @@ namespace QuanLyVeXemPhim.Views
                 item.SubItems[1].Text = choNgoi.Phong.IDPhong;
                 item.SubItems[2].Text = choNgoi.LoaiChoNgoi;
                 item.SubItems[3].Text = choNgoi.ViTri;
-                MessageBox.Show("Cập nhật thành công");
+                MessageBox.Show("Cập nhật thông tin chỗ ngồi thành công.");
             }
             else
             {
-                MessageBox.Show(" cập nhật thất bại");
+                MessageBox.Show("Cập nhật thông tin chỗ ngồi thất bại.");
             }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

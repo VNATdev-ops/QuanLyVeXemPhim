@@ -210,7 +210,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(295, 339);
             panel2.TabIndex = 19;
-            panel2.Paint += panel2_Paint;
             // 
             // groupBox4
             // 
