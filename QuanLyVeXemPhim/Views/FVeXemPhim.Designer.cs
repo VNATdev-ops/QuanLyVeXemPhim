@@ -440,8 +440,11 @@
             // 
             // FVeXemPhim
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             AutoScroll = true;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
             Controls.Add(label8);
@@ -451,6 +454,7 @@
             Margin = new Padding(4);
             MinimumSize = new Size(1900, 1250);
             Name = "FVeXemPhim";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FVeXemPhim";
             Load += FVeXemPhim_Load;
             groupBox1.ResumeLayout(false);
