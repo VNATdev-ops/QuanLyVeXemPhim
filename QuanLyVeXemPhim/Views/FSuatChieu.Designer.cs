@@ -59,10 +59,12 @@
             btnNhapMoi = new Button();
             btnXoa = new Button();
             btnThem = new Button();
+            panel2 = new Panel();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // phim
@@ -112,7 +114,7 @@
             groupBox3.Controls.Add(txtTongSo);
             groupBox3.Controls.Add(label9);
             groupBox3.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox3.Location = new Point(1516, 675);
+            groupBox3.Location = new Point(62, 675);
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
@@ -355,7 +357,7 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Roboto", 10F);
-            panel1.Location = new Point(1516, 199);
+            panel1.Location = new Point(62, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 429);
@@ -421,19 +423,31 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(groupBox3);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(1454, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(424, 1194);
+            panel2.TabIndex = 22;
+            // 
             // FSuatChieu
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
-            Controls.Add(panel1);
-            Controls.Add(groupBox3);
             Controls.Add(label6);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Controls.Add(panel2);
             Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MinimumSize = new Size(1900, 1250);
             Name = "FSuatChieu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FSuatChieu";
             Load += FSuatChieu_Load;
             groupBox3.ResumeLayout(false);
@@ -443,6 +457,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -480,5 +495,6 @@
         private Button btnNhapMoi;
         private Button btnXoa;
         private Button btnThem;
+        private Panel panel2;
     }
 }

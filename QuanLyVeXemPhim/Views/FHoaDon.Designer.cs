@@ -559,7 +559,7 @@
             Controls.Add(panelRight);
             Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
-            MaximumSize = new Size(3000, 2000);
+            MinimumSize = new Size(1900, 1250);
             Name = "FHoaDon";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FHoaDon";

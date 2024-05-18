@@ -61,12 +61,14 @@
             txtIDNhanVien = new TextBox();
             label8 = new Label();
             label7 = new Label();
+            panel3 = new Panel();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label6
@@ -182,7 +184,7 @@
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
             panel2.Font = new Font("Roboto", 10F);
-            panel2.Location = new Point(1516, 675);
+            panel2.Location = new Point(49, 675);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(295, 339);
@@ -257,7 +259,7 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Font = new Font("Roboto", 10F);
-            panel1.Location = new Point(1516, 199);
+            panel1.Location = new Point(49, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 429);
@@ -453,19 +455,30 @@
             label7.TabIndex = 5;
             label7.Text = "Số điện thoại";
             // 
+            // panel3
+            // 
+            panel3.Controls.Add(panel2);
+            panel3.Controls.Add(panel1);
+            panel3.Dock = DockStyle.Right;
+            panel3.Location = new Point(1454, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(424, 1194);
+            panel3.TabIndex = 21;
+            // 
             // FNhanVien
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
             Controls.Add(label6);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(panel3);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
+            MinimumSize = new Size(1900, 1250);
             Name = "FNhanVien";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FNhanVien";
@@ -479,6 +492,7 @@
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -518,5 +532,6 @@
         private TextBox txtTimKiemNV;
         private DateTimePicker txtNgaySinh;
         private TextBox txtTongSo;
+        private Panel panel3;
     }
 }

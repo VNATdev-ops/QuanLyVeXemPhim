@@ -366,6 +366,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
             Controls.Add(panel1);
@@ -373,6 +374,7 @@
             Controls.Add(lblTenForm);
             Controls.Add(groupBox1);
             Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MinimumSize = new Size(1900, 1250);
             Name = "FSanPham";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FSanPham";

@@ -474,6 +474,7 @@
             Controls.Add(lblTenForm);
             Controls.Add(groupBox1);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MinimumSize = new Size(1900, 1250);
             Name = "FPhim";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FPhim";

@@ -61,7 +61,7 @@
             panel1.Controls.Add(btnDangNhap);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(27, 85);
+            panel1.Location = new Point(8, 90);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(963, 232);
@@ -144,7 +144,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(373, 26);
+            label3.Location = new Point(361, 31);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(278, 55);
@@ -158,10 +158,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 250, 246);
             CancelButton = btnThoat;
-            ClientSize = new Size(1017, 340);
+            ClientSize = new Size(978, 344);
             Controls.Add(label3);
             Controls.Add(panel1);
             Margin = new Padding(4);
+            MinimumSize = new Size(1000, 400);
             Name = "FLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FLogin";

@@ -381,7 +381,7 @@
             Controls.Add(panel3);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
-            MaximumSize = new Size(3000, 2000);
+            MinimumSize = new Size(1900, 1250);
             Name = "FChoNgoi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FChoNgoi";

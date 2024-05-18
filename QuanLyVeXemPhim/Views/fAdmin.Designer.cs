@@ -34,7 +34,6 @@
             btnHoaDon = new Button();
             btnChoNgoi = new Button();
             pictureBox1 = new PictureBox();
-            panel2 = new Panel();
             btnPhongChieu = new Button();
             btnSuatChieu = new Button();
             btnThoatCT = new Button();
@@ -50,12 +49,12 @@
             // 
             // panel_Left
             // 
+            panel_Left.AutoScroll = true;
             panel_Left.BackColor = Color.FromArgb(16, 44, 87);
             panel_Left.Controls.Add(btnRapChieuPhim);
             panel_Left.Controls.Add(btnHoaDon);
             panel_Left.Controls.Add(btnChoNgoi);
             panel_Left.Controls.Add(pictureBox1);
-            panel_Left.Controls.Add(panel2);
             panel_Left.Controls.Add(btnPhongChieu);
             panel_Left.Controls.Add(btnSuatChieu);
             panel_Left.Controls.Add(btnThoatCT);
@@ -69,7 +68,7 @@
             panel_Left.Margin = new Padding(4);
             panel_Left.MaximumSize = new Size(350, 1500);
             panel_Left.Name = "panel_Left";
-            panel_Left.Size = new Size(350, 1244);
+            panel_Left.Size = new Size(350, 1294);
             panel_Left.TabIndex = 0;
             // 
             // btnRapChieuPhim
@@ -130,22 +129,14 @@
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(73, 74);
+            pictureBox1.Location = new Point(65, 74);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(136, 59);
+            pictureBox1.Size = new Size(160, 83);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // panel2
-            // 
-            panel2.Location = new Point(348, 75);
-            panel2.Margin = new Padding(4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1579, 946);
-            panel2.TabIndex = 2;
             // 
             // btnPhongChieu
             // 
@@ -193,7 +184,7 @@
             btnThoatCT.FlatStyle = FlatStyle.Flat;
             btnThoatCT.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnThoatCT.ForeColor = SystemColors.HighlightText;
-            btnThoatCT.Location = new Point(0, 1146);
+            btnThoatCT.Location = new Point(0, 1196);
             btnThoatCT.Margin = new Padding(4);
             btnThoatCT.Name = "btnThoatCT";
             btnThoatCT.Padding = new Padding(60, 0, 0, 0);
@@ -299,12 +290,13 @@
             // splitContainer_Body
             // 
             splitContainer_Body.AutoScroll = true;
+            splitContainer_Body.AutoSize = true;
             splitContainer_Body.Dock = DockStyle.Fill;
             splitContainer_Body.Location = new Point(350, 0);
             splitContainer_Body.Margin = new Padding(4);
-            splitContainer_Body.MaximumSize = new Size(3000, 2000);
+            splitContainer_Body.MinimumSize = new Size(1900, 1250);
             splitContainer_Body.Name = "splitContainer_Body";
-            splitContainer_Body.Size = new Size(1910, 1244);
+            splitContainer_Body.Size = new Size(1910, 1294);
             splitContainer_Body.TabIndex = 2;
             // 
             // fAdmin
@@ -312,10 +304,11 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 250, 246);
-            ClientSize = new Size(2260, 1244);
+            ClientSize = new Size(2260, 1294);
             Controls.Add(splitContainer_Body);
             Controls.Add(panel_Left);
             Margin = new Padding(4);
+            MinimumSize = new Size(2250, 1300);
             Name = "fAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "fAdmin";
@@ -324,6 +317,7 @@
             panel_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -336,7 +330,6 @@
         private Button btnPhim;
         private Button btnVeXemPhim;
         private Button btnThanhVien;
-        private Panel panel2;
         private PictureBox pictureBox1;
         private Panel splitContainer_Body;
         private Button btnChoNgoi;
