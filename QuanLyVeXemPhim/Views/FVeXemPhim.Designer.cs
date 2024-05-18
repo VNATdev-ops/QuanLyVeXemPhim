@@ -440,8 +440,7 @@
             // 
             // FVeXemPhim
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleMode = AutoScaleMode.None;
             AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);

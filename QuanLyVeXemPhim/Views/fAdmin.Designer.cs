@@ -290,7 +290,6 @@
             // splitContainer_Body
             // 
             splitContainer_Body.AutoScroll = true;
-            splitContainer_Body.AutoSize = true;
             splitContainer_Body.Dock = DockStyle.Fill;
             splitContainer_Body.Location = new Point(350, 0);
             splitContainer_Body.Margin = new Padding(4);
@@ -301,8 +300,7 @@
             // 
             // fAdmin
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(2260, 1294);
             Controls.Add(splitContainer_Body);
@@ -317,7 +315,6 @@
             panel_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
