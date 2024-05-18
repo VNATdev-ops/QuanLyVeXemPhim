@@ -204,7 +204,7 @@
             // 
             panel2.Controls.Add(groupBox4);
             panel2.Controls.Add(groupBox3);
-            panel2.Font = new Font("Roboto", 10F);
+            panel2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel2.Location = new Point(49, 675);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
@@ -291,7 +291,7 @@
             panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Font = new Font("Roboto", 10F);
+            panel1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(49, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";

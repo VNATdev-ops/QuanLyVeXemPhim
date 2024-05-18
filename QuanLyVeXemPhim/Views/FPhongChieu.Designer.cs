@@ -83,7 +83,7 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(1345, 246);
+            groupBox1.Size = new Size(1345, 256);
             groupBox1.TabIndex = 17;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phòng chiếu";
@@ -91,48 +91,48 @@
             // txtTenPhong
             // 
             txtTenPhong.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTenPhong.Location = new Point(208, 107);
+            txtTenPhong.Location = new Point(227, 111);
             txtTenPhong.Name = "txtTenPhong";
-            txtTenPhong.Size = new Size(440, 30);
+            txtTenPhong.Size = new Size(428, 30);
             txtTenPhong.TabIndex = 20;
             // 
             // txtSoLuongGhe
             // 
             txtSoLuongGhe.Font = new Font("Microsoft Sans Serif", 10F);
-            txtSoLuongGhe.Location = new Point(208, 164);
+            txtSoLuongGhe.Location = new Point(227, 171);
             txtSoLuongGhe.Name = "txtSoLuongGhe";
-            txtSoLuongGhe.Size = new Size(440, 30);
+            txtSoLuongGhe.Size = new Size(428, 30);
             txtSoLuongGhe.TabIndex = 20;
             // 
             // txtLoaiPhong
             // 
             txtLoaiPhong.Font = new Font("Microsoft Sans Serif", 10F);
-            txtLoaiPhong.Location = new Point(840, 108);
+            txtLoaiPhong.Location = new Point(860, 111);
             txtLoaiPhong.Name = "txtLoaiPhong";
-            txtLoaiPhong.Size = new Size(440, 30);
+            txtLoaiPhong.Size = new Size(428, 30);
             txtLoaiPhong.TabIndex = 20;
             // 
             // txtIDphong
             // 
             txtIDphong.Font = new Font("Microsoft Sans Serif", 10F);
-            txtIDphong.Location = new Point(208, 51);
+            txtIDphong.Location = new Point(227, 53);
             txtIDphong.Name = "txtIDphong";
-            txtIDphong.Size = new Size(440, 30);
+            txtIDphong.Size = new Size(428, 30);
             txtIDphong.TabIndex = 20;
             // 
             // txtIDrap
             // 
             txtIDrap.Font = new Font("Microsoft Sans Serif", 10F);
-            txtIDrap.Location = new Point(840, 51);
+            txtIDrap.Location = new Point(860, 52);
             txtIDrap.Name = "txtIDrap";
-            txtIDrap.Size = new Size(440, 30);
+            txtIDrap.Size = new Size(428, 30);
             txtIDrap.TabIndex = 20;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10F);
-            label5.Location = new Point(46, 172);
+            label5.Location = new Point(50, 179);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(128, 25);
@@ -143,7 +143,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(708, 116);
+            label4.Location = new Point(716, 120);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(109, 25);
@@ -154,7 +154,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10F);
-            label3.Location = new Point(46, 115);
+            label3.Location = new Point(50, 120);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(107, 25);
@@ -165,7 +165,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(708, 59);
+            label2.Location = new Point(716, 60);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(71, 25);
@@ -176,7 +176,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(46, 59);
+            label1.Location = new Point(50, 61);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(93, 25);
@@ -187,11 +187,11 @@
             // 
             groupBox2.Controls.Add(lsvDanhSachPC);
             groupBox2.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox2.Location = new Point(74, 490);
+            groupBox2.Location = new Point(73, 498);
             groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4);
-            groupBox2.Size = new Size(1335, 624);
+            groupBox2.Size = new Size(1345, 650);
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách phòng chiếu";
@@ -203,7 +203,7 @@
             lsvDanhSachPC.Location = new Point(4, 32);
             lsvDanhSachPC.Margin = new Padding(4);
             lsvDanhSachPC.Name = "lsvDanhSachPC";
-            lsvDanhSachPC.Size = new Size(1327, 588);
+            lsvDanhSachPC.Size = new Size(1337, 614);
             lsvDanhSachPC.TabIndex = 0;
             lsvDanhSachPC.UseCompatibleStateImageBehavior = false;
             lsvDanhSachPC.SelectedIndexChanged += lsvDanhSach_SelectedIndexChanged;
@@ -227,7 +227,7 @@
             panel2.Location = new Point(49, 675);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(295, 339);
+            panel2.Size = new Size(322, 353);
             panel2.TabIndex = 21;
             // 
             // groupBox4
@@ -235,11 +235,11 @@
             groupBox4.Controls.Add(txtTimKiem);
             groupBox4.Controls.Add(phim);
             groupBox4.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox4.Location = new Point(4, 179);
+            groupBox4.Location = new Point(4, 186);
             groupBox4.Margin = new Padding(4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(4);
-            groupBox4.Size = new Size(286, 156);
+            groupBox4.Size = new Size(312, 162);
             groupBox4.TabIndex = 1;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tìm kiếm";
@@ -247,10 +247,10 @@
             // txtTimKiem
             // 
             txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTimKiem.Location = new Point(22, 99);
+            txtTimKiem.Location = new Point(24, 103);
             txtTimKiem.Margin = new Padding(4);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(246, 30);
+            txtTimKiem.Size = new Size(268, 30);
             txtTimKiem.TabIndex = 16;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -258,7 +258,7 @@
             // 
             phim.AutoSize = true;
             phim.Font = new Font("Microsoft Sans Serif", 10F);
-            phim.Location = new Point(45, 59);
+            phim.Location = new Point(49, 61);
             phim.Margin = new Padding(4, 0, 4, 0);
             phim.Name = "phim";
             phim.Size = new Size(203, 25);
@@ -274,7 +274,7 @@
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
-            groupBox3.Size = new Size(286, 156);
+            groupBox3.Size = new Size(312, 162);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thống kê";
@@ -282,18 +282,18 @@
             // txtTongSo
             // 
             txtTongSo.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTongSo.Location = new Point(44, 90);
+            txtTongSo.Location = new Point(48, 94);
             txtTongSo.Margin = new Padding(4);
             txtTongSo.Name = "txtTongSo";
             txtTongSo.ReadOnly = true;
-            txtTongSo.Size = new Size(200, 30);
+            txtTongSo.Size = new Size(218, 30);
             txtTongSo.TabIndex = 16;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 10F);
-            label9.Location = new Point(106, 53);
+            label9.Location = new Point(116, 55);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(89, 25);
@@ -308,20 +308,20 @@
             panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Font = new Font("Roboto", 10F);
+            panel1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(49, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(295, 429);
+            panel1.Size = new Size(322, 447);
             panel1.TabIndex = 20;
             // 
             // btnThoat
             // 
             btnThoat.Font = new Font("Microsoft Sans Serif", 10F);
-            btnThoat.Location = new Point(48, 341);
+            btnThoat.Location = new Point(52, 355);
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(204, 60);
+            btnThoat.Size = new Size(223, 62);
             btnThoat.TabIndex = 4;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -330,10 +330,10 @@
             // btnCapNhat
             // 
             btnCapNhat.Font = new Font("Microsoft Sans Serif", 10F);
-            btnCapNhat.Location = new Point(48, 105);
+            btnCapNhat.Location = new Point(52, 109);
             btnCapNhat.Margin = new Padding(4);
             btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(204, 60);
+            btnCapNhat.Size = new Size(223, 62);
             btnCapNhat.TabIndex = 3;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
@@ -342,10 +342,10 @@
             // btnNhapMoi
             // 
             btnNhapMoi.Font = new Font("Microsoft Sans Serif", 10F);
-            btnNhapMoi.Location = new Point(48, 183);
+            btnNhapMoi.Location = new Point(52, 191);
             btnNhapMoi.Margin = new Padding(4);
             btnNhapMoi.Name = "btnNhapMoi";
-            btnNhapMoi.Size = new Size(204, 60);
+            btnNhapMoi.Size = new Size(223, 62);
             btnNhapMoi.TabIndex = 2;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
@@ -354,10 +354,10 @@
             // btnXoa
             // 
             btnXoa.Font = new Font("Microsoft Sans Serif", 10F);
-            btnXoa.Location = new Point(48, 261);
+            btnXoa.Location = new Point(52, 272);
             btnXoa.Margin = new Padding(4);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(204, 60);
+            btnXoa.Size = new Size(223, 62);
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -366,10 +366,10 @@
             // btnThem
             // 
             btnThem.Font = new Font("Microsoft Sans Serif", 10F);
-            btnThem.Location = new Point(48, 31);
+            btnThem.Location = new Point(52, 32);
             btnThem.Margin = new Padding(4);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(204, 60);
+            btnThem.Size = new Size(223, 62);
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
@@ -387,7 +387,7 @@
             // 
             // FPhongChieu
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(254, 250, 246);
@@ -396,7 +396,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel3);
-            Font = new Font("Roboto", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             MinimumSize = new Size(1900, 1250);
             Name = "FPhongChieu";

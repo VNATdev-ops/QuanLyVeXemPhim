@@ -361,7 +361,7 @@
             panel1.Controls.Add(btnNhapMoi);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
-            panel1.Font = new Font("Roboto", 10F);
+            panel1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel1.Location = new Point(62, 199);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
@@ -440,17 +440,16 @@
             // 
             // FVeXemPhim
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(12F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(254, 250, 246);
             ClientSize = new Size(1878, 1194);
             Controls.Add(label8);
             Controls.Add(s);
             Controls.Add(groupBox1);
             Controls.Add(panel3);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             MinimumSize = new Size(1900, 1250);
             Name = "FVeXemPhim";

@@ -65,6 +65,7 @@
             panel_Left.Controls.Add(btnVeXemPhim);
             panel_Left.Controls.Add(btnThanhVien);
             panel_Left.Dock = DockStyle.Left;
+            panel_Left.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel_Left.Location = new Point(0, 0);
             panel_Left.Margin = new Padding(4);
             panel_Left.MaximumSize = new Size(350, 1500);
@@ -294,6 +295,7 @@
             splitContainer_Body.AutoSize = true;
             splitContainer_Body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             splitContainer_Body.Dock = DockStyle.Fill;
+            splitContainer_Body.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             splitContainer_Body.Location = new Point(350, 0);
             splitContainer_Body.Margin = new Padding(4);
             splitContainer_Body.MinimumSize = new Size(1900, 1250);
@@ -312,6 +314,7 @@
             ClientSize = new Size(2260, 1294);
             Controls.Add(splitContainer_Body);
             Controls.Add(panel_Left);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             MinimumSize = new Size(2250, 1300);
             Name = "fAdmin";

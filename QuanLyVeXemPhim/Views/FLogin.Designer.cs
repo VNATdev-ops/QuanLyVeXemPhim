@@ -46,10 +46,10 @@
             // btnDangNhap
             // 
             btnDangNhap.Font = new Font("Microsoft Sans Serif", 10F);
-            btnDangNhap.Location = new Point(609, 178);
-            btnDangNhap.Margin = new Padding(4);
+            btnDangNhap.Location = new Point(713, 178);
+            btnDangNhap.Margin = new Padding(5, 4, 5, 4);
             btnDangNhap.Name = "btnDangNhap";
-            btnDangNhap.Size = new Size(145, 40);
+            btnDangNhap.Size = new Size(174, 40);
             btnDangNhap.TabIndex = 2;
             btnDangNhap.Text = "Đăng nhập";
             btnDangNhap.UseVisualStyleBackColor = true;
@@ -61,19 +61,19 @@
             panel1.Controls.Add(btnDangNhap);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(8, 90);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(10, 90);
+            panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(963, 232);
+            panel1.Size = new Size(1156, 232);
             panel1.TabIndex = 1;
             // 
             // btnThoat
             // 
             btnThoat.Font = new Font("Microsoft Sans Serif", 10F);
-            btnThoat.Location = new Point(781, 178);
-            btnThoat.Margin = new Padding(4);
+            btnThoat.Location = new Point(919, 178);
+            btnThoat.Margin = new Padding(5, 4, 5, 4);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(145, 40);
+            btnThoat.Size = new Size(174, 40);
             btnThoat.TabIndex = 3;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -83,19 +83,19 @@
             // 
             panel3.Controls.Add(txtMatKhau);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(4, 91);
-            panel3.Margin = new Padding(4);
+            panel3.Location = new Point(5, 91);
+            panel3.Margin = new Padding(5, 4, 5, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(955, 64);
+            panel3.Size = new Size(1146, 64);
             panel3.TabIndex = 1;
             // 
             // txtMatKhau
             // 
             txtMatKhau.Font = new Font("Microsoft Sans Serif", 10F);
-            txtMatKhau.Location = new Point(260, 18);
-            txtMatKhau.Margin = new Padding(4);
+            txtMatKhau.Location = new Point(312, 18);
+            txtMatKhau.Margin = new Padding(5, 4, 5, 4);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(662, 30);
+            txtMatKhau.Size = new Size(776, 30);
             txtMatKhau.TabIndex = 1;
             txtMatKhau.UseSystemPasswordChar = true;
             // 
@@ -103,8 +103,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            label2.Location = new Point(28, 18);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(34, 18);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(117, 29);
             label2.TabIndex = 0;
@@ -114,27 +114,27 @@
             // 
             panel2.Controls.Add(txtDangNhap);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(4, 19);
-            panel2.Margin = new Padding(4);
+            panel2.Location = new Point(5, 19);
+            panel2.Margin = new Padding(5, 4, 5, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(955, 64);
+            panel2.Size = new Size(1146, 64);
             panel2.TabIndex = 0;
             // 
             // txtDangNhap
             // 
             txtDangNhap.Font = new Font("Microsoft Sans Serif", 10F);
-            txtDangNhap.Location = new Point(260, 18);
-            txtDangNhap.Margin = new Padding(4);
+            txtDangNhap.Location = new Point(312, 18);
+            txtDangNhap.Margin = new Padding(5, 4, 5, 4);
             txtDangNhap.Name = "txtDangNhap";
-            txtDangNhap.Size = new Size(662, 30);
+            txtDangNhap.Size = new Size(776, 30);
             txtDangNhap.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            label1.Location = new Point(28, 18);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(34, 18);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(188, 29);
             label1.TabIndex = 0;
@@ -144,8 +144,8 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(361, 31);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(433, 31);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(278, 55);
             label3.TabIndex = 2;
@@ -154,15 +154,16 @@
             // FLogin
             // 
             AcceptButton = btnDangNhap;
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(254, 250, 246);
             CancelButton = btnThoat;
-            ClientSize = new Size(978, 344);
+            ClientSize = new Size(1174, 344);
             Controls.Add(label3);
             Controls.Add(panel1);
-            Margin = new Padding(4);
-            MinimumSize = new Size(1000, 400);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(5, 4, 5, 4);
+            MinimumSize = new Size(1196, 400);
             Name = "FLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FLogin";
