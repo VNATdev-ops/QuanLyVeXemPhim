@@ -304,9 +304,9 @@
             lblIDSuatChieu.Location = new Point(63, 62);
             lblIDSuatChieu.Margin = new Padding(4, 0, 4, 0);
             lblIDSuatChieu.Name = "lblIDSuatChieu";
-            lblIDSuatChieu.Size = new Size(129, 25);
+            lblIDSuatChieu.Size = new Size(134, 25);
             lblIDSuatChieu.TabIndex = 0;
-            lblIDSuatChieu.Text = "ID Suất chiếu";
+            lblIDSuatChieu.Text = "Mã suất chiếu";
             // 
             // groupBox1
             // 

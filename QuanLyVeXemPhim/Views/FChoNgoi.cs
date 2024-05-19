@@ -20,8 +20,8 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachCN.Width;
-            lsvDanhSachCN.Columns.Add("ID Ghế", 25 * width / 100);
-            lsvDanhSachCN.Columns.Add("ID Phòng", 25 * width / 100);
+            lsvDanhSachCN.Columns.Add("Mã ghế", 25 * width / 100);
+            lsvDanhSachCN.Columns.Add("Mã phòng", 25 * width / 100);
             lsvDanhSachCN.Columns.Add("Loại ghế", 28 * width / 100);
             lsvDanhSachCN.Columns.Add("Vị trí", 19 * width / 100);
 
@@ -66,7 +66,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -89,10 +89,10 @@ namespace QuanLyVeXemPhim.Views
                 lsvDanhSachCN.Items.Add(item);
                 dsChoNgoi.Add(choNgoi);
                 txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
-                MessageBox.Show("Thêm thông tin chỗ ngồi thành công.");
+                MessageBox.Show("Thêm thông tin chỗ ngồi thành công!");
             }
             else
-                MessageBox.Show("Thêm thông tin chỗ ngồi thất bại.");
+                MessageBox.Show("Thêm thông tin chỗ ngồi thất bại!");
         }
 
         private void btnXoa_Click_1(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace QuanLyVeXemPhim.Views
             {
                 if(lsvDanhSachCN.SelectedItems.Count == 0) 
                 { 
-                    MessageBox.Show("Vui lòng chọn dữ liệu cần xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin chỗ ngồi cần xóa.");
                     return; 
                 }
                 ListViewItem item = lsvDanhSachCN.SelectedItems[0];
@@ -117,19 +117,19 @@ namespace QuanLyVeXemPhim.Views
                 {
                     dsChoNgoi.Remove(choNgoi);
                     lsvDanhSachCN.Items.Remove(item);
-                    MessageBox.Show("Xóa thông tin chỗ ngồi thành công.");
+                    MessageBox.Show("Xóa thông tin chỗ ngồi thành công!");
                 }
                 else
                 {
 
-                    MessageBox.Show("Xóa thông tin chỗ ngồi thất bại.");
+                    MessageBox.Show("Xóa thông tin chỗ ngồi thất bại!");
                 }
 
                 txtTongSo.Text = lsvDanhSachCN.Items.Count.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -156,7 +156,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -174,7 +174,7 @@ namespace QuanLyVeXemPhim.Views
         {
             if (lsvDanhSachCN.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn dữ liệu cần cập nhật.");
+                MessageBox.Show("Vui lòng chọn thông tin chỗ ngồi cần cập nhật.");
                 return;
             }
             ListViewItem item = lsvDanhSachCN.SelectedItems[0];
@@ -195,11 +195,11 @@ namespace QuanLyVeXemPhim.Views
                 item.SubItems[1].Text = choNgoi.Phong.IDPhong;
                 item.SubItems[2].Text = choNgoi.LoaiChoNgoi;
                 item.SubItems[3].Text = choNgoi.ViTri;
-                MessageBox.Show("Cập nhật thông tin chỗ ngồi thành công.");
+                MessageBox.Show("Cập nhật thông tin chỗ ngồi thành công!");
             }
             else
             {
-                MessageBox.Show("Cập nhật thông tin chỗ ngồi thất bại.");
+                MessageBox.Show("Cập nhật thông tin chỗ ngồi thất bại!");
             }
         }
     }

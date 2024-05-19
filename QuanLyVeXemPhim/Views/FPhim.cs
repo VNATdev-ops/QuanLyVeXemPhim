@@ -20,8 +20,8 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDSPhim.Width;
-            lsvDSPhim.Columns.Add("ID Phim", 5 * width / 100);
-            lsvDSPhim.Columns.Add("Tên Phim", 20 * width / 100);
+            lsvDSPhim.Columns.Add("Mã phim", 5 * width / 100);
+            lsvDSPhim.Columns.Add("Tên phim", 20 * width / 100);
             lsvDSPhim.Columns.Add("Thể loại", 8 * width / 100);
             lsvDSPhim.Columns.Add("Đạo diễn", 15 * width / 100);
             lsvDSPhim.Columns.Add("Mô tả", 5 * width / 100);
@@ -85,6 +85,7 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvDSPhim.SelectedItems.Count == 0) { return; }
                 ListViewItem item = lsvDSPhim.SelectedItems[0];
                 CPhim phim = new CPhim();
                 phim.IDPhim = item.SubItems[0].Text;
@@ -105,7 +106,10 @@ namespace QuanLyVeXemPhim.Views
                 cbDinhDang.Text = phim.DinhDang;
                 CapNhatSoLuongPhim();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -126,19 +130,19 @@ namespace QuanLyVeXemPhim.Views
                 CPhim s = new CPhim(idphim, tenphim, theloai, daodien, mota, hinhanh, ngayphathanh, dodai, trangthai, dinhdang);
                 if (ctrPhim.insert(s))
                 {
-                    MessageBox.Show("Thêm thông tin phim thành công.");
+                    MessageBox.Show("Thêm thông tin phim thành công!");
                     string[] objphim = { idphim, tenphim, theloai, daodien, mota, hinhanh, ngayphathanh + "", dodai + "", trangthai, dinhdang };
                     ListViewItem item = new ListViewItem(objphim);
                     lsvDSPhim.Items.Add(item);
                     dsPhim.Add(s);
                 }
                 else
-                    MessageBox.Show("Thêm thông tin phim thất bại.");
+                    MessageBox.Show("Thêm thông tin phim thất bại!");
                 CapNhatSoLuongPhim();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin phim.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin phim: \n" + ex.Message);
             }
         }
 
@@ -169,7 +173,7 @@ namespace QuanLyVeXemPhim.Views
                 //
                 if (ctrPhim.update(phim))
                 {
-                    MessageBox.Show("Cập nhật thông tin phim thành công.");
+                    MessageBox.Show("Cập nhật thông tin phim thành công!");
                     item.SubItems[1].Text = phim.TenPhim;
                     item.SubItems[2].Text = phim.TheLoai;
                     item.SubItems[3].Text = phim.DaoDien;
@@ -182,14 +186,14 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thông tin phim thất bại.");
+                    MessageBox.Show("Cập nhật thông tin phim thất bại!");
                     return;
                 }
                 CapNhatSoLuongPhim();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật thông tin phim.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật thông tin phim: \n" + ex.Message);
             }
         }
 
@@ -208,20 +212,20 @@ namespace QuanLyVeXemPhim.Views
                     phim = dsPhim[index];
                     if (ctrPhim.delete(phim))
                     {
-                        MessageBox.Show("Xóa thông tin phim thành công.");
+                        MessageBox.Show("Xóa thông tin phim thành công!");
                         dsPhim.Remove(phim);
                         lsvDSPhim.Items.RemoveAt(index);
                     }
                     else
-                        MessageBox.Show("Xóa thông tin phim thất bại.");
+                        MessageBox.Show("Xóa thông tin phim thất bại!");
                 }
                 else
-                    MessageBox.Show("Vui lòng chọn một phim để xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin phim cần xóa.");
                 CapNhatSoLuongPhim();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin phim.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin phim: \n" + ex.Message);
             }
         }
 

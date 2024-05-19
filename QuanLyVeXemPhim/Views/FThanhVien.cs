@@ -26,7 +26,7 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachTV.Width;
-            lsvDanhSachTV.Columns.Add("ID Thành viên", 10 * width / 100);
+            lsvDanhSachTV.Columns.Add("Mã thành viên", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Tên thành viên", 20 * width / 100);
             lsvDanhSachTV.Columns.Add("Mật khẩu", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Ngày sinh", 10 * width / 100);
@@ -38,10 +38,10 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachTV.FullRowSelect = true;
 
             lsvLichSuTichDiem.View = View.Details;
-            lsvLichSuTichDiem.Columns.Add("ID Lịch Sử", 125);
-            lsvLichSuTichDiem.Columns.Add("Số Điểm Tích Lũy", 50);
-            lsvLichSuTichDiem.Columns.Add("Thời Gian Tích Lũy", 150);
-            lsvLichSuTichDiem.Columns.Add("ID Thành Viên", 115);
+            lsvLichSuTichDiem.Columns.Add("Mã LSTD", 125);
+            lsvLichSuTichDiem.Columns.Add("Số điểm", 50);
+            lsvLichSuTichDiem.Columns.Add("Thời gian tích lũy", 150);
+            lsvLichSuTichDiem.Columns.Add("Mã thành viên", 115);
             lsvLichSuTichDiem.FullRowSelect = true;
 
         }
@@ -62,7 +62,7 @@ namespace QuanLyVeXemPhim.Views
                     matKhau, ngaySinh, gioiTinh, khuVuc, email);
                 if (ctrlThanhVien.insert(thanhVien))
                 {
-                    MessageBox.Show("Thêm thành công.");
+                    MessageBox.Show("Thêm thông tin thành viên thành công!");
                     string[] objsp = { idTV, tenThanhVien, matKhau, ngaySinh + "", gioiTinh, khuVuc, email + "" };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvDanhSachTV.Items.Add(item);
@@ -70,11 +70,11 @@ namespace QuanLyVeXemPhim.Views
                     txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
                 }
                 else
-                    MessageBox.Show("Thêm thất bại.");
+                    MessageBox.Show("Thêm thông tin thành viên thất bại!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -147,7 +147,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -155,6 +155,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(lsvDanhSachTV.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin thành viên cần cập nhật.");
+                    return;
+                }
                 ListViewItem item = lsvDanhSachTV.SelectedItems[0];
                 CThanhVien thanhVien = new CThanhVien();
                 thanhVien.IDThanhVien = item.SubItems[0].Text;
@@ -173,7 +178,7 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrlThanhVien.update(thanhVien))
                 {
-                    MessageBox.Show("Cập nhật thành công.");
+                    MessageBox.Show("Cập nhật thông tin thành viên thành công!");
                     item.SubItems[1].Text = thanhVien.TenThanhVien;
                     item.SubItems[2].Text = thanhVien.MatKhau;
                     item.SubItems[3].Text = thanhVien.NgaySinh + "";
@@ -183,12 +188,12 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại.");
+                    MessageBox.Show("Cập nhật thông tin thành viên thất bại!");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -196,6 +201,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvDanhSachTV.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin thành viên cần xóa.");
+                    return;
+                }
                 ListViewItem item = lsvDanhSachTV.SelectedItems[0];
                 CThanhVien thanhVien = new CThanhVien();
                 thanhVien.IDThanhVien = item.SubItems[0].Text;
@@ -206,18 +216,18 @@ namespace QuanLyVeXemPhim.Views
                 thanhVien = dsThanhVien[index];
                 if (ctrlThanhVien.delete(thanhVien))
                 {
-                    MessageBox.Show("Xóa thành công.");
+                    MessageBox.Show("Xóa thông tin thành viên thành công!");
                     dsThanhVien.Remove(thanhVien);
                     lsvDanhSachTV.Items.Remove(item);
                     txtTongSo.Text = lsvDanhSachTV.Items.Count.ToString();
 
                 }
-                else MessageBox.Show("Xóa thất bại.");
+                else MessageBox.Show("Xóa thông tin thành viên thất bại!");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -240,7 +250,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 

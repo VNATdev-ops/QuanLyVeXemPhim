@@ -177,9 +177,9 @@
             label6.Location = new Point(47, 105);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(80, 25);
+            label6.Size = new Size(87, 25);
             label6.TabIndex = 10;
-            label6.Text = "ID Phim";
+            label6.Text = "Mã phim";
             // 
             // label5
             // 
@@ -188,9 +188,9 @@
             label5.Location = new Point(47, 156);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(134, 25);
+            label5.Size = new Size(135, 25);
             label5.TabIndex = 4;
-            label5.Text = "ID Thành viên";
+            label5.Text = "Mã thành viên";
             // 
             // label4
             // 
@@ -199,9 +199,9 @@
             label4.Location = new Point(47, 209);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(72, 25);
+            label4.Size = new Size(68, 25);
             label4.TabIndex = 3;
-            label4.Text = "Giá Vé";
+            label4.Text = "Giá vé";
             // 
             // label3
             // 
@@ -210,9 +210,9 @@
             label3.Location = new Point(701, 102);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(115, 25);
+            label3.Size = new Size(119, 25);
             label3.TabIndex = 2;
-            label3.Text = "ID Chỗ ngồi";
+            label3.Text = "Mã chỗ ngồi";
             // 
             // label2
             // 
@@ -221,9 +221,9 @@
             label2.Location = new Point(701, 52);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(129, 25);
+            label2.Size = new Size(134, 25);
             label2.TabIndex = 1;
-            label2.Text = "ID Suất chiếu";
+            label2.Text = "Mã suất chiếu";
             // 
             // label1
             // 
@@ -232,9 +232,9 @@
             label1.Location = new Point(47, 52);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(61, 25);
+            label1.Size = new Size(66, 25);
             label1.TabIndex = 0;
-            label1.Text = "ID Vé";
+            label1.Text = "Mã vé";
             // 
             // s
             // 

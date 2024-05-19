@@ -37,7 +37,7 @@ namespace QuanLyVeXemPhim.Views
 
             //khai bao cot chi tiet hoa don
             int widthCT = lsvChiTietHD.Width;
-            lsvChiTietHD.Columns.Add("ID", 15 * widthCT / 100);
+            lsvChiTietHD.Columns.Add("Mã sản phẩm", 15 * widthCT / 100);
             lsvChiTietHD.Columns.Add("Tên sản phẩm", 30 * widthCT / 100);
             lsvChiTietHD.Columns.Add("Giá bán", 18 * widthCT / 100);
             lsvChiTietHD.Columns.Add("Số lượng", 18 * widthCT / 100);
@@ -47,10 +47,10 @@ namespace QuanLyVeXemPhim.Views
 
             //khai bao cot danh sach hoa don
             int widthDS = lsvDanhSachHD.Width;
-            lsvDanhSachHD.Columns.Add("ID hóa đơn", 29 * widthDS / 100);
+            lsvDanhSachHD.Columns.Add("Số hóa đơn", 29 * widthDS / 100);
             lsvDanhSachHD.Columns.Add("Ngày xuất hóa đơn", 30 * widthDS / 100);
-            lsvDanhSachHD.Columns.Add("ID Nhân viên", 20 * widthDS / 100);
-            lsvDanhSachHD.Columns.Add("ID Thành viên", 20 * widthDS / 100);
+            lsvDanhSachHD.Columns.Add("Mã nhân viên", 20 * widthDS / 100);
+            lsvDanhSachHD.Columns.Add("Mã thành viên", 20 * widthDS / 100);
             lsvDanhSachHD.View = View.Details;
             lsvDanhSachHD.FullRowSelect = true;
         }
@@ -191,7 +191,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -281,7 +281,7 @@ namespace QuanLyVeXemPhim.Views
                 }
                 catch
                 {
-                    MessageBox.Show("Vui lòng nhập số lượng sản phẩm.");
+                    MessageBox.Show("Vui lòng nhập số lượng sản phẩm là số nguyên dương.");
                     txtSoLuong.Focus();
                 }
 
@@ -353,7 +353,7 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn một sản phẩm để cập nhật.");
+                    MessageBox.Show("Vui lòng chọn thông tin sản phẩm cần cập nhật.");
                 }
             }
             catch { }
@@ -404,7 +404,7 @@ namespace QuanLyVeXemPhim.Views
                     nhanvien = dsNhanVien.FirstOrDefault(nv => nv.IDNhanVien == txtIDNhanVien.Text);
                     if (nhanvien == null)
                     {
-                        MessageBox.Show("Không tìm thấy nhân viên có ID này. Vui lòng nhập lại.");
+                        MessageBox.Show("Không tìm thấy mã nhân viên này. Vui lòng nhập lại.");
                         txtIDNhanVien.Clear();
                         txtIDNhanVien.Focus();
                         return;
@@ -437,16 +437,16 @@ namespace QuanLyVeXemPhim.Views
                             cthdSanPham.HoaDon = hd;
                             if (!ctrCTHD.insert(cthdSanPham))
                             {
-                                MessageBox.Show("Lưu chi tiết hóa đơn sản phẩm thất bại.");
+                                MessageBox.Show("Lưu chi tiết hóa đơn sản phẩm thất bại!");
                             }
                         }
                     }
-                    MessageBox.Show("Lưu hóa đơn thành công.");
+                    MessageBox.Show("Lưu thông tin hóa đơn thành công!");
                     LockSPButton();
                 }
                 else
                 {
-                    MessageBox.Show("Lưu hóa đơn thất bại.");
+                    MessageBox.Show("Lưu thông tin hóa đơn thất bại!");
                     return;
                 }
 
@@ -519,16 +519,16 @@ namespace QuanLyVeXemPhim.Views
                     {
                         txtTriGiaHD.Text = "0";
                     }
-                    MessageBox.Show("Xóa thông tin sản phẩm thành công.");
+                    MessageBox.Show("Xóa thông tin sản phẩm thành công!");
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin sản phẩm cần xóa.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -574,11 +574,11 @@ namespace QuanLyVeXemPhim.Views
                         try
                         {
                             ctrHoaDon.delete(selectedID);
-                            MessageBox.Show("Xóa thông tin hóa đơn thành công.");
+                            MessageBox.Show("Xóa thông tin hóa đơn thành công!");
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Lỗi khi xóa thông tin hóa đơn: " + ex.Message);
+                            MessageBox.Show("Lỗi khi xóa thông tin hóa đơn: \n" + ex.Message);
                         }
                     }
 
@@ -604,12 +604,12 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn một hóa đơn để xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin hóa đơn cần xóa.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin hóa đơn: " + ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin hóa đơn: \n" + ex.Message);
             }
         }
 
@@ -657,7 +657,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
     }

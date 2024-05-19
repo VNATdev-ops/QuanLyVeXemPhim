@@ -22,8 +22,8 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDanhSachPC.Width;
-            lsvDanhSachPC.Columns.Add("ID Phòng", 19 * width / 100);
-            lsvDanhSachPC.Columns.Add("ID Rạp", 20 * width / 100);
+            lsvDanhSachPC.Columns.Add("Mã phòng", 19 * width / 100);
+            lsvDanhSachPC.Columns.Add("Mã rạp", 20 * width / 100);
             lsvDanhSachPC.Columns.Add("Tên phòng", 20 * width / 100);
             lsvDanhSachPC.Columns.Add("Loại phòng", 20 * width / 100);
             lsvDanhSachPC.Columns.Add("Số lượng ghế", 20 * width / 100);
@@ -54,13 +54,17 @@ namespace QuanLyVeXemPhim.Views
                 }
                 CapNhatSoLuongPhong();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void lsvDanhSach_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                if (lsvDanhSachPC.SelectedItems.Count == 0) { return; }
                 ListViewItem item = lsvDanhSachPC.SelectedItems[0];
                 CPhongChieu pc = new CPhongChieu();
                 pc.IDPhong = item.SubItems[0].Text;
@@ -77,7 +81,10 @@ namespace QuanLyVeXemPhim.Views
 
                 CapNhatSoLuongPhong();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -107,7 +114,7 @@ namespace QuanLyVeXemPhim.Views
                 else
                 {
                     // Xử lý trường hợp giá trị null hoặc rỗng của txtIDrap.Text
-                    MessageBox.Show("Vui lòng nhập ID rạp chiếu phim.");
+                    MessageBox.Show("Vui lòng nhập mã rạp chiếu phim.");
                     txtIDrap.Focus();
                     return;
                 }
@@ -117,19 +124,19 @@ namespace QuanLyVeXemPhim.Views
                 CPhongChieu s = new CPhongChieu(idphong, rap, tenphong, loaiphong, soluongghe);
                 if (ctrPhongChieu.insert(s))
                 {
-                    MessageBox.Show("Thêm thông tin phòng chiếu thành công.");
+                    MessageBox.Show("Thêm thông tin phòng chiếu thành công!");
                     string[] objpc = { idphong, rap.IDRap, tenphong, loaiphong, soluongghe.ToString() };
                     ListViewItem item = new ListViewItem(objpc);
                     lsvDanhSachPC.Items.Add(item);
                     dsPhongChieu.Add(s);
                 }
                 else
-                    MessageBox.Show("Thêm thông tin phòng chiếu thất bại.");
+                    MessageBox.Show("Thêm thông tin phòng chiếu thất bại!");
                 CapNhatSoLuongPhong();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin phòng chiếu.");
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -156,19 +163,19 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrPhongChieu.update(pc))
                 {
-                    MessageBox.Show("Cập nhật thông tin phòng chiếu thành công.");
+                    MessageBox.Show("Cập nhật thông tin phòng chiếu thành công!");
                     item.SubItems[1].Text = pc.Rap.IDRap;
                     item.SubItems[2].Text = pc.TenPhong;
                     item.SubItems[3].Text = pc.LoaiPhong;
                     item.SubItems[4].Text = pc.SoLuongGhe.ToString();
                 }
                 else
-                    MessageBox.Show("Cập nhật thông tin phòng chiếu thất bại.");
+                    MessageBox.Show("Cập nhật thông tin phòng chiếu thất bại!");
                 CapNhatSoLuongPhong();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật thông tin phòng chiếu.");
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -187,20 +194,20 @@ namespace QuanLyVeXemPhim.Views
                     pc = dsPhongChieu[index];
                     if (ctrPhongChieu.delete(pc))
                     {
-                        MessageBox.Show("Xóa thông tin phòng chiếu thành công.");
+                        MessageBox.Show("Xóa thông tin phòng chiếu thành công!");
                         dsPhongChieu.Remove(pc);
                         lsvDanhSachPC.Items.RemoveAt(index);
                     }
                     else
-                        MessageBox.Show("Xóa thông tin phòng chiếu thất bại.");
+                        MessageBox.Show("Xóa thông tin phòng chiếu thất bại!");
                 }
                 else
-                    MessageBox.Show("Vui lòng chọn một phòng chiếu để xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin phòng chiếu cần xóa.");
                 CapNhatSoLuongPhong();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin phòng chiếu.");
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -239,9 +246,9 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[4].Text = s.SoLuongGhe.ToString();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
     }

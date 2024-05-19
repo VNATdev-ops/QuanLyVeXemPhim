@@ -21,7 +21,7 @@ namespace QuanLyVeXemPhim.Views
             InitializeComponent();
             int width = lsvNhanVien.Width;
             lsvNhanVien.Columns.Add("Mã NV", 10 * width / 100);
-            lsvNhanVien.Columns.Add("Họ Tên", 13 * width / 100);
+            lsvNhanVien.Columns.Add("Họ tên", 13 * width / 100);
             lsvNhanVien.Columns.Add("Mật khẩu", 12 * width / 100);
             lsvNhanVien.Columns.Add("Ngày sinh", 12 * width / 100);
             lsvNhanVien.Columns.Add("Giới tính", 10 * width / 100);
@@ -72,7 +72,7 @@ namespace QuanLyVeXemPhim.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -92,7 +92,7 @@ namespace QuanLyVeXemPhim.Views
                 CNhanVien nhanVien = new CNhanVien(maNV, tenNV, matKhau, ngaySinh, gioiTinh, sdt, email, chucVu);
                 if (ctrlNhanVien.insert(nhanVien))
                 {
-                    MessageBox.Show("Thêm thành công.");
+                    MessageBox.Show("Thêm thông tin nhân viên thành công!");
                     string[] objsp = { maNV, tenNV, matKhau, ngaySinh.ToString(), gioiTinh, sdt.ToString(), email, chucVu };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvNhanVien.Items.Add(item);
@@ -100,11 +100,11 @@ namespace QuanLyVeXemPhim.Views
                     txtTongSo.Text = lsvNhanVien.Items.Count.ToString();
                 }
                 else
-                    MessageBox.Show("Thêm thất bại.");
+                    MessageBox.Show("Thêm thông tin nhân viên thất bại!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -114,7 +114,7 @@ namespace QuanLyVeXemPhim.Views
             {
                 if(lsvNhanVien.SelectedItems.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn dữ liệu cần xóa.");
+                    MessageBox.Show("Vui lòng chọn thông tin nhân viên cần xóa.");
                     return;
                 }
 
@@ -129,18 +129,18 @@ namespace QuanLyVeXemPhim.Views
                 nhanVien = dsNhanVien[index];
                 if (ctrlNhanVien.delete(nhanVien))
                 {
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show("Xóa thông tin nhân viên thành công!");
                     dsNhanVien.Remove(nhanVien);
                     lsvNhanVien.Items.Remove(item);
                     txtTongSo.Text = lsvNhanVien.Items.Count.ToString();
 
                 }
-                else MessageBox.Show("Xóa thất bại!");
+                else MessageBox.Show("Xóa thông tin nhân viên thất bại!");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -150,7 +150,7 @@ namespace QuanLyVeXemPhim.Views
             {
                 if(lsvNhanVien.SelectedItems.Count == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn dữ liệu cần cập nhật.");
+                    MessageBox.Show("Vui lòng chọn thông tin nhân viên cần cập nhật.");
                     return;
                 }
                 ListViewItem item = lsvNhanVien.SelectedItems[0];
@@ -173,7 +173,7 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrlNhanVien.update(nhanVien))
                 {
-                    MessageBox.Show("Cập nhật thành công!");
+                    MessageBox.Show("Cập nhật thông tin nhân viên thành công!");
                     item.SubItems[1].Text = nhanVien.TenNV;
                     item.SubItems[2].Text = nhanVien.MatKhau;
                     item.SubItems[3].Text = nhanVien.NgaySinh.ToString();
@@ -183,11 +183,11 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[7].Text = nhanVien.ChucVu;
                 }
                 else
-                    MessageBox.Show("Cập nhật thất bại.");
+                    MessageBox.Show("Cập nhật thông tin nhân viên thất bại!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -211,7 +211,7 @@ namespace QuanLyVeXemPhim.Views
 
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 

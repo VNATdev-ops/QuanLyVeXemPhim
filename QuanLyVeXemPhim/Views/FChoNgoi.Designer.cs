@@ -149,9 +149,9 @@
             label2.Location = new Point(717, 56);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(91, 25);
+            label2.Size = new Size(100, 25);
             label2.TabIndex = 1;
-            label2.Text = "ID phòng";
+            label2.Text = "Mã phòng";
             // 
             // label1
             // 
@@ -160,9 +160,9 @@
             label1.Location = new Point(53, 56);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(110, 25);
+            label1.Size = new Size(119, 25);
             label1.TabIndex = 0;
-            label1.Text = "ID chỗ ngồi";
+            label1.Text = "Mã chỗ ngồi";
             // 
             // groupBox2
             // 

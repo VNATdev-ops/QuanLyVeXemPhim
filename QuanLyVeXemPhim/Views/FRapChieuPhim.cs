@@ -20,7 +20,7 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDSRap.Width;
-            lsvDSRap.Columns.Add("Mã Rạp", 10 * width / 100);
+            lsvDSRap.Columns.Add("Mã rạp", 10 * width / 100);
             lsvDSRap.Columns.Add("Tên rạp", 24 * width / 100);
             lsvDSRap.Columns.Add("Địa chỉ", 40 * width / 100);
             lsvDSRap.Columns.Add("Số lượng phòng", 15 * width / 100);
@@ -56,7 +56,7 @@ namespace QuanLyVeXemPhim.Views
                 CRapChieuPhim rapChieuPhim = new CRapChieuPhim(idRap, tenrap, diachi, soLuongPhong, logo);
                 if (ctrlRapChieuPhim.insert(rapChieuPhim))
                 {
-                    MessageBox.Show("Thêm thành công!");
+                    MessageBox.Show("Thêm thông tin rạp chiếu phim thành công!");
                     string[] objsp = { idRap, tenrap, diachi, soLuongPhong + "", logo };
                     ListViewItem item = new ListViewItem(objsp);
                     lsvDSRap.Items.Add(item);
@@ -64,7 +64,7 @@ namespace QuanLyVeXemPhim.Views
                     txtTongSo.Text = lsvDSRap.Items.Count.ToString();
                 }
                 else
-                    MessageBox.Show("Thêm thất bại!");
+                    MessageBox.Show("Thêm thông tin rạp chiếu phim thất bại!");
 
 
             }
@@ -80,6 +80,7 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvDSRap.SelectedItems.Count == 0) { return; }
                 ListViewItem item = lsvDSRap.SelectedItems[0];
                 CRapChieuPhim rapChieuPhim = new CRapChieuPhim();
                 rapChieuPhim.IDRap = item.SubItems[0].Text;
@@ -98,7 +99,10 @@ namespace QuanLyVeXemPhim.Views
                 }
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -117,21 +121,26 @@ namespace QuanLyVeXemPhim.Views
                         rapChieuPhim = dsRapChieuPhim[index];
                         if (ctrlRapChieuPhim.delete(rapChieuPhim))
                         {
-                            MessageBox.Show("Xóa thành công.");
+                            MessageBox.Show("Xóa thông tin rạp chiếu phim thành công!");
                             dsRapChieuPhim.Remove(rapChieuPhim);
                             lsvDSRap.Items.Remove(item);
                             txtTongSo.Text = lsvDSRap.Items.Count.ToString();
                         }
                         else
                         {
-                            MessageBox.Show("Xóa thất bại.");
+                            MessageBox.Show("Xóa thông tin rạp chiếu phim thất bại!");
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin rạp chiếu phim cần xóa.");
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -140,37 +149,45 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem item = lsvDSRap.SelectedItems[0];
-                CRapChieuPhim rapChieuPhim = new CRapChieuPhim();
-                rapChieuPhim.IDRap = item.SubItems[0].Text;
-                int index = dsRapChieuPhim.IndexOf(rapChieuPhim);
-                // tìm kiếm phần tử được chọn ở vị trí nào trong ds
-                if (index < 0) { return; }
-
-                //
-                rapChieuPhim = dsRapChieuPhim[index];
-                rapChieuPhim.IDRap = txtIDRap.Text;
-                rapChieuPhim.TenRap = txtTenRap.Text;
-                rapChieuPhim.DiaChi = txtDiaChi.Text;
-                rapChieuPhim.SoLuongPhong = int.Parse(txtSoLuongPhong.Text);
-                rapChieuPhim.Logo = txtLogo.Text;
-
-                if (ctrlRapChieuPhim.update(rapChieuPhim))
+                if (lsvDSRap.Items.Count > 0)
                 {
-                    MessageBox.Show("Cập nhật thành công!");
-                    item.SubItems[0].Text = rapChieuPhim.IDRap;
-                    item.SubItems[1].Text = rapChieuPhim.TenRap;
-                    item.SubItems[2].Text = rapChieuPhim.DiaChi;
-                    item.SubItems[3].Text = rapChieuPhim.SoLuongPhong + "";
-                    item.SubItems[4].Text = rapChieuPhim.Logo;
+                    ListViewItem item = lsvDSRap.SelectedItems[0];
+                    CRapChieuPhim rapChieuPhim = new CRapChieuPhim();
+                    rapChieuPhim.IDRap = item.SubItems[0].Text;
+                    int index = dsRapChieuPhim.IndexOf(rapChieuPhim);
+                    // tìm kiếm phần tử được chọn ở vị trí nào trong ds
+                    if (index < 0) { return; }
 
+                    //
+                    rapChieuPhim = dsRapChieuPhim[index];
+                    rapChieuPhim.IDRap = txtIDRap.Text;
+                    rapChieuPhim.TenRap = txtTenRap.Text;
+                    rapChieuPhim.DiaChi = txtDiaChi.Text;
+                    rapChieuPhim.SoLuongPhong = int.Parse(txtSoLuongPhong.Text);
+                    rapChieuPhim.Logo = txtLogo.Text;
+
+                    if (ctrlRapChieuPhim.update(rapChieuPhim))
+                    {
+                        MessageBox.Show("Cập nhật thông tin rạp chiếu phim thành công!");
+                        item.SubItems[0].Text = rapChieuPhim.IDRap;
+                        item.SubItems[1].Text = rapChieuPhim.TenRap;
+                        item.SubItems[2].Text = rapChieuPhim.DiaChi;
+                        item.SubItems[3].Text = rapChieuPhim.SoLuongPhong + "";
+                        item.SubItems[4].Text = rapChieuPhim.Logo;
+
+                    }
+                    else
+                        MessageBox.Show("Cập nhật thông tin rạp chiếu phim thất bại!");
                 }
                 else
-                    MessageBox.Show("Cập nhật thất bại!");
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin rạp chiếu phim cần cập nhật.");
+                    return;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -191,7 +208,10 @@ namespace QuanLyVeXemPhim.Views
                 }
                 txtTongSo.Text = lsvDSRap.Items.Count.ToString();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)

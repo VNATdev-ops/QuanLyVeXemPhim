@@ -302,9 +302,9 @@
             lblIDPhim.Font = new Font("Microsoft Sans Serif", 10F);
             lblIDPhim.Location = new Point(56, 54);
             lblIDPhim.Name = "lblIDPhim";
-            lblIDPhim.Size = new Size(78, 25);
+            lblIDPhim.Size = new Size(87, 25);
             lblIDPhim.TabIndex = 1;
-            lblIDPhim.Text = "ID phim";
+            lblIDPhim.Text = "Mã phim";
             // 
             // lsvDSPhim
             // 

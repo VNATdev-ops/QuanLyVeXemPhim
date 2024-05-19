@@ -21,7 +21,7 @@ namespace QuanLyVeXemPhim.Views
         {
             InitializeComponent();
             int width = lsvDSSP.Width;
-            lsvDSSP.Columns.Add("ID Sản phẩm", 10 * width / 100);
+            lsvDSSP.Columns.Add("Mã sản phẩm", 10 * width / 100);
             lsvDSSP.Columns.Add("Loại sản phẩm", 10 * width / 100);
             lsvDSSP.Columns.Add("Tên sản phẩm", 24 * width / 100);
             lsvDSSP.Columns.Add("Giá tiền", 15 * width / 100);
@@ -66,24 +66,30 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem item = lsvDSSP.SelectedItems[0];
-                CSanPham sp = new CSanPham();
-                sp.IDSanPham = item.SubItems[0].Text;
-                int index = dsSanPham.IndexOf(sp);
-                if (index < 0)
-                    return;
-                sp = dsSanPham[index];
+                if (lsvDSSP.SelectedItems.Count > 0)
+                {
+                    ListViewItem item = lsvDSSP.SelectedItems[0];
+                    CSanPham sp = new CSanPham();
+                    sp.IDSanPham = item.SubItems[0].Text;
+                    int index = dsSanPham.IndexOf(sp);
+                    if (index < 0)
+                        return;
+                    sp = dsSanPham[index];
 
-                txtIDSP.Text = sp.IDSanPham;
-                cbLoaiSP.Text = sp.Loai;
-                txtTenSP.Text = sp.TenSanPham;
-                txtGia.Text = sp.Gia.ToString();
-                txtDonViTinh.Text = sp.DonViTinh;
-                txtSoLuong.Text = sp.SoLuong.ToString();
-                txtHinhAnh.Text = sp.Hinh;
-                CapNhatSoLuongSP();
+                    txtIDSP.Text = sp.IDSanPham;
+                    cbLoaiSP.Text = sp.Loai;
+                    txtTenSP.Text = sp.TenSanPham;
+                    txtGia.Text = sp.Gia.ToString();
+                    txtDonViTinh.Text = sp.DonViTinh;
+                    txtSoLuong.Text = sp.SoLuong.ToString();
+                    txtHinhAnh.Text = sp.Hinh;
+                    CapNhatSoLuongSP();
+                }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -109,7 +115,7 @@ namespace QuanLyVeXemPhim.Views
                         SanPhamTonTai.SoLuong += soluong;
                         if (ctrSanPham.updateSoLuong(SanPhamTonTai))
                         {
-                            MessageBox.Show("Thêm thông tin sản phẩm thành công.");
+                            MessageBox.Show("Thêm thông tin sản phẩm thành công!");
                             foreach (ListViewItem item in lsvDSSP.Items)
                             {
                                 if (item.SubItems[0].Text == SanPhamTonTai.IDSanPham)
@@ -120,7 +126,7 @@ namespace QuanLyVeXemPhim.Views
                             }
                         }
                         else
-                            MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
+                            MessageBox.Show("Thêm thông tin sản phẩm thất bại!");
                     }
                 }
 
@@ -128,21 +134,21 @@ namespace QuanLyVeXemPhim.Views
                 {
                     if (ctrSanPham.insert(s))
                     {
-                        MessageBox.Show("Thêm thông tin sản phẩm thành công.");
+                        MessageBox.Show("Thêm thông tin sản phẩm thành công!");
                         string[] objsp = { idsanpham, loai, tensanpham, gia.ToString(), donvitinh, soluong.ToString(), hinh };
                         ListViewItem item = new ListViewItem(objsp);
                         lsvDSSP.Items.Add(item);
                         dsSanPham.Add(s);
                     }
                     else
-                        MessageBox.Show("Thêm thông tin sản phẩm thất bại.");
+                        MessageBox.Show("Thêm thông tin sản phẩm thất bại!");
                 }
 
                 CapNhatSoLuongSP();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin sản phẩm.\n" + ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình thêm thông tin sản phẩm:\n" + ex.Message);
             }
         }
 
@@ -150,6 +156,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (lsvDSSP.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin sản phẩm cần cập nhật.");
+                    return;
+                }
                 ListViewItem item = lsvDSSP.SelectedItems[0];
                 CSanPham sp = new CSanPham();
                 sp.IDSanPham = item.SubItems[0].Text;
@@ -168,7 +179,7 @@ namespace QuanLyVeXemPhim.Views
                 //
                 if (ctrSanPham.update(sp))
                 {
-                    MessageBox.Show("Cập nhật thông tin sản phẩm thành công.");
+                    MessageBox.Show("Cập nhật thông tin sản phẩm thành công!");
                     item.SubItems[1].Text = sp.Loai;
                     item.SubItems[2].Text = sp.TenSanPham;
                     item.SubItems[3].Text = sp.Gia.ToString();
@@ -177,12 +188,12 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[6].Text = sp.Hinh;
                 }
                 else
-                    MessageBox.Show("Cập nhật thông tin sản phẩm thất bại.");
+                    MessageBox.Show("Cập nhật thông tin sản phẩm thất bại!");
                 CapNhatSoLuongSP();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật thông tin sản phẩm.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật thông tin sản phẩm: \n" + ex.Message);
             }
         }
 
@@ -201,20 +212,24 @@ namespace QuanLyVeXemPhim.Views
                     sp = dsSanPham[index];
                     if (ctrSanPham.delete(sp))
                     {
-                        MessageBox.Show("Xóa thông tin sản phẩm thành công.");
+                        MessageBox.Show("Xóa thông tin sản phẩm thành công!");
                         dsSanPham.Remove(sp);
                         lsvDSSP.Items.RemoveAt(index);
                     }
                     else
-                        MessageBox.Show("Xóa thông tin sản phẩm thất bại.");
+                        MessageBox.Show("Xóa thông tin sản phẩm thất bại!");
                 }
                 else
-                    MessageBox.Show("Vui lòng chọn một sản phẩm để xóa.");
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin sản phẩm cần xóa.");
+                    return;
+                }
+
                 CapNhatSoLuongSP();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin sản phẩm.");
+                MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa thông tin sản phẩm: \n" + ex.Message);
             }
         }
 
@@ -256,9 +271,9 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[6].Text = s.Hinh;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
     }

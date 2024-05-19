@@ -76,16 +76,16 @@ namespace QuanLyVeXemPhim.Views
                     lsvVeXemPhim.Items.Add(item);
                     dsVeXemPhim.Add(s);
                     txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show("Thêm thông tin vé thành công!");
                 }
                 else
                 {
-                    MessageBox.Show("Thêm that bai");
+                    MessageBox.Show("Thêm thông tin vé thất bại!");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -134,37 +134,43 @@ namespace QuanLyVeXemPhim.Views
                 }
                 txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
             }
-            catch
+            catch (Exception ex)
             {
-
-            }
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }   
         }
 
         private void lsvVeXemPhim_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CVeXemPhim veXemPhim = new CVeXemPhim();
-            try
+            if(lsvVeXemPhim.SelectedItems.Count > 0)
             {
-                ListViewItem item = lsvVeXemPhim.SelectedItems[0];
-                veXemPhim.IDVe = item.SubItems[0].Text;
-                int index = dsVeXemPhim.IndexOf(veXemPhim);
-                if (index < 0)
+                CVeXemPhim veXemPhim = new CVeXemPhim();
+                try
                 {
-                    return;
+                    ListViewItem item = lsvVeXemPhim.SelectedItems[0];
+                    veXemPhim.IDVe = item.SubItems[0].Text;
+                    int index = dsVeXemPhim.IndexOf(veXemPhim);
+                    if (index < 0)
+                    {
+                        return;
+                    }
+
+                    veXemPhim = dsVeXemPhim[index];
+
+                    txtIDVe.Text = veXemPhim.IDVe;
+                    txtIDThanhVien.Text = veXemPhim.ThanhVien.IDThanhVien;
+                    txtIDPhim.Text = veXemPhim.Phim.IDPhim;
+                    txtIDSuatChieu.Text = veXemPhim.SuatChieu.IDSuatChieu;
+                    txtIDChoNgoi.Text = veXemPhim.ChoNgoi.IDChoNgoi;
+                    txtGiaVe.Text = veXemPhim.GiaVe.ToString();
+                    txtTinhTrang.Text = veXemPhim.TinhTrang;
+
                 }
-
-                veXemPhim = dsVeXemPhim[index];
-
-                txtIDVe.Text = veXemPhim.IDVe;
-                txtIDThanhVien.Text = veXemPhim.ThanhVien.IDThanhVien;
-                txtIDPhim.Text = veXemPhim.Phim.IDPhim;
-                txtIDSuatChieu.Text = veXemPhim.SuatChieu.IDSuatChieu;
-                txtIDChoNgoi.Text = veXemPhim.ChoNgoi.IDChoNgoi;
-                txtGiaVe.Text = veXemPhim.GiaVe.ToString();
-                txtTinhTrang.Text = veXemPhim.TinhTrang;
-
+                catch (Exception ex) 
+                { 
+                    MessageBox.Show("Lỗi: " + ex.Message); 
+                }
             }
-            catch { }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -174,6 +180,11 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            if(lsvVeXemPhim.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin vé cần cập nhật.");
+                return;
+            }
             CVeXemPhim veXemPhim = new CVeXemPhim();
             try
             {
@@ -207,18 +218,26 @@ namespace QuanLyVeXemPhim.Views
                     item.SubItems[5].Text = veXemPhim.GiaVe.ToString();
                     item.SubItems[6].Text = veXemPhim.ChoNgoi.IDChoNgoi;
                     item.SubItems[7].Text = veXemPhim.TinhTrang;
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Cập nhật thông tin vé thành công!");
                 }
                 else
                 {
-                    MessageBox.Show(" cập nhật thất bại");
+                    MessageBox.Show("Cập nhật thông tin vé thất bại!");
                 }
             }
-            catch { }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("Lỗi: " + ex.Message); 
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(lsvVeXemPhim.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin vé cần xóa.");
+                return;
+            }
             CVeXemPhim veXemPhim = new CVeXemPhim();
             try
             {
@@ -236,15 +255,18 @@ namespace QuanLyVeXemPhim.Views
                     dsVeXemPhim.Remove(veXemPhim);
                     lsvVeXemPhim.Items.Remove(item);
                     txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
-                    MessageBox.Show("Xóa Thành Công");
+                    MessageBox.Show("Xóa thông tin vé thành công!");
                 }
                 else
                 {
 
-                    MessageBox.Show("Xóa Thất Bại.");
+                    MessageBox.Show("Xóa thông tin vé thất bại!");
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e) 

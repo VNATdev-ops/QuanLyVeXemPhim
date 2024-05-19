@@ -31,7 +31,7 @@ namespace QuanLyVeXemPhim.Views
             InitializeComponent();
 
             int width = lsvSuatChieu.Width;
-            lsvSuatChieu.Columns.Add("ID Suất chiếu", 9 * width / 100);
+            lsvSuatChieu.Columns.Add("Mã suất chiếu", 9 * width / 100);
             lsvSuatChieu.Columns.Add("Phim", 30 * width / 100);
             lsvSuatChieu.Columns.Add("Rạp", 10 * width / 100);
             lsvSuatChieu.Columns.Add("Phòng", 10 * width / 100);
@@ -147,7 +147,7 @@ namespace QuanLyVeXemPhim.Views
 
                 if (ctrSuatChieu.insert(sc))
                 {
-                    MessageBox.Show("Thêm thông tin suất chiếu thành công.");
+                    MessageBox.Show("Thêm thông tin suất chiếu thành công!");
                     string[] obj = { sc.IDSuatChieu, sc.Phim.TenPhim, sc.Rap.TenRap, sc.Phong.TenPhong,
                         sc.SoLuongVe.ToString(), sc.ThoiGianChieu.ToString(), sc.SoLuongConLai.ToString(), sc.TrangThai };
                     ListViewItem item = new ListViewItem(obj);
@@ -156,7 +156,7 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thông tin suất chiếu thất bại.");
+                    MessageBox.Show("Thêm thông tin suất chiếu thất bại!");
                     return;
                 }
                 CapNhatSoLuongSuatChieu();
@@ -218,7 +218,7 @@ namespace QuanLyVeXemPhim.Views
 
                     if (ctrSuatChieu.update(sc))
                     {
-                        MessageBox.Show("Cập nhật thành công!");
+                        MessageBox.Show("Cập nhật thông tin suất chiếu thành công!");
                         item.SubItems[1].Text = sc.Phim.TenPhim;
                         item.SubItems[2].Text = sc.Rap.TenRap;
                         item.SubItems[3].Text = sc.Phong.TenPhong;
@@ -236,7 +236,7 @@ namespace QuanLyVeXemPhim.Views
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn suất chiếu để cập nhật.");
+                MessageBox.Show("Vui lòng chọn thông tin suất chiếu cần cập nhật.");
             }
 
         }
@@ -259,13 +259,13 @@ namespace QuanLyVeXemPhim.Views
 
                     if (ctrSuatChieu.delete(sc))
                     {
-                        MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show("Xóa thông tin suất chiếu thành công!");
                         dsSuatChieu.Remove(sc);
                         lsvSuatChieu.Items.Remove(item);
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!");
+                        MessageBox.Show("Xóa thông tin suất chiếu thất bại!");
                         return;
                     }
                 }
@@ -277,7 +277,7 @@ namespace QuanLyVeXemPhim.Views
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn suất chiếu để xóa.");
+                MessageBox.Show("Vui lòng chọn thông tin suất chiếu cần xóa.");
                 return;
             }
 
@@ -313,10 +313,6 @@ namespace QuanLyVeXemPhim.Views
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-                    }
     }
 }
 

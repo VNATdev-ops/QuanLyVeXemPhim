@@ -263,9 +263,9 @@
             lblIDSanPham.Font = new Font("Microsoft Sans Serif", 10F);
             lblIDSanPham.Location = new Point(51, 57);
             lblIDSanPham.Name = "lblIDSanPham";
-            lblIDSanPham.Size = new Size(122, 25);
+            lblIDSanPham.Size = new Size(131, 25);
             lblIDSanPham.TabIndex = 1;
-            lblIDSanPham.Text = "ID sản phẩm";
+            lblIDSanPham.Text = "Mã sản phẩm";
             // 
             // lblGia
             // 

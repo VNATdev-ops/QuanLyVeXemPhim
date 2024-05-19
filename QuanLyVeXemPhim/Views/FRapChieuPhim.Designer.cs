@@ -184,9 +184,9 @@
             label1.Location = new Point(77, 55);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(71, 25);
+            label1.Size = new Size(73, 25);
             label1.TabIndex = 0;
-            label1.Text = "ID Rạp";
+            label1.Text = "Mã rạp";
             label1.TextAlign = ContentAlignment.TopRight;
             // 
             // groupBox2

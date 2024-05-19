@@ -80,7 +80,7 @@
             btnRapChieuPhim.FlatStyle = FlatStyle.Flat;
             btnRapChieuPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnRapChieuPhim.ForeColor = SystemColors.HighlightText;
-            btnRapChieuPhim.Location = new Point(0, 235);
+            btnRapChieuPhim.Location = new Point(0, 251);
             btnRapChieuPhim.Margin = new Padding(4);
             btnRapChieuPhim.Name = "btnRapChieuPhim";
             btnRapChieuPhim.Padding = new Padding(60, 0, 0, 0);
@@ -98,7 +98,7 @@
             btnHoaDon.FlatStyle = FlatStyle.Flat;
             btnHoaDon.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnHoaDon.ForeColor = SystemColors.HighlightText;
-            btnHoaDon.Location = new Point(0, 605);
+            btnHoaDon.Location = new Point(0, 621);
             btnHoaDon.Margin = new Padding(4);
             btnHoaDon.Name = "btnHoaDon";
             btnHoaDon.Padding = new Padding(60, 0, 0, 0);
@@ -116,7 +116,7 @@
             btnChoNgoi.FlatStyle = FlatStyle.Flat;
             btnChoNgoi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnChoNgoi.ForeColor = SystemColors.HighlightText;
-            btnChoNgoi.Location = new Point(0, 335);
+            btnChoNgoi.Location = new Point(0, 351);
             btnChoNgoi.Margin = new Padding(4);
             btnChoNgoi.Name = "btnChoNgoi";
             btnChoNgoi.Padding = new Padding(60, 0, 0, 0);
@@ -131,11 +131,11 @@
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(65, 74);
-            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Location = new Point(73, 74);
+            pictureBox1.Margin = new Padding(0, 0, 0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(160, 83);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.Size = new Size(130, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -147,7 +147,7 @@
             btnPhongChieu.FlatStyle = FlatStyle.Flat;
             btnPhongChieu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnPhongChieu.ForeColor = SystemColors.HighlightText;
-            btnPhongChieu.Location = new Point(0, 285);
+            btnPhongChieu.Location = new Point(0, 301);
             btnPhongChieu.Margin = new Padding(4);
             btnPhongChieu.Name = "btnPhongChieu";
             btnPhongChieu.Padding = new Padding(60, 0, 0, 0);
@@ -165,7 +165,7 @@
             btnSuatChieu.FlatStyle = FlatStyle.Flat;
             btnSuatChieu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnSuatChieu.ForeColor = SystemColors.HighlightText;
-            btnSuatChieu.Location = new Point(0, 455);
+            btnSuatChieu.Location = new Point(0, 471);
             btnSuatChieu.Margin = new Padding(4);
             btnSuatChieu.Name = "btnSuatChieu";
             btnSuatChieu.Padding = new Padding(60, 0, 0, 0);
@@ -204,7 +204,7 @@
             btnNhanVien.FlatStyle = FlatStyle.Flat;
             btnNhanVien.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnNhanVien.ForeColor = SystemColors.HighlightText;
-            btnNhanVien.Location = new Point(0, 725);
+            btnNhanVien.Location = new Point(0, 741);
             btnNhanVien.Margin = new Padding(4);
             btnNhanVien.Name = "btnNhanVien";
             btnNhanVien.Padding = new Padding(60, 0, 0, 0);
@@ -223,7 +223,7 @@
             btnSanPham.FlatStyle = FlatStyle.Flat;
             btnSanPham.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnSanPham.ForeColor = SystemColors.HighlightText;
-            btnSanPham.Location = new Point(0, 555);
+            btnSanPham.Location = new Point(0, 571);
             btnSanPham.Margin = new Padding(4);
             btnSanPham.Name = "btnSanPham";
             btnSanPham.Padding = new Padding(60, 0, 0, 0);
@@ -241,7 +241,7 @@
             btnPhim.FlatStyle = FlatStyle.Flat;
             btnPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnPhim.ForeColor = SystemColors.HighlightText;
-            btnPhim.Location = new Point(0, 405);
+            btnPhim.Location = new Point(0, 421);
             btnPhim.Margin = new Padding(4);
             btnPhim.Name = "btnPhim";
             btnPhim.Padding = new Padding(60, 0, 0, 0);
@@ -259,7 +259,7 @@
             btnVeXemPhim.FlatStyle = FlatStyle.Flat;
             btnVeXemPhim.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnVeXemPhim.ForeColor = SystemColors.HighlightText;
-            btnVeXemPhim.Location = new Point(0, 505);
+            btnVeXemPhim.Location = new Point(0, 521);
             btnVeXemPhim.Margin = new Padding(4);
             btnVeXemPhim.Name = "btnVeXemPhim";
             btnVeXemPhim.Padding = new Padding(60, 0, 0, 0);
@@ -278,7 +278,7 @@
             btnThanhVien.FlatStyle = FlatStyle.Flat;
             btnThanhVien.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnThanhVien.ForeColor = SystemColors.HighlightText;
-            btnThanhVien.Location = new Point(0, 675);
+            btnThanhVien.Location = new Point(0, 691);
             btnThanhVien.Margin = new Padding(4);
             btnThanhVien.Name = "btnThanhVien";
             btnThanhVien.Padding = new Padding(60, 0, 0, 0);
@@ -319,7 +319,7 @@
             MinimumSize = new Size(2250, 1300);
             Name = "fAdmin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "fAdmin";
+            Text = "Quản lý hệ thống rạp chiếu phim";
             FormClosing += fAdmin_FormClosing;
             Load += fAdmin_Load;
             panel_Left.ResumeLayout(false);
