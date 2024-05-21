@@ -100,8 +100,25 @@ namespace QuanLyVeXemPhim.Views
             cbTheThanhVien.Enabled = true;
             dTimeNgayHD.Enabled = true;
         }
+        private void ResetForm()
+        {
+            UnlockSPButton();
+            // xoa du lieu trong listbox, listview
+            lstSanPham.Items.Clear();
+            lsvChiTietHD.Items.Clear();
+            //tao so hd moi
+            txtSoHD.Text = TaoSoHD() + "";
+            dTimeNgayHD.Value = DateTime.Now;
+            cbTheThanhVien.SelectedItem = null;
+            txtTriGiaHD.Text = "0";
+            txtMaSP.Clear();
+            txtTenSP.Clear();
+            txtSoLuong.Text = 1 + "";
+            txtNVXuatHD.Clear();
+        }
         private void FHoaDon_Load(object sender, EventArgs e)
         {
+            txtSoHD.Focus();
             dsNhanVien = ctrNhanVien.findall();
             dsThanhVien = ctrThanhVien.findall();
             dsVe = ctrVeXemPhim.findall();
@@ -283,6 +300,7 @@ namespace QuanLyVeXemPhim.Views
                 {
                     MessageBox.Show("Vui lòng nhập số lượng sản phẩm là số nguyên dương.");
                     txtSoLuong.Focus();
+                    return;
                 }
 
                 // Nếu sản phẩm chưa có trong chi tiết hóa đơn sản phẩm, thêm vào danh sách chi tiết hóa đơn sản phẩm
@@ -438,6 +456,7 @@ namespace QuanLyVeXemPhim.Views
                             if (!ctrCTHD.insert(cthdSanPham))
                             {
                                 MessageBox.Show("Lưu chi tiết hóa đơn sản phẩm thất bại!");
+                                return;
                             }
                         }
                     }
@@ -468,19 +487,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnTaoHD_Click(object sender, EventArgs e)
         {
-            UnlockSPButton();
-            // xoa du lieu trong listbox, listview
-            lstSanPham.Items.Clear();
-            lsvChiTietHD.Items.Clear();
-            //tao so hd moi
-            txtSoHD.Text = TaoSoHD() + "";
-            dTimeNgayHD.Value = DateTime.Now;
-            cbTheThanhVien.SelectedItem = null;
-            txtTriGiaHD.Text = "0";
-            txtMaSP.Clear();
-            txtTenSP.Clear();
-            txtSoLuong.Text = 1 + "";
-            txtNVXuatHD.Clear();
+            ResetForm();
         }
 
         private void btnXoaCTHD_Click(object sender, EventArgs e)
@@ -563,6 +570,7 @@ namespace QuanLyVeXemPhim.Views
                                         catch (Exception ex)
                                         {
                                             MessageBox.Show("Lỗi khi xóa chi tiết hóa đơn sản phẩm: " + ex.Message);
+                                            return;
                                         }
                                     }
                                 }
@@ -573,8 +581,14 @@ namespace QuanLyVeXemPhim.Views
 
                         try
                         {
-                            ctrHoaDon.delete(selectedID);
-                            MessageBox.Show("Xóa thông tin hóa đơn thành công!");
+                            if (ctrHoaDon.delete(selectedID))
+                            {
+                               MessageBox.Show("Xóa thông tin hóa đơn thành công!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa thông tin hóa đơn thất bại!");
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -588,19 +602,9 @@ namespace QuanLyVeXemPhim.Views
                         lsvDanhSachHD.Items.Remove(itemToRemove);
                     }
 
+                    ResetForm();
                     // Cập nhật lại số lượng hóa đơn
                     CapNhatSoLuongHD();
-                    // xoa du lieu 
-                    lstSanPham.Items.Clear();
-                    lsvChiTietHD.Items.Clear();
-                    txtSoHD.Text = "";
-                    dTimeNgayHD.Value = DateTime.Now;
-                    cbTheThanhVien.SelectedItem = null;
-                    txtTriGiaHD.Text = "0";
-                    txtMaSP.Clear();
-                    txtTenSP.Clear();
-                    txtSoLuong.Text = "";
-                    txtNVXuatHD.Clear();
                 }
                 else
                 {

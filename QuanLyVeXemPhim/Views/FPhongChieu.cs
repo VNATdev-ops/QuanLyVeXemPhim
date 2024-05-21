@@ -36,8 +36,21 @@ namespace QuanLyVeXemPhim.Views
             txtTongSo.Text = dsPhongChieu.Count.ToString();
         }
 
+        private void ResetForm()
+        {
+            txtIDphong.Clear();
+            txtIDrap.Clear();
+            txtTenPhong.Clear();
+            txtLoaiPhong.Clear();
+            txtSoLuongGhe.Clear();
+            txtTimKiem.Clear();
+            lsvDanhSachPC.SelectedItems.Clear();
+            txtIDrap.Focus();
+        }
+
         private void FPhongChieu_Load(object sender, EventArgs e)
         {
+            txtIDphong.Focus();
             try
             {
                 dsPhongChieu = ctrPhongChieu.findAll();
@@ -91,13 +104,27 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (txtIDphong.Text == "" || txtIDrap.Text == "" || txtTenPhong.Text == "" || txtLoaiPhong.Text == "" || txtSoLuongGhe.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
                 string idphong = txtIDphong.Text;
                 string idrap = txtIDrap.Text;
                 string tenphong = txtTenPhong.Text;
                 string loaiphong = txtLoaiPhong.Text;
-                int soluongghe = int.Parse(txtSoLuongGhe.Text);
-
-                //
+                int soluongghe = 0;
+                try
+                {
+                    soluongghe = int.Parse(txtSoLuongGhe.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Số lượng ghế phải là số nguyên dương.");
+                    txtSoLuongGhe.Focus();
+                    return;
+                }
+                
                 dsRap = ctrRapChieuPhim.findall();
                 CRapChieuPhim rap = dsRap.FirstOrDefault(r => r.IDRap == idrap);
                 if (txtIDrap.Text != null && txtIDrap.Text != "")
@@ -111,15 +138,6 @@ namespace QuanLyVeXemPhim.Views
                         return;
                     }
                 }
-                else
-                {
-                    // Xử lý trường hợp giá trị null hoặc rỗng của txtIDrap.Text
-                    MessageBox.Show("Vui lòng nhập mã rạp chiếu phim.");
-                    txtIDrap.Focus();
-                    return;
-                }
-
-
 
                 CPhongChieu s = new CPhongChieu(idphong, rap, tenphong, loaiphong, soluongghe);
                 if (ctrPhongChieu.insert(s))
@@ -144,34 +162,42 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                ListViewItem item = lsvDanhSachPC.SelectedItems[0];
-                CPhongChieu pc = new CPhongChieu();
-                pc.IDPhong = item.SubItems[0].Text;
-                int index = dsPhongChieu.IndexOf(pc);
-                if (index < 0)
-                    return;
-                pc = dsPhongChieu[index];
-                //
-                dsRap = ctrRapChieuPhim.findall();
-                pc.IDPhong = txtIDphong.Text;
-                CRapChieuPhim rap = new CRapChieuPhim();
-                rap = dsRap.FirstOrDefault(r => r.IDRap == txtIDrap.Text);
-                pc.Rap = rap;
-                pc.TenPhong = txtTenPhong.Text;
-                pc.LoaiPhong = txtLoaiPhong.Text;
-                pc.SoLuongGhe = int.Parse(txtSoLuongGhe.Text);
-
-                if (ctrPhongChieu.update(pc))
+                if(lsvDanhSachPC.SelectedItems.Count > 0)
                 {
-                    MessageBox.Show("Cập nhật thông tin phòng chiếu thành công!");
-                    item.SubItems[1].Text = pc.Rap.IDRap;
-                    item.SubItems[2].Text = pc.TenPhong;
-                    item.SubItems[3].Text = pc.LoaiPhong;
-                    item.SubItems[4].Text = pc.SoLuongGhe.ToString();
+                    ListViewItem item = lsvDanhSachPC.SelectedItems[0];
+                    CPhongChieu pc = new CPhongChieu();
+                    pc.IDPhong = item.SubItems[0].Text;
+                    int index = dsPhongChieu.IndexOf(pc);
+                    if (index < 0)
+                        return;
+                    pc = dsPhongChieu[index];
+                    //
+                    dsRap = ctrRapChieuPhim.findall();
+                    pc.IDPhong = txtIDphong.Text;
+                    CRapChieuPhim rap = new CRapChieuPhim();
+                    rap = dsRap.FirstOrDefault(r => r.IDRap == txtIDrap.Text);
+                    pc.Rap = rap;
+                    pc.TenPhong = txtTenPhong.Text;
+                    pc.LoaiPhong = txtLoaiPhong.Text;
+                    pc.SoLuongGhe = int.Parse(txtSoLuongGhe.Text);
+
+                    if (ctrPhongChieu.update(pc))
+                    {
+                        MessageBox.Show("Cập nhật thông tin phòng chiếu thành công!");
+                        item.SubItems[1].Text = pc.Rap.IDRap;
+                        item.SubItems[2].Text = pc.TenPhong;
+                        item.SubItems[3].Text = pc.LoaiPhong;
+                        item.SubItems[4].Text = pc.SoLuongGhe.ToString();
+                    }
+                    else
+                        MessageBox.Show("Cập nhật thông tin phòng chiếu thất bại!");
+                    CapNhatSoLuongPhong();
                 }
                 else
-                    MessageBox.Show("Cập nhật thông tin phòng chiếu thất bại!");
-                CapNhatSoLuongPhong();
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin phòng chiếu cần cập nhật.");
+                }
+               
             }
             catch (Exception ex)
             {
@@ -197,6 +223,7 @@ namespace QuanLyVeXemPhim.Views
                         MessageBox.Show("Xóa thông tin phòng chiếu thành công!");
                         dsPhongChieu.Remove(pc);
                         lsvDanhSachPC.Items.RemoveAt(index);
+                        ResetForm();
                     }
                     else
                         MessageBox.Show("Xóa thông tin phòng chiếu thất bại!");
@@ -213,13 +240,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            txtIDphong.Clear();
-            txtIDrap.Clear();
-            txtTenPhong.Clear();
-            txtLoaiPhong.Clear();
-            txtSoLuongGhe.Clear();
-            txtTimKiem.Clear();
-            txtIDrap.Focus();
+            ResetForm();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

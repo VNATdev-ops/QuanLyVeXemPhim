@@ -88,8 +88,9 @@
             lblTenPhim.Location = new Point(56, 103);
             lblTenPhim.Name = "lblTenPhim";
             lblTenPhim.Size = new Size(94, 25);
-            lblTenPhim.TabIndex = 1;
+            lblTenPhim.TabIndex = 0;
             lblTenPhim.Text = "Tên phim";
+            lblTenPhim.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblTheLoai
             // 
@@ -98,8 +99,9 @@
             lblTheLoai.Location = new Point(56, 151);
             lblTheLoai.Name = "lblTheLoai";
             lblTheLoai.Size = new Size(82, 25);
-            lblTheLoai.TabIndex = 1;
+            lblTheLoai.TabIndex = 0;
             lblTheLoai.Text = "Thể loại";
+            lblTheLoai.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblDaoDien
             // 
@@ -108,8 +110,9 @@
             lblDaoDien.Location = new Point(56, 201);
             lblDaoDien.Name = "lblDaoDien";
             lblDaoDien.Size = new Size(90, 25);
-            lblDaoDien.TabIndex = 1;
+            lblDaoDien.TabIndex = 0;
             lblDaoDien.Text = "Đạo diễn";
+            lblDaoDien.TextAlign = ContentAlignment.TopCenter;
             // 
             // txtSoLuongPhim
             // 
@@ -119,7 +122,7 @@
             txtSoLuongPhim.Name = "txtSoLuongPhim";
             txtSoLuongPhim.ReadOnly = true;
             txtSoLuongPhim.Size = new Size(90, 30);
-            txtSoLuongPhim.TabIndex = 2;
+            txtSoLuongPhim.TabIndex = 17;
             // 
             // groupBox1
             // 
@@ -148,7 +151,7 @@
             groupBox1.Location = new Point(73, 199);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1358, 583);
-            groupBox1.TabIndex = 3;
+            groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phim";
             // 
@@ -157,9 +160,10 @@
             rtbMoTa.BorderStyle = BorderStyle.None;
             rtbMoTa.Font = new Font("Microsoft Sans Serif", 10F);
             rtbMoTa.Location = new Point(251, 355);
+            rtbMoTa.Margin = new Padding(5);
             rtbMoTa.Name = "rtbMoTa";
             rtbMoTa.Size = new Size(1035, 190);
-            rtbMoTa.TabIndex = 7;
+            rtbMoTa.TabIndex = 10;
             rtbMoTa.Text = "";
             // 
             // cbDinhDang
@@ -167,26 +171,29 @@
             cbDinhDang.Font = new Font("Microsoft Sans Serif", 10F);
             cbDinhDang.FormattingEnabled = true;
             cbDinhDang.Location = new Point(891, 298);
+            cbDinhDang.Margin = new Padding(5);
             cbDinhDang.Name = "cbDinhDang";
             cbDinhDang.Size = new Size(395, 33);
-            cbDinhDang.TabIndex = 6;
+            cbDinhDang.TabIndex = 9;
             // 
             // txtDoDai
             // 
             txtDoDai.Font = new Font("Microsoft Sans Serif", 10F);
             txtDoDai.Location = new Point(891, 248);
+            txtDoDai.Margin = new Padding(5);
             txtDoDai.Name = "txtDoDai";
             txtDoDai.Size = new Size(395, 30);
-            txtDoDai.TabIndex = 2;
+            txtDoDai.TabIndex = 7;
             // 
             // cbTrangThai
             // 
             cbTrangThai.Font = new Font("Microsoft Sans Serif", 10F);
             cbTrangThai.FormattingEnabled = true;
             cbTrangThai.Location = new Point(251, 297);
+            cbTrangThai.Margin = new Padding(5);
             cbTrangThai.Name = "cbTrangThai";
             cbTrangThai.Size = new Size(427, 33);
-            cbTrangThai.TabIndex = 6;
+            cbTrangThai.TabIndex = 8;
             // 
             // dtNgayPH
             // 
@@ -194,20 +201,22 @@
             dtNgayPH.Location = new Point(251, 247);
             dtNgayPH.Name = "dtNgayPH";
             dtNgayPH.Size = new Size(427, 30);
-            dtNgayPH.TabIndex = 5;
+            dtNgayPH.TabIndex = 6;
             // 
             // txtDaoDien
             // 
             txtDaoDien.Font = new Font("Microsoft Sans Serif", 10F);
             txtDaoDien.Location = new Point(251, 194);
+            txtDaoDien.Margin = new Padding(5);
             txtDaoDien.Name = "txtDaoDien";
             txtDaoDien.Size = new Size(1035, 30);
-            txtDaoDien.TabIndex = 2;
+            txtDaoDien.TabIndex = 5;
             // 
             // txtHinhAnh
             // 
             txtHinhAnh.Font = new Font("Microsoft Sans Serif", 10F);
             txtHinhAnh.Location = new Point(891, 49);
+            txtHinhAnh.Margin = new Padding(5);
             txtHinhAnh.Name = "txtHinhAnh";
             txtHinhAnh.Size = new Size(395, 30);
             txtHinhAnh.TabIndex = 2;
@@ -216,25 +225,28 @@
             // 
             txtIDPhim.Font = new Font("Microsoft Sans Serif", 10F);
             txtIDPhim.Location = new Point(251, 48);
+            txtIDPhim.Margin = new Padding(5);
             txtIDPhim.Name = "txtIDPhim";
             txtIDPhim.Size = new Size(427, 30);
-            txtIDPhim.TabIndex = 2;
+            txtIDPhim.TabIndex = 1;
             // 
             // txtTenPhim
             // 
             txtTenPhim.Font = new Font("Microsoft Sans Serif", 10F);
             txtTenPhim.Location = new Point(251, 97);
+            txtTenPhim.Margin = new Padding(5);
             txtTenPhim.Name = "txtTenPhim";
             txtTenPhim.Size = new Size(1035, 30);
-            txtTenPhim.TabIndex = 2;
+            txtTenPhim.TabIndex = 3;
             // 
             // txtTheLoai
             // 
             txtTheLoai.Font = new Font("Microsoft Sans Serif", 10F);
             txtTheLoai.Location = new Point(251, 144);
+            txtTheLoai.Margin = new Padding(5);
             txtTheLoai.Name = "txtTheLoai";
             txtTheLoai.Size = new Size(1035, 30);
-            txtTheLoai.TabIndex = 2;
+            txtTheLoai.TabIndex = 4;
             // 
             // lblDinhDang
             // 
@@ -243,7 +255,7 @@
             lblDinhDang.Location = new Point(758, 305);
             lblDinhDang.Name = "lblDinhDang";
             lblDinhDang.Size = new Size(101, 25);
-            lblDinhDang.TabIndex = 1;
+            lblDinhDang.TabIndex = 0;
             lblDinhDang.Text = "Định dạng";
             // 
             // lblTrangThai
@@ -253,8 +265,9 @@
             lblTrangThai.Location = new Point(56, 305);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(100, 25);
-            lblTrangThai.TabIndex = 1;
+            lblTrangThai.TabIndex = 0;
             lblTrangThai.Text = "Trạng thái";
+            lblTrangThai.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblMoTa
             // 
@@ -263,8 +276,9 @@
             lblMoTa.Location = new Point(56, 352);
             lblMoTa.Name = "lblMoTa";
             lblMoTa.Size = new Size(61, 25);
-            lblMoTa.TabIndex = 1;
+            lblMoTa.TabIndex = 0;
             lblMoTa.Text = "Mô tả";
+            lblMoTa.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblDoDai
             // 
@@ -273,7 +287,7 @@
             lblDoDai.Location = new Point(734, 253);
             lblDoDai.Name = "lblDoDai";
             lblDoDai.Size = new Size(125, 25);
-            lblDoDai.TabIndex = 1;
+            lblDoDai.TabIndex = 0;
             lblDoDai.Text = "Độ dài (phút)";
             // 
             // lblNgayPH
@@ -283,8 +297,9 @@
             lblNgayPH.Location = new Point(56, 253);
             lblNgayPH.Name = "lblNgayPH";
             lblNgayPH.Size = new Size(150, 25);
-            lblNgayPH.TabIndex = 1;
+            lblNgayPH.TabIndex = 0;
             lblNgayPH.Text = "Ngày phát hành";
+            lblNgayPH.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblHinhAnh
             // 
@@ -293,7 +308,7 @@
             lblHinhAnh.Location = new Point(769, 54);
             lblHinhAnh.Name = "lblHinhAnh";
             lblHinhAnh.Size = new Size(90, 25);
-            lblHinhAnh.TabIndex = 1;
+            lblHinhAnh.TabIndex = 0;
             lblHinhAnh.Text = "Hình ảnh";
             // 
             // lblIDPhim
@@ -303,13 +318,15 @@
             lblIDPhim.Location = new Point(56, 54);
             lblIDPhim.Name = "lblIDPhim";
             lblIDPhim.Size = new Size(87, 25);
-            lblIDPhim.TabIndex = 1;
+            lblIDPhim.TabIndex = 0;
             lblIDPhim.Text = "Mã phim";
+            lblIDPhim.TextAlign = ContentAlignment.TopCenter;
             // 
             // lsvDSPhim
             // 
             lsvDSPhim.Font = new Font("Microsoft Sans Serif", 10F);
             lsvDSPhim.Location = new Point(0, 85);
+            lsvDSPhim.MultiSelect = false;
             lsvDSPhim.Name = "lsvDSPhim";
             lsvDSPhim.Size = new Size(1738, 264);
             lsvDSPhim.TabIndex = 0;
@@ -322,7 +339,7 @@
             txtTimKiem.Location = new Point(226, 36);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(1488, 30);
-            txtTimKiem.TabIndex = 6;
+            txtTimKiem.TabIndex = 11;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // label2
@@ -332,7 +349,7 @@
             label2.Location = new Point(31, 39);
             label2.Name = "label2";
             label2.Size = new Size(91, 25);
-            label2.TabIndex = 7;
+            label2.TabIndex = 0;
             label2.Text = "Tìm kiếm";
             // 
             // groupBox5
@@ -355,7 +372,7 @@
             lblSoLuongDangChieu.Location = new Point(25, 81);
             lblSoLuongDangChieu.Name = "lblSoLuongDangChieu";
             lblSoLuongDangChieu.Size = new Size(111, 25);
-            lblSoLuongDangChieu.TabIndex = 1;
+            lblSoLuongDangChieu.TabIndex = 0;
             lblSoLuongDangChieu.Text = "Đang chiếu";
             // 
             // txtSoLuongDangChieu
@@ -366,7 +383,7 @@
             txtSoLuongDangChieu.Name = "txtSoLuongDangChieu";
             txtSoLuongDangChieu.ReadOnly = true;
             txtSoLuongDangChieu.Size = new Size(90, 30);
-            txtSoLuongDangChieu.TabIndex = 2;
+            txtSoLuongDangChieu.TabIndex = 18;
             // 
             // lblSoLuongPhim
             // 
@@ -375,7 +392,7 @@
             lblSoLuongPhim.Location = new Point(25, 35);
             lblSoLuongPhim.Name = "lblSoLuongPhim";
             lblSoLuongPhim.Size = new Size(137, 25);
-            lblSoLuongPhim.TabIndex = 1;
+            lblSoLuongPhim.TabIndex = 0;
             lblSoLuongPhim.Text = "Số lượng phim";
             // 
             // groupBox2
@@ -412,7 +429,7 @@
             btnThoat.Location = new Point(48, 341);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(204, 60);
-            btnThoat.TabIndex = 0;
+            btnThoat.TabIndex = 16;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
@@ -423,7 +440,7 @@
             btnNhapMoi.Location = new Point(48, 183);
             btnNhapMoi.Name = "btnNhapMoi";
             btnNhapMoi.Size = new Size(204, 60);
-            btnNhapMoi.TabIndex = 0;
+            btnNhapMoi.TabIndex = 14;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
             btnNhapMoi.Click += btnNhapMoi_Click;
@@ -434,7 +451,7 @@
             btnThem.Location = new Point(48, 31);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(204, 60);
-            btnThem.TabIndex = 0;
+            btnThem.TabIndex = 12;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
@@ -445,7 +462,7 @@
             bthXoa.Location = new Point(48, 261);
             bthXoa.Name = "bthXoa";
             bthXoa.Size = new Size(204, 60);
-            bthXoa.TabIndex = 0;
+            bthXoa.TabIndex = 15;
             bthXoa.Text = "Xóa";
             bthXoa.UseVisualStyleBackColor = true;
             bthXoa.Click += bthXoa_Click;
@@ -456,7 +473,7 @@
             btnCapNhat.Location = new Point(48, 105);
             btnCapNhat.Name = "btnCapNhat";
             btnCapNhat.Size = new Size(204, 60);
-            btnCapNhat.TabIndex = 0;
+            btnCapNhat.TabIndex = 13;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
             btnCapNhat.Click += btnCapNhat_Click;

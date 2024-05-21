@@ -85,7 +85,7 @@
             btnRapChieuPhim.Name = "btnRapChieuPhim";
             btnRapChieuPhim.Padding = new Padding(60, 0, 0, 0);
             btnRapChieuPhim.Size = new Size(350, 50);
-            btnRapChieuPhim.TabIndex = 11;
+            btnRapChieuPhim.TabIndex = 1;
             btnRapChieuPhim.Text = "Rạp chiếu phim";
             btnRapChieuPhim.TextAlign = ContentAlignment.MiddleLeft;
             btnRapChieuPhim.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             btnHoaDon.Name = "btnHoaDon";
             btnHoaDon.Padding = new Padding(60, 0, 0, 0);
             btnHoaDon.Size = new Size(350, 50);
-            btnHoaDon.TabIndex = 10;
+            btnHoaDon.TabIndex = 8;
             btnHoaDon.Text = "Hóa đơn";
             btnHoaDon.TextAlign = ContentAlignment.MiddleLeft;
             btnHoaDon.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@
             btnChoNgoi.Name = "btnChoNgoi";
             btnChoNgoi.Padding = new Padding(60, 0, 0, 0);
             btnChoNgoi.Size = new Size(350, 50);
-            btnChoNgoi.TabIndex = 9;
+            btnChoNgoi.TabIndex = 3;
             btnChoNgoi.Text = "Chỗ ngồi";
             btnChoNgoi.TextAlign = ContentAlignment.MiddleLeft;
             btnChoNgoi.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(73, 74);
-            pictureBox1.Margin = new Padding(0, 0, 0, 0);
+            pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 120);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -152,7 +152,7 @@
             btnPhongChieu.Name = "btnPhongChieu";
             btnPhongChieu.Padding = new Padding(60, 0, 0, 0);
             btnPhongChieu.Size = new Size(350, 50);
-            btnPhongChieu.TabIndex = 8;
+            btnPhongChieu.TabIndex = 2;
             btnPhongChieu.Text = "Phòng chiếu";
             btnPhongChieu.TextAlign = ContentAlignment.MiddleLeft;
             btnPhongChieu.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
             btnSuatChieu.Name = "btnSuatChieu";
             btnSuatChieu.Padding = new Padding(60, 0, 0, 0);
             btnSuatChieu.Size = new Size(350, 50);
-            btnSuatChieu.TabIndex = 7;
+            btnSuatChieu.TabIndex = 5;
             btnSuatChieu.Text = "Suất chiếu";
             btnSuatChieu.TextAlign = ContentAlignment.MiddleLeft;
             btnSuatChieu.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             btnThoatCT.Name = "btnThoatCT";
             btnThoatCT.Padding = new Padding(60, 0, 0, 0);
             btnThoatCT.Size = new Size(350, 98);
-            btnThoatCT.TabIndex = 6;
+            btnThoatCT.TabIndex = 11;
             btnThoatCT.Text = "Thoát";
             btnThoatCT.TextAlign = ContentAlignment.TopLeft;
             btnThoatCT.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             btnNhanVien.Name = "btnNhanVien";
             btnNhanVien.Padding = new Padding(60, 0, 0, 0);
             btnNhanVien.Size = new Size(350, 50);
-            btnNhanVien.TabIndex = 6;
+            btnNhanVien.TabIndex = 10;
             btnNhanVien.Text = "Nhân viên";
             btnNhanVien.TextAlign = ContentAlignment.MiddleLeft;
             btnNhanVien.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@
             btnSanPham.Name = "btnSanPham";
             btnSanPham.Padding = new Padding(60, 0, 0, 0);
             btnSanPham.Size = new Size(350, 50);
-            btnSanPham.TabIndex = 5;
+            btnSanPham.TabIndex = 7;
             btnSanPham.Text = "Sản phẩm";
             btnSanPham.TextAlign = ContentAlignment.MiddleLeft;
             btnSanPham.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             btnVeXemPhim.Name = "btnVeXemPhim";
             btnVeXemPhim.Padding = new Padding(60, 0, 0, 0);
             btnVeXemPhim.Size = new Size(350, 50);
-            btnVeXemPhim.TabIndex = 3;
+            btnVeXemPhim.TabIndex = 6;
             btnVeXemPhim.Text = "Vé xem phim";
             btnVeXemPhim.TextAlign = ContentAlignment.MiddleLeft;
             btnVeXemPhim.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@
             btnThanhVien.Name = "btnThanhVien";
             btnThanhVien.Padding = new Padding(60, 0, 0, 0);
             btnThanhVien.Size = new Size(350, 50);
-            btnThanhVien.TabIndex = 2;
+            btnThanhVien.TabIndex = 9;
             btnThanhVien.Text = "Thành viên";
             btnThanhVien.TextAlign = ContentAlignment.MiddleLeft;
             btnThanhVien.UseVisualStyleBackColor = false;

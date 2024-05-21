@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,9 @@ namespace QuanLyVeXemPhim.Views
     {
         CtrlChoNgoi ctrChoNgoi = new CtrlChoNgoi();
         List<CChoNgoi> dsChoNgoi = new List<CChoNgoi>();
+
+        CtrlPhongChieu CtrlPhongChieu = new CtrlPhongChieu();
+        List<CPhongChieu> dsPhong = new List<CPhongChieu>();
         public FChoNgoi()
         {
             InitializeComponent();
@@ -31,6 +35,8 @@ namespace QuanLyVeXemPhim.Views
 
         private void FChoNgoi_Load(object sender, EventArgs e)
         {
+            txtIDchongoi.Focus();
+            dsPhong = CtrlPhongChieu.findAll();
             dsChoNgoi = ctrChoNgoi.findAll();
             foreach (CChoNgoi s in dsChoNgoi)
             {
@@ -72,10 +78,29 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnThem_Click_1(object sender, EventArgs e)
         {
+            if (txtIDchongoi.Text == "" || txtIDphong.Text == "" || txtLoaiChoNgoi.Text == "" || txtVitri.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin chỗ ngồi.");
+                return;
+            }
             string maCN = txtIDchongoi.Text;
             string maPhong = txtIDphong.Text;
             string loaiChoNgoi = txtLoaiChoNgoi.Text;
             string viTri = txtVitri.Text;
+            
+            CPhongChieu phong = dsPhong.FirstOrDefault(p => p.IDPhong == maPhong);
+            if (txtIDphong.Text != null && txtIDphong.Text != "")
+            {
+                phong = dsPhong.FirstOrDefault(p => p.IDPhong == txtIDphong.Text);
+                if (phong == null)
+                {
+                    MessageBox.Show("Không tìm thấy phòng chiếu này.");
+                    txtIDphong.Clear();
+                    txtIDphong.Focus();
+                    return;
+                }
+            }
+
             CChoNgoi choNgoi = new CChoNgoi();
             choNgoi.IDChoNgoi = maCN;
             choNgoi.Phong = new CPhongChieu();
@@ -121,7 +146,6 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-
                     MessageBox.Show("Xóa thông tin chỗ ngồi thất bại!");
                 }
 

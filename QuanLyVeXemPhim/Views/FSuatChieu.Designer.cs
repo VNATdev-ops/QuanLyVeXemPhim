@@ -75,7 +75,7 @@
             phim.Margin = new Padding(4, 0, 4, 0);
             phim.Name = "phim";
             phim.Size = new Size(91, 25);
-            phim.TabIndex = 2;
+            phim.TabIndex = 0;
             phim.Text = "Tìm kiếm";
             // 
             // txtTimKiem
@@ -85,18 +85,19 @@
             txtTimKiem.Margin = new Padding(4);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(1111, 30);
-            txtTimKiem.TabIndex = 10;
+            txtTimKiem.TabIndex = 9;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // txtTongSo
             // 
             txtTongSo.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTongSo.Location = new Point(34, 93);
+            txtTongSo.Location = new Point(65, 93);
             txtTongSo.Margin = new Padding(4);
             txtTongSo.Name = "txtTongSo";
             txtTongSo.ReadOnly = true;
-            txtTongSo.Size = new Size(260, 30);
-            txtTongSo.TabIndex = 10;
+            txtTongSo.Size = new Size(197, 30);
+            txtTongSo.TabIndex = 15;
+            txtTongSo.TextAlign = HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -106,7 +107,7 @@
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(89, 25);
-            label9.TabIndex = 1;
+            label9.TabIndex = 0;
             label9.Text = "Tổng số ";
             // 
             // groupBox3
@@ -119,7 +120,7 @@
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
             groupBox3.Size = new Size(322, 155);
-            groupBox3.TabIndex = 16;
+            groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thống kê";
             // 
@@ -127,10 +128,11 @@
             // 
             dtThoiGianChieu.CustomFormat = "HH:mm dd/MM/yyyy";
             dtThoiGianChieu.Font = new Font("Microsoft Sans Serif", 10F);
+            dtThoiGianChieu.Format = DateTimePickerFormat.Custom;
             dtThoiGianChieu.Location = new Point(238, 302);
             dtThoiGianChieu.Name = "dtThoiGianChieu";
             dtThoiGianChieu.Size = new Size(502, 30);
-            dtThoiGianChieu.TabIndex = 17;
+            dtThoiGianChieu.TabIndex = 5;
             // 
             // cmbTrangThai
             // 
@@ -139,7 +141,7 @@
             cmbTrangThai.Location = new Point(999, 172);
             cmbTrangThai.Name = "cmbTrangThai";
             cmbTrangThai.Size = new Size(303, 33);
-            cmbTrangThai.TabIndex = 16;
+            cmbTrangThai.TabIndex = 8;
             // 
             // cmbPhong
             // 
@@ -148,7 +150,7 @@
             cmbPhong.Location = new Point(238, 241);
             cmbPhong.Name = "cmbPhong";
             cmbPhong.Size = new Size(502, 33);
-            cmbPhong.TabIndex = 16;
+            cmbPhong.TabIndex = 4;
             // 
             // cmbRap
             // 
@@ -157,7 +159,7 @@
             cmbRap.Location = new Point(238, 176);
             cmbRap.Name = "cmbRap";
             cmbRap.Size = new Size(502, 33);
-            cmbRap.TabIndex = 16;
+            cmbRap.TabIndex = 3;
             // 
             // cmbPhim
             // 
@@ -166,7 +168,7 @@
             cmbPhim.Location = new Point(238, 116);
             cmbPhim.Name = "cmbPhim";
             cmbPhim.Size = new Size(502, 33);
-            cmbPhim.TabIndex = 16;
+            cmbPhim.TabIndex = 2;
             // 
             // txtSoLuongConLai
             // 
@@ -175,7 +177,7 @@
             txtSoLuongConLai.Margin = new Padding(4);
             txtSoLuongConLai.Name = "txtSoLuongConLai";
             txtSoLuongConLai.Size = new Size(303, 30);
-            txtSoLuongConLai.TabIndex = 14;
+            txtSoLuongConLai.TabIndex = 7;
             // 
             // label6
             // 
@@ -199,7 +201,7 @@
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4);
             groupBox2.Size = new Size(1356, 490);
-            groupBox2.TabIndex = 20;
+            groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách suất chiếu";
             // 
@@ -207,6 +209,7 @@
             // 
             lsvSuatChieu.Font = new Font("Microsoft Sans Serif", 10F);
             lsvSuatChieu.Location = new Point(0, 119);
+            lsvSuatChieu.MultiSelect = false;
             lsvSuatChieu.Name = "lsvSuatChieu";
             lsvSuatChieu.Size = new Size(1356, 371);
             lsvSuatChieu.TabIndex = 0;
@@ -221,7 +224,7 @@
             lblTrangThai.Margin = new Padding(4, 0, 4, 0);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(100, 25);
-            lblTrangThai.TabIndex = 13;
+            lblTrangThai.TabIndex = 0;
             lblTrangThai.Text = "Trạng thái";
             // 
             // lblSoLuongConLai
@@ -232,7 +235,7 @@
             lblSoLuongConLai.Margin = new Padding(4, 0, 4, 0);
             lblSoLuongConLai.Name = "lblSoLuongConLai";
             lblSoLuongConLai.Size = new Size(151, 25);
-            lblSoLuongConLai.TabIndex = 12;
+            lblSoLuongConLai.TabIndex = 0;
             lblSoLuongConLai.Text = "Số lượng còn lại";
             // 
             // lblIDPhong
@@ -243,7 +246,7 @@
             lblIDPhong.Margin = new Padding(4, 0, 4, 0);
             lblIDPhong.Name = "lblIDPhong";
             lblIDPhong.Size = new Size(69, 25);
-            lblIDPhong.TabIndex = 10;
+            lblIDPhong.TabIndex = 0;
             lblIDPhong.Text = "Phòng";
             // 
             // txtSoLuongVe
@@ -253,7 +256,7 @@
             txtSoLuongVe.Margin = new Padding(4);
             txtSoLuongVe.Name = "txtSoLuongVe";
             txtSoLuongVe.Size = new Size(303, 30);
-            txtSoLuongVe.TabIndex = 7;
+            txtSoLuongVe.TabIndex = 6;
             // 
             // txtIDSuatChieu
             // 
@@ -262,7 +265,7 @@
             txtIDSuatChieu.Margin = new Padding(4);
             txtIDSuatChieu.Name = "txtIDSuatChieu";
             txtIDSuatChieu.Size = new Size(502, 30);
-            txtIDSuatChieu.TabIndex = 5;
+            txtIDSuatChieu.TabIndex = 1;
             // 
             // lblIDRap
             // 
@@ -272,7 +275,7 @@
             lblIDRap.Margin = new Padding(4, 0, 4, 0);
             lblIDRap.Name = "lblIDRap";
             lblIDRap.Size = new Size(47, 25);
-            lblIDRap.TabIndex = 1;
+            lblIDRap.TabIndex = 0;
             lblIDRap.Text = "Rạp";
             // 
             // lblThoiGianChieu
@@ -283,7 +286,7 @@
             lblThoiGianChieu.Margin = new Padding(4, 0, 4, 0);
             lblThoiGianChieu.Name = "lblThoiGianChieu";
             lblThoiGianChieu.Size = new Size(145, 25);
-            lblThoiGianChieu.TabIndex = 3;
+            lblThoiGianChieu.TabIndex = 0;
             lblThoiGianChieu.Text = "Thời gian chiếu";
             // 
             // lblIDPhim
@@ -294,7 +297,7 @@
             lblIDPhim.Margin = new Padding(4, 0, 4, 0);
             lblIDPhim.Name = "lblIDPhim";
             lblIDPhim.Size = new Size(56, 25);
-            lblIDPhim.TabIndex = 2;
+            lblIDPhim.TabIndex = 0;
             lblIDPhim.Text = "Phim";
             // 
             // lblIDSuatChieu
@@ -333,7 +336,7 @@
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
             groupBox1.Size = new Size(1356, 376);
-            groupBox1.TabIndex = 18;
+            groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin suất chiếu";
             // 
@@ -345,7 +348,7 @@
             lblSoLuongVe.Margin = new Padding(4, 0, 4, 0);
             lblSoLuongVe.Name = "lblSoLuongVe";
             lblSoLuongVe.Size = new Size(121, 25);
-            lblSoLuongVe.TabIndex = 4;
+            lblSoLuongVe.TabIndex = 0;
             lblSoLuongVe.Text = "Số lượng vé ";
             // 
             // panel1
@@ -361,7 +364,7 @@
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(322, 447);
-            panel1.TabIndex = 19;
+            panel1.TabIndex = 0;
             // 
             // btnThoat
             // 
@@ -370,7 +373,7 @@
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(223, 62);
-            btnThoat.TabIndex = 4;
+            btnThoat.TabIndex = 14;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
@@ -382,7 +385,7 @@
             btnCapNhat.Margin = new Padding(4);
             btnCapNhat.Name = "btnCapNhat";
             btnCapNhat.Size = new Size(223, 62);
-            btnCapNhat.TabIndex = 3;
+            btnCapNhat.TabIndex = 11;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
             btnCapNhat.Click += btnCapNhat_Click;
@@ -394,7 +397,7 @@
             btnNhapMoi.Margin = new Padding(4);
             btnNhapMoi.Name = "btnNhapMoi";
             btnNhapMoi.Size = new Size(223, 62);
-            btnNhapMoi.TabIndex = 2;
+            btnNhapMoi.TabIndex = 12;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
             btnNhapMoi.Click += btnNhapMoi_Click;
@@ -406,7 +409,7 @@
             btnXoa.Margin = new Padding(4);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(223, 62);
-            btnXoa.TabIndex = 1;
+            btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click;
@@ -418,7 +421,7 @@
             btnThem.Margin = new Padding(4);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(223, 62);
-            btnThem.TabIndex = 0;
+            btnThem.TabIndex = 10;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
@@ -431,7 +434,7 @@
             panel2.Location = new Point(1454, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(424, 1194);
-            panel2.TabIndex = 22;
+            panel2.TabIndex = 0;
             // 
             // FSuatChieu
             // 

@@ -31,14 +31,14 @@ namespace QuanLyVeXemPhim.Views
             InitializeComponent();
 
             int width = lsvSuatChieu.Width;
-            lsvSuatChieu.Columns.Add("Mã suất chiếu", 9 * width / 100);
-            lsvSuatChieu.Columns.Add("Phim", 30 * width / 100);
-            lsvSuatChieu.Columns.Add("Rạp", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Phòng", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Số lượng vé", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Thời gian chiếu", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Số lượng còn lại", 10 * width / 100);
-            lsvSuatChieu.Columns.Add("Trạng thái", 10 * width / 100);
+            lsvSuatChieu.Columns.Add("Mã suất chiếu", 12 * width / 100);
+            lsvSuatChieu.Columns.Add("Phim", 24 * width / 100);
+            lsvSuatChieu.Columns.Add("Rạp", 18 * width / 100);
+            lsvSuatChieu.Columns.Add("Phòng", 8 * width / 100);
+            lsvSuatChieu.Columns.Add("SL vé", 6 * width / 100);
+            lsvSuatChieu.Columns.Add("Thời gian chiếu", 15 * width / 100);
+            lsvSuatChieu.Columns.Add("SL còn lại", 7 * width / 100);
+            lsvSuatChieu.Columns.Add("Trạng thái", 9 * width / 100);
 
             lsvSuatChieu.View = View.Details;
             lsvSuatChieu.FullRowSelect = true;
@@ -60,6 +60,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void FSuatChieu_Load(object sender, EventArgs e)
         {
+            txtIDSuatChieu.Focus();
             dsSuatChieu = ctrSuatChieu.findAll();
             dsPhim = ctrlPhim.findAll();
             dsRap = ctrRap.findall();
@@ -68,7 +69,7 @@ namespace QuanLyVeXemPhim.Views
             cmbPhim.DataSource = dsPhim;
             cmbRap.DataSource = dsRap;
             cmbPhong.DataSource = dsPhongChieu;
-            List<string> dsTrangThai = new List<string> { "Còn Trống", "Hết Vé" };
+            List<string> dsTrangThai = new List<string> { "Còn vé", "Hết vé" };
             cmbTrangThai.DataSource = dsTrangThai;
 
             foreach (CSuatChieu sc in dsSuatChieu)
@@ -140,10 +141,37 @@ namespace QuanLyVeXemPhim.Views
                 {
                     sc.Phong = (CPhongChieu)cmbPhong.SelectedItem;
                 }
-                sc.SoLuongVe = int.Parse(txtSoLuongVe.Text);
                 sc.ThoiGianChieu = dtThoiGianChieu.Value;
-                sc.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
+                try
+                {
+                    sc.SoLuongVe = int.Parse(txtSoLuongVe.Text);
+                }
+                catch 
+                {
+                    MessageBox.Show("Số lượng vé phải là số nguyên dương.");
+                    txtSoLuongVe.Focus();
+                    return;
+                }
+                try
+                {
+                    sc.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Số lượng còn lại phải là số nguyên dương.");
+                    txtSoLuongConLai.Focus();
+                    return;
+                }
                 sc.TrangThai = cmbTrangThai.Text;
+
+                //kiểm tra trùng lặp
+                if (dsSuatChieu.Any(existingSC => existingSC.Rap.IDRap == sc.Rap.IDRap &&
+                                                  existingSC.Phong.IDPhong == sc.Phong.IDPhong &&
+                                                  existingSC.ThoiGianChieu == sc.ThoiGianChieu))
+                {
+                    MessageBox.Show("Suất chiếu đã tồn tại với cùng rạp, phòng và thời gian. Vui lòng chọn thời gian khác.");
+                    return;
+                }
 
                 if (ctrSuatChieu.insert(sc))
                 {
@@ -177,6 +205,7 @@ namespace QuanLyVeXemPhim.Views
             dtThoiGianChieu.Value = DateTime.Now;
             txtSoLuongConLai.Clear();
             cmbTrangThai.SelectedItem = null;
+            txtIDSuatChieu.Focus();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -187,7 +216,7 @@ namespace QuanLyVeXemPhim.Views
                 {
                     if (cmbPhim.SelectedItem == null || cmbRap.SelectedItem == null || cmbPhong.SelectedItem == null)
                     {
-                        MessageBox.Show("Vui lòng chọn phim, rạp chiếu và phòng chiếu trước khi cập nhật suất chiếu.");
+                        MessageBox.Show("Vui lòng chọn đầy đủ phim, rạp chiếu và phòng chiếu.");
                         return;
                     }
 
@@ -214,6 +243,16 @@ namespace QuanLyVeXemPhim.Views
                     sc.SoLuongConLai = int.Parse(txtSoLuongConLai.Text);
                     sc.TrangThai = cmbTrangThai.Text;
 
+                    // Kiểm tra trùng lặp rạp, phòng và thời gian
+                    if (dsSuatChieu.Any(existingSC => existingSC.IDSuatChieu != sc.IDSuatChieu &&
+                                                      existingSC.Rap.IDRap == sc.Rap.IDRap &&
+                                                      existingSC.Phong.IDPhong == sc.Phong.IDPhong &&
+                                                      existingSC.ThoiGianChieu == sc.ThoiGianChieu))
+                    {
+                        MessageBox.Show("Suất chiếu đã tồn tại với cùng rạp, phòng và thời gian. Vui lòng chọn thời gian khác.");
+                        return;
+                    }
+
                     dsSuatChieu[index] = sc;
 
                     if (ctrSuatChieu.update(sc))
@@ -226,6 +265,11 @@ namespace QuanLyVeXemPhim.Views
                         item.SubItems[5].Text = sc.ThoiGianChieu.ToString();
                         item.SubItems[6].Text = sc.SoLuongConLai.ToString();
                         item.SubItems[7].Text = sc.TrangThai;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thông tin suất chiếu thất bại!");
+                        return;
                     }
 
                 }

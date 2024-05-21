@@ -77,11 +77,6 @@ namespace QuanLyVeXemPhim.Views
             //label1.Text = button3.Text;
         }
 
-        private void lịchSửTíchĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FLichSuTichDiem());
-        }
-
         private void thànhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FThanhVien());

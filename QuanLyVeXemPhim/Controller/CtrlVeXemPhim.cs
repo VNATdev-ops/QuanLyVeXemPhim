@@ -110,13 +110,13 @@ namespace QuanLyVeXemPhim.Controller
             {
                 string sql = "insert into vexemphim values (@idve, @idThanhVien, @idPhim, @idSuatChieu, @idChoNgoi, @giaVe, @tinhTrang)";
                 SqlCommand cmd = new SqlCommand(sql);
-                cmd.Parameters.AddWithValue("@idThanhVien", obj.ThanhVien.IDThanhVien);
-                cmd.Parameters.AddWithValue("@idPhim", obj.Phim.IDPhim);
-                cmd.Parameters.AddWithValue("@idSuatChieu", obj.SuatChieu.IDSuatChieu);
-                cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi.IDChoNgoi);
-                cmd.Parameters.AddWithValue("@giaVe", obj.GiaVe);
+                cmd.Parameters.AddWithValue("@idThanhVien", obj.ThanhVien1);
+                cmd.Parameters.AddWithValue("@idPhim", obj.Phim1);
+                cmd.Parameters.AddWithValue("@idSuatChieu", obj.Suatchieu);
+                cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi1);
+                cmd.Parameters.AddWithValue("@giaVe", obj.V);
                 cmd.Parameters.AddWithValue("@tinhTrang", obj.TinhTrang);
-                cmd.Parameters.AddWithValue("@idve", (obj.IDVe));
+                cmd.Parameters.AddWithValue("@idve", obj.IDVe);
 
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();
@@ -137,7 +137,7 @@ namespace QuanLyVeXemPhim.Controller
                 cmd.Parameters.AddWithValue("@idChoNgoi", obj.ChoNgoi.IDChoNgoi);
                 cmd.Parameters.AddWithValue("@giaVe", obj.GiaVe);
                 cmd.Parameters.AddWithValue("@tinhTrang", obj.TinhTrang);
-                cmd.Parameters.AddWithValue("@idve", int.Parse(obj.IDVe));
+                cmd.Parameters.AddWithValue("@idve", obj.IDVe);
 
                 cmd.Connection = cnn;
                 int n = cmd.ExecuteNonQuery();

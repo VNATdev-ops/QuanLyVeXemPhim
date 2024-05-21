@@ -21,9 +21,9 @@ namespace QuanLyVeXemPhim.Views
             InitializeComponent();
             int width = lsvNhanVien.Width;
             lsvNhanVien.Columns.Add("Mã NV", 10 * width / 100);
-            lsvNhanVien.Columns.Add("Họ tên", 13 * width / 100);
+            lsvNhanVien.Columns.Add("Họ tên", 15 * width / 100);
             lsvNhanVien.Columns.Add("Mật khẩu", 12 * width / 100);
-            lsvNhanVien.Columns.Add("Ngày sinh", 12 * width / 100);
+            lsvNhanVien.Columns.Add("Ngày sinh", 14 * width / 100);
             lsvNhanVien.Columns.Add("Giới tính", 10 * width / 100);
             lsvNhanVien.Columns.Add("Số điện thoại", 12 * width / 100);
             lsvNhanVien.Columns.Add("Email", 14 * width / 100);
@@ -32,8 +32,23 @@ namespace QuanLyVeXemPhim.Views
             lsvNhanVien.View = View.Details;
             lsvNhanVien.FullRowSelect = true;
         }
+        private void ResetForm()
+        {
+            txtIDNhanVien.Clear();
+            txtTenNhanVien.Clear();
+            txtNgaySinh.Value = DateTime.Now;
+            txtGioiTinh.Clear();
+            txtMatKhau.Clear();
+            txtSoDienThoai.Clear();
+            txtEmail.Clear();
+            txtChucVu.Clear();
+            txtTimKiemNV.Clear();
+            lsvNhanVien.SelectedItems.Clear();
+            txtIDNhanVien.Focus();
+        }
         private void FNhanVien_Load(object sender, EventArgs e)
         {
+            txtIDNhanVien.Focus();
             dsNhanVien = ctrlNhanVien.findall();
             foreach (CNhanVien s in dsNhanVien)
             {
@@ -80,6 +95,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(txtIDNhanVien.Text == "" || txtTenNhanVien.Text == "" || txtMatKhau.Text == "" || txtGioiTinh.Text == "" || txtSoDienThoai.Text == "" || txtEmail.Text == "" || txtChucVu.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên!");
+                    return;
+                }
                 string maNV = txtIDNhanVien.Text;
                 string tenNV = txtTenNhanVien.Text;
                 string matKhau = txtMatKhau.Text;
@@ -133,7 +153,7 @@ namespace QuanLyVeXemPhim.Views
                     dsNhanVien.Remove(nhanVien);
                     lsvNhanVien.Items.Remove(item);
                     txtTongSo.Text = lsvNhanVien.Items.Count.ToString();
-
+                    ResetForm();
                 }
                 else MessageBox.Show("Xóa thông tin nhân viên thất bại!");
 
@@ -217,16 +237,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            txtIDNhanVien.Clear();
-            txtTenNhanVien.Clear();
-            txtNgaySinh.Value = DateTime.Now;
-            txtGioiTinh.Clear();
-            txtMatKhau.Clear();
-            txtSoDienThoai.Clear();
-            txtEmail.Clear();
-            txtChucVu.Clear();
-            lsvNhanVien.SelectedItems.Clear();
-            txtIDNhanVien.Focus();
+            ResetForm();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

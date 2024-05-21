@@ -27,12 +27,12 @@ namespace QuanLyVeXemPhim.Views
             InitializeComponent();
             int width = lsvVeXemPhim.Width;
             lsvVeXemPhim.Columns.Add("Mã vé", 14 * width / 100);
-            lsvVeXemPhim.Columns.Add("Mã suất chiếu", 14 * width / 100);
-            lsvVeXemPhim.Columns.Add("Mã chỗ ngồi", 14 * width / 100);
-            lsvVeXemPhim.Columns.Add("Tình trạng", 14 * width / 100);
-            lsvVeXemPhim.Columns.Add("Giá vé", 14 * width / 100);
             lsvVeXemPhim.Columns.Add("Mã thành viên", 14 * width / 100);
             lsvVeXemPhim.Columns.Add("Mã phim", 14 * width / 100);
+            lsvVeXemPhim.Columns.Add("Mã suất chiếu", 14 * width / 100);
+            lsvVeXemPhim.Columns.Add("Mã chỗ ngồi", 14 * width / 100);
+            lsvVeXemPhim.Columns.Add("Giá vé", 14 * width / 100);
+            lsvVeXemPhim.Columns.Add("Tình trạng", 14 * width / 100);
 
 
             lsvVeXemPhim.View = View.Details;
@@ -44,6 +44,12 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(txtIDVe.Text == "" || txtIDThanhVien.Text == "" || txtIDPhim.Text == "" || txtIDSuatChieu.Text == "" || txtIDChoNgoi.Text == "" || txtGiaVe.Text == "" || txtTinhTrang.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin vé!");
+                    return;
+                }
+
                 //ktra tính hợp lệ của dữ liệu
                 string idve = txtIDVe.Text;
                 string idthanhvien = txtIDThanhVien.Text;
@@ -91,18 +97,19 @@ namespace QuanLyVeXemPhim.Views
 
         private void FVeXemPhim_Load(object sender, EventArgs e)
         {
+            txtIDVe.Focus();
             dsVeXemPhim = ctrlVeXemPhim.findall();
             foreach (CVeXemPhim s in dsVeXemPhim)
             {
                 string[] obj = {
                     s.IDVe,
-                    s.SuatChieu.IDSuatChieu,
-                    s.ChoNgoi.IDChoNgoi,
-                    s.TinhTrang,
-                    s.GiaVe.ToString(),
                     s.ThanhVien.IDThanhVien,
                     s.Phim.IDPhim,
-                    };
+                    s.SuatChieu.IDSuatChieu,
+                    s.ChoNgoi.IDChoNgoi,
+                    s.GiaVe.ToString(),
+                    s.TinhTrang
+                };
                 ListViewItem item = new ListViewItem(obj);
                 lsvVeXemPhim.Items.Add(item);
             }
@@ -122,13 +129,14 @@ namespace QuanLyVeXemPhim.Views
                 foreach (CVeXemPhim s in dsVeXemPhim)
                 {
                     string[] obj = {
-                    s.IDVe,
-                    s.SuatChieu.IDSuatChieu,
-                    s.ChoNgoi.IDChoNgoi,
-                    s.TinhTrang,
-                    s.GiaVe.ToString(),
-                    s.ThanhVien.IDThanhVien,
-                    s.Phim.IDPhim, };
+                        s.IDVe,
+                        s.ThanhVien.IDThanhVien,
+                        s.Phim.IDPhim,
+                        s.SuatChieu.IDSuatChieu,
+                        s.ChoNgoi.IDChoNgoi,
+                        s.GiaVe.ToString(),
+                        s.TinhTrang
+                    };
                     ListViewItem item = new ListViewItem(obj);
                     lsvVeXemPhim.Items.Add(item);
                 }
@@ -199,25 +207,23 @@ namespace QuanLyVeXemPhim.Views
                 veXemPhim = dsVeXemPhim[index];
                 //gọi function kiểm tra dữ liệu hợp lệ
                 // cập nhật thông tin
-                //veXemPhim.IDVe = txtIDVe.Text;
+                veXemPhim.IDVe = txtIDVe.Text;
                 veXemPhim.ThanhVien.IDThanhVien = txtIDThanhVien.Text;
                 veXemPhim.Phim.IDPhim = txtIDPhim.Text;
                 veXemPhim.SuatChieu.IDSuatChieu = txtIDSuatChieu.Text;
                 veXemPhim.ChoNgoi.IDChoNgoi = txtIDChoNgoi.Text;
-                veXemPhim.GiaVe = int.Parse(txtGiaVe.Text);
+                veXemPhim.GiaVe = decimal.Parse(txtGiaVe.Text);
                 veXemPhim.TinhTrang = txtTinhTrang.Text;
                 //cập nhật xuống dữ liệu
                 if (ctrlVeXemPhim.update(veXemPhim))
                 {
-
                     //cập nhật dữ liệu trong lsv
-                    item.SubItems[1].Text = veXemPhim.IDVe;
-                    item.SubItems[2].Text = veXemPhim.ThanhVien.IDThanhVien;
-                    item.SubItems[3].Text = veXemPhim.Phim.IDPhim;
-                    item.SubItems[4].Text = veXemPhim.SuatChieu.IDSuatChieu;
-                    item.SubItems[5].Text = veXemPhim.GiaVe.ToString();
-                    item.SubItems[6].Text = veXemPhim.ChoNgoi.IDChoNgoi;
-                    item.SubItems[7].Text = veXemPhim.TinhTrang;
+                    item.SubItems[1].Text = veXemPhim.ThanhVien.IDThanhVien;
+                    item.SubItems[2].Text = veXemPhim.Phim.IDPhim;
+                    item.SubItems[3].Text = veXemPhim.SuatChieu.IDSuatChieu;
+                    item.SubItems[4].Text = veXemPhim.GiaVe.ToString();
+                    item.SubItems[5].Text = veXemPhim.ChoNgoi.IDChoNgoi;
+                    item.SubItems[6].Text = veXemPhim.TinhTrang;
                     MessageBox.Show("Cập nhật thông tin vé thành công!");
                 }
                 else
@@ -259,7 +265,6 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                 {
-
                     MessageBox.Show("Xóa thông tin vé thất bại!");
                 }
             }
@@ -271,8 +276,14 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnNhapMoi_Click(object sender, EventArgs e) 
         {
-            lsvVeXemPhim.Items.Clear();
-            txtTongSo.Text = lsvVeXemPhim.Items.Count.ToString();
+            txtIDVe.Text = "";
+            txtIDThanhVien.Text = "";
+            txtIDPhim.Text = "";
+            txtIDSuatChieu.Text = "";
+            txtIDChoNgoi.Text = "";
+            txtGiaVe.Text = "";
+            txtTinhTrang.Text = "";
+            txtIDVe.Focus();
         }
     }
 }

@@ -31,6 +31,7 @@ namespace QuanLyVeXemPhim.Views
         }
         private void FRapChieuPhim_Load(object sender, EventArgs e)
         {
+            txtIDRap.Focus();
             dsRapChieuPhim = ctrlRapChieuPhim.findall();
             foreach (CRapChieuPhim s in dsRapChieuPhim)
             {
@@ -47,10 +48,25 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (txtIDRap.Text == "" || txtTenRap.Text == "" || txtDiaChi.Text == "" || txtSoLuongPhong.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
                 string idRap = txtIDRap.Text;
                 string tenrap = txtTenRap.Text;
                 string diachi = txtDiaChi.Text;
-                int soLuongPhong = int.Parse(txtSoLuongPhong.Text);
+                int soLuongPhong = 0;
+                try
+                {
+                    soLuongPhong = int.Parse(txtSoLuongPhong.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Số lượng phòng phải là số nguyên dương.");
+                    txtSoLuongPhong.Focus();
+                    return;
+                }
                 string logo = txtLogo.Text ?? "";
 
                 CRapChieuPhim rapChieuPhim = new CRapChieuPhim(idRap, tenrap, diachi, soLuongPhong, logo);
@@ -65,8 +81,6 @@ namespace QuanLyVeXemPhim.Views
                 }
                 else
                     MessageBox.Show("Thêm thông tin rạp chiếu phim thất bại!");
-
-
             }
             catch 
             {
@@ -149,7 +163,7 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
-                if (lsvDSRap.Items.Count > 0)
+                if (lsvDSRap.SelectedItems.Count > 0)
                 {
                     ListViewItem item = lsvDSRap.SelectedItems[0];
                     CRapChieuPhim rapChieuPhim = new CRapChieuPhim();

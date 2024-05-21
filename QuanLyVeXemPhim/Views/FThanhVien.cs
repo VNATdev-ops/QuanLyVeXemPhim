@@ -32,16 +32,16 @@ namespace QuanLyVeXemPhim.Views
             lsvDanhSachTV.Columns.Add("Ngày sinh", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Giới tính", 10 * width / 100);
             lsvDanhSachTV.Columns.Add("Khu vực", 10 * width / 100);
-            lsvDanhSachTV.Columns.Add("Email", 30 * width / 100);
+            lsvDanhSachTV.Columns.Add("Email", 29 * width / 100);
 
             lsvDanhSachTV.View = View.Details;
             lsvDanhSachTV.FullRowSelect = true;
 
             lsvLichSuTichDiem.View = View.Details;
-            lsvLichSuTichDiem.Columns.Add("Mã LSTD", 125);
+            lsvLichSuTichDiem.Columns.Add("Mã LSTD", 124);
             lsvLichSuTichDiem.Columns.Add("Số điểm", 50);
             lsvLichSuTichDiem.Columns.Add("Thời gian tích lũy", 150);
-            lsvLichSuTichDiem.Columns.Add("Mã thành viên", 115);
+            lsvLichSuTichDiem.Columns.Add("Mã thành viên", 112);
             lsvLichSuTichDiem.FullRowSelect = true;
 
         }
@@ -50,6 +50,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(txtIDThanhVien.Text == "" || txtTenThanhVien.Text == "" || txtMatKhau.Text == "" || txtGioiTinh.Text == "" || txtKhuVuc.Text == "" || txtEmail.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin thành viên!");
+                    return;
+                }
                 string idTV = txtIDThanhVien.Text;
                 string tenThanhVien = txtTenThanhVien.Text;
                 string matKhau = txtMatKhau.Text;
@@ -80,6 +85,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void FThanhVien_Load(object sender, EventArgs e)
         {
+            txtIDThanhVien.Focus();
             dsThanhVien = ctrlThanhVien.findall();
             dsLichSuTichDiem = ctrlLichSuTichDiem.findall();
             foreach (CThanhVien s in dsThanhVien)

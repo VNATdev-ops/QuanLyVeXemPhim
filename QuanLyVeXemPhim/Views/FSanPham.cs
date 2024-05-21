@@ -38,8 +38,23 @@ namespace QuanLyVeXemPhim.Views
             txtSoLuongSP.Text = dsSanPham.Count + "";
         }
 
+        private void ResetForm()
+        {
+            txtIDSP.Clear();
+            cbLoaiSP.SelectedItem = null;
+            txtTenSP.Clear();
+            txtGia.Clear();
+            txtDonViTinh.Clear();
+            txtSoLuong.Clear();
+            txtHinhAnh.Clear();
+            txtTimKiem.Clear();
+            lsvDSSP.SelectedItems.Clear();
+            //
+            txtIDSP.Focus();
+        }
         private void FSanPham_Load(object sender, EventArgs e)
         {
+            txtIDSP.Focus();
             dsSanPham = ctrSanPham.findAll();
             foreach (CSanPham s in dsSanPham)
             {
@@ -96,6 +111,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(txtIDSP.Text == "" || cbLoaiSP.Text == "" || txtTenSP.Text == "" || txtGia.Text == "" || txtDonViTinh.Text == "" || txtSoLuong.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm!");
+                    return;
+                }
                 string idsanpham = txtIDSP.Text;
                 string loai = cbLoaiSP.Text;
                 string tensanpham = txtTenSP.Text;
@@ -215,6 +235,8 @@ namespace QuanLyVeXemPhim.Views
                         MessageBox.Show("Xóa thông tin sản phẩm thành công!");
                         dsSanPham.Remove(sp);
                         lsvDSSP.Items.RemoveAt(index);
+
+                        ResetForm();
                     }
                     else
                         MessageBox.Show("Xóa thông tin sản phẩm thất bại!");
@@ -235,15 +257,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            txtIDSP.Clear();
-            cbLoaiSP.SelectedItem = null;
-            txtTenSP.Clear();
-            txtGia.Clear();
-            txtDonViTinh.Clear();
-            txtSoLuong.Clear();
-            txtHinhAnh.Clear();
-            //
-            txtIDSP.Focus();
+            ResetForm();
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {

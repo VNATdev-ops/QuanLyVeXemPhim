@@ -46,33 +46,29 @@
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            txtTimKiem = new TextBox();
             lsvDanhSachTV = new ListView();
+            lblTim = new Label();
             groupBox5 = new GroupBox();
             txtTongDiem = new TextBox();
             lsvLichSuTichDiem = new ListView();
             label10 = new Label();
             panel1 = new Panel();
+            groupBox3 = new GroupBox();
+            txtTongSo = new TextBox();
+            label9 = new Label();
             panel3 = new Panel();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             bthXoa = new Button();
             button4 = new Button();
-            panel2 = new Panel();
-            groupBox4 = new GroupBox();
-            txtTimKiem = new TextBox();
-            lblTim = new Label();
-            groupBox3 = new GroupBox();
-            txtTongSo = new TextBox();
-            label9 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox5.SuspendLayout();
             panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
-            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label8
@@ -173,17 +169,31 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtTimKiem);
             groupBox2.Controls.Add(lsvDanhSachTV);
+            groupBox2.Controls.Add(lblTim);
             resources.ApplyResources(groupBox2, "groupBox2");
             groupBox2.Name = "groupBox2";
             groupBox2.TabStop = false;
             // 
+            // txtTimKiem
+            // 
+            resources.ApplyResources(txtTimKiem, "txtTimKiem");
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
             // lsvDanhSachTV
             // 
             resources.ApplyResources(lsvDanhSachTV, "lsvDanhSachTV");
+            lsvDanhSachTV.MultiSelect = false;
             lsvDanhSachTV.Name = "lsvDanhSachTV";
             lsvDanhSachTV.UseCompatibleStateImageBehavior = false;
             lsvDanhSachTV.SelectedIndexChanged += lsvDanhSachTV_SelectedIndexChanged;
+            // 
+            // lblTim
+            // 
+            resources.ApplyResources(lblTim, "lblTim");
+            lblTim.Name = "lblTim";
             // 
             // groupBox5
             // 
@@ -213,10 +223,29 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel2);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtTongSo);
+            groupBox3.Controls.Add(label9);
+            resources.ApplyResources(groupBox3, "groupBox3");
+            groupBox3.Name = "groupBox3";
+            groupBox3.TabStop = false;
+            // 
+            // txtTongSo
+            // 
+            resources.ApplyResources(txtTongSo, "txtTongSo");
+            txtTongSo.Name = "txtTongSo";
+            txtTongSo.ReadOnly = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.Name = "label9";
             // 
             // panel3
             // 
@@ -264,51 +293,6 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += btnCapNhat_Click;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(groupBox4);
-            panel2.Controls.Add(groupBox3);
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(txtTimKiem);
-            groupBox4.Controls.Add(lblTim);
-            resources.ApplyResources(groupBox4, "groupBox4");
-            groupBox4.Name = "groupBox4";
-            groupBox4.TabStop = false;
-            // 
-            // txtTimKiem
-            // 
-            resources.ApplyResources(txtTimKiem, "txtTimKiem");
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
-            // 
-            // lblTim
-            // 
-            resources.ApplyResources(lblTim, "lblTim");
-            lblTim.Name = "lblTim";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(txtTongSo);
-            groupBox3.Controls.Add(label9);
-            resources.ApplyResources(groupBox3, "groupBox3");
-            groupBox3.Name = "groupBox3";
-            groupBox3.TabStop = false;
-            // 
-            // txtTongSo
-            // 
-            resources.ApplyResources(txtTongSo, "txtTongSo");
-            txtTongSo.Name = "txtTongSo";
-            txtTongSo.ReadOnly = true;
-            // 
-            // label9
-            // 
-            resources.ApplyResources(label9, "label9");
-            label9.Name = "label9";
-            // 
             // FThanhVien
             // 
             resources.ApplyResources(this, "$this");
@@ -324,15 +308,13 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -363,10 +345,8 @@
         private GroupBox groupBox3;
         private TextBox txtTongSo;
         private Label label9;
-        private GroupBox groupBox4;
         private TextBox txtTimKiem;
         private Label lblTim;
-        private Panel panel2;
         private Button button4;
         private Button bthXoa;
         private Button button3;

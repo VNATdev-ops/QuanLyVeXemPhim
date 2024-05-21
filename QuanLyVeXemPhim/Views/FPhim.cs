@@ -47,10 +47,27 @@ namespace QuanLyVeXemPhim.Views
             txtSoLuongDangChieu.Text = count + "";
         }
 
+        private void ResetForm()
+        {
+            txtIDPhim.Clear();
+            txtTenPhim.Clear();
+            txtTheLoai.Clear();
+            txtDaoDien.Clear();
+            rtbMoTa.Clear();
+            txtHinhAnh.Clear();
+            dtNgayPH.Value = DateTime.Now;
+            txtDoDai.Clear();
+            cbTrangThai.SelectedItem = null;
+            cbDinhDang.SelectedItem = null;
+            txtTimKiem.Clear();
+            lsvDSPhim.SelectedItems.Clear();
+            txtIDPhim.Focus();
+        }
+
         private void FPhim_Load(object sender, EventArgs e)
         {
+            txtIDPhim.Focus();
             dsPhim = ctrPhim.findAll();
-            int count = 0;
             foreach (CPhim s in dsPhim)
             {
                 string[] obj = {s.IDPhim, s.TenPhim, s.TheLoai, s.DaoDien, s.MoTa,
@@ -116,6 +133,12 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if (txtIDPhim.Text == "" || txtTenPhim.Text == "" || txtTheLoai.Text == "" || txtDaoDien.Text == "" || rtbMoTa.Text == "" || txtDoDai.Text == "" || cbTrangThai.Text == "" || cbDinhDang.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin phim!");
+                    return;
+                }
+
                 string idphim = txtIDPhim.Text;
                 string tenphim = txtTenPhim.Text;
                 string theloai = txtTheLoai.Text;
@@ -123,10 +146,22 @@ namespace QuanLyVeXemPhim.Views
                 string mota = rtbMoTa.Text;
                 string? hinhanh = txtHinhAnh.Text ?? null;
                 DateTime ngayphathanh = dtNgayPH.Value;
-                int dodai = int.Parse(txtDoDai.Text);
+                int dodai = 0;
+                try
+                {
+                    dodai = int.Parse(txtDoDai.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Độ dài phim phải là số nguyên dương!");
+                    txtDoDai.Focus();
+                    return;
+                }
+
                 string trangthai = cbTrangThai.Text;
                 string dinhdang = cbDinhDang.Text;
 
+                
                 CPhim s = new CPhim(idphim, tenphim, theloai, daodien, mota, hinhanh, ngayphathanh, dodai, trangthai, dinhdang);
                 if (ctrPhim.insert(s))
                 {
@@ -150,6 +185,11 @@ namespace QuanLyVeXemPhim.Views
         {
             try
             {
+                if(lsvDSPhim.SelectedItems.Count == 0) 
+                { 
+                    MessageBox.Show("Vui lòng chọn thông tin phim cần cập nhật.");
+                    return; 
+                }
                 ListViewItem item = lsvDSPhim.SelectedItems[0];
                 CPhim phim = new CPhim();
                 phim.IDPhim = item.SubItems[0].Text;
@@ -215,6 +255,7 @@ namespace QuanLyVeXemPhim.Views
                         MessageBox.Show("Xóa thông tin phim thành công!");
                         dsPhim.Remove(phim);
                         lsvDSPhim.Items.RemoveAt(index);
+                        ResetForm();
                     }
                     else
                         MessageBox.Show("Xóa thông tin phim thất bại!");
@@ -231,18 +272,7 @@ namespace QuanLyVeXemPhim.Views
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            txtIDPhim.Clear();
-            txtTenPhim.Clear();
-            txtTheLoai.Clear();
-            txtDaoDien.Clear();
-            rtbMoTa.Clear();
-            txtHinhAnh.Clear();
-            dtNgayPH.Value = DateTime.Now;
-            txtDoDai.Clear();
-            cbTrangThai.SelectedItem = null;
-            cbDinhDang.SelectedItem = null;
-            //
-            txtIDPhim.Focus();
+            ResetForm();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

@@ -38,12 +38,10 @@
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            lsvDanhSachCN = new ListView();
-            label6 = new Label();
-            panel2 = new Panel();
-            groupBox4 = new GroupBox();
             txtTimKiem = new TextBox();
+            lsvDanhSachCN = new ListView();
             phim = new Label();
+            label6 = new Label();
             groupBox3 = new GroupBox();
             txtTongSo = new TextBox();
             label9 = new Label();
@@ -56,8 +54,6 @@
             panel3 = new Panel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            panel2.SuspendLayout();
-            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -91,7 +87,7 @@
             txtIDphong.Margin = new Padding(2);
             txtIDphong.Name = "txtIDphong";
             txtIDphong.Size = new Size(440, 30);
-            txtIDphong.TabIndex = 25;
+            txtIDphong.TabIndex = 2;
             // 
             // txtLoaiChoNgoi
             // 
@@ -100,7 +96,7 @@
             txtLoaiChoNgoi.Margin = new Padding(2);
             txtLoaiChoNgoi.Name = "txtLoaiChoNgoi";
             txtLoaiChoNgoi.Size = new Size(416, 30);
-            txtLoaiChoNgoi.TabIndex = 26;
+            txtLoaiChoNgoi.TabIndex = 3;
             // 
             // txtVitri
             // 
@@ -109,7 +105,7 @@
             txtVitri.Margin = new Padding(2);
             txtVitri.Name = "txtVitri";
             txtVitri.Size = new Size(441, 30);
-            txtVitri.TabIndex = 26;
+            txtVitri.TabIndex = 4;
             // 
             // txtIDchongoi
             // 
@@ -118,7 +114,7 @@
             txtIDchongoi.Margin = new Padding(2);
             txtIDchongoi.Name = "txtIDchongoi";
             txtIDchongoi.Size = new Size(416, 30);
-            txtIDchongoi.TabIndex = 27;
+            txtIDchongoi.TabIndex = 1;
             // 
             // label5
             // 
@@ -128,7 +124,7 @@
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(50, 25);
-            label5.TabIndex = 4;
+            label5.TabIndex = 0;
             label5.Text = "Vị trí";
             // 
             // label3
@@ -139,7 +135,7 @@
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(128, 25);
-            label3.TabIndex = 2;
+            label3.TabIndex = 0;
             label3.Text = "Loại chỗ ngồi";
             // 
             // label2
@@ -150,7 +146,7 @@
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(100, 25);
-            label2.TabIndex = 1;
+            label2.TabIndex = 0;
             label2.Text = "Mã phòng";
             // 
             // label1
@@ -166,28 +162,52 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtTimKiem);
             groupBox2.Controls.Add(lsvDanhSachCN);
+            groupBox2.Controls.Add(phim);
             groupBox2.Font = new Font("Microsoft Sans Serif", 12F);
             groupBox2.Location = new Point(73, 440);
             groupBox2.Margin = new Padding(5, 4, 5, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(5, 4, 5, 4);
             groupBox2.Size = new Size(1345, 660);
-            groupBox2.TabIndex = 1;
+            groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách chỗ ngồi";
             // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
+            txtTimKiem.Location = new Point(176, 42);
+            txtTimKiem.Margin = new Padding(4);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(1103, 30);
+            txtTimKiem.TabIndex = 5;
+            txtTimKiem.Click += txtTimKiem_TextChanged;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
             // lsvDanhSachCN
             // 
-            lsvDanhSachCN.Dock = DockStyle.Fill;
             lsvDanhSachCN.Font = new Font("Microsoft Sans Serif", 10F);
-            lsvDanhSachCN.Location = new Point(5, 32);
+            lsvDanhSachCN.Location = new Point(0, 93);
             lsvDanhSachCN.Margin = new Padding(5, 4, 5, 4);
+            lsvDanhSachCN.MultiSelect = false;
             lsvDanhSachCN.Name = "lsvDanhSachCN";
-            lsvDanhSachCN.Size = new Size(1335, 624);
+            lsvDanhSachCN.Size = new Size(1345, 567);
             lsvDanhSachCN.TabIndex = 0;
             lsvDanhSachCN.UseCompatibleStateImageBehavior = false;
             lsvDanhSachCN.SelectedIndexChanged += lsvDanhSachCN_SelectedIndexChanged_1;
+            // 
+            // phim
+            // 
+            phim.AutoSize = true;
+            phim.Font = new Font("Microsoft Sans Serif", 10F);
+            phim.Location = new Point(53, 47);
+            phim.Margin = new Padding(4, 0, 4, 0);
+            phim.Name = "phim";
+            phim.Size = new Size(91, 25);
+            phim.TabIndex = 0;
+            phim.Text = "Tìm kiếm";
             // 
             // label6
             // 
@@ -197,66 +217,19 @@
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(506, 55);
-            label6.TabIndex = 15;
+            label6.TabIndex = 0;
             label6.Text = "QUẢN LÝ CHỖ NGỒI";
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(groupBox4);
-            panel2.Controls.Add(groupBox3);
-            panel2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(49, 675);
-            panel2.Margin = new Padding(4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(295, 339);
-            panel2.TabIndex = 19;
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(txtTimKiem);
-            groupBox4.Controls.Add(phim);
-            groupBox4.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox4.Location = new Point(4, 179);
-            groupBox4.Margin = new Padding(4);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(4);
-            groupBox4.Size = new Size(286, 156);
-            groupBox4.TabIndex = 1;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Tìm kiếm";
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Font = new Font("Microsoft Sans Serif", 10F);
-            txtTimKiem.Location = new Point(22, 99);
-            txtTimKiem.Margin = new Padding(4);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(246, 30);
-            txtTimKiem.TabIndex = 16;
-            txtTimKiem.Click += txtTimKiem_TextChanged;
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
-            // 
-            // phim
-            // 
-            phim.AutoSize = true;
-            phim.Font = new Font("Microsoft Sans Serif", 10F);
-            phim.Location = new Point(54, 59);
-            phim.Margin = new Padding(4, 0, 4, 0);
-            phim.Name = "phim";
-            phim.Size = new Size(170, 25);
-            phim.TabIndex = 2;
-            phim.Text = "Tìm kiếm chỗ ngồi";
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(txtTongSo);
             groupBox3.Controls.Add(label9);
             groupBox3.Font = new Font("Microsoft Sans Serif", 12F);
-            groupBox3.Location = new Point(4, 4);
+            groupBox3.Location = new Point(49, 683);
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
-            groupBox3.Size = new Size(286, 156);
+            groupBox3.Size = new Size(295, 156);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thống kê";
@@ -269,7 +242,8 @@
             txtTongSo.Name = "txtTongSo";
             txtTongSo.ReadOnly = true;
             txtTongSo.Size = new Size(200, 30);
-            txtTongSo.TabIndex = 16;
+            txtTongSo.TabIndex = 0;
+            txtTongSo.TextAlign = HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -279,7 +253,7 @@
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(89, 25);
-            label9.TabIndex = 1;
+            label9.TabIndex = 0;
             label9.Text = "Tổng số ";
             // 
             // panel1
@@ -295,7 +269,7 @@
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 429);
-            panel1.TabIndex = 18;
+            panel1.TabIndex = 0;
             // 
             // btnThoat
             // 
@@ -304,7 +278,7 @@
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(204, 60);
-            btnThoat.TabIndex = 4;
+            btnThoat.TabIndex = 10;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
@@ -316,7 +290,7 @@
             btnCapNhat.Margin = new Padding(4);
             btnCapNhat.Name = "btnCapNhat";
             btnCapNhat.Size = new Size(204, 60);
-            btnCapNhat.TabIndex = 3;
+            btnCapNhat.TabIndex = 7;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = true;
             btnCapNhat.Click += btnCapNhat_Click_1;
@@ -328,7 +302,7 @@
             btnNhapMoi.Margin = new Padding(4);
             btnNhapMoi.Name = "btnNhapMoi";
             btnNhapMoi.Size = new Size(204, 60);
-            btnNhapMoi.TabIndex = 2;
+            btnNhapMoi.TabIndex = 8;
             btnNhapMoi.Text = "Nhập mới";
             btnNhapMoi.UseVisualStyleBackColor = true;
             btnNhapMoi.Click += btnNhapMoi_Click;
@@ -340,7 +314,7 @@
             btnXoa.Margin = new Padding(4);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(204, 60);
-            btnXoa.TabIndex = 1;
+            btnXoa.TabIndex = 9;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click_1;
@@ -352,20 +326,20 @@
             btnThem.Margin = new Padding(4);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(204, 60);
-            btnThem.TabIndex = 0;
+            btnThem.TabIndex = 6;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(panel2);
+            panel3.Controls.Add(groupBox3);
             panel3.Controls.Add(panel1);
             panel3.Dock = DockStyle.Right;
             panel3.Location = new Point(1454, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(424, 1194);
-            panel3.TabIndex = 20;
+            panel3.TabIndex = 0;
             // 
             // FChoNgoi
             // 
@@ -388,9 +362,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             panel1.ResumeLayout(false);
@@ -413,8 +385,6 @@
         private TextBox txtLoaiChoNgoi;
         private TextBox txtVitri;
         private TextBox txtIDchongoi;
-        private Panel panel2;
-        private GroupBox groupBox4;
         private TextBox txtTimKiem;
         private Label phim;
         private GroupBox groupBox3;

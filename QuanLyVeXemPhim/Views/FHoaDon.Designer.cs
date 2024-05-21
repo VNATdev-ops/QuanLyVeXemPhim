@@ -88,7 +88,7 @@
             dTimeNgayHD.Location = new Point(321, 147);
             dTimeNgayHD.Name = "dTimeNgayHD";
             dTimeNgayHD.Size = new Size(418, 30);
-            dTimeNgayHD.TabIndex = 11;
+            dTimeNgayHD.TabIndex = 3;
             // 
             // txtTriGiaHD
             // 
@@ -97,7 +97,7 @@
             txtTriGiaHD.Name = "txtTriGiaHD";
             txtTriGiaHD.ReadOnly = true;
             txtTriGiaHD.Size = new Size(418, 30);
-            txtTriGiaHD.TabIndex = 9;
+            txtTriGiaHD.TabIndex = 4;
             // 
             // txtSoHD
             // 
@@ -105,7 +105,7 @@
             txtSoHD.Location = new Point(321, 43);
             txtSoHD.Name = "txtSoHD";
             txtSoHD.Size = new Size(418, 30);
-            txtSoHD.TabIndex = 8;
+            txtSoHD.TabIndex = 1;
             // 
             // label5
             // 
@@ -114,7 +114,7 @@
             label5.Location = new Point(37, 157);
             label5.Name = "label5";
             label5.Size = new Size(166, 25);
-            label5.TabIndex = 7;
+            label5.TabIndex = 0;
             label5.Text = "Ngày tạo hóa đơn";
             // 
             // label4
@@ -124,7 +124,7 @@
             label4.Location = new Point(37, 209);
             label4.Name = "label4";
             label4.Size = new Size(142, 25);
-            label4.TabIndex = 6;
+            label4.TabIndex = 0;
             label4.Text = "Trị giá hóa đơn";
             // 
             // txtMaSP
@@ -133,7 +133,7 @@
             txtMaSP.Location = new Point(200, 43);
             txtMaSP.Name = "txtMaSP";
             txtMaSP.Size = new Size(429, 30);
-            txtMaSP.TabIndex = 10;
+            txtMaSP.TabIndex = 8;
             txtMaSP.TextChanged += txtMaSP_TextChanged;
             // 
             // txtNVXuatHD
@@ -143,7 +143,7 @@
             txtNVXuatHD.Name = "txtNVXuatHD";
             txtNVXuatHD.ReadOnly = true;
             txtNVXuatHD.Size = new Size(418, 30);
-            txtNVXuatHD.TabIndex = 9;
+            txtNVXuatHD.TabIndex = 5;
             // 
             // lblNVXuatHD
             // 
@@ -152,7 +152,7 @@
             lblNVXuatHD.Location = new Point(37, 261);
             lblNVXuatHD.Name = "lblNVXuatHD";
             lblNVXuatHD.Size = new Size(218, 25);
-            lblNVXuatHD.TabIndex = 6;
+            lblNVXuatHD.TabIndex = 0;
             lblNVXuatHD.Text = "Nhân viên xuất hóa đơn";
             // 
             // txtTenSP
@@ -161,7 +161,7 @@
             txtTenSP.Location = new Point(200, 95);
             txtTenSP.Name = "txtTenSP";
             txtTenSP.Size = new Size(429, 30);
-            txtTenSP.TabIndex = 12;
+            txtTenSP.TabIndex = 9;
             txtTenSP.TextChanged += txtTenSP_TextChanged;
             // 
             // cbTheThanhVien
@@ -171,7 +171,7 @@
             cbTheThanhVien.Location = new Point(321, 95);
             cbTheThanhVien.Name = "cbTheThanhVien";
             cbTheThanhVien.Size = new Size(418, 33);
-            cbTheThanhVien.TabIndex = 10;
+            cbTheThanhVien.TabIndex = 2;
             // 
             // label3
             // 
@@ -180,7 +180,7 @@
             label3.Location = new Point(37, 105);
             label3.Name = "label3";
             label3.Size = new Size(142, 25);
-            label3.TabIndex = 5;
+            label3.TabIndex = 0;
             label3.Text = "Thẻ thành viên";
             // 
             // label2
@@ -190,7 +190,7 @@
             label2.Location = new Point(37, 53);
             label2.Name = "label2";
             label2.Size = new Size(113, 25);
-            label2.TabIndex = 4;
+            label2.TabIndex = 0;
             label2.Text = "Số hóa đơn";
             // 
             // label10
@@ -200,7 +200,7 @@
             label10.Location = new Point(55, 40);
             label10.Name = "label10";
             label10.Size = new Size(130, 25);
-            label10.TabIndex = 4;
+            label10.TabIndex = 0;
             label10.Text = "Mã nhân viên";
             // 
             // lblTenForm
@@ -257,7 +257,7 @@
             txtSoLuongHD.Name = "txtSoLuongHD";
             txtSoLuongHD.ReadOnly = true;
             txtSoLuongHD.Size = new Size(112, 30);
-            txtSoLuongHD.TabIndex = 9;
+            txtSoLuongHD.TabIndex = 7;
             // 
             // lblSoLuongHD
             // 
@@ -266,7 +266,7 @@
             lblSoLuongHD.Location = new Point(436, 554);
             lblSoLuongHD.Name = "lblSoLuongHD";
             lblSoLuongHD.Size = new Size(166, 25);
-            lblSoLuongHD.TabIndex = 6;
+            lblSoLuongHD.TabIndex = 0;
             lblSoLuongHD.Text = "Số lượng hóa đơn";
             // 
             // txtTimKiem
@@ -275,7 +275,7 @@
             txtTimKiem.Location = new Point(156, 48);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(583, 30);
-            txtTimKiem.TabIndex = 8;
+            txtTimKiem.TabIndex = 6;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // lblTimKiem
@@ -285,7 +285,7 @@
             lblTimKiem.Location = new Point(37, 51);
             lblTimKiem.Name = "lblTimKiem";
             lblTimKiem.Size = new Size(91, 25);
-            lblTimKiem.TabIndex = 4;
+            lblTimKiem.TabIndex = 0;
             lblTimKiem.Text = "Tìm kiếm";
             // 
             // groupBox6
@@ -296,7 +296,7 @@
             groupBox6.Location = new Point(898, 776);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(673, 384);
-            groupBox6.TabIndex = 23;
+            groupBox6.TabIndex = 28;
             groupBox6.TabStop = false;
             groupBox6.Text = "Chi tiết hóa đơn";
             // 
@@ -316,7 +316,7 @@
             txtSoLuong.Location = new Point(200, 147);
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(429, 30);
-            txtSoLuong.TabIndex = 13;
+            txtSoLuong.TabIndex = 10;
             // 
             // btnCapNhatSoLuong
             // 
@@ -324,7 +324,7 @@
             btnCapNhatSoLuong.Location = new Point(351, 209);
             btnCapNhatSoLuong.Name = "btnCapNhatSoLuong";
             btnCapNhatSoLuong.Size = new Size(129, 41);
-            btnCapNhatSoLuong.TabIndex = 11;
+            btnCapNhatSoLuong.TabIndex = 12;
             btnCapNhatSoLuong.Text = "Cập nhật";
             btnCapNhatSoLuong.UseVisualStyleBackColor = true;
             btnCapNhatSoLuong.Click += btnCapNhatSoLuong_Click;
@@ -346,7 +346,7 @@
             txtIDNhanVien.Location = new Point(31, 79);
             txtIDNhanVien.Name = "txtIDNhanVien";
             txtIDNhanVien.Size = new Size(185, 30);
-            txtIDNhanVien.TabIndex = 13;
+            txtIDNhanVien.TabIndex = 19;
             // 
             // groupBox1
             // 
@@ -375,7 +375,7 @@
             btnHuy.Location = new Point(200, 209);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(129, 41);
-            btnHuy.TabIndex = 11;
+            btnHuy.TabIndex = 13;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
@@ -420,7 +420,7 @@
             label8.Location = new Point(38, 157);
             label8.Name = "label8";
             label8.Size = new Size(90, 25);
-            label8.TabIndex = 10;
+            label8.TabIndex = 0;
             label8.Text = "Số lượng";
             // 
             // label6
@@ -430,7 +430,7 @@
             label6.Location = new Point(38, 53);
             label6.Name = "label6";
             label6.Size = new Size(131, 25);
-            label6.TabIndex = 8;
+            label6.TabIndex = 0;
             label6.Text = "Mã sản phẩm";
             // 
             // groupBox2
@@ -460,7 +460,7 @@
             label7.Location = new Point(38, 105);
             label7.Name = "label7";
             label7.Size = new Size(138, 25);
-            label7.TabIndex = 9;
+            label7.TabIndex = 0;
             label7.Text = "Tên sản phẩm";
             // 
             // label9
@@ -492,7 +492,7 @@
             btnThoat.Location = new Point(31, 273);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(185, 61);
-            btnThoat.TabIndex = 36;
+            btnThoat.TabIndex = 18;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
@@ -503,7 +503,7 @@
             btnXoaHD.Location = new Point(31, 106);
             btnXoaHD.Name = "btnXoaHD";
             btnXoaHD.Size = new Size(185, 61);
-            btnXoaHD.TabIndex = 34;
+            btnXoaHD.TabIndex = 16;
             btnXoaHD.Text = "Xóa hóa đơn";
             btnXoaHD.UseVisualStyleBackColor = true;
             btnXoaHD.Click += btnXoaHD_Click;
@@ -514,7 +514,7 @@
             btnTaoHD.Location = new Point(31, 190);
             btnTaoHD.Name = "btnTaoHD";
             btnTaoHD.Size = new Size(185, 61);
-            btnTaoHD.TabIndex = 35;
+            btnTaoHD.TabIndex = 17;
             btnTaoHD.Text = "Nhập mới";
             btnTaoHD.UseVisualStyleBackColor = true;
             btnTaoHD.Click += btnTaoHD_Click;
@@ -525,7 +525,7 @@
             btnLuuHD.Location = new Point(31, 29);
             btnLuuHD.Name = "btnLuuHD";
             btnLuuHD.Size = new Size(185, 61);
-            btnLuuHD.TabIndex = 33;
+            btnLuuHD.TabIndex = 15;
             btnLuuHD.Text = "Lưu hóa đơn";
             btnLuuHD.UseVisualStyleBackColor = true;
             btnLuuHD.Click += btnLuuHD_Click;
